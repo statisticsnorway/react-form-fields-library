@@ -16,17 +16,13 @@ class DCText extends Component {
     sessionStorage.setItem(this.props.name, event.target.value)
   }
 
-  component () {
+  render () {
     const {value} = this.state
     const {name, displayName, description, error, warning, required} = this.props
-    const component = <TextArea autoheight rows={1} name={name} placeholder={displayName} onChange={this.handleChange}
+    const component = <TextArea autoHeight rows={1} name={name} placeholder={displayName} onChange={this.handleChange}
                                 value={value} />
 
     return FormField(displayName, description, error, warning, required, component)
-  }
-
-  render () {
-    return this.component()
   }
 }
 
