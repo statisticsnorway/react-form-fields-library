@@ -95,7 +95,7 @@ var InlineWarning = function InlineWarning(_ref2) {
   }, text);
 };
 
-var FormField = function FormField(displayName, description, error, warning, required, input) {
+var FormField = function FormField(displayName, description, error, warning, required, component) {
   return React__default.createElement(semanticUiReact.Form.Field, {
     error: !!error,
     required: required
@@ -106,7 +106,7 @@ var FormField = function FormField(displayName, description, error, warning, req
     wide: "very",
     trigger: React__default.createElement("label", null, displayName),
     content: description
-  }), input, error && React__default.createElement(InlineError, {
+  }), component, error && React__default.createElement(InlineError, {
     text: error
   }), warning && React__default.createElement(InlineWarning, {
     text: warning
@@ -140,8 +140,8 @@ function (_Component) {
   }
 
   _createClass(DCText, [{
-    key: "component",
-    value: function component() {
+    key: "render",
+    value: function render() {
       var value = this.state.value;
       var _this$props = this.props,
           name = _this$props.name,
@@ -151,7 +151,7 @@ function (_Component) {
           warning = _this$props.warning,
           required = _this$props.required;
       var component = React__default.createElement(semanticUiReact.TextArea, {
-        autoheight: true,
+        autoHeight: true,
         rows: 1,
         name: name,
         placeholder: displayName,
@@ -159,11 +159,6 @@ function (_Component) {
         value: value
       });
       return FormField(displayName, description, error, warning, required, component);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return this.component();
     }
   }]);
 
