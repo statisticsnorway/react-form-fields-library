@@ -8,6 +8,7 @@
     "url" : "https://github.com/statisticsnorway/dc-react-form-fields-library"
   },
   "private": true,
+  "main": "dist/bundle.js",
   "dependencies": {
     "react": "^16.6.0",
     "react-dom": "^16.6.0",

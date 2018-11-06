@@ -38,7 +38,7 @@ The form components store their value in sessionStorage at the moment so to fetc
 sessionStorage.getItem(parent[name])            // parent and name are they same values that you used in the props for the component
 ```
 
-###Current input types supported:
+### Current input types supported:
 * DCText
 
    A typical text input.

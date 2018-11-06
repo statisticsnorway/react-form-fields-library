@@ -18,6 +18,7 @@ export default {
   external: [
     'react',
     'react-dom',
+    'react-scripts',
     'semantic-ui-react'
   ]
 }
