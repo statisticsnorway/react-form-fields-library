@@ -16,7 +16,7 @@ class DCText extends Component {
     sessionStorage.setItem(this.props.name, event.target.value)
   }
 
-  component = () => {
+  component () {
     const {value} = this.state
     const {name, displayName, description, error, warning, required} = this.props
     const component = <TextArea autoheight rows={1} name={name} placeholder={displayName} onChange={this.handleChange}
@@ -26,7 +26,7 @@ class DCText extends Component {
   }
 
   render () {
-    return this.component
+    return this.component()
   }
 }
 
