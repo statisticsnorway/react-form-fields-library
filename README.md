@@ -15,6 +15,10 @@ application
 ### How it works
 The DCFormField component expects two properties; `tag` and `additionalProperties`, like this:
 ```javascript
+import React, { Component } from 'react'
+import { DCFormField } from 'dc-react-form-fields-library'
+import { Form } from 'semantic-ui-react'
+
 const input = 'DCText'                          // The input type you want the form field to be
 const props = {
   parent: 'myForm',                             // The name of the form
@@ -23,14 +27,28 @@ const props = {
   description: 'A description for my input',
   error: '',                                    // If there are errors
   warning: '',                                  // If there are warnings
-  required: '',                                 // If the field is a required part of the form
+  required: true,                               // If the field is a required part of the form
   value: 'The default value'                    // The default value, different input types require different default values
 }
 
-return <DCFormField tag={input} additionalProps={props} />
+class App extends Component {
+  render () {
+    return (
+      <div>
+        <Form>
+          <DCFormField tag={input} additionalProps={props} />
+        </Form>
+      </div>
+    )
+  }
+}
 ```
 
-Some form component types require more properties than the standard ones, they will be explaned below.
+**Note:**
+* Some form component types require more properties than the standard ones, they will be explaned below
+* The library uses Semantic-UI for styling and therefore requires your React application to to have `semantic-ui-css` and `semantic-ui-react` as dependencies
+* Do not forget to wrap your DCFormField components inside the semantic-ui-react component `Form` (like in the example above)
+* Also do not forget to add `import 'semantic-ui-css/semantic.min.css'` in your `index.js`
 
 The form components store their value in sessionStorage at the moment so to fetch the value from the component do this:
 
