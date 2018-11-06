@@ -133,9 +133,17 @@ function (_Component) {
       sessionStorage.setItem(_this.props.name, event.target.value);
     };
 
-    _this.component = function () {
-      var value = _this.state.value;
-      var _this$props = _this.props,
+    _this.state = {
+      value: _this.props.value
+    };
+    return _this;
+  }
+
+  _createClass(DCText, [{
+    key: "component",
+    value: function component() {
+      var value = this.state.value;
+      var _this$props = this.props,
           name = _this$props.name,
           displayName = _this$props.displayName,
           description = _this$props.description,
@@ -147,22 +155,15 @@ function (_Component) {
         rows: 1,
         name: name,
         placeholder: displayName,
-        onChange: _this.handleChange,
+        onChange: this.handleChange,
         value: value
       });
       return FormField(displayName, description, error, warning, required, component);
-    };
-
-    _this.state = {
-      value: _this.props.value
-    };
-    return _this;
-  }
-
-  _createClass(DCText, [{
+    }
+  }, {
     key: "render",
     value: function render() {
-      return this.component;
+      return this.component();
     }
   }]);
 
