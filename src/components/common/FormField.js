@@ -10,9 +10,13 @@ export const FormField = (displayName, description, error, warning, required, co
     <Form.Field error={!!error} required={required}>
       <Popup hideOnScroll position='top center' header={displayName} wide='very' trigger={<label>{displayName}</label>}
              content={description} />
+
       {component}
+
       {error && !warning && <InlineError text={error} />}
+
       {warning && !error && <InlineWarning text={warning} />}
+
       {error && warning &&
       <div>
         <InlineError text={error} />
