@@ -172,6 +172,54 @@ function (_Component) {
   return DCText;
 }(React.Component);
 
+var DCBoolean =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DCBoolean, _Component);
+
+  function DCBoolean(props) {
+    var _this;
+
+    _classCallCheck(this, DCBoolean);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCBoolean).call(this, props));
+
+    _this.handleChange = function () {
+      _this.setState({
+        value: !_this.state.value
+      }, function () {
+        sessionStorage.setItem(_this.props.name, _this.state.value);
+      });
+    };
+
+    _this.state = {
+      value: _this.props.value
+    };
+    return _this;
+  }
+
+  _createClass(DCBoolean, [{
+    key: "render",
+    value: function render() {
+      var value = this.state.value;
+      var _this$props = this.props,
+          displayName = _this$props.displayName,
+          description = _this$props.description,
+          error = _this$props.error,
+          warning = _this$props.warning,
+          required = _this$props.required;
+      var component = React__default.createElement(semanticUiReact.Checkbox, {
+        label: displayName,
+        onChange: this.handleChange,
+        checked: value
+      });
+      return FormField(displayName, description, error, warning, required, component);
+    }
+  }]);
+
+  return DCBoolean;
+}(React.Component);
+
 var DCFormField =
 /*#__PURE__*/
 function (_Component) {
@@ -190,7 +238,8 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DCFormField)).call.apply(_getPrototypeOf2, [this].concat(args)));
     _this.formComponents = {
-      DCText: DCText
+      DCText: DCText,
+      DCBoolean: DCBoolean
     };
     return _this;
   }
