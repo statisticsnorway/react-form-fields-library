@@ -106,11 +106,18 @@ var FormField = function FormField(displayName, description, error, warning, req
     wide: "very",
     trigger: React__default.createElement("label", null, displayName),
     content: description
-  }), component, error && React__default.createElement(InlineError, {
+  }), component, error && !warning && React__default.createElement(InlineError, {
     text: error
-  }), warning && React__default.createElement(InlineWarning, {
+  }), warning && !error && React__default.createElement(InlineWarning, {
     text: warning
-  }));
+  }), error && warning && React__default.createElement("div", null, React__default.createElement(InlineError, {
+    text: error
+  }), React__default.createElement(semanticUiReact.Divider, {
+    hidden: true,
+    fitted: true
+  }), React__default.createElement(InlineWarning, {
+    text: warning
+  })));
 };
 
 var DCText =
