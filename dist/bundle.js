@@ -95,7 +95,7 @@ var InlineWarning = function InlineWarning(_ref2) {
   }, text);
 };
 
-var FormField = function FormField(displayName, description, error, warning, required, input) {
+var FormField = function FormField(displayName, description, error, warning, required, component) {
   return React__default.createElement(semanticUiReact.Form.Field, {
     error: !!error,
     required: required
@@ -106,11 +106,18 @@ var FormField = function FormField(displayName, description, error, warning, req
     wide: "very",
     trigger: React__default.createElement("label", null, displayName),
     content: description
-  }), input, error && React__default.createElement(InlineError, {
+  }), component, error && !warning && React__default.createElement(InlineError, {
     text: error
-  }), warning && React__default.createElement(InlineWarning, {
+  }), warning && !error && React__default.createElement(InlineWarning, {
     text: warning
-  }));
+  }), error && warning && React__default.createElement("div", null, React__default.createElement(InlineError, {
+    text: error
+  }), React__default.createElement(semanticUiReact.Divider, {
+    hidden: true,
+    fitted: true
+  }), React__default.createElement(InlineWarning, {
+    text: warning
+  })));
 };
 
 var DCText =
@@ -133,26 +140,6 @@ function (_Component) {
       sessionStorage.setItem(_this.props.name, event.target.value);
     };
 
-    _this.component = function () {
-      var value = _this.state.value;
-      var _this$props = _this.props,
-          name = _this$props.name,
-          displayName = _this$props.displayName,
-          description = _this$props.description,
-          error = _this$props.error,
-          warning = _this$props.warning,
-          required = _this$props.required;
-      var component = React__default.createElement(semanticUiReact.TextArea, {
-        autoheight: true,
-        rows: 1,
-        name: name,
-        placeholder: displayName,
-        onChange: _this.handleChange,
-        value: value
-      });
-      return FormField(displayName, description, error, warning, required, component);
-    };
-
     _this.state = {
       value: _this.props.value
     };
@@ -162,7 +149,23 @@ function (_Component) {
   _createClass(DCText, [{
     key: "render",
     value: function render() {
-      return this.component;
+      var value = this.state.value;
+      var _this$props = this.props,
+          name = _this$props.name,
+          displayName = _this$props.displayName,
+          description = _this$props.description,
+          error = _this$props.error,
+          warning = _this$props.warning,
+          required = _this$props.required;
+      var component = React__default.createElement(semanticUiReact.TextArea, {
+        autoHeight: true,
+        rows: 1,
+        name: name,
+        placeholder: displayName,
+        onChange: this.handleChange,
+        value: value
+      });
+      return FormField(displayName, description, error, warning, required, component);
     }
   }]);
 
