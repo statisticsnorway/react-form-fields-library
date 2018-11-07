@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { TextArea } from 'semantic-ui-react'
-import { FormField } from './common/FormField'
+import { FullFormField } from './common/FormField'
 
 class DCText extends Component {
   constructor (props) {
@@ -22,7 +22,7 @@ class DCText extends Component {
     const component = <TextArea autoHeight rows={1} name={name} placeholder={displayName} onChange={this.handleChange}
                                 value={value} />
 
-    return FormField(displayName, description, error, warning, required, component)
+    return FullFormField(displayName, description, error, warning, required, component)
   }
 }
 

@@ -59,3 +59,4 @@ sessionStorage.getItem(name)            // 'name' is they same value that you us
 Name | Description | Additional properties? | Default value type?
 -----|-------------|------------------------|---------------
 DC Text | A typical text input | - | *string*
+DCBoolean | A typical checkbox | *error*, *warning* and *required* does not make sense here so those will be ignored | *boolean*

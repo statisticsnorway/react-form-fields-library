@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Checkbox } from 'semantic-ui-react'
-import { FormField } from './common/FormField'
+import { SimpleFormField } from './common/FormField'
 
 class DCBoolean extends Component {
   constructor (props) {
@@ -18,10 +18,10 @@ class DCBoolean extends Component {
 
   render () {
     const {value} = this.state
-    const {displayName, description, error, warning, required} = this.props
+    const {displayName, description} = this.props
     const component = <Checkbox label={displayName} onChange={this.handleChange} checked={value} />
 
-    return FormField(displayName, description, error, warning, required, component)
+    return SimpleFormField(displayName, description, component)
   }
 }
 

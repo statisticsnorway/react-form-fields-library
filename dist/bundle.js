@@ -95,7 +95,7 @@ var InlineWarning = function InlineWarning(_ref2) {
   }, text);
 };
 
-var FormField = function FormField(displayName, description, error, warning, required, component) {
+var FullFormField = function FullFormField(displayName, description, error, warning, required, component) {
   return React__default.createElement(semanticUiReact.Form.Field, {
     error: !!error,
     required: required
@@ -118,6 +118,16 @@ var FormField = function FormField(displayName, description, error, warning, req
   }), React__default.createElement(InlineWarning, {
     text: warning
   })));
+};
+var SimpleFormField = function SimpleFormField(displayName, description, component) {
+  return React__default.createElement(semanticUiReact.Popup, {
+    hideOnScroll: true,
+    position: "top center",
+    header: displayName,
+    wide: "very",
+    trigger: component,
+    content: description
+  });
 };
 
 var DCText =
@@ -165,7 +175,7 @@ function (_Component) {
         onChange: this.handleChange,
         value: value
       });
-      return FormField(displayName, description, error, warning, required, component);
+      return FullFormField(displayName, description, error, warning, required, component);
     }
   }]);
 
@@ -204,16 +214,13 @@ function (_Component) {
       var value = this.state.value;
       var _this$props = this.props,
           displayName = _this$props.displayName,
-          description = _this$props.description,
-          error = _this$props.error,
-          warning = _this$props.warning,
-          required = _this$props.required;
+          description = _this$props.description;
       var component = React__default.createElement(semanticUiReact.Checkbox, {
         label: displayName,
         onChange: this.handleChange,
         checked: value
       });
-      return FormField(displayName, description, error, warning, required, component);
+      return SimpleFormField(displayName, description, component);
     }
   }]);
 

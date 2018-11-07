@@ -5,7 +5,7 @@ const InlineError = ({text}) => <span style={{color: '#db2828'}}>{text}</span>
 
 const InlineWarning = ({text}) => <span style={{color: '#ffd700'}}>{text}</span>
 
-export const FormField = (displayName, description, error, warning, required, component) => {
+export const FullFormField = (displayName, description, error, warning, required, component) => {
   return (
     <Form.Field error={!!error} required={required}>
       <Popup hideOnScroll position='top center' header={displayName} wide='very' trigger={<label>{displayName}</label>}
@@ -27,5 +27,12 @@ export const FormField = (displayName, description, error, warning, required, co
       </div>
       }
     </Form.Field>
+  )
+}
+
+export const SimpleFormField = (displayName, description, component) => {
+  return (
+    <Popup hideOnScroll position='top center' header={displayName} wide='very' trigger={component}
+           content={description} />
   )
 }
