@@ -8,6 +8,7 @@ moment.locale('nb')
 
 export const formComponents = {
   DCText: {
+    component: 'DCText',
     parent: 'myForm',
     name: 'myTextInput',
     displayName: 'DCText',
@@ -18,6 +19,7 @@ export const formComponents = {
     value: ''
   },
   DCBoolean: {
+    component: 'DCBoolean',
     parent: 'myForm',
     name: 'myBooleanInput',
     displayName: 'DCBoolean',
@@ -25,6 +27,7 @@ export const formComponents = {
     value: false
   },
   DCNumber: {
+    component: 'DCNumber',
     parent: 'myForm',
     name: 'myNumberInput',
     displayName: 'DCNumber',
@@ -35,6 +38,7 @@ export const formComponents = {
     value: ''
   },
   DCRadio: {
+    component: 'DCRadio',
     parent: 'myForm',
     name: 'myRadioInput',
     displayName: 'DCRadio',
@@ -50,6 +54,7 @@ export const formComponents = {
     ]
   },
   DCDate: {
+    component: 'DCDate',
     parent: 'myForm',
     name: 'myDateInput',
     displayName: 'DCDate',
@@ -57,7 +62,39 @@ export const formComponents = {
     error: '',
     warning: '',
     required: true,
+    value: ''
+  },
+  DCDropdownSingleSelect: {
+    component: 'DCDropdown',
+    parent: 'myForm',
+    name: 'myDropdownSingleSelectInput',
+    displayName: 'DCDropdownSingleSelect',
+    description: 'A description for this input',
+    error: '',
+    warning: '',
+    required: true,
     value: '',
+    endpoints: [
+      'https://metadata.ssbmod.net/data/Role/',
+      'https://metadata.ssbmod.net/data/Agent/'
+    ],
+    multiSelect: false
+  },
+  DCDropdownMultipleSelect: {
+    component: 'DCDropdown',
+    parent: 'myForm',
+    name: 'myDropdownMultipleSelectInput',
+    displayName: 'DCDropdownMultipleSelect',
+    description: 'A description for this input',
+    error: '',
+    warning: '',
+    required: true,
+    value: [],
+    endpoints: [
+      'https://metadata.ssbmod.net/data/Agent/',
+      'https://metadata.ssbmod.net/data/Role/'
+    ],
+    multiSelect: true
   }
 }
 
@@ -68,6 +105,8 @@ class App extends Component {
       ready: true,
       error: false,
       warning: false,
+      urlError: false,
+      networkError: false,
       formComponents: formComponents
     }
   }
@@ -108,8 +147,56 @@ class App extends Component {
     })
   }
 
+  handleDropdownErrors (name) {
+    this.setState({
+      [name]: !this.state[name]
+    }, () => {
+      if (this.state[name]) {
+        this.setState({ready: false}, () => {
+          const formComponents = JSON.parse(JSON.stringify(this.state.formComponents))
+          const errorEndpoints = []
+
+          if (name === 'urlError') {
+            errorEndpoints.push('https://metadata.ssbmod.net/data/Agentfda/')
+            errorEndpoints.push('https://metadata.ssbmod.net/data/Roleyj/')
+          }
+
+          if (name === 'networkError') {
+            errorEndpoints.push('https://metadatas.ssbmod.net/data/Agent/')
+            errorEndpoints.push('https://metadataas.ssbmod.net/data/Role/')
+          }
+
+          Object.keys(formComponents).forEach(key => {
+            if (key === 'DCDropdownSingleSelect' || key === 'DCDropdownMultipleSelect') {
+              formComponents[key].endpoints = errorEndpoints
+            }
+          })
+
+          this.setState({formComponents: formComponents}, () => {
+            this.setState({ready: true})
+          })
+        })
+      } else {
+        this.setState({ready: false}, () => {
+          const formComponents = JSON.parse(JSON.stringify(this.state.formComponents))
+          const goodEndpoints = ['https://metadata.ssbmod.net/data/Agent/', 'https://metadata.ssbmod.net/data/Role/']
+
+          Object.keys(formComponents).forEach(key => {
+            if (key === 'DCDropdownSingleSelect' || key === 'DCDropdownMultipleSelect') {
+              formComponents[key].endpoints = goodEndpoints
+            }
+          })
+
+          this.setState({formComponents: formComponents}, () => {
+            this.setState({ready: true})
+          })
+        })
+      }
+    })
+  }
+
   render () {
-    const {ready, warning, error, formComponents} = this.state
+    const {ready, warning, error, urlError, networkError, formComponents} = this.state
 
     return (
       <Grid padded divided columns='equal'>
@@ -119,7 +206,8 @@ class App extends Component {
           {ready &&
           <Form>
             {Object.keys(formComponents).map(value => {
-              return <DCFormField key={value} tag={value} additionalProps={formComponents[value]} />
+              return <DCFormField key={value} tag={formComponents[value].component}
+                                  additionalProps={formComponents[value]} />
             })}
           </Form>
           }
@@ -128,11 +216,22 @@ class App extends Component {
         <Grid.Column>
           <Header as='h1' content='Test stuff' />
 
+          <Header as='h3' content='All components' />
+
           <Checkbox label='Add warnings' checked={warning} onChange={this.handleCheckbox.bind(this, 'warning')} />
 
           <Divider hidden />
 
           <Checkbox label='Add errors' checked={error} onChange={this.handleCheckbox.bind(this, 'error')} />
+
+          <Header as='h3' content='Dropdowns' />
+
+          <Checkbox label='Wrong url' checked={urlError} onChange={this.handleDropdownErrors.bind(this, 'urlError')} />
+
+          <Divider hidden />
+
+          <Checkbox label='Network error' checked={networkError}
+                    onChange={this.handleDropdownErrors.bind(this, 'networkError')} />
         </Grid.Column>
       </Grid>
     )

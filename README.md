@@ -59,11 +59,12 @@ class App extends Component {
 sessionStorage.getItem(name)            // 'name' is they same value that you used in the props for the component
 ```
 
-### Current form component types
+### Form component types
 Name | Description | Additional properties | Accepted value types
 -----|-------------|------------------------|---------------
 DCText | A typical text input | - | *string*
 DCBoolean | A typical checkbox | *error*, *warning* and *required* does not make sense here so those will be ignored | *boolean*
 DCNumber | A typical number input | - | JavaScript *Number* or empty *string*
-DCRadio | A typical radio choice | An array of objects (with *key*, *text* and *value* properties) called options | *array* of *objects*
+DCRadio | A typical radio choice | An array of objects (with *key*, *text* and *value* properties) called *options* | *array* of *objects*
 DCDate | A typical date picker | - | *Moment.js object* or empty *string*
+DCDropdown | A dropdown list populated with options from fetched from an array of endpoints | An array of objects (with *name* and *url* properties) called *endpoints* and a boolean *multiSelect* property | For multiSelect value must be *array* and for regular it must be *string*

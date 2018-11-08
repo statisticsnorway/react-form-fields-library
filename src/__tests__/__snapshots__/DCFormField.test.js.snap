@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DCFormField renders all the input components 1`] = `
+exports[`DCFormField Renders all the input components without error 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
     additionalProps={
       Object {
+        "component": "DCText",
         "description": "A description for this input",
         "displayName": "DCText",
         "error": "",
@@ -31,6 +32,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
+      "component": "DCText",
       "description": "A description for this input",
       "displayName": "DCText",
       "error": "",
@@ -50,6 +52,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
+        "component": "DCText",
         "description": "A description for this input",
         "displayName": "DCText",
         "error": "",
@@ -84,12 +87,13 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField renders all the input components 2`] = `
+exports[`DCFormField Renders all the input components without error 2`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
     additionalProps={
       Object {
+        "component": "DCBoolean",
         "description": "A description for this input",
         "displayName": "DCBoolean",
         "name": "myBooleanInput",
@@ -112,6 +116,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
+      "component": "DCBoolean",
       "description": "A description for this input",
       "displayName": "DCBoolean",
       "name": "myBooleanInput",
@@ -128,6 +133,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
+        "component": "DCBoolean",
         "description": "A description for this input",
         "displayName": "DCBoolean",
         "name": "myBooleanInput",
@@ -159,12 +165,13 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField renders all the input components 3`] = `
+exports[`DCFormField Renders all the input components without error 3`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
     additionalProps={
       Object {
+        "component": "DCNumber",
         "description": "A description for this input",
         "displayName": "DCNumber",
         "error": "",
@@ -190,6 +197,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
+      "component": "DCNumber",
       "description": "A description for this input",
       "displayName": "DCNumber",
       "error": "",
@@ -209,6 +217,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
+        "component": "DCNumber",
         "description": "A description for this input",
         "displayName": "DCNumber",
         "error": "",
@@ -243,12 +252,13 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField renders all the input components 4`] = `
+exports[`DCFormField Renders all the input components without error 4`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
     additionalProps={
       Object {
+        "component": "DCRadio",
         "description": "A description for this input",
         "displayName": "DCRadio",
         "error": "",
@@ -291,6 +301,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
+      "component": "DCRadio",
       "description": "A description for this input",
       "displayName": "DCRadio",
       "error": "",
@@ -327,6 +338,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
+        "component": "DCRadio",
         "description": "A description for this input",
         "displayName": "DCRadio",
         "error": "",
@@ -378,12 +390,13 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField renders all the input components 5`] = `
+exports[`DCFormField Renders all the input components without error 5`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
     additionalProps={
       Object {
+        "component": "DCDate",
         "description": "A description for this input",
         "displayName": "DCDate",
         "error": "",
@@ -409,6 +422,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
+      "component": "DCDate",
       "description": "A description for this input",
       "displayName": "DCDate",
       "error": "",
@@ -428,6 +442,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
+        "component": "DCDate",
         "description": "A description for this input",
         "displayName": "DCDate",
         "error": "",
@@ -462,10 +477,30 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField renders one DCFormField component 1`] = `
+exports[`DCFormField Renders all the input components without error 6`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField />,
+  Symbol(enzyme.__unrendered__): <DCFormField
+    additionalProps={
+      Object {
+        "component": "DCDropdown",
+        "description": "A description for this input",
+        "displayName": "DCDropdownSingleSelect",
+        "endpoints": Array [
+          "https://metadata.ssbmod.net/data/Role/",
+          "https://metadata.ssbmod.net/data/Agent/",
+        ],
+        "error": "",
+        "multiSelect": false,
+        "name": "myDropdownSingleSelectInput",
+        "parent": "myForm",
+        "required": true,
+        "value": "",
+        "warning": "",
+      }
+    }
+    tag="DCDropdown"
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -477,21 +512,153 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
-    "props": Object {},
+    "nodeType": "class",
+    "props": Object {
+      "component": "DCDropdown",
+      "description": "A description for this input",
+      "displayName": "DCDropdownSingleSelect",
+      "endpoints": Array [
+        "https://metadata.ssbmod.net/data/Role/",
+        "https://metadata.ssbmod.net/data/Agent/",
+      ],
+      "error": "",
+      "multiSelect": false,
+      "name": "myDropdownSingleSelectInput",
+      "parent": "myForm",
+      "required": true,
+      "value": "",
+      "warning": "",
+    },
     "ref": null,
     "rendered": null,
-    "type": undefined,
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
-      "props": Object {},
+      "nodeType": "class",
+      "props": Object {
+        "component": "DCDropdown",
+        "description": "A description for this input",
+        "displayName": "DCDropdownSingleSelect",
+        "endpoints": Array [
+          "https://metadata.ssbmod.net/data/Role/",
+          "https://metadata.ssbmod.net/data/Agent/",
+        ],
+        "error": "",
+        "multiSelect": false,
+        "name": "myDropdownSingleSelectInput",
+        "parent": "myForm",
+        "required": true,
+        "value": "",
+        "warning": "",
+      },
       "ref": null,
       "rendered": null,
-      "type": undefined,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`DCFormField Renders all the input components without error 7`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DCFormField
+    additionalProps={
+      Object {
+        "component": "DCDropdown",
+        "description": "A description for this input",
+        "displayName": "DCDropdownMultipleSelect",
+        "endpoints": Array [
+          "https://metadata.ssbmod.net/data/Agent/",
+          "https://metadata.ssbmod.net/data/Role/",
+        ],
+        "error": "",
+        "multiSelect": true,
+        "name": "myDropdownMultipleSelectInput",
+        "parent": "myForm",
+        "required": true,
+        "value": Array [],
+        "warning": "",
+      }
+    }
+    tag="DCDropdown"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "component": "DCDropdown",
+      "description": "A description for this input",
+      "displayName": "DCDropdownMultipleSelect",
+      "endpoints": Array [
+        "https://metadata.ssbmod.net/data/Agent/",
+        "https://metadata.ssbmod.net/data/Role/",
+      ],
+      "error": "",
+      "multiSelect": true,
+      "name": "myDropdownMultipleSelectInput",
+      "parent": "myForm",
+      "required": true,
+      "value": Array [],
+      "warning": "",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "component": "DCDropdown",
+        "description": "A description for this input",
+        "displayName": "DCDropdownMultipleSelect",
+        "endpoints": Array [
+          "https://metadata.ssbmod.net/data/Agent/",
+          "https://metadata.ssbmod.net/data/Role/",
+        ],
+        "error": "",
+        "multiSelect": true,
+        "name": "myDropdownMultipleSelectInput",
+        "parent": "myForm",
+        "required": true,
+        "value": Array [],
+        "warning": "",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -4,10 +4,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var DatePicker = _interopDefault(require('react-datepicker'));
 var React = require('react');
 var React__default = _interopDefault(React);
 var semanticUiReact = require('semantic-ui-react');
-var DatePicker = _interopDefault(require('react-datepicker'));
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -399,6 +399,145 @@ function (_Component) {
   return DCDate;
 }(React.Component);
 
+var DCDropdown =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DCDropdown, _Component);
+
+  function DCDropdown(props) {
+    var _this;
+
+    _classCallCheck(this, DCDropdown);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCDropdown).call(this, props));
+
+    _this.handleChange = function (value) {
+      _this.setState({
+        value: value
+      }, function () {
+        sessionStorage.setItem(_this.props.name, _this.state.value);
+      });
+    };
+
+    _this.state = {
+      ready: false,
+      problem: false,
+      errorMessage: '',
+      value: _this.props.value,
+      options: []
+    };
+    return _this;
+  }
+
+  _createClass(DCDropdown, [{
+    key: "fetching",
+    value: function fetching(url) {
+      return new Promise(function (resolve, reject) {
+        fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+          }
+        }).then(function (response) {
+          if (response.ok) {
+            response.json().then(function (json) {
+              var options = [];
+
+              for (var key in json) {
+                if (json.hasOwnProperty(key)) {
+                  options.push({
+                    key: json[key].id,
+                    text: json[key].name[0].languageText,
+                    // TODO: Fix this when the ability to do it becomes available
+                    value: json[key].id
+                  });
+                }
+              }
+
+              resolve(options);
+            });
+          } else {
+            response.text().then(function (text) {
+              reject(text + ' (' + url + ')');
+            });
+          }
+        }).catch(function (error) {
+          reject(error.toString() + ' \'' + url + '\'');
+        });
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      Promise.all(Object.keys(this.props.endpoints).map(function (key) {
+        var url = _this2.props.endpoints[key];
+        return _this2.fetching(url);
+      })).then(function (allOptions) {
+        var options = [].concat.apply([], allOptions);
+
+        _this2.setState({
+          ready: true,
+          options: options
+        });
+      }).catch(function (error) {
+        _this2.setState({
+          ready: true,
+          problem: true,
+          errorMessage: error
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var _this$state = this.state,
+          ready = _this$state.ready,
+          problem = _this$state.problem,
+          value = _this$state.value,
+          options = _this$state.options,
+          errorMessage = _this$state.errorMessage;
+      var _this$props = this.props,
+          displayName = _this$props.displayName,
+          description = _this$props.description,
+          error = _this$props.error,
+          warning = _this$props.warning,
+          required = _this$props.required,
+          multiSelect = _this$props.multiSelect;
+      if (!ready) return FullFormField(displayName, description, error, warning, required, React__default.createElement(semanticUiReact.Dropdown, {
+        placeholder: displayName,
+        selection: true,
+        options: [],
+        loading: true,
+        disabled: true
+      }));
+      if (ready && problem) return FullFormField(displayName, description, errorMessage, warning, required, React__default.createElement(semanticUiReact.Dropdown, {
+        selection: true,
+        options: [],
+        disabled: true
+      }));
+      if (ready && !problem) return FullFormField(displayName, description, error, warning, required, React__default.createElement(semanticUiReact.Dropdown, {
+        placeholder: displayName,
+        value: value,
+        options: options,
+        clearable: true,
+        selection: true,
+        multiple: multiSelect,
+        onChange: function onChange(event, _ref) {
+          var value = _ref.value;
+          return _this3.handleChange(value);
+        }
+      }));
+      return null;
+    }
+  }]);
+
+  return DCDropdown;
+}(React.Component);
+
 var DCFormField =
 /*#__PURE__*/
 function (_Component) {
@@ -421,7 +560,8 @@ function (_Component) {
       DCBoolean: DCBoolean,
       DCNumber: DCNumber,
       DCRadio: DCRadio,
-      DCDate: DCDate
+      DCDate: DCDate,
+      DCDropdown: DCDropdown
     };
     return _this;
   }

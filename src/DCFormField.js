@@ -4,6 +4,7 @@ import DCBoolean from './components/DCBoolean'
 import DCNumber from './components/DCNumber'
 import DCRadio from './components/DCRadio'
 import DCDate from './components/DCDate'
+import DCDropdown from './components/DCDropdown'
 
 class DCFormField extends Component {
   formComponents = {
@@ -11,7 +12,8 @@ class DCFormField extends Component {
     DCBoolean: DCBoolean,
     DCNumber: DCNumber,
     DCRadio: DCRadio,
-    DCDate: DCDate
+    DCDate: DCDate,
+    DCDropdown: DCDropdown
   }
 
   render () {

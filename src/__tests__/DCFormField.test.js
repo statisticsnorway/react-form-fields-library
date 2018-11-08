@@ -5,16 +5,9 @@ import DCFormField from '../DCFormField'
 import { formComponents } from '../App'
 
 describe('DCFormField', () => {
-  it('renders one DCFormField component', () => {
-    const component = shallow(<DCFormField />)
-
-    expect(component.length).toEqual(1)
-    expect(component).toMatchSnapshot()
-  })
-
-  it('renders all the input components', () => {
+  it('Renders all the input components without error', () => {
     Object.keys(formComponents).forEach(key => {
-      const component = shallow(<DCFormField key={key} tag={key} additionalProps={formComponents[key]} />)
+      const component = shallow(<DCFormField key={key} tag={formComponents[key].component} additionalProps={formComponents[key]} />)
 
       expect(component.length).toEqual(1)
       expect(component).toMatchSnapshot()
