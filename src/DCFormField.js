@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import DCText from './components/DCText'
 import DCBoolean from './components/DCBoolean'
 import DCNumber from './components/DCNumber'
+import DCRadio from './components/DCRadio'
 
 class DCFormField extends Component {
   formComponents = {
     DCText: DCText,
     DCBoolean: DCBoolean,
-    DCNumber: DCNumber
+    DCNumber: DCNumber,
+    DCRadio: DCRadio
   }
 
   render () {

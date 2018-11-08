@@ -19,6 +19,7 @@ class DCBoolean extends Component {
   render () {
     const {value} = this.state
     const {displayName, description} = this.props
+
     const component = <Checkbox label={displayName} onChange={this.handleChange} checked={value} />
 
     return SimpleFormField(displayName, description, component)

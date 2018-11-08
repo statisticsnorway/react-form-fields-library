@@ -145,9 +145,9 @@ function (_Component) {
     _this.handleChange = function (event) {
       _this.setState({
         value: event.target.value
+      }, function () {
+        sessionStorage.setItem(_this.props.name, _this.state.value);
       });
-
-      sessionStorage.setItem(_this.props.name, event.target.value);
     };
 
     _this.state = {
@@ -243,9 +243,9 @@ function (_Component) {
       if (!isNaN(event.target.value)) {
         _this.setState({
           value: event.target.value
+        }, function () {
+          sessionStorage.setItem(_this.props.name, _this.state.value);
         });
-
-        sessionStorage.setItem(_this.props.name, event.target.value);
       }
     };
 
@@ -279,6 +279,67 @@ function (_Component) {
   return DCNumber;
 }(React.Component);
 
+var DCRadio =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DCRadio, _Component);
+
+  function DCRadio(props) {
+    var _this;
+
+    _classCallCheck(this, DCRadio);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCRadio).call(this, props));
+
+    _this.handleChange = function (event, _ref) {
+      var value = _ref.value;
+
+      _this.setState({
+        value: value
+      }, function () {
+        sessionStorage.setItem(_this.props.name, _this.state.value);
+      });
+    };
+
+    _this.state = {
+      value: _this.props.value
+    };
+    return _this;
+  }
+
+  _createClass(DCRadio, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var value = this.state.value;
+      var _this$props = this.props,
+          displayName = _this$props.displayName,
+          description = _this$props.description,
+          error = _this$props.error,
+          warning = _this$props.warning,
+          required = _this$props.required,
+          options = _this$props.options;
+      var radios = Object.keys(options).map(function (key) {
+        return React__default.createElement(semanticUiReact.Form.Radio, {
+          key: key,
+          label: options[key].text,
+          value: options[key].value,
+          checked: value === options[key].value,
+          onChange: _this2.handleChange
+        });
+      });
+      var component = React__default.createElement(semanticUiReact.Form.Group, {
+        inline: true,
+        children: radios
+      });
+      return FullFormField(displayName, description, error, warning, required, component);
+    }
+  }]);
+
+  return DCRadio;
+}(React.Component);
+
 var DCFormField =
 /*#__PURE__*/
 function (_Component) {
@@ -299,7 +360,8 @@ function (_Component) {
     _this.formComponents = {
       DCText: DCText,
       DCBoolean: DCBoolean,
-      DCNumber: DCNumber
+      DCNumber: DCNumber,
+      DCRadio: DCRadio
     };
     return _this;
   }

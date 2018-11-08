@@ -61,3 +61,4 @@ Name | Description | Additional properties | Accepted value types
 DCText | A typical text input | - | *string*
 DCBoolean | A typical checkbox | *error*, *warning* and *required* does not make sense here so those will be ignored | *boolean*
 DCNumber | A typical number input | - | JavaScript *Number* or empty *string*
+DCRadio | A typical radio choice | An array of objects (with *key*, *text* and *value* properties) called options | *array* of *objects*
