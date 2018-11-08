@@ -56,7 +56,8 @@ sessionStorage.getItem(name)            // 'name' is they same value that you us
 ```
 
 ### Current form component types
-Name | Description | Additional properties? | Default value type?
+Name | Description | Additional properties | Accepted value types
 -----|-------------|------------------------|---------------
 DCText | A typical text input | - | *string*
 DCBoolean | A typical checkbox | *error*, *warning* and *required* does not make sense here so those will be ignored | *boolean*
+DCNumber | A typical number input | - | JavaScript *Number* or empty *string*

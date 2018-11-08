@@ -32,7 +32,9 @@ export const FullFormField = (displayName, description, error, warning, required
 
 export const SimpleFormField = (displayName, description, component) => {
   return (
-    <Popup hideOnScroll position='top center' header={displayName} wide='very' trigger={component}
-           content={description} />
+    <Form.Field>
+      <Popup hideOnScroll position='top center' header={displayName} wide='very' trigger={component}
+             content={description} />
+    </Form.Field>
   )
 }

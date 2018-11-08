@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import DCText from './components/DCText'
 import DCBoolean from './components/DCBoolean'
+import DCNumber from './components/DCNumber'
 
 class DCFormField extends Component {
   formComponents = {
     DCText: DCText,
-    DCBoolean: DCBoolean
+    DCBoolean: DCBoolean,
+    DCNumber: DCNumber
   }
 
   render () {

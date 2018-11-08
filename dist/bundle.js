@@ -120,14 +120,14 @@ var FullFormField = function FullFormField(displayName, description, error, warn
   })));
 };
 var SimpleFormField = function SimpleFormField(displayName, description, component) {
-  return React__default.createElement(semanticUiReact.Popup, {
+  return React__default.createElement(semanticUiReact.Form.Field, null, React__default.createElement(semanticUiReact.Popup, {
     hideOnScroll: true,
     position: "top center",
     header: displayName,
     wide: "very",
     trigger: component,
     content: description
-  });
+  }));
 };
 
 var DCText =
@@ -227,6 +227,58 @@ function (_Component) {
   return DCBoolean;
 }(React.Component);
 
+var DCNumber =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DCNumber, _Component);
+
+  function DCNumber(props) {
+    var _this;
+
+    _classCallCheck(this, DCNumber);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCNumber).call(this, props));
+
+    _this.handleChange = function (event) {
+      if (!isNaN(event.target.value)) {
+        _this.setState({
+          value: event.target.value
+        });
+
+        sessionStorage.setItem(_this.props.name, event.target.value);
+      }
+    };
+
+    _this.state = {
+      value: _this.props.value
+    };
+    return _this;
+  }
+
+  _createClass(DCNumber, [{
+    key: "render",
+    value: function render() {
+      var value = this.state.value;
+      var _this$props = this.props,
+          name = _this$props.name,
+          displayName = _this$props.displayName,
+          description = _this$props.description,
+          error = _this$props.error,
+          warning = _this$props.warning,
+          required = _this$props.required;
+      var component = React__default.createElement(semanticUiReact.Input, {
+        name: name,
+        placeholder: displayName,
+        onChange: this.handleChange,
+        value: value
+      });
+      return FullFormField(displayName, description, error, warning, required, component);
+    }
+  }]);
+
+  return DCNumber;
+}(React.Component);
+
 var DCFormField =
 /*#__PURE__*/
 function (_Component) {
@@ -246,7 +298,8 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DCFormField)).call.apply(_getPrototypeOf2, [this].concat(args)));
     _this.formComponents = {
       DCText: DCText,
-      DCBoolean: DCBoolean
+      DCBoolean: DCBoolean,
+      DCNumber: DCNumber
     };
     return _this;
   }
