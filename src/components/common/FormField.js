@@ -8,7 +8,7 @@ const InlineWarning = ({text}) => <span style={{color: '#ffd700'}}>{text}</span>
 export const FullFormField = (displayName, description, error, warning, required, component) => {
   return (
     <Form.Field error={!!error} required={required}>
-      <Popup hideOnScroll position='top center' header={displayName} wide='very' trigger={<label>{displayName}</label>}
+      <Popup hideOnScroll position='top left' header={displayName} wide='very' trigger={<label>{displayName}</label>}
              content={description} />
 
       {component}

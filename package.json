@@ -10,9 +10,12 @@
   "private": true,
   "main": "dist/bundle.js",
   "dependencies": {
+    "moment": "^2.22.2",
     "react": "^16.6.0",
+    "react-datepicker": "^1.8.0",
     "react-dom": "^16.6.0",
     "react-scripts": "2.1.1",
+    "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.83.0"
   },
   "scripts": {
@@ -42,7 +45,6 @@
     "rollup": "^0.67.0",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "semantic-ui-css": "^2.4.1"
+    "rollup-plugin-node-resolve": "^3.4.0"
   }
 }

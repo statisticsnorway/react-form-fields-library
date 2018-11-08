@@ -7,6 +7,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 var semanticUiReact = require('semantic-ui-react');
+var DatePicker = _interopDefault(require('react-datepicker'));
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -101,7 +102,7 @@ var FullFormField = function FullFormField(displayName, description, error, warn
     required: required
   }, React__default.createElement(semanticUiReact.Popup, {
     hideOnScroll: true,
-    position: "top center",
+    position: "top left",
     header: displayName,
     wide: "very",
     trigger: React__default.createElement("label", null, displayName),
@@ -340,6 +341,64 @@ function (_Component) {
   return DCRadio;
 }(React.Component);
 
+var DCDate =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DCDate, _Component);
+
+  function DCDate(props) {
+    var _this;
+
+    _classCallCheck(this, DCDate);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCDate).call(this, props));
+
+    _this.handleChange = function (value) {
+      _this.setState({
+        value: value
+      }, function () {
+        sessionStorage.setItem(_this.props.name, _this.state.value);
+      });
+    };
+
+    _this.state = {
+      value: _this.props.value
+    };
+    return _this;
+  }
+
+  _createClass(DCDate, [{
+    key: "render",
+    value: function render() {
+      var value = this.state.value;
+      var _this$props = this.props,
+          displayName = _this$props.displayName,
+          description = _this$props.description,
+          error = _this$props.error,
+          warning = _this$props.warning,
+          required = _this$props.required;
+      var datePicker = React__default.createElement(DatePicker, {
+        selected: value === '' ? null : value,
+        onChange: this.handleChange,
+        locale: "nb",
+        dateFormat: "DD/MM/YYYY",
+        placeholderText: displayName,
+        dropdownMode: "select",
+        todayButton: "I dag",
+        isClearable: true,
+        showWeekNumbers: true
+      });
+      var component = React__default.createElement(semanticUiReact.Form.Group, {
+        inline: true,
+        children: datePicker
+      });
+      return FullFormField(displayName, description, error, warning, required, component);
+    }
+  }]);
+
+  return DCDate;
+}(React.Component);
+
 var DCFormField =
 /*#__PURE__*/
 function (_Component) {
@@ -361,7 +420,8 @@ function (_Component) {
       DCText: DCText,
       DCBoolean: DCBoolean,
       DCNumber: DCNumber,
-      DCRadio: DCRadio
+      DCRadio: DCRadio,
+      DCDate: DCDate
     };
     return _this;
   }

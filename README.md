@@ -49,6 +49,7 @@ class App extends Component {
 * The library uses Semantic-UI for styling and therefore requires your React application to to have `semantic-ui-css` and `semantic-ui-react` as dependencies
 * Do not forget to wrap your DCFormField components inside the semantic-ui-react component `Form` (like in the example above)
 * Also do not forget to add `import 'semantic-ui-css/semantic.min.css'` in your `index.js`
+* The DCDate component uses Moment.js and React Date Picker so if you wish to use it you need `react-datepicker` and `moment` as dependencies
 * The form components store their value in sessionStorage at the moment so to fetch the value from the component do this:
 
 ```javascript
@@ -62,3 +63,4 @@ DCText | A typical text input | - | *string*
 DCBoolean | A typical checkbox | *error*, *warning* and *required* does not make sense here so those will be ignored | *boolean*
 DCNumber | A typical number input | - | JavaScript *Number* or empty *string*
 DCRadio | A typical radio choice | An array of objects (with *key*, *text* and *value* properties) called options | *array* of *objects*
+DCDate | A typical date picker | - | *Moment.js object* or empty *string*

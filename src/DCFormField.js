@@ -3,13 +3,15 @@ import DCText from './components/DCText'
 import DCBoolean from './components/DCBoolean'
 import DCNumber from './components/DCNumber'
 import DCRadio from './components/DCRadio'
+import DCDate from './components/DCDate'
 
 class DCFormField extends Component {
   formComponents = {
     DCText: DCText,
     DCBoolean: DCBoolean,
     DCNumber: DCNumber,
-    DCRadio: DCRadio
+    DCRadio: DCRadio,
+    DCDate: DCDate
   }
 
   render () {

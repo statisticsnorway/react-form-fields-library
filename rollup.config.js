@@ -16,9 +16,12 @@ export default {
     commonjs()
   ],
   external: [
+    'moment',
     'react',
+    'react-datepicker',
     'react-dom',
     'react-scripts',
+    'semantic-ui-css',
     'semantic-ui-react'
   ]
 }
