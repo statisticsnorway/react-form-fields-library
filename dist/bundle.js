@@ -95,7 +95,7 @@ var InlineWarning = function InlineWarning(_ref2) {
   }, text);
 };
 
-var FormField = function FormField(displayName, description, error, warning, required, component) {
+var FullFormField = function FullFormField(displayName, description, error, warning, required, component) {
   return React__default.createElement(semanticUiReact.Form.Field, {
     error: !!error,
     required: required
@@ -118,6 +118,16 @@ var FormField = function FormField(displayName, description, error, warning, req
   }), React__default.createElement(InlineWarning, {
     text: warning
   })));
+};
+var SimpleFormField = function SimpleFormField(displayName, description, component) {
+  return React__default.createElement(semanticUiReact.Popup, {
+    hideOnScroll: true,
+    position: "top center",
+    header: displayName,
+    wide: "very",
+    trigger: component,
+    content: description
+  });
 };
 
 var DCText =
@@ -165,11 +175,56 @@ function (_Component) {
         onChange: this.handleChange,
         value: value
       });
-      return FormField(displayName, description, error, warning, required, component);
+      return FullFormField(displayName, description, error, warning, required, component);
     }
   }]);
 
   return DCText;
+}(React.Component);
+
+var DCBoolean =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DCBoolean, _Component);
+
+  function DCBoolean(props) {
+    var _this;
+
+    _classCallCheck(this, DCBoolean);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCBoolean).call(this, props));
+
+    _this.handleChange = function () {
+      _this.setState({
+        value: !_this.state.value
+      }, function () {
+        sessionStorage.setItem(_this.props.name, _this.state.value);
+      });
+    };
+
+    _this.state = {
+      value: _this.props.value
+    };
+    return _this;
+  }
+
+  _createClass(DCBoolean, [{
+    key: "render",
+    value: function render() {
+      var value = this.state.value;
+      var _this$props = this.props,
+          displayName = _this$props.displayName,
+          description = _this$props.description;
+      var component = React__default.createElement(semanticUiReact.Checkbox, {
+        label: displayName,
+        onChange: this.handleChange,
+        checked: value
+      });
+      return SimpleFormField(displayName, description, component);
+    }
+  }]);
+
+  return DCBoolean;
 }(React.Component);
 
 var DCFormField =
@@ -190,7 +245,8 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DCFormField)).call.apply(_getPrototypeOf2, [this].concat(args)));
     _this.formComponents = {
-      DCText: DCText
+      DCText: DCText,
+      DCBoolean: DCBoolean
     };
     return _this;
   }

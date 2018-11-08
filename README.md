@@ -55,7 +55,8 @@ class App extends Component {
 sessionStorage.getItem(name)            // 'name' is they same value that you used in the props for the component
 ```
 
-### Current input types supported:
+### Current form component types
 Name | Description | Additional properties? | Default value type?
 -----|-------------|------------------------|---------------
-DC Text | A typical text input | - | *string*
+DCText | A typical text input | - | *string*
+DCBoolean | A typical checkbox | *error*, *warning* and *required* does not make sense here so those will be ignored | *boolean*
