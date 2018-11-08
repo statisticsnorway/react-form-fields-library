@@ -9,7 +9,6 @@ moment.locale('nb')
 export const formComponents = {
   DCText: {
     component: 'DCText',
-    parent: 'myForm',
     name: 'myTextInput',
     displayName: 'DCText',
     description: 'A description for this input',
@@ -20,7 +19,6 @@ export const formComponents = {
   },
   DCBoolean: {
     component: 'DCBoolean',
-    parent: 'myForm',
     name: 'myBooleanInput',
     displayName: 'DCBoolean',
     description: 'A description for this input',
@@ -28,7 +26,6 @@ export const formComponents = {
   },
   DCNumber: {
     component: 'DCNumber',
-    parent: 'myForm',
     name: 'myNumberInput',
     displayName: 'DCNumber',
     description: 'A description for this input',
@@ -39,7 +36,6 @@ export const formComponents = {
   },
   DCRadio: {
     component: 'DCRadio',
-    parent: 'myForm',
     name: 'myRadioInput',
     displayName: 'DCRadio',
     description: 'A description for this input',
@@ -55,7 +51,6 @@ export const formComponents = {
   },
   DCDate: {
     component: 'DCDate',
-    parent: 'myForm',
     name: 'myDateInput',
     displayName: 'DCDate',
     description: 'A description for this input',
@@ -66,9 +61,8 @@ export const formComponents = {
   },
   DCDropdownSingleSelect: {
     component: 'DCDropdown',
-    parent: 'myForm',
     name: 'myDropdownSingleSelectInput',
-    displayName: 'DCDropdownSingleSelect',
+    displayName: 'DCDropdown',
     description: 'A description for this input',
     error: '',
     warning: '',
@@ -82,9 +76,8 @@ export const formComponents = {
   },
   DCDropdownMultipleSelect: {
     component: 'DCDropdown',
-    parent: 'myForm',
     name: 'myDropdownMultipleSelectInput',
-    displayName: 'DCDropdownMultipleSelect',
+    displayName: 'DCDropdown (multiSelect)',
     description: 'A description for this input',
     error: '',
     warning: '',
@@ -206,8 +199,7 @@ class App extends Component {
           {ready &&
           <Form>
             {Object.keys(formComponents).map(value => {
-              return <DCFormField key={value} tag={formComponents[value].component}
-                                  additionalProps={formComponents[value]} />
+              return <DCFormField key={value} properties={formComponents[value]} />
             })}
           </Form>
           }

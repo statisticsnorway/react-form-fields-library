@@ -569,8 +569,8 @@ function (_Component) {
   _createClass(DCFormField, [{
     key: "render",
     value: function render() {
-      var FormComponent = this.formComponents[this.props.tag];
-      return React__default.createElement(FormComponent, this.props.additionalProps);
+      var FormComponent = this.formComponents[this.props.properties.component];
+      return React__default.createElement(FormComponent, this.props.properties);
     }
   }]);
 

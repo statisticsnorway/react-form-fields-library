@@ -4,7 +4,7 @@ exports[`DCFormField Renders all the input components without error 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
-    additionalProps={
+    properties={
       Object {
         "component": "DCText",
         "description": "A description for this input",
@@ -17,7 +17,6 @@ ShallowWrapper {
         "warning": "",
       }
     }
-    tag="DCText"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -91,7 +90,7 @@ exports[`DCFormField Renders all the input components without error 2`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
-    additionalProps={
+    properties={
       Object {
         "component": "DCBoolean",
         "description": "A description for this input",
@@ -101,7 +100,6 @@ ShallowWrapper {
         "value": false,
       }
     }
-    tag="DCBoolean"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -169,7 +167,7 @@ exports[`DCFormField Renders all the input components without error 3`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
-    additionalProps={
+    properties={
       Object {
         "component": "DCNumber",
         "description": "A description for this input",
@@ -182,7 +180,6 @@ ShallowWrapper {
         "warning": "",
       }
     }
-    tag="DCNumber"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -256,7 +253,7 @@ exports[`DCFormField Renders all the input components without error 4`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
-    additionalProps={
+    properties={
       Object {
         "component": "DCRadio",
         "description": "A description for this input",
@@ -286,7 +283,6 @@ ShallowWrapper {
         "warning": "",
       }
     }
-    tag="DCRadio"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -394,7 +390,7 @@ exports[`DCFormField Renders all the input components without error 5`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
-    additionalProps={
+    properties={
       Object {
         "component": "DCDate",
         "description": "A description for this input",
@@ -407,7 +403,6 @@ ShallowWrapper {
         "warning": "",
       }
     }
-    tag="DCDate"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -481,11 +476,11 @@ exports[`DCFormField Renders all the input components without error 6`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
-    additionalProps={
+    properties={
       Object {
         "component": "DCDropdown",
         "description": "A description for this input",
-        "displayName": "DCDropdownSingleSelect",
+        "displayName": "DCDropdown",
         "endpoints": Array [
           "https://metadata.ssbmod.net/data/Role/",
           "https://metadata.ssbmod.net/data/Agent/",
@@ -499,7 +494,6 @@ ShallowWrapper {
         "warning": "",
       }
     }
-    tag="DCDropdown"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -516,7 +510,7 @@ ShallowWrapper {
     "props": Object {
       "component": "DCDropdown",
       "description": "A description for this input",
-      "displayName": "DCDropdownSingleSelect",
+      "displayName": "DCDropdown",
       "endpoints": Array [
         "https://metadata.ssbmod.net/data/Role/",
         "https://metadata.ssbmod.net/data/Agent/",
@@ -541,7 +535,7 @@ ShallowWrapper {
       "props": Object {
         "component": "DCDropdown",
         "description": "A description for this input",
-        "displayName": "DCDropdownSingleSelect",
+        "displayName": "DCDropdown",
         "endpoints": Array [
           "https://metadata.ssbmod.net/data/Role/",
           "https://metadata.ssbmod.net/data/Agent/",
@@ -583,11 +577,11 @@ exports[`DCFormField Renders all the input components without error 7`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
-    additionalProps={
+    properties={
       Object {
         "component": "DCDropdown",
         "description": "A description for this input",
-        "displayName": "DCDropdownMultipleSelect",
+        "displayName": "DCDropdown (multiSelect)",
         "endpoints": Array [
           "https://metadata.ssbmod.net/data/Agent/",
           "https://metadata.ssbmod.net/data/Role/",
@@ -601,7 +595,6 @@ ShallowWrapper {
         "warning": "",
       }
     }
-    tag="DCDropdown"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -618,7 +611,7 @@ ShallowWrapper {
     "props": Object {
       "component": "DCDropdown",
       "description": "A description for this input",
-      "displayName": "DCDropdownMultipleSelect",
+      "displayName": "DCDropdown (multiSelect)",
       "endpoints": Array [
         "https://metadata.ssbmod.net/data/Agent/",
         "https://metadata.ssbmod.net/data/Role/",
@@ -643,7 +636,7 @@ ShallowWrapper {
       "props": Object {
         "component": "DCDropdown",
         "description": "A description for this input",
-        "displayName": "DCDropdownMultipleSelect",
+        "displayName": "DCDropdown (multiSelect)",
         "endpoints": Array [
           "https://metadata.ssbmod.net/data/Agent/",
           "https://metadata.ssbmod.net/data/Role/",
