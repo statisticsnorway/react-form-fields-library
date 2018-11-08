@@ -44,7 +44,7 @@ class App extends Component {
 }
 ```
 
-**Note:**
+##### Note:
 * Some component types require more properties, they will be explaned below
 * This library uses [Semantic UI](https://semantic-ui.com/introduction/getting-started.html) for styling and therefore 
 requires your React application to to have `semantic-ui-css` and `semantic-ui-react` as dependencies
