@@ -12,6 +12,9 @@ a form field, which can be imported and used in any React application. Its prima
 * Your imported library does not automatically stay up to date with the latest commits to GitHub so you have to run 
 `yarn upgrade dc-react-form-fields-library` in your React application to get the latest "build"
 
+### Test it yourself
+Run `yarn start` and navigate to `http://localhost:3000/`
+
 ### How it works
 The DCFormField component expects two properties; `tag` and `additionalProperties`, like this:
 ```javascript
