@@ -6,20 +6,22 @@ import DCRadio from './components/DCRadio'
 import DCDate from './components/DCDate'
 import DCDropdown from './components/DCDropdown'
 import DCMultiInput from './components/DCMultiInput'
+import DCStatic from './components/DCStatic'
+
+const formComponents = {
+  DCText: DCText,
+  DCBoolean: DCBoolean,
+  DCNumber: DCNumber,
+  DCRadio: DCRadio,
+  DCDate: DCDate,
+  DCDropdown: DCDropdown,
+  DCMultiInput: DCMultiInput,
+  DCStatic: DCStatic
+}
 
 class DCFormField extends Component {
-  formComponents = {
-    DCText: DCText,
-    DCBoolean: DCBoolean,
-    DCNumber: DCNumber,
-    DCRadio: DCRadio,
-    DCDate: DCDate,
-    DCDropdown: DCDropdown,
-    DCMultiInput: DCMultiInput
-  }
-
   render () {
-    const FormComponent = this.formComponents[this.props.properties.component]
+    const FormComponent = formComponents[this.props.properties.component]
 
     return <FormComponent {...this.props.properties} />
   }

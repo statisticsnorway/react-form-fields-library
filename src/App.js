@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { DCFormField } from './main'
 import { Checkbox, Divider, Form, Grid, Header } from 'semantic-ui-react'
-import * as moment from 'moment'
+import moment from 'moment'
 import 'moment/locale/nb'
 
 moment.locale('nb')
@@ -104,6 +104,72 @@ export const formComponents = {
       }
     ],
     endpoint: 'https://metadata.ssbmod.net/data/Protocol/'
+  },
+  DCStaticStandard: {
+    component: 'DCStatic',
+    name: 'myDCStaticInput',
+    displayName: 'DCStatic (standard)',
+    description: 'A description for this input',
+    value: [
+      'Value'
+    ],
+    format: ''
+  },
+  DCStaticDate: {
+    component: 'DCStatic',
+    name: 'myDCStaticDateInput',
+    displayName: 'DCStatic (date)',
+    description: 'A description for this input',
+    value: [
+      moment()
+    ],
+    format: 'date'
+  },
+  DCStaticTag: {
+    component: 'DCStatic',
+    name: 'myDCStaticTagInput',
+    displayName: 'DCStatic (tags)',
+    description: 'A description for this input',
+    value: [
+      'A tag',
+      'Another tag',
+      'A third?'
+    ],
+    format: 'tag'
+  },
+  DCStaticLabel: {
+    component: 'DCStatic',
+    name: 'myDCStaticLabelInput',
+    displayName: 'DCStatic (labels)',
+    description: 'A description for this input',
+    value: [
+      'A label',
+      'Another label',
+      'A third?'
+    ],
+    format: 'label'
+  },
+  DCStaticStandardMulti: {
+    component: 'DCStatic',
+    name: 'myDCStaticMultiInput',
+    displayName: 'DCStatic (multi standard)',
+    description: 'A description for this input',
+    value: [
+      'Value',
+      'Another value'
+    ],
+    format: ''
+  },
+  DCStaticDateMulti: {
+    component: 'DCStatic',
+    name: 'myDCStaticDateMultiInput',
+    displayName: 'DCStatic (multi date)',
+    description: 'A description for this input',
+    value: [
+      moment(),
+      moment().add(1, 'years')
+    ],
+    format: 'date'
   }
 }
 

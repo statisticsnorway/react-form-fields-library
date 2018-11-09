@@ -21,9 +21,9 @@ class DCDate extends Component {
     const {value} = this.state
     const {displayName, description, error, warning, required} = this.props
 
-    const datePicker = <DatePicker selected={value === '' ? null : value} onChange={this.handleChange} locale='nb'
+    const datePicker = <DatePicker selected={value === '' ? null : value} onChange={this.handleChange} isClearable
                                    dateFormat='DD/MM/YYYY' placeholderText={displayName} dropdownMode='select'
-                                   todayButton='I dag' isClearable showWeekNumbers />
+                                   todayButton='I dag' showWeekNumbers />
 
     const component = <Form.Group inline children={datePicker} />
 

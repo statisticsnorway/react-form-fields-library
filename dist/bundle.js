@@ -7,6 +7,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var DatePicker = _interopDefault(require('react-datepicker'));
 var React = require('react');
 var React__default = _interopDefault(React);
+var moment = _interopDefault(require('moment'));
 var semanticUiReact = require('semantic-ui-react');
 
 function _classCallCheck(instance, Constructor) {
@@ -143,12 +144,22 @@ var FullFormField = function FullFormField(displayName, description, error, warn
 var SimpleFormField = function SimpleFormField(displayName, description, component) {
   return React__default.createElement(semanticUiReact.Form.Field, null, React__default.createElement(semanticUiReact.Popup, {
     hideOnScroll: true,
-    position: "top center",
+    position: "top left",
     header: displayName,
     wide: "very",
     trigger: component,
     content: description
   }));
+};
+var SimpleStaticFormField = function SimpleStaticFormField(displayName, description, header, component) {
+  return React__default.createElement(semanticUiReact.Form.Field, null, React__default.createElement(semanticUiReact.Popup, {
+    hideOnScroll: true,
+    position: "top left",
+    header: displayName,
+    wide: "very",
+    trigger: header,
+    content: description
+  }), component);
 };
 
 var DCText =
@@ -400,12 +411,11 @@ function (_Component) {
       var datePicker = React__default.createElement(DatePicker, {
         selected: value === '' ? null : value,
         onChange: this.handleChange,
-        locale: "nb",
+        isClearable: true,
         dateFormat: "DD/MM/YYYY",
         placeholderText: displayName,
         dropdownMode: "select",
         todayButton: "I dag",
-        isClearable: true,
         showWeekNumbers: true
       });
       var component = React__default.createElement(semanticUiReact.Form.Group, {
@@ -778,39 +788,149 @@ function (_Component) {
   return DCMultiInput;
 }(React.Component);
 
+var DCStatic =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DCStatic, _Component);
+
+  function DCStatic(props) {
+    var _this;
+
+    _classCallCheck(this, DCStatic);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCStatic).call(this, props));
+    _this.state = {
+      ready: false,
+      component: null
+    };
+    return _this;
+  }
+
+  _createClass(DCStatic, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this$props = this.props,
+          format = _this$props.format,
+          value = _this$props.value;
+      var component;
+
+      switch (format) {
+        case 'date':
+          var date = [];
+
+          for (var entry in value) {
+            if (value.hasOwnProperty(entry)) {
+              var convertedEntry = void 0;
+
+              try {
+                convertedEntry = moment(value[entry]).format('LLL');
+              } catch (error) {
+                convertedEntry = error;
+              }
+
+              date.push(convertedEntry);
+            }
+          }
+
+          component = React__default.createElement(semanticUiReact.List, {
+            style: {
+              marginTop: 0
+            },
+            items: date
+          });
+          break;
+
+        case 'tag':
+          var tags = [];
+
+          for (var _entry in value) {
+            if (value.hasOwnProperty(_entry)) {
+              tags.push(React__default.createElement(semanticUiReact.Label, {
+                key: _entry,
+                color: "teal"
+              }, value[_entry]));
+            }
+          }
+
+          component = React__default.createElement(semanticUiReact.Label.Group, {
+            tag: true,
+            content: tags
+          });
+          break;
+
+        case 'label':
+          var labels = [];
+
+          for (var _entry2 in value) {
+            if (value.hasOwnProperty(_entry2)) {
+              labels.push(React__default.createElement(semanticUiReact.Label, {
+                key: _entry2,
+                color: "teal"
+              }, value[_entry2]));
+            }
+          }
+
+          component = React__default.createElement("div", null, labels);
+          break;
+
+        default:
+          component = React__default.createElement(semanticUiReact.List, {
+            style: {
+              marginTop: 0
+            },
+            items: value
+          });
+      }
+
+      this.setState({
+        ready: true,
+        component: component
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          ready = _this$state.ready,
+          component = _this$state.component;
+      var _this$props2 = this.props,
+          displayName = _this$props2.displayName,
+          description = _this$props2.description;
+      var header = React__default.createElement("label", null, displayName);
+      if (ready) return SimpleStaticFormField(displayName, description, header, component);
+      return null;
+    }
+  }]);
+
+  return DCStatic;
+}(React.Component);
+
+var formComponents = {
+  DCText: DCText,
+  DCBoolean: DCBoolean,
+  DCNumber: DCNumber,
+  DCRadio: DCRadio,
+  DCDate: DCDate,
+  DCDropdown: DCDropdown,
+  DCMultiInput: DCMultiInput,
+  DCStatic: DCStatic
+};
+
 var DCFormField =
 /*#__PURE__*/
 function (_Component) {
   _inherits(DCFormField, _Component);
 
   function DCFormField() {
-    var _getPrototypeOf2;
-
-    var _this;
-
     _classCallCheck(this, DCFormField);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(DCFormField)).call.apply(_getPrototypeOf2, [this].concat(args)));
-    _this.formComponents = {
-      DCText: DCText,
-      DCBoolean: DCBoolean,
-      DCNumber: DCNumber,
-      DCRadio: DCRadio,
-      DCDate: DCDate,
-      DCDropdown: DCDropdown,
-      DCMultiInput: DCMultiInput
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(DCFormField).apply(this, arguments));
   }
 
   _createClass(DCFormField, [{
     key: "render",
     value: function render() {
-      var FormComponent = this.formComponents[this.props.properties.component];
+      var FormComponent = formComponents[this.props.properties.component];
       return React__default.createElement(FormComponent, this.props.properties);
     }
   }]);
