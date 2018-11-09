@@ -17,7 +17,7 @@ Run `yarn start` and navigate to `http://localhost:3000/`
 
 ##### Alternatively try a more optimized production build:
 1. Run `yarn build:example`
-2. Optionally run `yarn global add server` (if you do not have serve)
+2. Optionally run `yarn global add serve` (if you do not have [serve](https://github.com/zeit/serve/))
 3. Run `serve -s build`
 4. Navigate to `http://localhost:5000/`
 
