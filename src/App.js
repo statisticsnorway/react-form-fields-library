@@ -88,6 +88,22 @@ export const formComponents = {
       'https://metadata.ssbmod.net/data/Role/'
     ],
     multiSelect: true
+  },
+  DCMultiInput: {
+    component: 'DCMultiInput',
+    name: 'myDCMultiInputInput',
+    displayName: 'DCMultiInput',
+    description: 'A description for this input',
+    error: '',
+    warning: '',
+    required: true,
+    value: [
+      {
+        text: '',
+        option: ''
+      }
+    ],
+    endpoint: 'https://metadata.ssbmod.net/data/Protocol/'
   }
 }
 
@@ -147,14 +163,17 @@ class App extends Component {
       if (this.state[name]) {
         this.setState({ready: false}, () => {
           const formComponents = JSON.parse(JSON.stringify(this.state.formComponents))
+          let errorEndpoint = ''
           const errorEndpoints = []
 
           if (name === 'urlError') {
+            errorEndpoint = 'https://metadata.ssbmod.net/data/Protocolsd/'
             errorEndpoints.push('https://metadata.ssbmod.net/data/Agentfda/')
             errorEndpoints.push('https://metadata.ssbmod.net/data/Roleyj/')
           }
 
           if (name === 'networkError') {
+            errorEndpoint = 'https://mettadata.ssbmod.net/data/Protocol/'
             errorEndpoints.push('https://metadatas.ssbmod.net/data/Agent/')
             errorEndpoints.push('https://metadataas.ssbmod.net/data/Role/')
           }
@@ -162,6 +181,10 @@ class App extends Component {
           Object.keys(formComponents).forEach(key => {
             if (key === 'DCDropdownSingleSelect' || key === 'DCDropdownMultipleSelect') {
               formComponents[key].endpoints = errorEndpoints
+            }
+
+            if (key === 'DCMultiInput') {
+              formComponents[key].endpoint = errorEndpoint
             }
           })
 
@@ -172,11 +195,16 @@ class App extends Component {
       } else {
         this.setState({ready: false}, () => {
           const formComponents = JSON.parse(JSON.stringify(this.state.formComponents))
+          const goodEndpoint = 'https://metadata.ssbmod.net/data/Protocol/'
           const goodEndpoints = ['https://metadata.ssbmod.net/data/Agent/', 'https://metadata.ssbmod.net/data/Role/']
 
           Object.keys(formComponents).forEach(key => {
             if (key === 'DCDropdownSingleSelect' || key === 'DCDropdownMultipleSelect') {
               formComponents[key].endpoints = goodEndpoints
+            }
+
+            if (key === 'DCMultiInput') {
+              formComponents[key].endpoint = goodEndpoint
             }
           })
 

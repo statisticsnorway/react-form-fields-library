@@ -78,6 +78,26 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+}
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
 var InlineError = function InlineError(_ref) {
   var text = _ref.text;
   return React__default.createElement("span", {
@@ -399,6 +419,42 @@ function (_Component) {
   return DCDate;
 }(React.Component);
 
+function fetchData(url) {
+  return new Promise(function (resolve, reject) {
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      }
+    }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (json) {
+          var options = [];
+
+          for (var key in json) {
+            if (json.hasOwnProperty(key)) {
+              options.push({
+                key: json[key].id,
+                text: json[key].name[0].languageText,
+                // TODO: Fix this when the ability to do it becomes available
+                value: json[key].id
+              });
+            }
+          }
+
+          resolve(options);
+        });
+      } else {
+        response.text().then(function (text) {
+          reject(text + ' (' + url + ')');
+        });
+      }
+    }).catch(function (error) {
+      reject(error.toString() + ' \'' + url + '\'');
+    });
+  });
+}
+
 var DCDropdown =
 /*#__PURE__*/
 function (_Component) {
@@ -430,50 +486,13 @@ function (_Component) {
   }
 
   _createClass(DCDropdown, [{
-    key: "fetching",
-    value: function fetching(url) {
-      return new Promise(function (resolve, reject) {
-        fetch(url, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8'
-          }
-        }).then(function (response) {
-          if (response.ok) {
-            response.json().then(function (json) {
-              var options = [];
-
-              for (var key in json) {
-                if (json.hasOwnProperty(key)) {
-                  options.push({
-                    key: json[key].id,
-                    text: json[key].name[0].languageText,
-                    // TODO: Fix this when the ability to do it becomes available
-                    value: json[key].id
-                  });
-                }
-              }
-
-              resolve(options);
-            });
-          } else {
-            response.text().then(function (text) {
-              reject(text + ' (' + url + ')');
-            });
-          }
-        }).catch(function (error) {
-          reject(error.toString() + ' \'' + url + '\'');
-        });
-      });
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
       Promise.all(Object.keys(this.props.endpoints).map(function (key) {
         var url = _this2.props.endpoints[key];
-        return _this2.fetching(url);
+        return fetchData(url);
       })).then(function (allOptions) {
         var options = [].concat.apply([], allOptions);
 
@@ -538,6 +557,227 @@ function (_Component) {
   return DCDropdown;
 }(React.Component);
 
+var DCMultiInput =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DCMultiInput, _Component);
+
+  function DCMultiInput(props) {
+    var _this;
+
+    _classCallCheck(this, DCMultiInput);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCMultiInput).call(this, props));
+
+    _this.handleInputChange = function (event, index) {
+      index = parseInt(index);
+      var entry = {
+        text: event.target.value,
+        option: _this.state.value[index].option
+      };
+
+      var value = _toConsumableArray(_this.state.value);
+
+      value[index] = entry;
+
+      _this.setState({
+        value: value
+      }, function () {
+        sessionStorage.setItem(_this.props.name, _this.state.value);
+      });
+    };
+
+    _this.handleDropdownChange = function (option, index) {
+      index = parseInt(index);
+      var entry = {
+        text: _this.state.value[index].text,
+        option: option
+      };
+
+      var value = _toConsumableArray(_this.state.value);
+
+      value[index] = entry;
+
+      _this.setState({
+        value: value
+      }, function () {
+        sessionStorage.setItem(_this.props.name, _this.state.value);
+      });
+    };
+
+    _this.handleAddEntry = function () {
+      var entries = _this.state.value;
+      entries.push({
+        text: '',
+        option: ''
+      });
+
+      _this.setState({
+        value: entries
+      }, function () {
+        sessionStorage.setItem(_this.props.name, _this.state.value);
+      });
+    };
+
+    _this.state = {
+      ready: false,
+      problem: false,
+      errorMessage: '',
+      value: _this.props.value,
+      options: []
+    };
+    return _this;
+  }
+
+  _createClass(DCMultiInput, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetchData(this.props.endpoint).then(function (options) {
+        _this2.setState({
+          ready: true,
+          options: options
+        });
+      }).catch(function (error) {
+        _this2.setState({
+          ready: true,
+          problem: true,
+          errorMessage: error
+        });
+      });
+    }
+  }, {
+    key: "handleRemoveEntry",
+    value: function handleRemoveEntry(entry) {
+      var _this3 = this;
+
+      entry = parseInt(entry);
+      var entries = this.state.value;
+      entries.splice(entry, 1);
+      this.setState({
+        value: entries
+      }, function () {
+        sessionStorage.setItem(_this3.props.name, _this3.state.value);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      var _this$state = this.state,
+          ready = _this$state.ready,
+          problem = _this$state.problem,
+          value = _this$state.value,
+          options = _this$state.options,
+          errorMessage = _this$state.errorMessage;
+      var _this$props = this.props,
+          name = _this$props.name,
+          displayName = _this$props.displayName,
+          description = _this$props.description,
+          error = _this$props.error,
+          warning = _this$props.warning,
+          required = _this$props.required;
+
+      if (!ready) {
+        var action = React__default.createElement(semanticUiReact.Dropdown, {
+          button: true,
+          basic: true,
+          options: [],
+          loading: true
+        });
+        var component = React__default.createElement(semanticUiReact.Input, {
+          placeholder: displayName,
+          action: action,
+          disabled: true
+        });
+        return FullFormField(displayName, description, error, warning, required, component);
+      }
+
+      if (ready && problem) {
+        var _action = React__default.createElement(semanticUiReact.Dropdown, {
+          button: true,
+          basic: true,
+          options: [],
+          disabled: true
+        });
+
+        var _component = React__default.createElement(semanticUiReact.Input, {
+          placeholder: displayName,
+          action: _action,
+          disabled: true
+        });
+
+        return FullFormField(displayName, description, errorMessage, warning, required, _component);
+      }
+
+      if (ready && !problem) {
+        var components = React__default.createElement("div", null, Object.keys(value).map(function (key) {
+          var action = React__default.createElement(semanticUiReact.Dropdown, {
+            key: key,
+            button: true,
+            basic: true,
+            options: options,
+            value: value[key].option,
+            onChange: function onChange(event, _ref) {
+              var _ref$returned = _ref.returned,
+                  returned = _ref$returned === void 0 ? key : _ref$returned,
+                  value = _ref.value;
+              return _this4.handleDropdownChange(value, returned);
+            }
+          });
+          var button = React__default.createElement(semanticUiReact.Button, {
+            basic: true,
+            icon: {
+              name: 'minus',
+              color: 'red'
+            },
+            onClick: function onClick(_ref2) {
+              var _ref2$returned = _ref2.returned,
+                  returned = _ref2$returned === void 0 ? key : _ref2$returned;
+              return _this4.handleRemoveEntry(returned);
+            }
+          });
+          return React__default.createElement("div", {
+            key: key
+          }, React__default.createElement(semanticUiReact.Input, {
+            key: key,
+            name: name,
+            placeholder: displayName,
+            value: value[key].text,
+            action: true,
+            onChange: function onChange(event, _ref3) {
+              var _ref3$returned = _ref3.returned,
+                  returned = _ref3$returned === void 0 ? key : _ref3$returned;
+              return _this4.handleInputChange(event, returned);
+            }
+          }, React__default.createElement("input", null), action, button), React__default.createElement(semanticUiReact.Divider, {
+            hidden: true,
+            fitted: true
+          }));
+        }), React__default.createElement(semanticUiReact.Divider, {
+          hidden: true,
+          fitted: true
+        }), React__default.createElement(semanticUiReact.Button, {
+          basic: true,
+          icon: {
+            name: 'plus',
+            color: 'green'
+          },
+          size: "small",
+          onClick: this.handleAddEntry
+        }));
+        return FullFormField(displayName, description, error, warning, required, components);
+      }
+
+      return null;
+    }
+  }]);
+
+  return DCMultiInput;
+}(React.Component);
+
 var DCFormField =
 /*#__PURE__*/
 function (_Component) {
@@ -561,7 +801,8 @@ function (_Component) {
       DCNumber: DCNumber,
       DCRadio: DCRadio,
       DCDate: DCDate,
-      DCDropdown: DCDropdown
+      DCDropdown: DCDropdown,
+      DCMultiInput: DCMultiInput
     };
     return _this;
   }

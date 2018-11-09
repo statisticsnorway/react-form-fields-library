@@ -64,11 +64,12 @@ sessionStorage.getItem(name)            // 'name' is they same value that you us
 ### Component types
 In `App.js` you can find usage examples for all of them
 
-Name | Description | Additional properties | Accepted value types
+Name | Description | Additional properties | Accepted value type(s)
 -----|-------------|------------------------|---------------
 DCText | A typical text input | - | *string*
 DCBoolean | A typical checkbox | *error*, *warning* and *required* does not make sense here so those will be ignored | *boolean*
 DCNumber | A typical number input | - | JavaScript *Number* or empty *string*
-DCRadio | A typical radio choice | An array of objects (with *key*, *text* and *value* properties) called *options* | *array* of *objects*
+DCRadio | A typical radio choice | An array of objects (with *key*, *text* and *value* string properties) called *options* | *array* of *objects*
 DCDate | A typical date picker | - | *Moment.js object* or empty *string*
-DCDropdown | A dropdown list populated with options fetched from an array of endpoints | An array of endpoint urls called *endpoints* and a boolean *multiSelect* property | For multiSelect value must be *array* and for regular it must be *string*
+DCDropdown | A dropdown list populated with options fetched from an array of endpoints | An array of string endpoint urls called *endpoints* and a boolean *multiSelect* property | For multiSelect value must be *array* and for regular it must be *string*
+DCMultiInput | A collection of one or more text inputs with a dropdown attached to each | A string property called *endpoint* (to fill the attatched dropdown with options) | An *array* of *objects* with two *string* properties; text and option
