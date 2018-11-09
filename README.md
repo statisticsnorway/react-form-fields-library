@@ -73,10 +73,12 @@ In `App.js` you can find usage examples for all of them
 Name | Description | Additional properties | Accepted value type(s)
 -----|-------------|------------------------|---------------
 DCText | A typical text input | - | *string*
-DCBoolean | A typical checkbox | *error*, *warning* and *required* does not make sense here so those will be ignored | *boolean*
+DCBoolean | A typical checkbox | - | *boolean*
 DCNumber | A typical number input | - | JavaScript *Number* or empty *string*
 DCRadio | A typical radio choice | An array of objects (with *key*, *text* and *value* string properties) called *options* | *array* of *objects*
-DCDate | A typical date picker | - | *Moment.js object* or empty *string*
+DCDate | A typical date picker | - | *Moment.js object** or empty *string*
 DCDropdown | A dropdown list populated with options fetched from an array of endpoints | An array of string endpoint urls called *endpoints* and a boolean *multiSelect* property | For multiSelect value must be *array* and for regular it must be *string*
 DCMultiInput | A collection of one or more text inputs with a dropdown attached to each | A string property called *endpoint* (to fill the attatched dropdown with options) | An *array* of *objects* with two *string* properties; text and option
-DCStatic | A collection of one or more non-interactable values to be displayed either as tags, labels, dates or regular text | A string property called *format* (can chose between *list*, *date*, *label* and *tag*). *error*, *warning* and *required* will also be ignored here. | An *array* of *strings* or *Moment.js objects*
+DCStatic | A collection of one or more non-interactable values to be displayed either as tags, labels, dates or regular text | A string property called *format* (choose between *date*, *label* and *tag*, defaults to list if not set) | An *array* of *strings* or *Moment.js objects**
+
+*MomentJS accepts Java Date and JavaScript Date objects and some other (check their documentation)
