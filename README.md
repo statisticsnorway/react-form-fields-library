@@ -15,6 +15,12 @@ have to run `yarn upgrade dc-react-form-fields-library` in your React applicatio
 ### Test it yourself
 Run `yarn start` and navigate to `http://localhost:3000/`
 
+##### Alternatively try a more optimized production build:
+1. Run `yarn build:example`
+2. Optionally run `yarn global add server` (if you do not have serve)
+3. Run `serve -s build`
+4. Navigate to `http://localhost:5000/`
+
 ### How it works
 The DCFormField component expects one object containing some standard properties, like this:
 ```javascript
