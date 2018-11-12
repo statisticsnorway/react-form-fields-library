@@ -22,7 +22,7 @@ Run `yarn start` and navigate to `http://localhost:3000/`
 4. Navigate to `http://localhost:5000/`
 
 ### How it works
-The DCFormField component expects one object containing some standard properties, like this:
+The DCFormField component expects one object containing some properties, for example:
 ```javascript
 import React, { Component } from 'react'
 import { DCFormField } from 'dc-react-form-fields-library'
@@ -35,8 +35,8 @@ const props = {
   description: 'A description for my input',    // Displayed as a popup on the label
   error: '',                                    // If there are errors
   warning: '',                                  // If there are warnings
-  required: true,                               // If the field is a required part of the form
-  value: 'The default value'                    // The default value, different input types require different types of default values
+  required: true,                               // If the field is required
+  value: null                                   // If the component should be initiated with a value, different components require different types
 }
 
 class App extends Component {
@@ -51,14 +51,14 @@ class App extends Component {
 ```
 
 ##### Note:
-* Some component types require more properties, they will be explaned below
+* *component* and *name* are the only **required** properties by default but ome component types require more properties too work correctly, they will be explaned below
 * This library uses [Semantic UI](https://semantic-ui.com/introduction/getting-started.html) for styling and therefore 
-requires your React application to to have `semantic-ui-css` and `semantic-ui-react` as dependencies
+requires your project to to have `semantic-ui-css` and `semantic-ui-react` as dependencies
   * Do not forget to wrap your DCFormField components inside the [Semantic UI React](https://react.semantic-ui.com/) 
   component `Form` (like in the example above)
   * Also do not forget to add `import 'semantic-ui-css/semantic.min.css'` in your `index.js`
 * The DCDate component uses [Moment.js](https://momentjs.com/docs/) and [ReactJS Datepicker](https://reactdatepicker.com/) 
-so if you wish to use it you need `react-datepicker` and `moment` as dependencies
+so if you wish to use it you need `react-datepicker` and `moment` as dependencies in your project
 * The form components store their value in sessionStorage (to avoid having to use Redux or passing state to parent), so to 
 fetch a value from a component do this:
 
@@ -74,11 +74,11 @@ Name | Description | Additional properties | Accepted value type(s)
 -----|-------------|------------------------|---------------
 DCText | A typical text input | - | *string*
 DCBoolean | A typical checkbox | - | *boolean*
-DCNumber | A typical number input | - | JavaScript *Number* or empty *string*
-DCRadio | A typical radio choice | An array of objects (with *key*, *text* and *value* string properties) called *options* | *array* of *objects*
-DCDate | A typical date picker | - | *Moment.js object** or empty *string*
-DCDropdown | A dropdown list populated with options fetched from an array of endpoints | An array of string endpoint urls called *endpoints* and a boolean *multiSelect* property | For multiSelect value must be *array* and for regular it must be *string*
-DCMultiInput | A collection of one or more text inputs with a dropdown attached to each | A string property called *endpoint* (to fill the attatched dropdown with options) | An *array* of *objects* with two *string* properties; text and option
-DCStatic | A collection of one or more non-interactable values to be displayed either as tags, labels, dates or regular text | A string property called *format* (choose between *date*, *label* and *tag*, defaults to list if not set) | An *array* of *strings* or *Moment.js objects**
+DCNumber | A typical number input | - | JavaScript *number*
+DCRadio | A typical radio choice | *options*: [{text: ' ', value: ' '}]  | *string*
+DCDate | A typical date picker | - | *Moment.js object**
+DCDropdown | A dropdown list populated with options fetched from an array of endpoints | *endpoints*: [' '] and *multiSelect*: boolean | *string* if regular or *array* if multiSelect
+DCMultiInput | A collection of one or more text inputs with a dropdown attached to each | *endpoints*: [' '] | An *array* of *objects* with two properties; text and option
+DCStatic | A collection of one or more non-interactable values to be displayed either as tags, labels, dates or regular text | *format*: ' ' | An *array* of *strings* or *Moment.js objects**
 
-*MomentJS accepts Java Date and JavaScript Date objects and some other (check their documentation)
+*MomentJS accepts Java Date and JavaScript Date objects and some other (check MomentJS documentation)

@@ -1,52 +1,43 @@
 import React, { Component } from 'react'
-import { DCFormField } from './main'
 import { Checkbox, Divider, Form, Grid, Header } from 'semantic-ui-react'
 import moment from 'moment'
 import 'moment/locale/nb'
 
+import { DCFormField } from './main'
+
 moment.locale('nb')
 
-export const formComponents = {
+export const testFormComponents = {
   DCText: {
     component: 'DCText',
     name: 'myTextInput',
     displayName: 'DCText',
     description: 'A description for this input',
-    error: '',
-    warning: '',
-    required: true,
-    value: ''
+    required: true
   },
   DCBoolean: {
     component: 'DCBoolean',
     name: 'myBooleanInput',
     displayName: 'DCBoolean',
-    description: 'A description for this input',
-    value: false
+    description: 'A description for this input'
   },
   DCNumber: {
     component: 'DCNumber',
     name: 'myNumberInput',
     displayName: 'DCNumber',
     description: 'A description for this input',
-    error: '',
-    warning: '',
-    required: true,
-    value: ''
+    required: true
   },
   DCRadio: {
     component: 'DCRadio',
     name: 'myRadioInput',
     displayName: 'DCRadio',
     description: 'A description for this input',
-    error: '',
-    warning: '',
     required: true,
-    value: '',
     options: [
-      {key: 'thisOption', text: 'This option', value: 'thisOption'},
-      {key: 'thatOption', text: 'That option', value: 'thatOption'},
-      {key: 'somethingElse', text: 'Something else', value: 'somethingElse'}
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
     ]
   },
   DCDate: {
@@ -54,55 +45,37 @@ export const formComponents = {
     name: 'myDateInput',
     displayName: 'DCDate',
     description: 'A description for this input',
-    error: '',
-    warning: '',
-    required: true,
-    value: ''
+    required: true
   },
   DCDropdownSingleSelect: {
     component: 'DCDropdown',
     name: 'myDropdownSingleSelectInput',
     displayName: 'DCDropdown',
     description: 'A description for this input',
-    error: '',
-    warning: '',
     required: true,
-    value: '',
     endpoints: [
       'https://metadata.ssbmod.net/data/Role/',
       'https://metadata.ssbmod.net/data/Agent/'
-    ],
-    multiSelect: false
+    ]
   },
   DCDropdownMultipleSelect: {
     component: 'DCDropdown',
     name: 'myDropdownMultipleSelectInput',
     displayName: 'DCDropdown (multiSelect)',
     description: 'A description for this input',
-    error: '',
-    warning: '',
     required: true,
-    value: [],
+    multiSelect: true,
     endpoints: [
       'https://metadata.ssbmod.net/data/Agent/',
       'https://metadata.ssbmod.net/data/Role/'
-    ],
-    multiSelect: true
+    ]
   },
   DCMultiInput: {
     component: 'DCMultiInput',
     name: 'myDCMultiInputInput',
     displayName: 'DCMultiInput',
     description: 'A description for this input',
-    error: '',
-    warning: '',
     required: true,
-    value: [
-      {
-        text: '',
-        option: ''
-      }
-    ],
     endpoint: 'https://metadata.ssbmod.net/data/Protocol/'
   },
   DCStaticStandard: {
@@ -110,44 +83,39 @@ export const formComponents = {
     name: 'myDCStaticInput',
     displayName: 'DCStatic (standard)',
     description: 'A description for this input',
-    value: [
-      'Value'
-    ],
-    format: ''
+    value: ['Value']
   },
   DCStaticDate: {
     component: 'DCStatic',
     name: 'myDCStaticDateInput',
     displayName: 'DCStatic (date)',
     description: 'A description for this input',
-    value: [
-      moment()
-    ],
-    format: 'date'
+    format: 'date',
+    value: [moment()]
   },
   DCStaticTag: {
     component: 'DCStatic',
     name: 'myDCStaticTagInput',
     displayName: 'DCStatic (tags)',
     description: 'A description for this input',
+    format: 'tag',
     value: [
       'A tag',
       'Another tag',
       'A third?'
-    ],
-    format: 'tag'
+    ]
   },
   DCStaticLabel: {
     component: 'DCStatic',
     name: 'myDCStaticLabelInput',
     displayName: 'DCStatic (labels)',
     description: 'A description for this input',
+    format: 'label',
     value: [
       'A label',
       'Another label',
       'A third?'
-    ],
-    format: 'label'
+    ]
   },
   DCStaticStandardMulti: {
     component: 'DCStatic',
@@ -157,19 +125,18 @@ export const formComponents = {
     value: [
       'Value',
       'Another value'
-    ],
-    format: ''
+    ]
   },
   DCStaticDateMulti: {
     component: 'DCStatic',
     name: 'myDCStaticDateMultiInput',
     displayName: 'DCStatic (multi date)',
     description: 'A description for this input',
+    format: 'date',
     value: [
       moment(),
       moment().add(1, 'years')
-    ],
-    format: 'date'
+    ]
   }
 }
 
@@ -182,7 +149,7 @@ class App extends Component {
       warning: false,
       urlError: false,
       networkError: false,
-      formComponents: formComponents
+      formComponents: testFormComponents
     }
   }
 
@@ -190,16 +157,16 @@ class App extends Component {
     sessionStorage.clear()
   }
 
-  handleCheckbox (name) {
+  handleWarningsAndErrors (type) {
     this.setState({
-      [name]: !this.state[name]
+      [type]: !this.state[type]
     }, () => {
-      if (this.state[name]) {
-        this.setState({ready: false}, () => {
-          const formComponents = JSON.parse(JSON.stringify(this.state.formComponents))
+      const formComponents = {...this.state.formComponents}
 
+      if (this.state[type]) {
+        this.setState({ready: false}, () => {
           Object.keys(formComponents).forEach(key => {
-            formComponents[key][name] = name
+            formComponents[key][type] = type
           })
 
           this.setState({formComponents: formComponents}, () => {
@@ -208,10 +175,8 @@ class App extends Component {
         })
       } else {
         this.setState({ready: false}, () => {
-          const formComponents = JSON.parse(JSON.stringify(this.state.formComponents))
-
           Object.keys(formComponents).forEach(key => {
-            formComponents[key][name] = ''
+            delete formComponents[key][type]
           })
 
           this.setState({formComponents: formComponents}, () => {
@@ -222,57 +187,45 @@ class App extends Component {
     })
   }
 
-  handleDropdownErrors (name) {
+  handleDropdownErrors (type) {
     this.setState({
-      [name]: !this.state[name]
+      [type]: !this.state[type]
     }, () => {
-      if (this.state[name]) {
-        this.setState({ready: false}, () => {
-          const formComponents = JSON.parse(JSON.stringify(this.state.formComponents))
-          let errorEndpoint = ''
-          const errorEndpoints = []
+      const formComponents = {...this.state.formComponents}
 
-          if (name === 'urlError') {
-            errorEndpoint = 'https://metadata.ssbmod.net/data/Protocolsd/'
+      if (this.state[type]) {
+        this.setState({ready: false}, () => {
+          const errorEndpoints = []
+          let errorEndpoint = ''
+
+          if (type === 'urlError') {
             errorEndpoints.push('https://metadata.ssbmod.net/data/Agentfda/')
             errorEndpoints.push('https://metadata.ssbmod.net/data/Roleyj/')
+            errorEndpoint = 'https://metadata.ssbmod.net/data/Protocolsd/'
           }
 
-          if (name === 'networkError') {
-            errorEndpoint = 'https://mettadata.ssbmod.net/data/Protocol/'
+          if (type === 'networkError') {
             errorEndpoints.push('https://metadatas.ssbmod.net/data/Agent/')
             errorEndpoints.push('https://metadataas.ssbmod.net/data/Role/')
+            errorEndpoint = 'https://mettadata.ssbmod.net/data/Protocol/'
           }
 
-          Object.keys(formComponents).forEach(key => {
-            if (key === 'DCDropdownSingleSelect' || key === 'DCDropdownMultipleSelect') {
-              formComponents[key].endpoints = errorEndpoints
-            }
+          formComponents.DCDropdownSingleSelect.endpoints = errorEndpoints
+          formComponents.DCDropdownMultipleSelect.endpoints = errorEndpoints
+          formComponents.DCMultiInput.endpoint = errorEndpoint
+        })
 
-            if (key === 'DCMultiInput') {
-              formComponents[key].endpoint = errorEndpoint
-            }
-          })
-
-          this.setState({formComponents: formComponents}, () => {
-            this.setState({ready: true})
-          })
+        this.setState({formComponents: formComponents}, () => {
+          this.setState({ready: true})
         })
       } else {
         this.setState({ready: false}, () => {
-          const formComponents = JSON.parse(JSON.stringify(this.state.formComponents))
           const goodEndpoint = 'https://metadata.ssbmod.net/data/Protocol/'
           const goodEndpoints = ['https://metadata.ssbmod.net/data/Agent/', 'https://metadata.ssbmod.net/data/Role/']
 
-          Object.keys(formComponents).forEach(key => {
-            if (key === 'DCDropdownSingleSelect' || key === 'DCDropdownMultipleSelect') {
-              formComponents[key].endpoints = goodEndpoints
-            }
-
-            if (key === 'DCMultiInput') {
-              formComponents[key].endpoint = goodEndpoint
-            }
-          })
+          formComponents.DCDropdownSingleSelect.endpoints = goodEndpoints
+          formComponents.DCDropdownMultipleSelect.endpoints = goodEndpoints
+          formComponents.DCMultiInput.endpoint = goodEndpoint
 
           this.setState({formComponents: formComponents}, () => {
             this.setState({ready: true})
@@ -301,21 +254,14 @@ class App extends Component {
 
         <Grid.Column>
           <Header as='h1' content='Test stuff' />
-
           <Header as='h3' content='All components' />
-
-          <Checkbox label='Add warnings' checked={warning} onChange={this.handleCheckbox.bind(this, 'warning')} />
-
+          <Checkbox label='Add warnings' checked={warning}
+                    onChange={this.handleWarningsAndErrors.bind(this, 'warning')} />
           <Divider hidden />
-
-          <Checkbox label='Add errors' checked={error} onChange={this.handleCheckbox.bind(this, 'error')} />
-
+          <Checkbox label='Add errors' checked={error} onChange={this.handleWarningsAndErrors.bind(this, 'error')} />
           <Header as='h3' content='Dropdowns' />
-
           <Checkbox label='Wrong url' checked={urlError} onChange={this.handleDropdownErrors.bind(this, 'urlError')} />
-
           <Divider hidden />
-
           <Checkbox label='Network error' checked={networkError}
                     onChange={this.handleDropdownErrors.bind(this, 'networkError')} />
         </Grid.Column>

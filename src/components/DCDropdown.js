@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Dropdown } from 'semantic-ui-react'
-import { FullFormField } from './common/FormField'
+
+import { fullFormField } from './common/FormField'
 import { fetchData } from './common/Fetch'
+import { checkValueAndType } from './common/Utlities'
 
 class DCDropdown extends Component {
   constructor (props) {
@@ -10,24 +12,33 @@ class DCDropdown extends Component {
       ready: false,
       problem: false,
       errorMessage: '',
-      value: this.props.value,
+      value: null,
       options: []
     }
+  }
+
+  setOptionsAndValue (options) {
+    return new Promise(resolve => {
+      this.setState({options: options}, () => {
+        if (checkValueAndType(this.props.value, 'string') || checkValueAndType(this.props.value, 'array')) {
+          this.setState({value: this.props.value}, () => resolve())
+        } else {
+          this.setState({value: this.props.multiSelect ? [] : ''}, () => resolve())
+        }
+      })
+    })
   }
 
   componentDidMount () {
     Promise.all(
       Object.keys(this.props.endpoints).map(key => {
-        const url = this.props.endpoints[key]
-
-        return fetchData(url)
+        return fetchData(this.props.endpoints[key])
       })
     ).then(allOptions => {
       const options = [].concat.apply([], allOptions)
 
-      this.setState({
-        ready: true,
-        options: options
+      this.setOptionsAndValue(options).then(() => {
+        this.setState({ready: true})
       })
     }).catch(error => {
       this.setState({
@@ -38,27 +49,29 @@ class DCDropdown extends Component {
     })
   }
 
-  handleChange = (value) => {
-    this.setState({value: value}, () => {
-      sessionStorage.setItem(this.props.name, this.state.value)
-    })
+  handleChange = (event, data) => {
+    this.setState({value: data.value}, () => sessionStorage.setItem(this.props.name, this.state.value))
   }
 
-  render () {
+  component () {
     const {ready, problem, value, options, errorMessage} = this.state
     const {displayName, description, error, warning, required, multiSelect} = this.props
 
-    if (!ready) return FullFormField(displayName, description, error, warning, required,
+    if (!ready) return fullFormField(displayName, description, error, warning, required,
       <Dropdown placeholder={displayName} selection options={[]} loading disabled />)
 
-    if (ready && problem) return FullFormField(displayName, description, errorMessage, warning, required,
+    if (ready && problem) return fullFormField(displayName, description, errorMessage, warning, required,
       <Dropdown selection options={[]} disabled />)
 
-    if (ready && !problem) return FullFormField(displayName, description, error, warning, required,
+    if (ready && !problem) return fullFormField(displayName, description, error, warning, required,
       <Dropdown placeholder={displayName} value={value} options={options} clearable selection multiple={multiSelect}
-                onChange={(event, {value}) => this.handleChange(value)} />)
+                onChange={this.handleChange} />)
 
     return null
+  }
+
+  render () {
+    return this.component()
   }
 }
 

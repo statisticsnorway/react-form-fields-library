@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import moment from 'moment'
-import { SimpleStaticFormField } from './common/FormField'
 import { Label, List } from 'semantic-ui-react'
+import moment from 'moment'
+
+import { simpleStaticFormField } from './common/FormField'
+
+const formats = ['date', 'label', 'tag']
 
 class DCStatic extends Component {
   constructor (props) {
@@ -12,17 +15,17 @@ class DCStatic extends Component {
     }
   }
 
-  componentDidMount () {
+  createComponent () {
     const {format, value} = this.props
 
-    let component
+    if (!formats.includes(format)) {
+      return <List style={{marginTop: 0}} items={value} />
+    } else {
+      const entries = []
 
-    switch (format) {
-      case 'date':
-        const date = []
-
-        for (const entry in value) {
-          if (value.hasOwnProperty(entry)) {
+      for (const entry in value) {
+        if (value.hasOwnProperty(entry)) {
+          if (format === 'date') {
             let convertedEntry
 
             try {
@@ -31,56 +34,37 @@ class DCStatic extends Component {
               convertedEntry = error
             }
 
-            date.push(convertedEntry)
+            entries.push(convertedEntry)
+
+          } else {
+            entries.push(<Label key={entry} color='teal'>{value[entry]}</Label>)
           }
         }
+      }
 
-        component = <List style={{marginTop: 0}} items={date} />
-        break
-
-      case 'tag':
-        const tags = []
-
-        for (const entry in value) {
-          if (value.hasOwnProperty(entry)) {
-            tags.push(<Label key={entry} color='teal'>{value[entry]}</Label>)
-          }
-        }
-
-        component = <Label.Group tag content={tags} />
-        break
-
-      case 'label':
-        const labels = []
-
-        for (const entry in value) {
-          if (value.hasOwnProperty(entry)) {
-            labels.push(<Label key={entry} color='teal'>{value[entry]}</Label>)
-          }
-        }
-
-        component = <div>{labels}</div>
-        break
-
-      default:
-        component = <List style={{marginTop: 0}} items={value} />
+      if (format === 'date') {
+        return <List style={{marginTop: 0}} items={entries} />
+      } else {
+        return <Label.Group tag={format === 'tag'} color='teal' content={entries} />
+      }
     }
-
-    this.setState({
-      ready: true,
-      component: component
-    })
   }
 
-  render () {
+  componentDidMount () {
+    this.setState({component: this.createComponent()}, () => this.setState({ready: true}))
+  }
+
+  component () {
     const {ready, component} = this.state
     const {displayName, description} = this.props
 
-    const header = <label>{displayName}</label>
-
-    if (ready) return SimpleStaticFormField(displayName, description, header, component)
+    if (ready) return simpleStaticFormField(displayName, description, component)
 
     return null
+  }
+
+  render () {
+    return this.component()
   }
 }
 
