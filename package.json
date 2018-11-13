@@ -1,8 +1,7 @@
 {
   "name": "dc-react-form-fields-library",
   "version": "0.1.0",
-  "description": "A React library consisting of different types of form components, wrapped in a form field",
-  "homepage": "https://github.com/statisticsnorway/dc-react-form-fields-library",
+  "description": "A React library consisting of different types of form components, wrapped in different kinds of form fields",
   "repository": {
     "type": "git",
     "url": "https://github.com/statisticsnorway/dc-react-form-fields-library"
@@ -10,13 +9,17 @@
   "private": true,
   "main": "dist/bundle.js",
   "dependencies": {
+    "moment": "^2.22.2",
     "react": "^16.6.0",
+    "react-datepicker": "^1.8.0",
     "react-dom": "^16.6.0",
     "react-scripts": "2.1.1",
+    "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.83.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "build:example": "react-scripts build",
     "build": "rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -42,7 +45,6 @@
     "rollup": "^0.67.0",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "semantic-ui-css": "^2.4.1"
+    "rollup-plugin-node-resolve": "^3.4.0"
   }
 }
