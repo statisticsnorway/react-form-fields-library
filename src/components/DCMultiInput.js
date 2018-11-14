@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Divider, Dropdown, Input } from 'semantic-ui-react'
+import { Button, Divider, Dropdown, Icon, Input } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
 import { fetchData } from './common/Fetch'
@@ -28,17 +28,24 @@ class DCMultiInput extends Component {
   }
 
   componentDidMount () {
-    fetchData(this.props.endpoint).then(options => {
-      this.setOptionsAndValue(options).then(() => {
-        this.setState({ready: true})
-      })
-    }).catch(error => {
+    if (this.props.hasOwnProperty('options')) {
       this.setState({
-        ready: true,
-        problem: true,
-        errorMessage: error
+        options: this.props.options,
+        ready: true
       })
-    })
+    } else {
+      fetchData(this.props.endpoint).then(options => {
+        this.setOptionsAndValue(options).then(() => {
+          this.setState({ready: true})
+        })
+      }).catch(error => {
+        this.setState({
+          ready: true,
+          problem: true,
+          errorMessage: error
+        })
+      })
+    }
   }
 
   handleInputChange (index, event) {
@@ -78,15 +85,15 @@ class DCMultiInput extends Component {
     const {name, displayName, description, error, warning, required} = this.props
 
     if (!ready) {
-      const action = <Dropdown button basic options={[]} loading />
-      const component = <Input placeholder={displayName} action={action} disabled />
+      const action = <Dropdown selection options={[]} loading />
+      const component = <Input placeholder={displayName} action={action} actionPosition='left' disabled />
 
       return fullFormField(displayName, description, error, warning, required, component)
     }
 
     if (ready && problem) {
-      const action = <Dropdown button basic options={[]} disabled />
-      const component = <Input placeholder={displayName} action={action} disabled />
+      const action = <Dropdown selection options={[]} disabled />
+      const component = <Input placeholder={displayName} action={action} actionPosition='left' disabled />
 
       return fullFormField(displayName, description, errorMessage, warning, required, component)
     }
@@ -95,17 +102,17 @@ class DCMultiInput extends Component {
       const components =
         <div>
           {value.map((entry, index) => {
-            const action = <Dropdown key={index} button basic options={options} value={entry.option}
+            const action = <Dropdown options={options} value={entry.option} selection clearable
                                      onChange={this.handleDropdownChange.bind(this, index)} />
             const button = <Button basic icon={{name: 'minus', color: 'red'}}
                                    onClick={this.handleRemoveEntry.bind(this, index)} />
 
             return (
               <div key={index}>
-                <Input action name={name} placeholder={displayName} value={entry.text}
-                       onChange={this.handleInputChange.bind(this, index)}>
-                  <input />
+                <Input labelPosition='right' name={name} placeholder={displayName} value={entry.text}
+                       onChange={this.handleInputChange.bind(this, index)} action actionPosition='left'>
                   {action}
+                  <input />
                   {button}
                 </Input>
                 <Divider hidden fitted />
@@ -113,7 +120,7 @@ class DCMultiInput extends Component {
             )
           })}
           <Divider hidden fitted />
-          <Button basic icon={{name: 'plus', color: 'green'}} size='small' onClick={this.handleAddEntry} />
+          <Icon link name='plus' color='green' onClick={this.handleAddEntry} />
         </div>
 
       return fullFormField(displayName, description, error, warning, required, components)
