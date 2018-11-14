@@ -15,7 +15,7 @@ class DCRadio extends Component {
   }
 
   handleChange = (event, {value}) => {
-    this.setState({value: value}, () => sessionStorage.setItem(this.props.name, this.state.value))
+    this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   component () {

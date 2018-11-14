@@ -15,7 +15,7 @@ class DCBoolean extends Component {
   }
 
   handleChange = () => {
-    this.setState({value: !this.state.value}, () => sessionStorage.setItem(this.props.name, this.state.value))
+    this.setState({value: !this.state.value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   component () {

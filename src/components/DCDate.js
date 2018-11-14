@@ -16,7 +16,7 @@ class DCDate extends Component {
   }
 
   handleChange = (value) => {
-    this.setState({value: value}, () => sessionStorage.setItem(this.props.name, this.state.value))
+    this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   component () {
