@@ -15,7 +15,7 @@ class DCText extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({value: event.target.value}, () => sessionStorage.setItem(this.props.name, this.state.value))
+    this.setState({value: event.target.value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   component () {

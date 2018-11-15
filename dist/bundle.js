@@ -46,6 +46,24 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
@@ -196,7 +214,7 @@ function (_Component) {
       _this.setState({
         value: event.target.value
       }, function () {
-        return sessionStorage.setItem(_this.props.name, _this.state.value);
+        return _this.props.valueChange(_this.props.name, _this.state.value);
       });
     };
 
@@ -260,7 +278,7 @@ function (_Component) {
       _this.setState({
         value: !_this.state.value
       }, function () {
-        return sessionStorage.setItem(_this.props.name, _this.state.value);
+        return _this.props.valueChange(_this.props.name, _this.state.value);
       });
     };
 
@@ -318,7 +336,7 @@ function (_Component) {
         _this.setState({
           value: event.target.value
         }, function () {
-          return sessionStorage.setItem(_this.props.name, _this.state.value);
+          return _this.props.valueChange(_this.props.name, _this.state.value);
         });
       }
     };
@@ -383,7 +401,7 @@ function (_Component) {
       _this.setState({
         value: value
       }, function () {
-        return sessionStorage.setItem(_this.props.name, _this.state.value);
+        return _this.props.valueChange(_this.props.name, _this.state.value);
       });
     };
 
@@ -457,7 +475,7 @@ function (_Component) {
       _this.setState({
         value: value
       }, function () {
-        return sessionStorage.setItem(_this.props.name, _this.state.value);
+        return _this.props.valueChange(_this.props.name, _this.state.value);
       });
     };
 
@@ -575,7 +593,7 @@ function (_Component) {
       _this.setState({
         value: data.value
       }, function () {
-        return sessionStorage.setItem(_this.props.name, _this.state.value);
+        return _this.props.valueChange(_this.props.name, _this.state.value);
       });
     };
 
@@ -620,9 +638,10 @@ function (_Component) {
       var _this3 = this;
 
       if (this.props.hasOwnProperty('options')) {
-        this.setState({
-          options: this.props.options,
-          ready: true
+        this.setOptionsAndValue(this.props.options).then(function () {
+          return _this3.setState({
+            ready: true
+          });
         });
       } else {
         Promise.all(Object.keys(this.props.endpoints).map(function (key) {
@@ -631,7 +650,7 @@ function (_Component) {
           var options = [].concat.apply([], allOptions);
 
           _this3.setOptionsAndValue(options).then(function () {
-            _this3.setState({
+            return _this3.setState({
               ready: true
             });
           });
@@ -712,7 +731,7 @@ function (_Component) {
           option: ''
         }])
       }, function () {
-        return sessionStorage.setItem(_this.props.name, _this.state.value);
+        return _this.props.valueChange(_this.props.name, _this.state.value);
       });
     };
 
@@ -789,7 +808,7 @@ function (_Component) {
       this.setState({
         value: value
       }, function () {
-        return sessionStorage.setItem(_this4.props.name, _this4.state.value);
+        return _this4.props.valueChange(_this4.props.name, _this4.state.value);
       });
     }
   }, {
@@ -807,7 +826,7 @@ function (_Component) {
       this.setState({
         value: value
       }, function () {
-        return sessionStorage.setItem(_this5.props.name, _this5.state.value);
+        return _this5.props.valueChange(_this5.props.name, _this5.state.value);
       });
     }
   }, {
@@ -821,7 +840,7 @@ function (_Component) {
       this.setState({
         value: entries
       }, function () {
-        return sessionStorage.setItem(_this6.props.name, _this6.state.value);
+        return _this6.props.valueChange(_this6.props.name, _this6.state.value);
       });
     }
   }, {
@@ -1065,7 +1084,9 @@ function (_Component) {
     key: "render",
     value: function render() {
       var FormComponent = formComponents[this.props.properties.component];
-      return React__default.createElement(FormComponent, this.props.properties);
+      return React__default.createElement(FormComponent, _extends({}, this.props.properties, {
+        valueChange: this.props.valueChange
+      }));
     }
   }]);
 

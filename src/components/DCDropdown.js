@@ -31,10 +31,7 @@ class DCDropdown extends Component {
 
   componentDidMount () {
     if (this.props.hasOwnProperty('options')) {
-      this.setState({
-        options: this.props.options,
-        ready: true
-      })
+      this.setOptionsAndValue(this.props.options).then(() => this.setState({ready: true}))
     } else {
       Promise.all(
         Object.keys(this.props.endpoints).map(key => {
@@ -43,9 +40,7 @@ class DCDropdown extends Component {
       ).then(allOptions => {
         const options = [].concat.apply([], allOptions)
 
-        this.setOptionsAndValue(options).then(() => {
-          this.setState({ready: true})
-        })
+        this.setOptionsAndValue(options).then(() => this.setState({ready: true}))
       }).catch(error => {
         this.setState({
           ready: true,
@@ -57,7 +52,7 @@ class DCDropdown extends Component {
   }
 
   handleChange = (event, data) => {
-    this.setState({value: data.value}, () => sessionStorage.setItem(this.props.name, this.state.value))
+    this.setState({value: data.value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   component () {

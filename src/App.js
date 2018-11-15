@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Checkbox, Divider, Form, Grid, Header } from 'semantic-ui-react'
+import { Button, Checkbox, Divider, Form, Grid, Header } from 'semantic-ui-react'
 import moment from 'moment'
 import 'moment/locale/nb'
 
@@ -181,17 +181,41 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      ready: true,
+      ready: false,
       error: false,
       warning: false,
       urlError: false,
       networkError: false,
-      formComponents: testFormComponents
+      formComponents: testFormComponents,
+      data: {}
     }
   }
 
   componentDidMount () {
+    const data = {}
+
+    Object.keys(testFormComponents).forEach(key => {
+      data[testFormComponents[key].name] = ''
+    })
+
+    this.setState({data: data}, () => {
+      this.setState({ready: true})
+    })
+
     sessionStorage.clear()
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return this.state.data === nextState.data
+  }
+
+  valueChange = (name, value) => {
+    this.setState({
+      data: {
+        ...this.state.data,
+        [name]: value
+      }
+    })
   }
 
   handleWarningsAndErrors (type) {
@@ -272,6 +296,10 @@ class App extends Component {
     })
   }
 
+  checkState = () => {
+    console.log(this.state)
+  }
+
   render () {
     const {ready, warning, error, urlError, networkError, formComponents} = this.state
 
@@ -280,11 +308,13 @@ class App extends Component {
         <Grid.Column>
           <Header as='h1' content='Form' />
           {ready &&
+
           <Form>
             {Object.keys(formComponents).map(value => {
-              return <DCFormField key={value} properties={formComponents[value]} />
+              return <DCFormField key={value} properties={formComponents[value]} valueChange={this.valueChange} />
             })}
           </Form>
+
           }
         </Grid.Column>
 
@@ -300,6 +330,8 @@ class App extends Component {
           <Divider hidden />
           <Checkbox label='Network error' checked={networkError}
                     onChange={this.handleDropdownErrors.bind(this, 'networkError')} />
+          <Divider hidden />
+          <Button primary content='Print state in console' onClick={this.checkState} />
         </Grid.Column>
       </Grid>
     )

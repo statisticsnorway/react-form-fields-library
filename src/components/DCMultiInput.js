@@ -54,7 +54,7 @@ class DCMultiInput extends Component {
 
     value.splice(parseInt(index), 1, editedEntry)
 
-    this.setState({value: value}, () => sessionStorage.setItem(this.props.name, this.state.value))
+    this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   handleDropdownChange (index, event, data) {
@@ -63,12 +63,12 @@ class DCMultiInput extends Component {
 
     value.splice(parseInt(index), 1, editedEntry)
 
-    this.setState({value: value}, () => sessionStorage.setItem(this.props.name, this.state.value))
+    this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   handleAddEntry = () => {
     this.setState({value: [...this.state.value, {text: '', option: ''}]}, () =>
-      sessionStorage.setItem(this.props.name, this.state.value)
+      this.props.valueChange(this.props.name, this.state.value)
     )
   }
 
@@ -77,7 +77,7 @@ class DCMultiInput extends Component {
 
     if (parseInt(index) !== -1) entries.splice(parseInt(index), 1)
 
-    this.setState({value: entries}, () => sessionStorage.setItem(this.props.name, this.state.value))
+    this.setState({value: entries}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   component () {

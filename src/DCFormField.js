@@ -24,7 +24,7 @@ class DCFormField extends Component {
   render () {
     const FormComponent = formComponents[this.props.properties.component]
 
-    return <FormComponent {...this.props.properties} />
+    return <FormComponent {...this.props.properties} valueChange={this.props.valueChange} />
   }
 }
 

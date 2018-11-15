@@ -9,8 +9,8 @@ is to supplement [dc-react-components-library](https://github.com/statisticsnorw
 2. Import the component in your React application with `import { DCFormField } from 'dc-react-form-fields-library'`
 
 ##### Note:
-* When imported from GitHub the library does not automatically stay up to date with the latest commits so you 
-have to run `yarn upgrade dc-react-form-fields-library` to get the latest "build"
+* When imported from GitHub the library does not automatically stay up to date with the latest commits so you have to 
+run `yarn upgrade dc-react-form-fields-library` to get the latest "build"
 
 ### Test it yourself
 Run `yarn start` and navigate to `http://localhost:3000/`
@@ -22,15 +22,15 @@ Run `yarn start` and navigate to `http://localhost:3000/`
 4. Navigate to `http://localhost:5000/`
 
 ### How it works
-The DCFormField component expects one object containing some properties, for example:
+The DCFormField component expects one object containing some properties and one function (more on that later) for example:
 ```javascript
 import React, { Component } from 'react'
 import { DCFormField } from 'dc-react-form-fields-library'
 import { Form } from 'semantic-ui-react'
 
-const props = {
+const properties = {
   component: 'DCText',                          // The component type
-  name: 'myInput',                              // Identifier for the value stored in sessionStorage
+  name: 'myInput',                              // Identifier for the value stored in the parent
   displayName: 'My input',                      // Label on the form field
   description: 'A description for my input',    // Popup on the label
   required: true,                               // If the field is required
@@ -41,7 +41,7 @@ class App extends Component {
   render () {
     return (
       <Form>
-        <DCFormField properties={props} />
+        <DCFormField properties={properties} valueChange={this.valueChange} />
       </Form>
     )
   }
@@ -49,7 +49,8 @@ class App extends Component {
 ```
 
 ##### Note:
-* *component* and *name* are the only **required** properties by default but some component types require more properties too work correctly, this will be explained in the table below
+* *component* and *name* are the only **required** properties by default but some component types require more 
+properties too work correctly, this will be explained in the table below
 * This library uses [Semantic UI](https://semantic-ui.com/introduction/getting-started.html) for styling and therefore 
 requires your project to to have `semantic-ui-css` and `semantic-ui-react` as dependencies
   * Do not forget to wrap your DCFormField components inside the [Semantic UI React](https://react.semantic-ui.com/) 
@@ -58,11 +59,25 @@ requires your project to to have `semantic-ui-css` and `semantic-ui-react` as de
 * The DCDate component uses [Moment.js](https://momentjs.com/docs/) and [ReactJS Datepicker](https://reactdatepicker.com/) 
 so if you wish to use it you need `react-datepicker` and `moment` as dependencies in your project
   * Do not forget to add `import 'react-datepicker/dist/react-datepicker.css'` in your `index.js`
-* The form components store their value in sessionStorage (to avoid having to use Redux or passing state to parent), so to 
-fetch a value from a component do this:
+* The form components store their value in their own state, so they can be controlled inputs, but also updates the parents state
+  so we can keep the data together
+  * However we do not want to re-render the parent when its values updates
+  * To avoid this you need some functions in your parent and then pass the handling of value changing to the DCFormField 
+    component (discussed earlier), like this: 
 
 ```javascript
-sessionStorage.getItem(name)            // 'name' is they same value that you used in the props for the component
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return this.state.data === nextState.data;
+  }
+
+  valueChange = (name, value) => {
+    this.setState({
+      data: {
+        ...this.state.data,
+        [name]: value
+      }
+    })
+  }
 ```
 
 
