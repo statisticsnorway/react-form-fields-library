@@ -619,23 +619,30 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      Promise.all(Object.keys(this.props.endpoints).map(function (key) {
-        return fetchData(_this3.props.endpoints[key]);
-      })).then(function (allOptions) {
-        var options = [].concat.apply([], allOptions);
+      if (this.props.hasOwnProperty('options')) {
+        this.setState({
+          options: this.props.options,
+          ready: true
+        });
+      } else {
+        Promise.all(Object.keys(this.props.endpoints).map(function (key) {
+          return fetchData(_this3.props.endpoints[key]);
+        })).then(function (allOptions) {
+          var options = [].concat.apply([], allOptions);
 
-        _this3.setOptionsAndValue(options).then(function () {
+          _this3.setOptionsAndValue(options).then(function () {
+            _this3.setState({
+              ready: true
+            });
+          });
+        }).catch(function (error) {
           _this3.setState({
-            ready: true
+            ready: true,
+            problem: true,
+            errorMessage: error
           });
         });
-      }).catch(function (error) {
-        _this3.setState({
-          ready: true,
-          problem: true,
-          errorMessage: error
-        });
-      });
+      }
     }
   }, {
     key: "component",
@@ -746,19 +753,26 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      fetchData(this.props.endpoint).then(function (options) {
-        _this3.setOptionsAndValue(options).then(function () {
+      if (this.props.hasOwnProperty('options')) {
+        this.setState({
+          options: this.props.options,
+          ready: true
+        });
+      } else {
+        fetchData(this.props.endpoint).then(function (options) {
+          _this3.setOptionsAndValue(options).then(function () {
+            _this3.setState({
+              ready: true
+            });
+          });
+        }).catch(function (error) {
           _this3.setState({
-            ready: true
+            ready: true,
+            problem: true,
+            errorMessage: error
           });
         });
-      }).catch(function (error) {
-        _this3.setState({
-          ready: true,
-          problem: true,
-          errorMessage: error
-        });
-      });
+      }
     }
   }, {
     key: "handleInputChange",
@@ -831,14 +845,14 @@ function (_Component) {
 
       if (!ready) {
         var action = React__default.createElement(semanticUiReact.Dropdown, {
-          button: true,
-          basic: true,
+          selection: true,
           options: [],
           loading: true
         });
         var component = React__default.createElement(semanticUiReact.Input, {
           placeholder: displayName,
           action: action,
+          actionPosition: "left",
           disabled: true
         });
         return fullFormField(displayName, description, error, warning, required, component);
@@ -846,8 +860,7 @@ function (_Component) {
 
       if (ready && problem) {
         var _action = React__default.createElement(semanticUiReact.Dropdown, {
-          button: true,
-          basic: true,
+          selection: true,
           options: [],
           disabled: true
         });
@@ -855,6 +868,7 @@ function (_Component) {
         var _component = React__default.createElement(semanticUiReact.Input, {
           placeholder: displayName,
           action: _action,
+          actionPosition: "left",
           disabled: true
         });
 
@@ -864,11 +878,10 @@ function (_Component) {
       if (ready && !problem) {
         var components = React__default.createElement("div", null, value.map(function (entry, index) {
           var action = React__default.createElement(semanticUiReact.Dropdown, {
-            key: index,
-            button: true,
-            basic: true,
             options: options,
             value: entry.option,
+            selection: true,
+            clearable: true,
             onChange: _this7.handleDropdownChange.bind(_this7, index)
           });
           var button = React__default.createElement(semanticUiReact.Button, {
@@ -882,25 +895,24 @@ function (_Component) {
           return React__default.createElement("div", {
             key: index
           }, React__default.createElement(semanticUiReact.Input, {
-            action: true,
+            labelPosition: "right",
             name: name,
             placeholder: displayName,
             value: entry.text,
-            onChange: _this7.handleInputChange.bind(_this7, index)
-          }, React__default.createElement("input", null), action, button), React__default.createElement(semanticUiReact.Divider, {
+            onChange: _this7.handleInputChange.bind(_this7, index),
+            action: true,
+            actionPosition: "left"
+          }, action, React__default.createElement("input", null), button), React__default.createElement(semanticUiReact.Divider, {
             hidden: true,
             fitted: true
           }));
         }), React__default.createElement(semanticUiReact.Divider, {
           hidden: true,
           fitted: true
-        }), React__default.createElement(semanticUiReact.Button, {
-          basic: true,
-          icon: {
-            name: 'plus',
-            color: 'green'
-          },
-          size: "small",
+        }), React__default.createElement(semanticUiReact.Icon, {
+          link: true,
+          name: "plus",
+          color: "green",
           onClick: this.handleAddEntry
         }));
         return fullFormField(displayName, description, error, warning, required, components);

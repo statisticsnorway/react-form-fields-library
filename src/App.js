@@ -70,6 +70,31 @@ export const testFormComponents = {
       'https://metadata.ssbmod.net/data/Role/'
     ]
   },
+  DCDropdownSingleSelectProvidedOptions: {
+    component: 'DCDropdown',
+    name: 'myDropdownSingleSelectProvidedOptionsInput',
+    displayName: 'DCDropdown (provided options)',
+    description: 'A description for this input',
+    required: true,
+    options: [
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
+    ]
+  },
+  DCDropdownMultipleSelectProvidedOptions: {
+    component: 'DCDropdown',
+    name: 'myDropdownMultipleSelectProvidedOptionsInput',
+    displayName: 'DCDropdown (multiSelect and provided options)',
+    description: 'A description for this input',
+    required: true,
+    multiSelect: true,
+    options: [
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
+    ]
+  },
   DCMultiInput: {
     component: 'DCMultiInput',
     name: 'myDCMultiInputInput',
@@ -77,6 +102,18 @@ export const testFormComponents = {
     description: 'A description for this input',
     required: true,
     endpoint: 'https://metadata.ssbmod.net/data/Protocol/'
+  },
+  DCMultiInputProvidedOptions: {
+    component: 'DCMultiInput',
+    name: 'myDCMultiInputProvidedOptionsInput',
+    displayName: 'DCMultiInput (provided options)',
+    description: 'A description for this input',
+    required: true,
+    options: [
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
+    ]
   },
   DCStaticStandard: {
     component: 'DCStatic',
@@ -242,7 +279,6 @@ class App extends Component {
       <Grid padded divided columns='equal'>
         <Grid.Column>
           <Header as='h1' content='Form' />
-
           {ready &&
           <Form>
             {Object.keys(formComponents).map(value => {

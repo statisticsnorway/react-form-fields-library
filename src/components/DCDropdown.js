@@ -30,23 +30,30 @@ class DCDropdown extends Component {
   }
 
   componentDidMount () {
-    Promise.all(
-      Object.keys(this.props.endpoints).map(key => {
-        return fetchData(this.props.endpoints[key])
-      })
-    ).then(allOptions => {
-      const options = [].concat.apply([], allOptions)
-
-      this.setOptionsAndValue(options).then(() => {
-        this.setState({ready: true})
-      })
-    }).catch(error => {
+    if (this.props.hasOwnProperty('options')) {
       this.setState({
-        ready: true,
-        problem: true,
-        errorMessage: error
+        options: this.props.options,
+        ready: true
       })
-    })
+    } else {
+      Promise.all(
+        Object.keys(this.props.endpoints).map(key => {
+          return fetchData(this.props.endpoints[key])
+        })
+      ).then(allOptions => {
+        const options = [].concat.apply([], allOptions)
+
+        this.setOptionsAndValue(options).then(() => {
+          this.setState({ready: true})
+        })
+      }).catch(error => {
+        this.setState({
+          ready: true,
+          problem: true,
+          errorMessage: error
+        })
+      })
+    }
   }
 
   handleChange = (event, data) => {
