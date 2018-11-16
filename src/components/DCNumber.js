@@ -16,7 +16,11 @@ class DCNumber extends Component {
 
   handleChange = (event) => {
     if (!isNaN(event.target.value)) {
-      this.setState({value: event.target.value}, () => this.props.valueChange(this.props.name, this.state.value))
+      let value = ''
+
+      if (event.target.value !== '') value = parseFloat(event.target.value)
+
+      this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
     }
   }
 

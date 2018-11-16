@@ -20,7 +20,7 @@ class DCDropdown extends Component {
   setOptionsAndValue (options) {
     return new Promise(resolve => {
       this.setState({options: options}, () => {
-        if (checkValueAndType(this.props.value, 'string') || checkValueAndType(this.props.value, 'array')) {
+        if (checkValueAndType(this.props.value, 'string') || Array.isArray(this.props.value)) {
           this.setState({value: this.props.value}, () => resolve())
         } else {
           this.setState({value: this.props.multiSelect ? [] : ''}, () => resolve())
@@ -57,7 +57,7 @@ class DCDropdown extends Component {
 
   component () {
     const {ready, problem, value, options, errorMessage} = this.state
-    const {displayName, description, error, warning, required, multiSelect} = this.props
+    const {displayName, description, error, warning, required, multiSelect, searchable} = this.props
 
     if (!ready) return fullFormField(displayName, description, error, warning, required,
       <Dropdown placeholder={displayName} selection options={[]} loading disabled />)
@@ -67,7 +67,7 @@ class DCDropdown extends Component {
 
     if (ready && !problem) return fullFormField(displayName, description, error, warning, required,
       <Dropdown placeholder={displayName} value={value} options={options} clearable selection multiple={multiSelect}
-                onChange={this.handleChange} />)
+                search={searchable} onChange={this.handleChange} />)
 
     return null
   }

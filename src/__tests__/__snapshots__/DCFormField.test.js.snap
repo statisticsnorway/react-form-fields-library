@@ -606,6 +606,191 @@ ShallowWrapper {
       Object {
         "component": "DCDropdown",
         "description": "A description for this input",
+        "displayName": "DCDropdown (searchable)",
+        "endpoints": Array [
+          "https://metadata.ssbmod.net/data/Role/",
+          "https://metadata.ssbmod.net/data/Agent/",
+        ],
+        "name": "myDropdownSingleSelectSearchableInput",
+        "required": true,
+        "searchable": true,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "component": "DCDropdown",
+      "description": "A description for this input",
+      "displayName": "DCDropdown (searchable)",
+      "endpoints": Array [
+        "https://metadata.ssbmod.net/data/Role/",
+        "https://metadata.ssbmod.net/data/Agent/",
+      ],
+      "name": "myDropdownSingleSelectSearchableInput",
+      "required": true,
+      "searchable": true,
+      "valueChange": undefined,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "component": "DCDropdown",
+        "description": "A description for this input",
+        "displayName": "DCDropdown (searchable)",
+        "endpoints": Array [
+          "https://metadata.ssbmod.net/data/Role/",
+          "https://metadata.ssbmod.net/data/Agent/",
+        ],
+        "name": "myDropdownSingleSelectSearchableInput",
+        "required": true,
+        "searchable": true,
+        "valueChange": undefined,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`DCFormField Renders all the input components without error and only once 9`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DCFormField
+    properties={
+      Object {
+        "component": "DCDropdown",
+        "description": "A description for this input",
+        "displayName": "DCDropdown (searchable multiSelect)",
+        "endpoints": Array [
+          "https://metadata.ssbmod.net/data/Agent/",
+          "https://metadata.ssbmod.net/data/Role/",
+        ],
+        "multiSelect": true,
+        "name": "myDropdownMultipleSelectSearchableInput",
+        "required": true,
+        "searchable": true,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "component": "DCDropdown",
+      "description": "A description for this input",
+      "displayName": "DCDropdown (searchable multiSelect)",
+      "endpoints": Array [
+        "https://metadata.ssbmod.net/data/Agent/",
+        "https://metadata.ssbmod.net/data/Role/",
+      ],
+      "multiSelect": true,
+      "name": "myDropdownMultipleSelectSearchableInput",
+      "required": true,
+      "searchable": true,
+      "valueChange": undefined,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "component": "DCDropdown",
+        "description": "A description for this input",
+        "displayName": "DCDropdown (searchable multiSelect)",
+        "endpoints": Array [
+          "https://metadata.ssbmod.net/data/Agent/",
+          "https://metadata.ssbmod.net/data/Role/",
+        ],
+        "multiSelect": true,
+        "name": "myDropdownMultipleSelectSearchableInput",
+        "required": true,
+        "searchable": true,
+        "valueChange": undefined,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`DCFormField Renders all the input components without error and only once 10`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DCFormField
+    properties={
+      Object {
+        "component": "DCDropdown",
+        "description": "A description for this input",
         "displayName": "DCDropdown (provided options)",
         "name": "myDropdownSingleSelectProvidedOptionsInput",
         "options": Array [
@@ -716,7 +901,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 9`] = `
+exports[`DCFormField Renders all the input components without error and only once 11`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -837,7 +1022,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 10`] = `
+exports[`DCFormField Renders all the input components without error and only once 12`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -916,7 +1101,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 11`] = `
+exports[`DCFormField Renders all the input components without error and only once 13`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1034,7 +1219,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 12`] = `
+exports[`DCFormField Renders all the input components without error and only once 14`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1116,7 +1301,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 13`] = `
+exports[`DCFormField Renders all the input components without error and only once 15`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1128,7 +1313,7 @@ ShallowWrapper {
         "format": "date",
         "name": "myDCStaticDateInput",
         "value": Array [
-          "2018-11-14T11:59:05.532Z",
+          "2018-11-16T07:46:29.001Z",
         ],
       }
     }
@@ -1152,7 +1337,7 @@ ShallowWrapper {
       "format": "date",
       "name": "myDCStaticDateInput",
       "value": Array [
-        "2018-11-14T11:59:05.532Z",
+        "2018-11-16T07:46:29.001Z",
       ],
       "valueChange": undefined,
     },
@@ -1172,7 +1357,7 @@ ShallowWrapper {
         "format": "date",
         "name": "myDCStaticDateInput",
         "value": Array [
-          "2018-11-14T11:59:05.532Z",
+          "2018-11-16T07:46:29.001Z",
         ],
         "valueChange": undefined,
       },
@@ -1201,7 +1386,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 14`] = `
+exports[`DCFormField Renders all the input components without error and only once 16`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1292,7 +1477,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 15`] = `
+exports[`DCFormField Renders all the input components without error and only once 17`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1383,7 +1568,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 16`] = `
+exports[`DCFormField Renders all the input components without error and only once 18`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1468,7 +1653,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 17`] = `
+exports[`DCFormField Renders all the input components without error and only once 19`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1480,8 +1665,8 @@ ShallowWrapper {
         "format": "date",
         "name": "myDCStaticDateMultiInput",
         "value": Array [
-          "2018-11-14T11:59:05.533Z",
-          "2019-11-14T11:59:05.533Z",
+          "2018-11-16T07:46:29.002Z",
+          "2019-11-16T07:46:29.002Z",
         ],
       }
     }
@@ -1505,8 +1690,8 @@ ShallowWrapper {
       "format": "date",
       "name": "myDCStaticDateMultiInput",
       "value": Array [
-        "2018-11-14T11:59:05.533Z",
-        "2019-11-14T11:59:05.533Z",
+        "2018-11-16T07:46:29.002Z",
+        "2019-11-16T07:46:29.002Z",
       ],
       "valueChange": undefined,
     },
@@ -1526,8 +1711,8 @@ ShallowWrapper {
         "format": "date",
         "name": "myDCStaticDateMultiInput",
         "value": Array [
-          "2018-11-14T11:59:05.533Z",
-          "2019-11-14T11:59:05.533Z",
+          "2018-11-16T07:46:29.002Z",
+          "2019-11-16T07:46:29.002Z",
         ],
         "valueChange": undefined,
       },

@@ -195,7 +195,7 @@ function simpleStaticFormField(displayName, description, component) {
 }
 
 function checkValueAndType(value, type) {
-  return value !== undefined && _typeof(value) === type;
+  return value !== undefined && value !== '' && value !== null && _typeof(value) === type;
 }
 
 var DCText =
@@ -333,8 +333,11 @@ function (_Component) {
 
     _this.handleChange = function (event) {
       if (!isNaN(event.target.value)) {
+        var value = '';
+        if (event.target.value !== '') value = parseFloat(event.target.value);
+
         _this.setState({
-          value: event.target.value
+          value: value
         }, function () {
           return _this.props.valueChange(_this.props.name, _this.state.value);
         });
@@ -616,7 +619,7 @@ function (_Component) {
         _this2.setState({
           options: options
         }, function () {
-          if (checkValueAndType(_this2.props.value, 'string') || checkValueAndType(_this2.props.value, 'array')) {
+          if (checkValueAndType(_this2.props.value, 'string') || Array.isArray(_this2.props.value)) {
             _this2.setState({
               value: _this2.props.value
             }, function () {
@@ -678,7 +681,8 @@ function (_Component) {
           error = _this$props.error,
           warning = _this$props.warning,
           required = _this$props.required,
-          multiSelect = _this$props.multiSelect;
+          multiSelect = _this$props.multiSelect,
+          searchable = _this$props.searchable;
       if (!ready) return fullFormField(displayName, description, error, warning, required, React__default.createElement(semanticUiReact.Dropdown, {
         placeholder: displayName,
         selection: true,
@@ -698,6 +702,7 @@ function (_Component) {
         clearable: true,
         selection: true,
         multiple: multiSelect,
+        search: searchable,
         onChange: this.handleChange
       }));
       return null;
@@ -757,7 +762,7 @@ function (_Component) {
         _this2.setState({
           options: options
         }, function () {
-          if (checkValueAndType(_this2.props.value, 'array')) {
+          if (Array.isArray(_this2.props.value)) {
             _this2.setState({
               value: _this2.props.value
             }, function () {
@@ -773,9 +778,10 @@ function (_Component) {
       var _this3 = this;
 
       if (this.props.hasOwnProperty('options')) {
-        this.setState({
-          options: this.props.options,
-          ready: true
+        this.setOptionsAndValue(this.props.options).then(function () {
+          return _this3.setState({
+            ready: true
+          });
         });
       } else {
         fetchData(this.props.endpoint).then(function (options) {
