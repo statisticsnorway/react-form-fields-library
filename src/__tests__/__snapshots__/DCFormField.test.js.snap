@@ -1128,7 +1128,7 @@ ShallowWrapper {
         "format": "date",
         "name": "myDCStaticDateInput",
         "value": Array [
-          "2018-11-14T11:59:05.532Z",
+          "2018-11-15T13:31:19.024Z",
         ],
       }
     }
@@ -1152,7 +1152,7 @@ ShallowWrapper {
       "format": "date",
       "name": "myDCStaticDateInput",
       "value": Array [
-        "2018-11-14T11:59:05.532Z",
+        "2018-11-15T13:31:19.024Z",
       ],
       "valueChange": undefined,
     },
@@ -1172,7 +1172,7 @@ ShallowWrapper {
         "format": "date",
         "name": "myDCStaticDateInput",
         "value": Array [
-          "2018-11-14T11:59:05.532Z",
+          "2018-11-15T13:31:19.024Z",
         ],
         "valueChange": undefined,
       },
@@ -1480,8 +1480,8 @@ ShallowWrapper {
         "format": "date",
         "name": "myDCStaticDateMultiInput",
         "value": Array [
-          "2018-11-14T11:59:05.533Z",
-          "2019-11-14T11:59:05.533Z",
+          "2018-11-15T13:31:19.024Z",
+          "2019-11-15T13:31:19.024Z",
         ],
       }
     }
@@ -1505,8 +1505,8 @@ ShallowWrapper {
       "format": "date",
       "name": "myDCStaticDateMultiInput",
       "value": Array [
-        "2018-11-14T11:59:05.533Z",
-        "2019-11-14T11:59:05.533Z",
+        "2018-11-15T13:31:19.024Z",
+        "2019-11-15T13:31:19.024Z",
       ],
       "valueChange": undefined,
     },
@@ -1526,8 +1526,8 @@ ShallowWrapper {
         "format": "date",
         "name": "myDCStaticDateMultiInput",
         "value": Array [
-          "2018-11-14T11:59:05.533Z",
-          "2019-11-14T11:59:05.533Z",
+          "2018-11-15T13:31:19.024Z",
+          "2019-11-15T13:31:19.024Z",
         ],
         "valueChange": undefined,
       },
