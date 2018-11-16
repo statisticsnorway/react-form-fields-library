@@ -46,18 +46,16 @@ class DCMultiInput extends Component {
 
   handleInputChange (index, event) {
     const value = [...this.state.value]
-    const editedEntry = {text: event.target.value, option: value[index].option}
 
-    value.splice(parseInt(index), 1, editedEntry)
+    value[parseInt(index)].text = event.target.value
 
     this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   handleDropdownChange (index, event, data) {
     const value = [...this.state.value]
-    const editedEntry = {text: value[index].text, option: data.value}
 
-    value.splice(parseInt(index), 1, editedEntry)
+    value[parseInt(index)].option = data.value
 
     this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
@@ -98,7 +96,7 @@ class DCMultiInput extends Component {
       const components =
         <div>
           {value.map((entry, index) => {
-            const action = <Dropdown options={options} value={entry.option} selection clearable
+            const action = <Dropdown options={options} value={entry.option} selection clearable placeholder='Pick one'
                                      onChange={this.handleDropdownChange.bind(this, index)} />
             const button = <Button basic icon={{name: 'minus', color: 'red'}}
                                    onClick={this.handleRemoveEntry.bind(this, index)} />
@@ -116,7 +114,7 @@ class DCMultiInput extends Component {
             )
           })}
           <Divider hidden fitted />
-          <Icon link name='plus' color='green' onClick={this.handleAddEntry} />
+          <Icon link name='plus' color='green' size='large' onClick={this.handleAddEntry} />
         </div>
 
       return fullFormField(displayName, description, error, warning, required, components)

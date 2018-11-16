@@ -67,6 +67,11 @@ class DCDropdown extends Component {
 
     if (ready && !problem) return fullFormField(displayName, description, error, warning, required,
       <Dropdown placeholder={displayName} value={value} options={options} clearable selection multiple={multiSelect}
+                icon={{
+                  name: searchable ? 'search' : 'dropdown',
+                  disabled: !!searchable,
+                  size: searchable ? 'small' : null
+                }}
                 search={searchable} onChange={this.handleChange} />)
 
     return null
