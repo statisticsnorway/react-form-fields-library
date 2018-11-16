@@ -70,6 +70,31 @@ export const testFormComponents = {
       'https://metadata.ssbmod.net/data/Role/'
     ]
   },
+  DCDropdownSingleSelectSearchable: {
+    component: 'DCDropdown',
+    name: 'myDropdownSingleSelectSearchableInput',
+    displayName: 'DCDropdown (searchable)',
+    description: 'A description for this input',
+    required: true,
+    searchable: true,
+    endpoints: [
+      'https://metadata.ssbmod.net/data/Role/',
+      'https://metadata.ssbmod.net/data/Agent/'
+    ]
+  },
+  DCDropdownMultipleSelectSearchable: {
+    component: 'DCDropdown',
+    name: 'myDropdownMultipleSelectSearchableInput',
+    displayName: 'DCDropdown (searchable multiSelect)',
+    description: 'A description for this input',
+    required: true,
+    multiSelect: true,
+    searchable: true,
+    endpoints: [
+      'https://metadata.ssbmod.net/data/Agent/',
+      'https://metadata.ssbmod.net/data/Role/'
+    ]
+  },
   DCDropdownSingleSelectProvidedOptions: {
     component: 'DCDropdown',
     name: 'myDropdownSingleSelectProvidedOptionsInput',
@@ -195,21 +220,23 @@ class App extends Component {
     const data = {}
 
     Object.keys(testFormComponents).forEach(key => {
-      data[testFormComponents[key].name] = ''
+      if (testFormComponents[key].hasOwnProperty('value')) {
+        data[testFormComponents[key].name] = testFormComponents[key].value
+      } else {
+        data[testFormComponents[key].name] = ''
+      }
     })
 
     this.setState({data: data}, () => {
       this.setState({ready: true})
     })
-
-    sessionStorage.clear()
   }
 
   shouldComponentUpdate = (nextProps, nextState) => {
     return this.state.data === nextState.data
   }
 
-  valueChange = (name, value) => {
+  handleValueChange = (name, value) => {
     this.setState({
       data: {
         ...this.state.data,
@@ -228,6 +255,7 @@ class App extends Component {
         this.setState({ready: false}, () => {
           Object.keys(formComponents).forEach(key => {
             formComponents[key][type] = type
+            formComponents[key].value = this.state.data[formComponents[key].name]
           })
 
           this.setState({formComponents: formComponents}, () => {
@@ -238,6 +266,7 @@ class App extends Component {
         this.setState({ready: false}, () => {
           Object.keys(formComponents).forEach(key => {
             delete formComponents[key][type]
+            formComponents[key].value = this.state.data[formComponents[key].name]
           })
 
           this.setState({formComponents: formComponents}, () => {
@@ -276,6 +305,10 @@ class App extends Component {
           formComponents.DCMultiInput.endpoint = errorEndpoint
         })
 
+        Object.keys(formComponents).forEach(key => {
+          formComponents[key].value = this.state.data[formComponents[key].name]
+        })
+
         this.setState({formComponents: formComponents}, () => {
           this.setState({ready: true})
         })
@@ -287,6 +320,10 @@ class App extends Component {
           formComponents.DCDropdownSingleSelect.endpoints = goodEndpoints
           formComponents.DCDropdownMultipleSelect.endpoints = goodEndpoints
           formComponents.DCMultiInput.endpoint = goodEndpoint
+
+          Object.keys(formComponents).forEach(key => {
+            formComponents[key].value = this.state.data[formComponents[key].name]
+          })
 
           this.setState({formComponents: formComponents}, () => {
             this.setState({ready: true})
@@ -308,13 +345,11 @@ class App extends Component {
         <Grid.Column>
           <Header as='h1' content='Form' />
           {ready &&
-
           <Form>
             {Object.keys(formComponents).map(value => {
-              return <DCFormField key={value} properties={formComponents[value]} valueChange={this.valueChange} />
+              return <DCFormField key={value} properties={formComponents[value]} valueChange={this.handleValueChange} />
             })}
           </Form>
-
           }
         </Grid.Column>
 

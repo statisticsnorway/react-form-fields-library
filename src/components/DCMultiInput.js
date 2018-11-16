@@ -3,7 +3,6 @@ import { Button, Divider, Dropdown, Icon, Input } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
 import { fetchData } from './common/Fetch'
-import { checkValueAndType } from './common/Utlities'
 
 class DCMultiInput extends Component {
   constructor (props) {
@@ -20,7 +19,7 @@ class DCMultiInput extends Component {
   setOptionsAndValue (options) {
     return new Promise(resolve => {
       this.setState({options: options}, () => {
-        if (checkValueAndType(this.props.value, 'array')) {
+        if (Array.isArray(this.props.value)) {
           this.setState({value: this.props.value}, () => resolve())
         } else resolve()
       })
@@ -29,10 +28,7 @@ class DCMultiInput extends Component {
 
   componentDidMount () {
     if (this.props.hasOwnProperty('options')) {
-      this.setState({
-        options: this.props.options,
-        ready: true
-      })
+      this.setOptionsAndValue(this.props.options).then(() => this.setState({ready: true}))
     } else {
       fetchData(this.props.endpoint).then(options => {
         this.setOptionsAndValue(options).then(() => {
