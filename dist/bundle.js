@@ -5,10 +5,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var DatePicker = _interopDefault(require('react-datepicker'));
+var moment = _interopDefault(require('moment'));
 var React = require('react');
 var React__default = _interopDefault(React);
 var semanticUiReact = require('semantic-ui-react');
-var moment = _interopDefault(require('moment'));
 
 function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -698,6 +698,11 @@ function (_Component) {
         clearable: true,
         selection: true,
         multiple: multiSelect,
+        icon: {
+          name: searchable ? 'search' : 'dropdown',
+          disabled: !!searchable,
+          size: searchable ? 'small' : null
+        },
         search: searchable,
         onChange: this.handleChange
       }));
@@ -802,11 +807,7 @@ function (_Component) {
 
       var value = _toConsumableArray(this.state.value);
 
-      var editedEntry = {
-        text: event.target.value,
-        option: value[index].option
-      };
-      value.splice(parseInt(index), 1, editedEntry);
+      value[parseInt(index)].text = event.target.value;
       this.setState({
         value: value
       }, function () {
@@ -820,11 +821,7 @@ function (_Component) {
 
       var value = _toConsumableArray(this.state.value);
 
-      var editedEntry = {
-        text: value[index].text,
-        option: data.value
-      };
-      value.splice(parseInt(index), 1, editedEntry);
+      value[parseInt(index)].option = data.value;
       this.setState({
         value: value
       }, function () {
@@ -903,6 +900,7 @@ function (_Component) {
             value: entry.option,
             selection: true,
             clearable: true,
+            placeholder: "Pick one",
             onChange: _this7.handleDropdownChange.bind(_this7, index)
           });
           var button = React__default.createElement(semanticUiReact.Button, {
@@ -934,6 +932,7 @@ function (_Component) {
           link: true,
           name: "plus",
           color: "green",
+          size: "large",
           onClick: this.handleAddEntry
         }));
         return fullFormField(displayName, description, error, warning, required, components);
@@ -1060,6 +1059,283 @@ function (_Component) {
   return DCStatic;
 }(React.Component);
 
+var DCMultiValueMultiInput =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DCMultiValueMultiInput, _Component);
+
+  function DCMultiValueMultiInput(props) {
+    var _this;
+
+    _classCallCheck(this, DCMultiValueMultiInput);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCMultiValueMultiInput).call(this, props));
+
+    _this.handleAddEntry = function () {
+      _this.setState({
+        value: _toConsumableArray(_this.state.value).concat([{
+          text: [''],
+          option: ''
+        }])
+      }, function () {
+        return _this.props.valueChange(_this.props.name, _this.state.value);
+      });
+    };
+
+    _this.state = {
+      ready: false,
+      problem: false,
+      errorMessage: '',
+      value: [{
+        text: [''],
+        option: ''
+      }],
+      options: []
+    };
+    return _this;
+  }
+
+  _createClass(DCMultiValueMultiInput, [{
+    key: "setOptionsAndValue",
+    value: function setOptionsAndValue(options) {
+      var _this2 = this;
+
+      return new Promise(function (resolve) {
+        _this2.setState({
+          options: options
+        }, function () {
+          if (Array.isArray(_this2.props.value)) {
+            _this2.setState({
+              value: _this2.props.value
+            }, function () {
+              return resolve();
+            });
+          } else resolve();
+        });
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this3 = this;
+
+      if (this.props.hasOwnProperty('options')) {
+        this.setOptionsAndValue(this.props.options).then(function () {
+          return _this3.setState({
+            ready: true
+          });
+        });
+      } else {
+        fetchData(this.props.endpoint).then(function (options) {
+          _this3.setOptionsAndValue(options).then(function () {
+            _this3.setState({
+              ready: true
+            });
+          });
+        }).catch(function (error) {
+          _this3.setState({
+            ready: true,
+            problem: true,
+            errorMessage: error
+          });
+        });
+      }
+    }
+  }, {
+    key: "handleInputChange",
+    value: function handleInputChange(index, innerIndex, event) {
+      var _this4 = this;
+
+      var value = _toConsumableArray(this.state.value);
+
+      value[parseInt(index)].text[parseInt(innerIndex)] = event.target.value;
+      this.setState({
+        value: value
+      }, function () {
+        return _this4.props.valueChange(_this4.props.name, _this4.state.value);
+      });
+    }
+  }, {
+    key: "handleDropdownChange",
+    value: function handleDropdownChange(index, event, data) {
+      var _this5 = this;
+
+      var value = _toConsumableArray(this.state.value);
+
+      value[parseInt(index)].option = data.value;
+      this.setState({
+        value: value
+      }, function () {
+        return _this5.props.valueChange(_this5.props.name, _this5.state.value);
+      });
+    }
+  }, {
+    key: "handleRemoveEntry",
+    value: function handleRemoveEntry(index) {
+      var _this6 = this;
+
+      var entries = _toConsumableArray(this.state.value);
+
+      if (parseInt(index) !== -1) entries.splice(parseInt(index), 1);
+      this.setState({
+        value: entries
+      }, function () {
+        return _this6.props.valueChange(_this6.props.name, _this6.state.value);
+      });
+    }
+  }, {
+    key: "handleAddValueToEntry",
+    value: function handleAddValueToEntry(index) {
+      var _this7 = this;
+
+      var entries = _toConsumableArray(this.state.value);
+
+      entries[parseInt(index)].text = _toConsumableArray(this.state.value[parseInt(index)].text).concat(['']);
+      this.setState({
+        value: entries
+      }, function () {
+        return _this7.props.valueChange(_this7.props.name, _this7.state.value);
+      });
+    }
+  }, {
+    key: "handleRemoveValueFromEntry",
+    value: function handleRemoveValueFromEntry(index, innerIndex) {
+      var _this8 = this;
+
+      var entries = _toConsumableArray(this.state.value);
+
+      if (parseInt(index) !== -1 && parseInt(innerIndex) !== -1) {
+        entries[parseInt(index)].text.splice(parseInt(innerIndex), 1);
+      }
+
+      this.setState({
+        value: entries
+      }, function () {
+        return _this8.props.valueChange(_this8.props.name, _this8.state.value);
+      });
+    }
+  }, {
+    key: "component",
+    value: function component() {
+      var _this9 = this;
+
+      var _this$state = this.state,
+          ready = _this$state.ready,
+          problem = _this$state.problem,
+          value = _this$state.value,
+          options = _this$state.options,
+          errorMessage = _this$state.errorMessage;
+      var _this$props = this.props,
+          name = _this$props.name,
+          displayName = _this$props.displayName,
+          description = _this$props.description,
+          error = _this$props.error,
+          warning = _this$props.warning,
+          required = _this$props.required;
+
+      if (!ready) {
+        var component = React__default.createElement(semanticUiReact.Grid, {
+          columns: "equal"
+        }, React__default.createElement(semanticUiReact.Grid.Column, null, React__default.createElement(semanticUiReact.Dropdown, {
+          selection: true,
+          options: [],
+          loading: true,
+          fluid: true
+        })), React__default.createElement(semanticUiReact.Grid.Column, null, React__default.createElement(semanticUiReact.Input, {
+          placeholder: displayName,
+          disabled: true
+        })));
+        return fullFormField(displayName, description, error, warning, required, component);
+      }
+
+      if (ready && problem) {
+        var _component = React__default.createElement(semanticUiReact.Grid, {
+          columns: "equal"
+        }, React__default.createElement(semanticUiReact.Grid.Column, null, React__default.createElement(semanticUiReact.Dropdown, {
+          selection: true,
+          options: [],
+          disabled: true,
+          fluid: true
+        })), React__default.createElement(semanticUiReact.Grid.Column, null, React__default.createElement(semanticUiReact.Input, {
+          placeholder: displayName,
+          disabled: true
+        })));
+
+        return fullFormField(displayName, description, errorMessage, warning, required, _component);
+      }
+
+      if (ready && !problem) {
+        var components = React__default.createElement(semanticUiReact.Grid, {
+          columns: "equal",
+          divided: "vertically"
+        }, value.map(function (entry, index) {
+          var dropdown = React__default.createElement(semanticUiReact.Dropdown, {
+            options: options,
+            value: entry.option,
+            selection: true,
+            clearable: true,
+            placeholder: "Pick one",
+            fluid: true,
+            onChange: _this9.handleDropdownChange.bind(_this9, index)
+          });
+          return React__default.createElement(semanticUiReact.Grid.Row, {
+            key: index
+          }, React__default.createElement(semanticUiReact.Grid.Column, null, dropdown, React__default.createElement(semanticUiReact.Divider, {
+            hidden: true
+          }), React__default.createElement(semanticUiReact.Icon, {
+            link: true,
+            name: "trash",
+            color: "red",
+            size: "large",
+            onClick: _this9.handleRemoveEntry.bind(_this9, index)
+          })), React__default.createElement(semanticUiReact.Grid.Column, null, entry.text.map(function (innerValue, innerIndex) {
+            var label = React__default.createElement(semanticUiReact.Button, {
+              basic: true,
+              icon: {
+                name: 'minus',
+                color: 'red'
+              },
+              onClick: _this9.handleRemoveValueFromEntry.bind(_this9, index, innerIndex)
+            });
+            return React__default.createElement(semanticUiReact.Input, {
+              key: innerIndex,
+              labelPosition: "right",
+              label: label,
+              name: name + innerIndex,
+              placeholder: displayName,
+              value: innerValue,
+              onChange: _this9.handleInputChange.bind(_this9, index, innerIndex)
+            });
+          }), React__default.createElement(semanticUiReact.Icon, {
+            link: true,
+            name: "plus",
+            color: "green",
+            onClick: _this9.handleAddValueToEntry.bind(_this9, index)
+          })));
+        }), React__default.createElement(semanticUiReact.Grid.Row, null, React__default.createElement(semanticUiReact.Grid.Column, null, React__default.createElement(semanticUiReact.Container, {
+          textAlign: "right"
+        }, React__default.createElement(semanticUiReact.Icon, {
+          link: true,
+          name: "plus",
+          color: "green",
+          size: "large",
+          onClick: this.handleAddEntry
+        })))));
+        return fullFormField(displayName, description, error, warning, required, components);
+      }
+
+      return null;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return this.component();
+    }
+  }]);
+
+  return DCMultiValueMultiInput;
+}(React.Component);
+
 var formComponents = {
   DCText: DCText,
   DCBoolean: DCBoolean,
@@ -1068,7 +1344,8 @@ var formComponents = {
   DCDate: DCDate,
   DCDropdown: DCDropdown,
   DCMultiInput: DCMultiInput,
-  DCStatic: DCStatic
+  DCStatic: DCStatic,
+  DCMultiValueMultiInput: DCMultiValueMultiInput
 };
 
 var DCFormField =

@@ -140,6 +140,26 @@ export const testFormComponents = {
       {text: 'Something else', value: 'somethingElse'}
     ]
   },
+  DCMultiValueMultiInput: {
+    component: 'DCMultiValueMultiInput',
+    name: 'myMultiValueMultiInput',
+    displayName: 'DCMultiValueMultiInput',
+    description: 'A description for this input',
+    required: true,
+    endpoint: 'https://metadata.ssbmod.net/data/Protocol/'
+  },
+  DCMultiValueMultiInputProvidedOptions: {
+    component: 'DCMultiValueMultiInput',
+    name: 'myDCMultiValueMultiInputProvidedOptions',
+    displayName: 'DCMultiValueMultiInput (provided options)',
+    description: 'A description for this input',
+    required: true,
+    options: [
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
+    ]
+  },
   DCStaticStandard: {
     component: 'DCStatic',
     name: 'myDCStaticInput',
@@ -303,6 +323,7 @@ class App extends Component {
           formComponents.DCDropdownSingleSelect.endpoints = errorEndpoints
           formComponents.DCDropdownMultipleSelect.endpoints = errorEndpoints
           formComponents.DCMultiInput.endpoint = errorEndpoint
+          formComponents.DCMultiValueMultiInput.endpoint = errorEndpoint
         })
 
         Object.keys(formComponents).forEach(key => {
@@ -320,6 +341,7 @@ class App extends Component {
           formComponents.DCDropdownSingleSelect.endpoints = goodEndpoints
           formComponents.DCDropdownMultipleSelect.endpoints = goodEndpoints
           formComponents.DCMultiInput.endpoint = goodEndpoint
+          formComponents.DCMultiValueMultiInput.endpoint = goodEndpoint
 
           Object.keys(formComponents).forEach(key => {
             formComponents[key].value = this.state.data[formComponents[key].name]
