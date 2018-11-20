@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Divider, Dropdown, Icon, Input } from 'semantic-ui-react'
+import { Button, Container, Dropdown, Grid, Header, Icon, Input } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
 import { fetchData } from './common/Fetch'
@@ -11,7 +11,7 @@ class DCMultiInput extends Component {
       ready: false,
       problem: false,
       errorMessage: '',
-      value: [{text: '', option: ''}],
+      value: [{text: this.props.multiValue ? [''] : '', option: ''}],
       options: []
     }
   }
@@ -44,10 +44,14 @@ class DCMultiInput extends Component {
     }
   }
 
-  handleInputChange (index, event) {
+  handleInputChange (index, innerIndex, event) {
     const value = [...this.state.value]
 
-    value[parseInt(index)].text = event.target.value
+    if (!this.props.multiValue) {
+      value[parseInt(index)].text = event.target.value
+    } else {
+      value[parseInt(index)].text[parseInt(innerIndex)] = event.target.value
+    }
 
     this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
@@ -61,7 +65,7 @@ class DCMultiInput extends Component {
   }
 
   handleAddEntry = () => {
-    this.setState({value: [...this.state.value, {text: '', option: ''}]}, () =>
+    this.setState({value: [...this.state.value, {text: this.props.multiValue ? [''] : '', option: ''}]}, () =>
       this.props.valueChange(this.props.name, this.state.value)
     )
   }
@@ -74,57 +78,117 @@ class DCMultiInput extends Component {
     this.setState({value: entries}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
-  component () {
+  handleAddValueToEntry (index) {
+    const entries = [...this.state.value]
+
+    entries[parseInt(index)].text = [...this.state.value[parseInt(index)].text, '']
+
+    this.setState({value: entries}, () =>
+      this.props.valueChange(this.props.name, this.state.value)
+    )
+  }
+
+  handleRemoveValueFromEntry (index, innerIndex) {
+    const entries = [...this.state.value]
+
+    if (parseInt(index) !== -1 && parseInt(innerIndex) !== -1) {
+      entries[parseInt(index)].text.splice(parseInt(innerIndex), 1)
+    }
+
+    this.setState({value: entries}, () => this.props.valueChange(this.props.name, this.state.value))
+  }
+
+  render () {
     const {ready, problem, value, options, errorMessage} = this.state
-    const {name, displayName, description, error, warning, required} = this.props
+    const {name, displayName, description, error, warning, required, multiValue} = this.props
 
     if (!ready) {
-      const action = <Dropdown selection options={[]} loading />
-      const component = <Input placeholder={displayName} action={action} actionPosition='left' disabled />
+      const component =
+        <Grid columns='equal'>
+          <Grid.Column>
+            <Dropdown selection options={[]} loading fluid />
+          </Grid.Column>
+          <Grid.Column>
+            <Input placeholder={displayName} disabled />
+          </Grid.Column>
+        </Grid>
 
       return fullFormField(displayName, description, error, warning, required, component)
     }
 
     if (ready && problem) {
-      const action = <Dropdown selection options={[]} disabled />
-      const component = <Input placeholder={displayName} action={action} actionPosition='left' disabled />
+      const component =
+        <Grid columns='equal'>
+          <Grid.Column>
+            <Dropdown selection options={[]} disabled fluid />
+          </Grid.Column>
+          <Grid.Column>
+            <Input placeholder={displayName} disabled />
+          </Grid.Column>
+        </Grid>
 
       return fullFormField(displayName, description, errorMessage, warning, required, component)
     }
 
     if (ready && !problem) {
       const components =
-        <div>
+        <Grid>
           {value.map((entry, index) => {
-            const action = <Dropdown options={options} value={entry.option} selection clearable placeholder='Pick one'
-                                     onChange={this.handleDropdownChange.bind(this, index)} />
-            const button = <Button basic icon={{name: 'minus', color: 'red'}}
-                                   onClick={this.handleRemoveEntry.bind(this, index)} />
+            const dropdown = <Dropdown options={options} value={entry.option} selection disabled={options.length === 0}
+                                       placeholder={options.length === 0 ? 'No options' : 'Pick one'} clearable
+                                       fluid={!!multiValue} onChange={this.handleDropdownChange.bind(this, index)} />
 
             return (
-              <div key={index}>
-                <Input labelPosition='right' name={name} placeholder={displayName} value={entry.text}
-                       onChange={this.handleInputChange.bind(this, index)} action actionPosition='left'>
-                  {action}
-                  <input />
-                  {button}
-                </Input>
-                <Divider hidden fitted />
-              </div>
+              <Grid.Row key={index}>
+                <Grid.Column width={1} style={{margin: 0, paddingRight: 0}}>
+                  <Container textAlign='center'>
+                    <Header as='h4' color='teal' content={(index + 1) + '.'} style={{marginBottom: 0}} />
+                    <Icon link name='close' color='red' onClick={this.handleRemoveEntry.bind(this, index)} />
+                  </Container>
+                </Grid.Column>
+                {multiValue &&
+                <Grid.Column width={8} style={{margin: 0, paddingLeft: 0}}>
+                  {dropdown}
+                </Grid.Column>
+                }
+                {multiValue &&
+                <Grid.Column width={7} style={{margin: 0}}>
+                  {entry.text.map((innerValue, innerIndex) => {
+                    const label = <Button basic icon={{name: 'close', color: 'red'}}
+                                          onClick={this.handleRemoveValueFromEntry.bind(this, index, innerIndex)} />
+
+                    return (
+                      <Input key={innerIndex} label={label} style={{paddingTop: innerIndex === 0 ? 0 : '0.5rem'}}
+                             placeholder={displayName} value={innerValue} name={name + innerIndex}
+                             labelPosition='right'
+                             onChange={this.handleInputChange.bind(this, index, innerIndex)} />
+                    )
+                  })}
+                  <Icon link name='plus' color='green' onClick={this.handleAddValueToEntry.bind(this, index)} />
+                </Grid.Column>
+                }
+                {!multiValue &&
+                <Grid.Column width={15} style={{margin: 0, paddingLeft: 0}}>
+                  <Input name={name} placeholder={displayName} value={entry.text} actionPosition='left'
+                         onChange={this.handleInputChange.bind(this, index, index)} action={dropdown} />
+                </Grid.Column>
+                }
+              </Grid.Row>
             )
           })}
-          <Divider hidden fitted />
-          <Icon link name='plus' color='green' size='large' onClick={this.handleAddEntry} />
-        </div>
+          <Grid.Row style={{paddingTop: 0}}>
+            <Grid.Column width={16} style={{margin: 0}}>
+              <Container textAlign='right'>
+                <Icon link name='plus' color='green' size='large' onClick={this.handleAddEntry} />
+              </Container>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
 
       return fullFormField(displayName, description, error, warning, required, components)
     }
 
     return null
-  }
-
-  render () {
-    return this.component()
   }
 }
 

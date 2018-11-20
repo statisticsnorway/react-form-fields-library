@@ -71,8 +71,7 @@ DCNumber | A typical number input | - | JavaScript *number*
 DCRadio | A typical radio choice | *options* | *string*
 DCDate | A typical date picker | - | *Moment.js object**
 DCDropdown | A dropdown list populated with options provided or alternatively fetched from an array of endpoints, that can be searchable if there are alot of options | *multiSelect*, *searchable* and *endpoints* or *options* | *string* if regular or *array* if multiSelect
-DCMultiInput | A collection of dropdowns with a text input attached to each | *endpoint* or *options* | An *array* of *objects* with two properties; text and option (*strings*)
-DCMultiValueMultiInput | A collection of dropdowns with one or more text inputs attached to it | *endpoint* or *options* | An *array* of *objects* with two properties; text and option (note that text must be *array*)
+DCMultiInput | A collection of dropdowns with one or multiple texts input attached | *endpoint* or *options*, and *multiValue* | An *array* of *objects* with two properties; text (*string* or *array* and option (*string*)
 DCStatic | A collection of one or more non-interactable values to be displayed either as tags, labels, dates or regular text | *format* | An *array* of *strings* or *Moment.js objects**
 
 *MomentJS accepts Java Date, JavaScript Date objects and some some typical date formats (check MomentJS documentation)

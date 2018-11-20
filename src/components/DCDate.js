@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
-import { Form } from 'semantic-ui-react'
+import { Container, Form, Grid, Header, Icon } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
 import { checkValueAndType } from './common/Utlities'
@@ -8,30 +8,83 @@ import { checkValueAndType } from './common/Utlities'
 class DCDate extends Component {
   constructor (props) {
     super(props)
-    this.state = {value: null}
+    this.state = {value: this.props.multiple ? [null] : null}
   }
 
   componentDidMount () {
     if (checkValueAndType(this.props.value, 'object')) this.setState({value: this.props.value})
   }
 
-  handleChange = (value) => {
-    this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
+  handleChange = (index, date) => {
+    if (this.props.multiple) {
+      const value = [...this.state.value]
+
+      value[parseInt(index)] = date
+
+      this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
+    } else {
+      this.setState({value: date}, () => this.props.valueChange(this.props.name, this.state.value))
+    }
   }
 
-  component () {
-    const {value} = this.state
-    const {displayName, description, error, warning, required} = this.props
-    const datePicker = <DatePicker selected={value} onChange={this.handleChange} isClearable showWeekNumbers
-                                   dateFormat='DD/MM/YYYY' placeholderText={displayName} dropdownMode='select'
-                                   todayButton='I dag' />
-    const component = <Form.Group inline children={datePicker} style={{margin: 0}} />
+  handleAddEntry = () => {
+    this.setState({value: [...this.state.value, null]}, () =>
+      this.props.valueChange(this.props.name, this.state.value)
+    )
+  }
 
-    return fullFormField(displayName, description, error, warning, required, component)
+  handleRemoveEntry (index) {
+    const entries = [...this.state.value]
+
+    if (parseInt(index) !== -1) entries.splice(parseInt(index), 1)
+
+    this.setState({value: entries}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
   render () {
-    return this.component()
+    const {value} = this.state
+    const {displayName, description, error, warning, required, multiple} = this.props
+    const icon = <Icon name='calendar alternate outline' size='big' style={{paddingTop: '0.5rem'}} color='teal' />
+
+    let component
+
+    if (multiple) {
+      component =
+        <Grid>
+          {value.map((entry, index) => {
+            const datePicker = <DatePicker selected={value[index]} onChange={this.handleChange.bind(this, index)}
+                                           dateFormat='DD/MM/YYYY' placeholderText={displayName} showWeekNumbers
+                                           dropdownMode='select' todayButton='I dag' />
+            return (
+              <Grid.Row key={index}>
+                <Grid.Column width={1} style={{margin: 0, paddingRight: 0, paddingTop: '0.2rem'}}>
+                  <Container textAlign='center'>
+                    <Header as='h4' color='teal' content={(index + 1) + '.'} style={{marginBottom: 0}} />
+                    <Icon link name='close' color='red' onClick={this.handleRemoveEntry.bind(this, index)} />
+                  </Container>
+                </Grid.Column>
+                <Grid.Column width={15} style={{margin: 0, paddingLeft: 0}}>
+                  <Form.Group inline style={{margin: 0}} children={<div>{datePicker}{icon}</div>} />
+                </Grid.Column>
+              </Grid.Row>
+            )
+          })}
+          <Grid.Row style={{paddingTop: 0}}>
+            <Grid.Column width={16} style={{margin: 0}}>
+              <Container textAlign='right'>
+                <Icon link name='plus' color='green' size='large' onClick={this.handleAddEntry} />
+              </Container>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+    } else {
+      const datePicker = <DatePicker selected={value} onChange={this.handleChange.bind(this, null)} isClearable
+                                     dateFormat='DD/MM/YYYY' placeholderText={displayName} showWeekNumbers
+                                     dropdownMode='select' todayButton='I dag' />
+      component = <Form.Group inline style={{margin: 0}} children={<div>{datePicker}{icon}</div>} />
+    }
+
+    return fullFormField(displayName, description, error, warning, required, component)
   }
 }
 

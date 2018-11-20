@@ -18,17 +18,13 @@ class DCText extends Component {
     this.setState({value: event.target.value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
-  component () {
+  render () {
     const {value} = this.state
     const {name, displayName, description, error, warning, required} = this.props
     const component = <TextArea autoHeight rows={1} name={name} placeholder={displayName} value={value}
                                 onChange={this.handleChange} />
 
     return fullFormField(displayName, description, error, warning, required, component)
-  }
-
-  render () {
-    return this.component()
   }
 }
 

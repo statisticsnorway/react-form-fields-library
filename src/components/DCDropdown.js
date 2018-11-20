@@ -55,30 +55,35 @@ class DCDropdown extends Component {
     this.setState({value: data.value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
-  component () {
+  render () {
     const {ready, problem, value, options, errorMessage} = this.state
     const {displayName, description, error, warning, required, multiSelect, searchable} = this.props
 
-    if (!ready) return fullFormField(displayName, description, error, warning, required,
-      <Dropdown placeholder={displayName} selection options={[]} loading disabled />)
+    if (!ready) {
+      const component = <Dropdown placeholder={displayName} selection options={[]} loading disabled />
 
-    if (ready && problem) return fullFormField(displayName, description, errorMessage, warning, required,
-      <Dropdown selection options={[]} disabled />)
+      return fullFormField(displayName, description, error, warning, required, component)
+    }
 
-    if (ready && !problem) return fullFormField(displayName, description, error, warning, required,
-      <Dropdown placeholder={displayName} value={value} options={options} clearable selection multiple={multiSelect}
-                icon={{
-                  name: searchable ? 'search' : 'dropdown',
-                  disabled: !!searchable,
-                  size: searchable ? 'small' : null
-                }}
-                search={searchable} onChange={this.handleChange} />)
+    if (ready && problem) {
+      const component = <Dropdown selection options={[]} disabled />
+
+      return fullFormField(displayName, description, errorMessage, warning, required, component)
+    }
+
+    if (ready && !problem) {
+      const component = <Dropdown placeholder={options.length === 0 ? 'No options' : displayName} search={searchable}
+                                  value={value} options={options} clearable selection multiple={multiSelect}
+                                  disabled={options.length === 0} onChange={this.handleChange}
+                                  icon={{
+                                    name: searchable ? 'search' : 'dropdown',
+                                    disabled: !!searchable,
+                                    size: searchable ? 'small' : null
+                                  }} />
+      return fullFormField(displayName, description, error, warning, required, component)
+    }
 
     return null
-  }
-
-  render () {
-    return this.component()
   }
 }
 
