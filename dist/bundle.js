@@ -1106,7 +1106,6 @@ function (_Component) {
               placeholder: displayName,
               value: innerValue,
               name: name + innerIndex,
-              actionPosition: "right",
               onChange: _this9.handleInputChange.bind(_this9, index, innerIndex)
             });
           }), React__default.createElement(semanticUiReact.Icon, {

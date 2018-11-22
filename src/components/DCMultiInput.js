@@ -160,7 +160,6 @@ class DCMultiInput extends Component {
                     return (
                       <Input key={innerIndex} action={action} style={{paddingTop: innerIndex === 0 ? 0 : '0.5rem'}}
                              placeholder={displayName} value={innerValue} name={name + innerIndex}
-                             actionPosition='right'
                              onChange={this.handleInputChange.bind(this, index, innerIndex)} />
                     )
                   })}
