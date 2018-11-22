@@ -19,10 +19,19 @@ export function fetchData (url, timeout = 3000) {
         response.json().then(json => {
           const options = []
 
-          Object.keys(json).forEach((value, index) => {
+          Object.keys(json).forEach(value => {
+            // TODO: Fix this when the ability to do it becomes available
+            let text = json[value].name[0].languageText
+
+            json[value].name.forEach(name => {
+              if(name.languageCode === 'nb'){
+                text = name.languageText
+              }
+            })
+
             options.push({
               key: json[value].id,
-              text: json[value].name[index].languageText, // TODO: Fix this when the ability to do it becomes available
+              text: text,
               value: json[value].id
             })
           })

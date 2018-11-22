@@ -18,7 +18,7 @@ class DCRadio extends Component {
     this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
   }
 
-  component () {
+  render () {
     const {value} = this.state
     const {displayName, description, error, warning, required, options} = this.props
     const radios = Object.keys(options).map(key => {
@@ -30,10 +30,6 @@ class DCRadio extends Component {
     const component = <Form.Group inline children={radios} style={{margin: 0}} />
 
     return fullFormField(displayName, description, error, warning, required, component)
-  }
-
-  render () {
-    return this.component()
   }
 }
 

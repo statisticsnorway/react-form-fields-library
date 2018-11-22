@@ -24,16 +24,13 @@ class DCNumber extends Component {
     }
   }
 
-  component () {
+  render () {
     const {value} = this.state
     const {name, displayName, description, error, warning, required} = this.props
-    const component = <Input name={name} placeholder={displayName} onChange={this.handleChange} value={value} />
+    const component = <Input icon={{name: 'hashtag', color: 'teal'}} iconPosition='left' name={name} value={value}
+                             placeholder={displayName} onChange={this.handleChange} />
 
     return fullFormField(displayName, description, error, warning, required, component)
-  }
-
-  render () {
-    return this.component()
   }
 }
 

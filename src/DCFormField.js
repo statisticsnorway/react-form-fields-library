@@ -8,7 +8,6 @@ import DCDate from './components/DCDate'
 import DCDropdown from './components/DCDropdown'
 import DCMultiInput from './components/DCMultiInput'
 import DCStatic from './components/DCStatic'
-import DCMultiValueMultiInput from './components/DCMultiValueMultiInput'
 
 const formComponents = {
   DCText: DCText,
@@ -18,8 +17,7 @@ const formComponents = {
   DCDate: DCDate,
   DCDropdown: DCDropdown,
   DCMultiInput: DCMultiInput,
-  DCStatic: DCStatic,
-  DCMultiValueMultiInput: DCMultiValueMultiInput
+  DCStatic: DCStatic
 }
 
 class DCFormField extends Component {

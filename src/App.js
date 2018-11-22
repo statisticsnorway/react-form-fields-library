@@ -47,6 +47,14 @@ export const testFormComponents = {
     description: 'A description for this input',
     required: true
   },
+  DCDateMultiple: {
+    component: 'DCDate',
+    name: 'myDateMultipleInput',
+    displayName: 'DCDate (multiple)',
+    description: 'A description for this input',
+    required: true,
+    multiple: true
+  },
   DCDropdownSingleSelect: {
     component: 'DCDropdown',
     name: 'myDropdownSingleSelectInput',
@@ -120,13 +128,22 @@ export const testFormComponents = {
       {text: 'Something else', value: 'somethingElse'}
     ]
   },
+  DCDropdownEmptyOptions: {
+    component: 'DCDropdown',
+    name: 'myDropdownEmptyOptionsInput',
+    displayName: 'DCDropdown (empty options)',
+    description: 'A description for this input',
+    required: true,
+    options: []
+  },
   DCMultiInput: {
     component: 'DCMultiInput',
     name: 'myDCMultiInputInput',
     displayName: 'DCMultiInput',
     description: 'A description for this input',
     required: true,
-    endpoint: 'https://metadata.ssbmod.net/data/Protocol/'
+    endpoint: 'https://metadata.ssbmod.net/data/Protocol/',
+    multiValue: false
   },
   DCMultiInputProvidedOptions: {
     component: 'DCMultiInput',
@@ -138,27 +155,48 @@ export const testFormComponents = {
       {text: 'This option', value: 'thisOption'},
       {text: 'That option', value: 'thatOption'},
       {text: 'Something else', value: 'somethingElse'}
-    ]
+    ],
+    multiValue: false
   },
-  DCMultiValueMultiInput: {
-    component: 'DCMultiValueMultiInput',
-    name: 'myMultiValueMultiInput',
-    displayName: 'DCMultiValueMultiInput',
+  DCMultiInputEmptyOptions: {
+    component: 'DCMultiInput',
+    name: 'myDCMultiInputEmptyOptionsInput',
+    displayName: 'DCMultiInput (empty options)',
     description: 'A description for this input',
     required: true,
-    endpoint: 'https://metadata.ssbmod.net/data/Protocol/'
+    options: [],
+    multiValue: false
   },
-  DCMultiValueMultiInputProvidedOptions: {
-    component: 'DCMultiValueMultiInput',
-    name: 'myDCMultiValueMultiInputProvidedOptions',
-    displayName: 'DCMultiValueMultiInput (provided options)',
+  DCMultiInputMultiValue: {
+    component: 'DCMultiInput',
+    name: 'myMultiInputMultiValue',
+    displayName: 'DCMultiInput (multi value)',
+    description: 'A description for this input',
+    required: true,
+    endpoint: 'https://metadata.ssbmod.net/data/Protocol/',
+    multiValue: true
+  },
+  DCMultiInputMultiValueProvidedOptions: {
+    component: 'DCMultiInput',
+    name: 'myDCMultiInputMultiValueProvidedOptions',
+    displayName: 'DCMultiInput (multi value and provided options)',
     description: 'A description for this input',
     required: true,
     options: [
       {text: 'This option', value: 'thisOption'},
       {text: 'That option', value: 'thatOption'},
       {text: 'Something else', value: 'somethingElse'}
-    ]
+    ],
+    multiValue: true
+  },
+  DCMultiInputMultiValueEmptyOptions: {
+    component: 'DCMultiInput',
+    name: 'myDCMultiInputMultiValueEmptyOptions',
+    displayName: 'DCMultiInput (multi value and empty options)',
+    description: 'A description for this input',
+    required: true,
+    options: [],
+    multiValue: true
   },
   DCStaticStandard: {
     component: 'DCStatic',
@@ -173,7 +211,7 @@ export const testFormComponents = {
     displayName: 'DCStatic (date)',
     description: 'A description for this input',
     format: 'date',
-    value: [moment()]
+    value: [moment('1989-12-28')]
   },
   DCStaticTag: {
     component: 'DCStatic',
@@ -216,8 +254,8 @@ export const testFormComponents = {
     description: 'A description for this input',
     format: 'date',
     value: [
-      moment(),
-      moment().add(1, 'years')
+      moment('1989-12-28'),
+      moment('1989-12-28').add(1, 'years')
     ]
   }
 }
@@ -323,7 +361,7 @@ class App extends Component {
           formComponents.DCDropdownSingleSelect.endpoints = errorEndpoints
           formComponents.DCDropdownMultipleSelect.endpoints = errorEndpoints
           formComponents.DCMultiInput.endpoint = errorEndpoint
-          formComponents.DCMultiValueMultiInput.endpoint = errorEndpoint
+          formComponents.DCMultiInputMultiValue.endpoint = errorEndpoint
         })
 
         Object.keys(formComponents).forEach(key => {
@@ -341,7 +379,7 @@ class App extends Component {
           formComponents.DCDropdownSingleSelect.endpoints = goodEndpoints
           formComponents.DCDropdownMultipleSelect.endpoints = goodEndpoints
           formComponents.DCMultiInput.endpoint = goodEndpoint
-          formComponents.DCMultiValueMultiInput.endpoint = goodEndpoint
+          formComponents.DCMultiInputMultiValue.endpoint = goodEndpoint
 
           Object.keys(formComponents).forEach(key => {
             formComponents[key].value = this.state.data[formComponents[key].name]

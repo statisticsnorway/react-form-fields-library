@@ -32,11 +32,11 @@ export function simpleFormField (displayName, description, component) {
   )
 }
 
-export function simpleStaticFormField (displayName, description, component) {
+export function simpleStaticFormField (displayName, description, component, icon = null) {
   return (
     <Form.Field>
-      <Popup hideOnScroll position='top left' header={displayName} wide='very' trigger={<label>{displayName}</label>}
-             content={description} />
+      <Popup hideOnScroll position='top left' header={displayName} wide='very' content={description}
+             trigger={<label>{displayName} {icon}</label>} />
       {component}
     </Form.Field>
   )
