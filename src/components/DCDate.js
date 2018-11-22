@@ -57,7 +57,7 @@ class DCDate extends Component {
                                            dropdownMode='select' todayButton='I dag' />
             return (
               <Grid.Row key={index}>
-                <Grid.Column width={1} style={{margin: 0, paddingRight: 0, paddingTop: '0.2rem'}}>
+                <Grid.Column width={1} style={{margin: 0, paddingRight: 0, paddingTop: '0.35rem'}}>
                   <Container textAlign='center'>
                     <Header as='h4' color='teal' content={(index + 1) + '.'} style={{marginBottom: 0}} />
                     <Icon link name='close' color='red' onClick={this.handleRemoveEntry.bind(this, index)} />

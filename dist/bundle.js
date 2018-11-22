@@ -556,7 +556,7 @@ function (_Component) {
             style: {
               margin: 0,
               paddingRight: 0,
-              paddingTop: '0.2rem'
+              paddingTop: '0.35rem'
             }
           }, React__default.createElement(semanticUiReact.Container, {
             textAlign: "center"
@@ -649,11 +649,17 @@ function fetchData(url) {
       if (response.ok) {
         response.json().then(function (json) {
           var options = [];
-          Object.keys(json).forEach(function (value, index) {
+          Object.keys(json).forEach(function (value) {
+            // TODO: Fix this when the ability to do it becomes available
+            var text = json[value].name[0].languageText;
+            json[value].name.forEach(function (name) {
+              if (name.languageCode === 'nb') {
+                text = name.languageText;
+              }
+            });
             options.push({
               key: json[value].id,
-              text: json[value].name[index].languageText,
-              // TODO: Fix this when the ability to do it becomes available
+              text: text,
               value: json[value].id
             });
           });
@@ -1054,7 +1060,8 @@ function (_Component) {
             width: 1,
             style: {
               margin: 0,
-              paddingRight: 0
+              paddingRight: 0,
+              paddingTop: '0.2rem'
             }
           }, React__default.createElement(semanticUiReact.Container, {
             textAlign: "center"
@@ -1082,7 +1089,7 @@ function (_Component) {
               margin: 0
             }
           }, entry.text.map(function (innerValue, innerIndex) {
-            var label = React__default.createElement(semanticUiReact.Button, {
+            var action = React__default.createElement(semanticUiReact.Button, {
               basic: true,
               icon: {
                 name: 'close',
@@ -1092,14 +1099,14 @@ function (_Component) {
             });
             return React__default.createElement(semanticUiReact.Input, {
               key: innerIndex,
-              label: label,
+              action: action,
               style: {
                 paddingTop: innerIndex === 0 ? 0 : '0.5rem'
               },
               placeholder: displayName,
               value: innerValue,
               name: name + innerIndex,
-              labelPosition: "right",
+              actionPosition: "right",
               onChange: _this9.handleInputChange.bind(_this9, index, innerIndex)
             });
           }), React__default.createElement(semanticUiReact.Icon, {

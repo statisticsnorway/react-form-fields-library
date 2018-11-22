@@ -140,7 +140,7 @@ class DCMultiInput extends Component {
 
             return (
               <Grid.Row key={index}>
-                <Grid.Column width={1} style={{margin: 0, paddingRight: 0}}>
+                <Grid.Column width={1} style={{margin: 0, paddingRight: 0, paddingTop: '0.2rem'}}>
                   <Container textAlign='center'>
                     <Header as='h4' color='teal' content={(index + 1) + '.'} style={{marginBottom: 0}} />
                     <Icon link name='close' color='red' onClick={this.handleRemoveEntry.bind(this, index)} />
@@ -154,13 +154,13 @@ class DCMultiInput extends Component {
                 {multiValue &&
                 <Grid.Column width={7} style={{margin: 0}}>
                   {entry.text.map((innerValue, innerIndex) => {
-                    const label = <Button basic icon={{name: 'close', color: 'red'}}
-                                          onClick={this.handleRemoveValueFromEntry.bind(this, index, innerIndex)} />
+                    const action = <Button basic icon={{name: 'close', color: 'red'}}
+                                           onClick={this.handleRemoveValueFromEntry.bind(this, index, innerIndex)} />
 
                     return (
-                      <Input key={innerIndex} label={label} style={{paddingTop: innerIndex === 0 ? 0 : '0.5rem'}}
+                      <Input key={innerIndex} action={action} style={{paddingTop: innerIndex === 0 ? 0 : '0.5rem'}}
                              placeholder={displayName} value={innerValue} name={name + innerIndex}
-                             labelPosition='right'
+                             actionPosition='right'
                              onChange={this.handleInputChange.bind(this, index, innerIndex)} />
                     )
                   })}
