@@ -717,7 +717,7 @@ function (_Component) {
         _this2.setState({
           options: options
         }, function () {
-          if (checkValueAndType(_this2.props.value, 'string') || Array.isArray(_this2.props.value)) {
+          if (checkValueAndType(_this2.props.value, 'string') || Array.isArray(_this2.props.value) && _this2.props.value.length !== 0) {
             _this2.setState({
               value: _this2.props.value
             }, function () {
@@ -800,7 +800,7 @@ function (_Component) {
           disabled: true
         });
 
-        return fullFormField(displayName, description, errorMessage, warning, required, _component);
+        return fullFormField(displayName, description, error, errorMessage, required, _component);
       }
 
       if (ready && !problem) {
@@ -876,7 +876,7 @@ function (_Component) {
         _this2.setState({
           options: options
         }, function () {
-          if (Array.isArray(_this2.props.value)) {
+          if (Array.isArray(_this2.props.value) && _this2.props.value.length !== 0) {
             _this2.setState({
               value: _this2.props.value
             }, function () {
@@ -1039,7 +1039,7 @@ function (_Component) {
           disabled: true
         })));
 
-        return fullFormField(displayName, description, errorMessage, warning, required, _component);
+        return fullFormField(displayName, description, error, errorMessage, required, _component);
       }
 
       if (ready && !problem) {

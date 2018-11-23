@@ -19,7 +19,7 @@ class DCMultiInput extends Component {
   setOptionsAndValue (options) {
     return new Promise(resolve => {
       this.setState({options: options}, () => {
-        if (Array.isArray(this.props.value)) {
+        if (Array.isArray(this.props.value) && this.props.value.length !== 0) {
           this.setState({value: this.props.value}, () => resolve())
         } else resolve()
       })
@@ -127,7 +127,7 @@ class DCMultiInput extends Component {
           </Grid.Column>
         </Grid>
 
-      return fullFormField(displayName, description, errorMessage, warning, required, component)
+      return fullFormField(displayName, description, error, errorMessage, required, component)
     }
 
     if (ready && !problem) {
