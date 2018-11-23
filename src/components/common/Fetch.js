@@ -17,6 +17,7 @@ export function fetchData (url, timeout = 3000) {
     }).then(response => {
       if (response.ok) {
         response.json().then(json => {
+          const prefix = url.substring(url.lastIndexOf('/') + 1) + '/'
           const options = []
 
           Object.keys(json).forEach(value => {
@@ -32,7 +33,7 @@ export function fetchData (url, timeout = 3000) {
             options.push({
               key: json[value].id,
               text: text,
-              value: json[value].id
+              value: prefix + json[value].id
             })
           })
 

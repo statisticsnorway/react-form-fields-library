@@ -62,8 +62,8 @@ export const testFormComponents = {
     description: 'A description for this input',
     required: true,
     endpoints: [
-      'https://metadata.ssbmod.net/data/Role/',
-      'https://metadata.ssbmod.net/data/Agent/'
+      'https://metadata.ssbmod.net/data/Role',
+      'https://metadata.ssbmod.net/data/Agent'
     ]
   },
   DCDropdownMultipleSelect: {
@@ -74,8 +74,8 @@ export const testFormComponents = {
     required: true,
     multiSelect: true,
     endpoints: [
-      'https://metadata.ssbmod.net/data/Agent/',
-      'https://metadata.ssbmod.net/data/Role/'
+      'https://metadata.ssbmod.net/data/Agent',
+      'https://metadata.ssbmod.net/data/Role'
     ]
   },
   DCDropdownSingleSelectSearchable: {
@@ -86,8 +86,8 @@ export const testFormComponents = {
     required: true,
     searchable: true,
     endpoints: [
-      'https://metadata.ssbmod.net/data/Role/',
-      'https://metadata.ssbmod.net/data/Agent/'
+      'https://metadata.ssbmod.net/data/Role',
+      'https://metadata.ssbmod.net/data/Agent'
     ]
   },
   DCDropdownMultipleSelectSearchable: {
@@ -99,8 +99,8 @@ export const testFormComponents = {
     multiSelect: true,
     searchable: true,
     endpoints: [
-      'https://metadata.ssbmod.net/data/Agent/',
-      'https://metadata.ssbmod.net/data/Role/'
+      'https://metadata.ssbmod.net/data/Agent',
+      'https://metadata.ssbmod.net/data/Role'
     ]
   },
   DCDropdownSingleSelectProvidedOptions: {
@@ -142,7 +142,7 @@ export const testFormComponents = {
     displayName: 'DCMultiInput',
     description: 'A description for this input',
     required: true,
-    endpoint: 'https://metadata.ssbmod.net/data/Protocol/',
+    endpoint: 'https://metadata.ssbmod.net/data/Protocol',
     multiValue: false
   },
   DCMultiInputProvidedOptions: {
@@ -173,7 +173,7 @@ export const testFormComponents = {
     displayName: 'DCMultiInput (multi value)',
     description: 'A description for this input',
     required: true,
-    endpoint: 'https://metadata.ssbmod.net/data/Protocol/',
+    endpoint: 'https://metadata.ssbmod.net/data/Protocol',
     multiValue: true
   },
   DCMultiInputMultiValueProvidedOptions: {
@@ -347,15 +347,15 @@ class App extends Component {
           let errorEndpoint = ''
 
           if (type === 'urlError') {
-            errorEndpoints.push('https://metadata.ssbmod.net/data/Agentfda/')
-            errorEndpoints.push('https://metadata.ssbmod.net/data/Roleyj/')
-            errorEndpoint = 'https://metadata.ssbmod.net/data/Protocolsd/'
+            errorEndpoints.push('https://metadata.ssbmod.net/data/Agentfda')
+            errorEndpoints.push('https://metadata.ssbmod.net/data/Roleyj')
+            errorEndpoint = 'https://metadata.ssbmod.net/data/Protocolsd'
           }
 
           if (type === 'networkError') {
-            errorEndpoints.push('https://metadatas.ssbmod.net/data/Agent/')
-            errorEndpoints.push('https://metadataas.ssbmod.net/data/Role/')
-            errorEndpoint = 'https://mettadata.ssbmod.net/data/Protocol/'
+            errorEndpoints.push('https://metadatas.ssbmod.net/data/Agent')
+            errorEndpoints.push('https://metadataas.ssbmod.net/data/Role')
+            errorEndpoint = 'https://mettadata.ssbmod.net/data/Protocol'
           }
 
           formComponents.DCDropdownSingleSelect.endpoints = errorEndpoints
@@ -373,8 +373,8 @@ class App extends Component {
         })
       } else {
         this.setState({ready: false}, () => {
-          const goodEndpoint = 'https://metadata.ssbmod.net/data/Protocol/'
-          const goodEndpoints = ['https://metadata.ssbmod.net/data/Agent/', 'https://metadata.ssbmod.net/data/Role/']
+          const goodEndpoint = 'https://metadata.ssbmod.net/data/Protocol'
+          const goodEndpoints = ['https://metadata.ssbmod.net/data/Agent', 'https://metadata.ssbmod.net/data/Role']
 
           formComponents.DCDropdownSingleSelect.endpoints = goodEndpoints
           formComponents.DCDropdownMultipleSelect.endpoints = goodEndpoints

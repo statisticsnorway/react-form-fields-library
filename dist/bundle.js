@@ -648,6 +648,7 @@ function fetchData(url) {
     }).then(function (response) {
       if (response.ok) {
         response.json().then(function (json) {
+          var prefix = url.substring(url.lastIndexOf('/') + 1) + '/';
           var options = [];
           Object.keys(json).forEach(function (value) {
             // TODO: Fix this when the ability to do it becomes available
@@ -660,7 +661,7 @@ function fetchData(url) {
             options.push({
               key: json[value].id,
               text: text,
-              value: json[value].id
+              value: prefix + json[value].id
             });
           });
           resolve(options);
