@@ -17,7 +17,7 @@ export function fetchData (url, timeout = 3000) {
     }).then(response => {
       if (response.ok) {
         response.json().then(json => {
-          const prefix = url.substring(url.lastIndexOf('/') + 1) + '/'
+          const prefix = '/' + url.substring(url.lastIndexOf('/') + 1) + '/'
           const options = []
 
           Object.keys(json).forEach(value => {
