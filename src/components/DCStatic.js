@@ -66,10 +66,10 @@ class DCStatic extends Component {
   }
 
   componentDidMount () {
-    this.createComponent().then(result => {
-      this.setState({component: result}, () => this.checkIcon().then(() => {
-        this.setState({ready: true})
-      }))
+    this.checkIcon().then(() => {
+      this.createComponent().then(result => {
+        this.setState({component: result}, () => this.setState({ready: true}))
+      })
     })
   }
 

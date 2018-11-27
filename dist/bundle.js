@@ -1203,12 +1203,12 @@ function (_Component) {
     value: function componentDidMount() {
       var _this4 = this;
 
-      this.createComponent().then(function (result) {
-        _this4.setState({
-          component: result
-        }, function () {
-          return _this4.checkIcon().then(function () {
-            _this4.setState({
+      this.checkIcon().then(function () {
+        _this4.createComponent().then(function (result) {
+          _this4.setState({
+            component: result
+          }, function () {
+            return _this4.setState({
               ready: true
             });
           });
