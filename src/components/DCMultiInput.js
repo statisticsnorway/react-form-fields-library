@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Button, Container, Dropdown, Grid, Header, Icon, Input } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
-import { fetchData } from './common/Fetch'
 
 class DCMultiInput extends Component {
   constructor (props) {
@@ -30,17 +29,7 @@ class DCMultiInput extends Component {
     if (this.props.hasOwnProperty('options')) {
       this.setOptionsAndValue(this.props.options).then(() => this.setState({ready: true}))
     } else {
-      fetchData(this.props.endpoint).then(options => {
-        this.setOptionsAndValue(options).then(() => {
-          this.setState({ready: true})
-        })
-      }).catch(error => {
-        this.setState({
-          ready: true,
-          problem: true,
-          errorMessage: error
-        })
-      })
+      this.setOptionsAndValue([]).then(() => this.setState({ready: true}))
     }
   }
 

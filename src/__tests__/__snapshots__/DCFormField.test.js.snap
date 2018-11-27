@@ -506,370 +506,6 @@ ShallowWrapper {
       Object {
         "component": "DCDropdown",
         "description": "A description for this input",
-        "displayName": "DCDropdown",
-        "endpoints": Array [
-          "https://metadata.ssbmod.net/data/Role",
-          "https://metadata.ssbmod.net/data/Agent",
-        ],
-        "name": "myDropdownSingleSelectInput",
-        "required": true,
-      }
-    }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "component": "DCDropdown",
-      "description": "A description for this input",
-      "displayName": "DCDropdown",
-      "endpoints": Array [
-        "https://metadata.ssbmod.net/data/Role",
-        "https://metadata.ssbmod.net/data/Agent",
-      ],
-      "name": "myDropdownSingleSelectInput",
-      "required": true,
-      "valueChange": undefined,
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown",
-        "endpoints": Array [
-          "https://metadata.ssbmod.net/data/Role",
-          "https://metadata.ssbmod.net/data/Agent",
-        ],
-        "name": "myDropdownSingleSelectInput",
-        "required": true,
-        "valueChange": undefined,
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
-exports[`DCFormField Renders all the input components without error and only once 8`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
-    properties={
-      Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (multiSelect)",
-        "endpoints": Array [
-          "https://metadata.ssbmod.net/data/Agent",
-          "https://metadata.ssbmod.net/data/Role",
-        ],
-        "multiSelect": true,
-        "name": "myDropdownMultipleSelectInput",
-        "required": true,
-      }
-    }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "component": "DCDropdown",
-      "description": "A description for this input",
-      "displayName": "DCDropdown (multiSelect)",
-      "endpoints": Array [
-        "https://metadata.ssbmod.net/data/Agent",
-        "https://metadata.ssbmod.net/data/Role",
-      ],
-      "multiSelect": true,
-      "name": "myDropdownMultipleSelectInput",
-      "required": true,
-      "valueChange": undefined,
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (multiSelect)",
-        "endpoints": Array [
-          "https://metadata.ssbmod.net/data/Agent",
-          "https://metadata.ssbmod.net/data/Role",
-        ],
-        "multiSelect": true,
-        "name": "myDropdownMultipleSelectInput",
-        "required": true,
-        "valueChange": undefined,
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
-exports[`DCFormField Renders all the input components without error and only once 9`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
-    properties={
-      Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (searchable)",
-        "endpoints": Array [
-          "https://metadata.ssbmod.net/data/Role",
-          "https://metadata.ssbmod.net/data/Agent",
-        ],
-        "name": "myDropdownSingleSelectSearchableInput",
-        "required": true,
-        "searchable": true,
-      }
-    }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "component": "DCDropdown",
-      "description": "A description for this input",
-      "displayName": "DCDropdown (searchable)",
-      "endpoints": Array [
-        "https://metadata.ssbmod.net/data/Role",
-        "https://metadata.ssbmod.net/data/Agent",
-      ],
-      "name": "myDropdownSingleSelectSearchableInput",
-      "required": true,
-      "searchable": true,
-      "valueChange": undefined,
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (searchable)",
-        "endpoints": Array [
-          "https://metadata.ssbmod.net/data/Role",
-          "https://metadata.ssbmod.net/data/Agent",
-        ],
-        "name": "myDropdownSingleSelectSearchableInput",
-        "required": true,
-        "searchable": true,
-        "valueChange": undefined,
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
-exports[`DCFormField Renders all the input components without error and only once 10`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
-    properties={
-      Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (searchable multiSelect)",
-        "endpoints": Array [
-          "https://metadata.ssbmod.net/data/Agent",
-          "https://metadata.ssbmod.net/data/Role",
-        ],
-        "multiSelect": true,
-        "name": "myDropdownMultipleSelectSearchableInput",
-        "required": true,
-        "searchable": true,
-      }
-    }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "component": "DCDropdown",
-      "description": "A description for this input",
-      "displayName": "DCDropdown (searchable multiSelect)",
-      "endpoints": Array [
-        "https://metadata.ssbmod.net/data/Agent",
-        "https://metadata.ssbmod.net/data/Role",
-      ],
-      "multiSelect": true,
-      "name": "myDropdownMultipleSelectSearchableInput",
-      "required": true,
-      "searchable": true,
-      "valueChange": undefined,
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (searchable multiSelect)",
-        "endpoints": Array [
-          "https://metadata.ssbmod.net/data/Agent",
-          "https://metadata.ssbmod.net/data/Role",
-        ],
-        "multiSelect": true,
-        "name": "myDropdownMultipleSelectSearchableInput",
-        "required": true,
-        "searchable": true,
-        "valueChange": undefined,
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
-exports[`DCFormField Renders all the input components without error and only once 11`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
-    properties={
-      Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
         "displayName": "DCDropdown (provided options)",
         "name": "myDropdownSingleSelectProvidedOptionsInput",
         "options": Array [
@@ -980,7 +616,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 12`] = `
+exports[`DCFormField Renders all the input components without error and only once 8`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1101,7 +737,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 13`] = `
+exports[`DCFormField Renders all the input components without error and only once 9`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1180,89 +816,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 14`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
-    properties={
-      Object {
-        "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput",
-        "endpoint": "https://metadata.ssbmod.net/data/Protocol",
-        "multiValue": false,
-        "name": "myDCMultiInputInput",
-        "required": true,
-      }
-    }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "component": "DCMultiInput",
-      "description": "A description for this input",
-      "displayName": "DCMultiInput",
-      "endpoint": "https://metadata.ssbmod.net/data/Protocol",
-      "multiValue": false,
-      "name": "myDCMultiInputInput",
-      "required": true,
-      "valueChange": undefined,
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput",
-        "endpoint": "https://metadata.ssbmod.net/data/Protocol",
-        "multiValue": false,
-        "name": "myDCMultiInputInput",
-        "required": true,
-        "valueChange": undefined,
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
-exports[`DCFormField Renders all the input components without error and only once 15`] = `
+exports[`DCFormField Renders all the input components without error and only once 10`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1383,7 +937,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 16`] = `
+exports[`DCFormField Renders all the input components without error and only once 11`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1465,89 +1019,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 17`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
-    properties={
-      Object {
-        "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (multi value)",
-        "endpoint": "https://metadata.ssbmod.net/data/Protocol",
-        "multiValue": true,
-        "name": "myMultiInputMultiValue",
-        "required": true,
-      }
-    }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "component": "DCMultiInput",
-      "description": "A description for this input",
-      "displayName": "DCMultiInput (multi value)",
-      "endpoint": "https://metadata.ssbmod.net/data/Protocol",
-      "multiValue": true,
-      "name": "myMultiInputMultiValue",
-      "required": true,
-      "valueChange": undefined,
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (multi value)",
-        "endpoint": "https://metadata.ssbmod.net/data/Protocol",
-        "multiValue": true,
-        "name": "myMultiInputMultiValue",
-        "required": true,
-        "valueChange": undefined,
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
-exports[`DCFormField Renders all the input components without error and only once 18`] = `
+exports[`DCFormField Renders all the input components without error and only once 12`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1668,7 +1140,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 19`] = `
+exports[`DCFormField Renders all the input components without error and only once 13`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1750,7 +1222,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 20`] = `
+exports[`DCFormField Renders all the input components without error and only once 14`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1832,7 +1304,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 21`] = `
+exports[`DCFormField Renders all the input components without error and only once 15`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -1917,7 +1389,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 22`] = `
+exports[`DCFormField Renders all the input components without error and only once 16`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -2008,7 +1480,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 23`] = `
+exports[`DCFormField Renders all the input components without error and only once 17`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -2099,7 +1571,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 24`] = `
+exports[`DCFormField Renders all the input components without error and only once 18`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -2184,7 +1656,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 25`] = `
+exports[`DCFormField Renders all the input components without error and only once 19`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DCFormField
@@ -2244,6 +1716,91 @@ ShallowWrapper {
         "value": Array [
           "1989-12-27T23:00:00.000Z",
           "1990-12-27T23:00:00.000Z",
+        ],
+        "valueChange": undefined,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`DCFormField Renders all the input components without error and only once 20`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DCFormField
+    properties={
+      Object {
+        "component": "DCStatic",
+        "description": "A description for this input",
+        "displayName": "DCStatic (with icon)",
+        "icon": "user",
+        "name": "myDCStaticIconInput",
+        "value": Array [
+          "Value",
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "component": "DCStatic",
+      "description": "A description for this input",
+      "displayName": "DCStatic (with icon)",
+      "icon": "user",
+      "name": "myDCStaticIconInput",
+      "value": Array [
+        "Value",
+      ],
+      "valueChange": undefined,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "component": "DCStatic",
+        "description": "A description for this input",
+        "displayName": "DCStatic (with icon)",
+        "icon": "user",
+        "name": "myDCStaticIconInput",
+        "value": Array [
+          "Value",
         ],
         "valueChange": undefined,
       },

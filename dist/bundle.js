@@ -630,55 +630,6 @@ function (_Component) {
   return DCDate;
 }(React.Component);
 
-function fetchData(url) {
-  var timeout = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 3000;
-  return new Promise(function (resolve, reject) {
-    var controller = new AbortController();
-    var signal = controller.signal;
-    var timer = setTimeout(function () {
-      reject('Request timeout for url: ' + url);
-      controller.abort();
-    }, timeout);
-    fetch(url, {
-      signal: signal,
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (json) {
-          var prefix = '/' + url.substring(url.lastIndexOf('/') + 1) + '/';
-          var options = [];
-          Object.keys(json).forEach(function (value) {
-            // TODO: Fix this when the ability to do it becomes available
-            var text = json[value].name[0].languageText;
-            json[value].name.forEach(function (name) {
-              if (name.languageCode === 'nb') {
-                text = name.languageText;
-              }
-            });
-            options.push({
-              key: json[value].id,
-              text: text,
-              value: prefix + json[value].id
-            });
-          });
-          resolve(options);
-        });
-      } else {
-        response.text().then(function (text) {
-          reject(text + ' (' + url + ')');
-        });
-      }
-    }).catch(function (error) {
-      reject(error.toString() + ' \'' + url + '\'');
-    }).finally(function () {
-      return clearTimeout(timer);
-    });
-  });
-}
-
 var DCDropdown =
 /*#__PURE__*/
 function (_Component) {
@@ -746,21 +697,9 @@ function (_Component) {
           });
         });
       } else {
-        Promise.all(Object.keys(this.props.endpoints).map(function (key) {
-          return fetchData(_this3.props.endpoints[key]);
-        })).then(function (allOptions) {
-          var options = [].concat.apply([], allOptions);
-
-          _this3.setOptionsAndValue(options).then(function () {
-            return _this3.setState({
-              ready: true
-            });
-          });
-        }).catch(function (error) {
-          _this3.setState({
-            ready: true,
-            problem: true,
-            errorMessage: error
+        this.setOptionsAndValue([]).then(function () {
+          return _this3.setState({
+            ready: true
           });
         });
       }
@@ -899,17 +838,9 @@ function (_Component) {
           });
         });
       } else {
-        fetchData(this.props.endpoint).then(function (options) {
-          _this3.setOptionsAndValue(options).then(function () {
-            _this3.setState({
-              ready: true
-            });
-          });
-        }).catch(function (error) {
-          _this3.setState({
-            ready: true,
-            problem: true,
-            errorMessage: error
+        this.setOptionsAndValue([]).then(function () {
+          return _this3.setState({
+            ready: true
           });
         });
       }
@@ -1178,14 +1109,38 @@ function (_Component) {
   }
 
   _createClass(DCStatic, [{
-    key: "createComponent",
-    value: function createComponent() {
+    key: "checkIcon",
+    value: function checkIcon() {
       var _this2 = this;
 
       return new Promise(function (resolve) {
-        var _this2$props = _this2.props,
-            format = _this2$props.format,
-            value = _this2$props.value;
+        if (_this2.props.hasOwnProperty('icon')) {
+          _this2.setState({
+            icon: React__default.createElement(semanticUiReact.Icon, {
+              name: _this2.props.icon,
+              color: "teal"
+            })
+          }, function () {
+            return resolve();
+          });
+        } else {
+          _this2.setState({
+            icon: ''
+          }, function () {
+            return resolve();
+          });
+        }
+      });
+    }
+  }, {
+    key: "createComponent",
+    value: function createComponent() {
+      var _this3 = this;
+
+      return new Promise(function (resolve) {
+        var _this3$props = _this3.props,
+            format = _this3$props.format,
+            value = _this3$props.value;
 
         if (!formats.includes(format)) {
           resolve(React__default.createElement(semanticUiReact.List, {
@@ -1219,7 +1174,7 @@ function (_Component) {
           }
 
           if (format === 'date') {
-            _this2.setState({
+            _this3.setState({
               icon: React__default.createElement(semanticUiReact.Icon, {
                 name: "calendar alternate outline",
                 color: "teal",
@@ -1246,14 +1201,16 @@ function (_Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.createComponent().then(function (result) {
-        _this3.setState({
+        _this4.setState({
           component: result
         }, function () {
-          return _this3.setState({
-            ready: true
+          return _this4.checkIcon().then(function () {
+            _this4.setState({
+              ready: true
+            });
           });
         });
       });

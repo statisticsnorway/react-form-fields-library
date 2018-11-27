@@ -16,6 +16,16 @@ class DCStatic extends Component {
     }
   }
 
+  checkIcon () {
+    return new Promise(resolve => {
+      if (this.props.hasOwnProperty('icon')) {
+        this.setState({icon: <Icon name={this.props.icon} color='teal' />}, () => resolve())
+      } else {
+        this.setState({icon: ''}, () => resolve())
+      }
+    })
+  }
+
   createComponent () {
     return new Promise(resolve => {
       const {format, value} = this.props
@@ -57,7 +67,9 @@ class DCStatic extends Component {
 
   componentDidMount () {
     this.createComponent().then(result => {
-      this.setState({component: result}, () => this.setState({ready: true}))
+      this.setState({component: result}, () => this.checkIcon().then(() => {
+        this.setState({ready: true})
+      }))
     })
   }
 
