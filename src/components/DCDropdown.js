@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
-import { fetchData } from './common/Fetch'
 import { checkValueAndType } from './common/Utlities'
 
 class DCDropdown extends Component {
@@ -33,21 +32,7 @@ class DCDropdown extends Component {
     if (this.props.hasOwnProperty('options')) {
       this.setOptionsAndValue(this.props.options).then(() => this.setState({ready: true}))
     } else {
-      Promise.all(
-        Object.keys(this.props.endpoints).map(key => {
-          return fetchData(this.props.endpoints[key])
-        })
-      ).then(allOptions => {
-        const options = [].concat.apply([], allOptions)
-
-        this.setOptionsAndValue(options).then(() => this.setState({ready: true}))
-      }).catch(error => {
-        this.setState({
-          ready: true,
-          problem: true,
-          errorMessage: error
-        })
-      })
+      this.setOptionsAndValue([]).then(() => this.setState({ready: true}))
     }
   }
 
