@@ -46,7 +46,7 @@ so if you wish to use it you need `react-datepicker` and `moment` as dependencie
     (discussed earlier), like this: 
 
 ```javascript
-  shouldComponentUpdate = (nextProps, nextState) => {
+  shouldComponentUpdate (nextProps, nextState) {
     return this.state.data === nextState.data;
   }
 
