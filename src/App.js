@@ -12,6 +12,13 @@ export const testFormComponents = {
     description: 'A description for this input',
     required: true
   },
+  DCTextLongName: {
+    component: 'DCText',
+    name: 'myTextLongNameInput',
+    displayName: 'DCText with a long name that cuts off in the placeholder so its shorther',
+    description: 'A description for this input',
+    required: true
+  },
   DCBoolean: {
     component: 'DCBoolean',
     name: 'myBooleanInput',

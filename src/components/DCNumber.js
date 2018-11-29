@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Input } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
-import { checkValueAndType } from './common/Utlities'
+import { checkValueAndType, shorten } from './common/Utlities'
 
 class DCNumber extends Component {
   constructor (props) {
@@ -32,7 +32,7 @@ class DCNumber extends Component {
     const {value} = this.state
     const {name, displayName, description, error, warning, required} = this.props
     const component = <Input icon={{name: 'hashtag', color: 'teal'}} iconPosition='left' name={name} value={value}
-                             placeholder={displayName} onChange={this.handleChange} />
+                             placeholder={shorten(displayName)} onChange={this.handleChange} />
 
     return fullFormField(displayName, description, error, warning, required, component)
   }

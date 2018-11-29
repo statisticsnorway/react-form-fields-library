@@ -3,6 +3,7 @@ import { Button, Container, Dropdown, Grid, Header, Icon, Input } from 'semantic
 
 import { fullFormField } from './common/FormField'
 import { UI } from './common/ENUM'
+import { shorten } from './common/Utlities'
 
 class DCMultiInput extends Component {
   constructor (props) {
@@ -158,7 +159,7 @@ class DCMultiInput extends Component {
 
                     return (
                       <Input key={innerIndex} action={action} style={{paddingTop: innerIndex === 0 ? 0 : '0.5rem'}}
-                             placeholder={displayName} value={innerValue} name={name + innerIndex}
+                             placeholder={shorten(displayName)} value={innerValue} name={name + innerIndex}
                              onChange={this.handleInputChange.bind(this, index, innerIndex)} />
                     )
                   })}
@@ -167,7 +168,7 @@ class DCMultiInput extends Component {
                 }
                 {!multiValue &&
                 <Grid.Column width={15} style={{margin: 0, paddingLeft: 0}}>
-                  <Input name={name} placeholder={displayName} value={entry.text} actionPosition='left'
+                  <Input name={name} placeholder={shorten(displayName)} value={entry.text} actionPosition='left'
                          onChange={this.handleInputChange.bind(this, index, index)} action={dropdown} />
                 </Grid.Column>
                 }
