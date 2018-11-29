@@ -4,6 +4,7 @@ import { Container, Form, Grid, Header, Icon } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
 import { checkValueAndType } from './common/Utlities'
+import { UI } from './common/ENUM'
 
 class DCDate extends Component {
   constructor (props) {
@@ -12,18 +13,22 @@ class DCDate extends Component {
   }
 
   componentDidMount () {
-    if (checkValueAndType(this.props.value, 'object')) this.setState({value: this.props.value})
+    const {value} = this.props
+
+    if (checkValueAndType(value, 'object')) this.setState({value: value})
   }
 
   handleChange = (index, date) => {
-    if (this.props.multiple) {
+    const {valueChange, name, multiple} = this.props
+
+    if (multiple) {
       const value = [...this.state.value]
 
       value[parseInt(index)] = date
 
-      this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
+      this.setState({value: value}, () => valueChange(name, this.state.value))
     } else {
-      this.setState({value: date}, () => this.props.valueChange(this.props.name, this.state.value))
+      this.setState({value: date}, () => valueChange(name, this.state.value))
     }
   }
 
@@ -34,11 +39,12 @@ class DCDate extends Component {
   }
 
   handleRemoveEntry (index) {
+    const {valueChange, name} = this.props
     const entries = [...this.state.value]
 
     if (parseInt(index) !== -1) entries.splice(parseInt(index), 1)
 
-    this.setState({value: entries}, () => this.props.valueChange(this.props.name, this.state.value))
+    this.setState({value: entries}, () => valueChange(name, this.state.value))
   }
 
   render () {
@@ -54,7 +60,7 @@ class DCDate extends Component {
           {value.map((entry, index) => {
             const datePicker = <DatePicker selected={value[index]} onChange={this.handleChange.bind(this, index)}
                                            dateFormat='DD/MM/YYYY' placeholderText={displayName} showWeekNumbers
-                                           dropdownMode='select' todayButton='I dag' />
+                                           dropdownMode='select' todayButton={UI.TODAY} />
             return (
               <Grid.Row key={index}>
                 <Grid.Column width={1} style={{margin: 0, paddingRight: 0, paddingTop: '0.35rem'}}>
@@ -80,7 +86,7 @@ class DCDate extends Component {
     } else {
       const datePicker = <DatePicker selected={value} onChange={this.handleChange.bind(this, null)} isClearable
                                      dateFormat='DD/MM/YYYY' placeholderText={displayName} showWeekNumbers
-                                     dropdownMode='select' todayButton='I dag' />
+                                     dropdownMode='select' todayButton={UI.TODAY} />
       component = <Form.Group inline style={{margin: 0}} children={<div>{datePicker}{icon}</div>} />
     }
 

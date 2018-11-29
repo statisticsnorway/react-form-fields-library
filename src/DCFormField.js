@@ -22,9 +22,10 @@ const formComponents = {
 
 class DCFormField extends Component {
   render () {
-    const FormComponent = formComponents[this.props.properties.component]
+    const {properties, valueChange} = this.props
+    const FormComponent = formComponents[properties.component]
 
-    return <FormComponent {...this.props.properties} valueChange={this.props.valueChange} />
+    return <FormComponent {...properties} valueChange={valueChange} />
   }
 }
 

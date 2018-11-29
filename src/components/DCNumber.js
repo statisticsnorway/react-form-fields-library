@@ -11,16 +11,20 @@ class DCNumber extends Component {
   }
 
   componentDidMount () {
-    if (checkValueAndType(this.props.value, 'number')) this.setState({value: this.props.value})
+    const {value} = this.props
+
+    if (checkValueAndType(value, 'number')) this.setState({value: value})
   }
 
   handleChange = (event) => {
     if (!isNaN(event.target.value)) {
+      const {valueChange, name} = this.props
+
       let value = ''
 
       if (event.target.value !== '') value = parseFloat(event.target.value)
 
-      this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
+      this.setState({value: value}, () => valueChange(name, this.state.value))
     }
   }
 
