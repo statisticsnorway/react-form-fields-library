@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-import { Button, Checkbox, Divider, Form, Grid, Header } from 'semantic-ui-react'
+import { Checkbox, Divider, Form, Grid, Header } from 'semantic-ui-react'
 import moment from 'moment'
-import 'moment/locale/nb'
 
 import { DCFormField } from './main'
-
-moment.locale('nb')
 
 export const testFormComponents = {
   DCText: {
@@ -275,10 +272,6 @@ class App extends Component {
     })
   }
 
-  checkState = () => {
-    console.log(this.state)
-  }
-
   render () {
     const {ready, warning, error, formComponents} = this.state
 
@@ -302,7 +295,6 @@ class App extends Component {
           <Divider hidden />
           <Checkbox label='Add errors' checked={error} onChange={this.handleWarningsAndErrors.bind(this, 'error')} />
           <Divider hidden />
-          <Button primary content='Print state in console' onClick={this.checkState} />
         </Grid.Column>
       </Grid>
     )

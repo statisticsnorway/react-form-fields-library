@@ -11,11 +11,15 @@ class DCText extends Component {
   }
 
   componentDidMount () {
-    if (checkValueAndType(this.props.value, 'string')) this.setState({value: this.props.value})
+    const {value} = this.props
+
+    if (checkValueAndType(value, 'string')) this.setState({value: value})
   }
 
   handleChange = (event) => {
-    this.setState({value: event.target.value}, () => this.props.valueChange(this.props.name, this.state.value))
+    const {valueChange, name} = this.props
+
+    this.setState({value: event.target.value}, () => valueChange(name, this.state.value))
   }
 
   render () {

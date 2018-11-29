@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, Container, Dropdown, Grid, Header, Icon, Input } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
+import { UI } from './common/ENUM'
 
 class DCMultiInput extends Component {
   constructor (props) {
@@ -17,9 +18,11 @@ class DCMultiInput extends Component {
 
   setOptionsAndValue (options) {
     return new Promise(resolve => {
+      const {value} = this.props
+
       this.setState({options: options}, () => {
-        if (Array.isArray(this.props.value) && this.props.value.length !== 0) {
-          this.setState({value: this.props.value}, () => resolve())
+        if (Array.isArray(value) && value.length !== 0) {
+          this.setState({value: value}, () => resolve())
         } else resolve()
       })
     })
@@ -34,57 +37,64 @@ class DCMultiInput extends Component {
   }
 
   handleInputChange (index, innerIndex, event) {
+    const {valueChange, name, multiValue} = this.props
     const value = [...this.state.value]
 
-    if (!this.props.multiValue) {
+    if (!multiValue) {
       value[parseInt(index)].text = event.target.value
     } else {
       value[parseInt(index)].text[parseInt(innerIndex)] = event.target.value
     }
 
-    this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
+    this.setState({value: value}, () => valueChange(name, this.state.value))
   }
 
   handleDropdownChange (index, event, data) {
+    const {valueChange, name} = this.props
     const value = [...this.state.value]
 
     value[parseInt(index)].option = data.value
 
-    this.setState({value: value}, () => this.props.valueChange(this.props.name, this.state.value))
+    this.setState({value: value}, () => valueChange(name, this.state.value))
   }
 
   handleAddEntry = () => {
-    this.setState({value: [...this.state.value, {text: this.props.multiValue ? [''] : '', option: ''}]}, () =>
-      this.props.valueChange(this.props.name, this.state.value)
+    const {valueChange, name, multiValue} = this.props
+
+    this.setState({value: [...this.state.value, {text: multiValue ? [''] : '', option: ''}]}, () =>
+      valueChange(name, this.state.value)
     )
   }
 
   handleRemoveEntry (index) {
+    const {valueChange, name} = this.props
     const entries = [...this.state.value]
 
     if (parseInt(index) !== -1) entries.splice(parseInt(index), 1)
 
-    this.setState({value: entries}, () => this.props.valueChange(this.props.name, this.state.value))
+    this.setState({value: entries}, () => valueChange(name, this.state.value))
   }
 
   handleAddValueToEntry (index) {
+    const {valueChange, name} = this.props
     const entries = [...this.state.value]
 
     entries[parseInt(index)].text = [...this.state.value[parseInt(index)].text, '']
 
     this.setState({value: entries}, () =>
-      this.props.valueChange(this.props.name, this.state.value)
+      valueChange(name, this.state.value)
     )
   }
 
   handleRemoveValueFromEntry (index, innerIndex) {
+    const {valueChange, name} = this.props
     const entries = [...this.state.value]
 
     if (parseInt(index) !== -1 && parseInt(innerIndex) !== -1) {
       entries[parseInt(index)].text.splice(parseInt(innerIndex), 1)
     }
 
-    this.setState({value: entries}, () => this.props.valueChange(this.props.name, this.state.value))
+    this.setState({value: entries}, () => valueChange(name, this.state.value))
   }
 
   render () {
@@ -124,7 +134,7 @@ class DCMultiInput extends Component {
         <Grid>
           {value.map((entry, index) => {
             const dropdown = <Dropdown options={options} value={entry.option} selection disabled={options.length === 0}
-                                       placeholder={options.length === 0 ? 'No options' : 'Pick one'} clearable
+                                       placeholder={options.length === 0 ? UI.NO_OPTIONS : UI.OPTIONS} clearable
                                        fluid={!!multiValue} onChange={this.handleDropdownChange.bind(this, index)} />
 
             return (

@@ -3,6 +3,7 @@ import { Dropdown } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
 import { checkValueAndType } from './common/Utlities'
+import { UI } from './common/ENUM'
 
 class DCDropdown extends Component {
   constructor (props) {
@@ -18,11 +19,13 @@ class DCDropdown extends Component {
 
   setOptionsAndValue (options) {
     return new Promise(resolve => {
+      const {value, multiSelect} = this.props
+
       this.setState({options: options}, () => {
-        if (checkValueAndType(this.props.value, 'string') || (Array.isArray(this.props.value) && this.props.value.length !== 0)) {
-          this.setState({value: this.props.value}, () => resolve())
+        if (checkValueAndType(value, 'string') || (Array.isArray(value) && value.length !== 0)) {
+          this.setState({value: value}, () => resolve())
         } else {
-          this.setState({value: this.props.multiSelect ? [] : ''}, () => resolve())
+          this.setState({value: multiSelect ? [] : ''}, () => resolve())
         }
       })
     })
@@ -37,7 +40,9 @@ class DCDropdown extends Component {
   }
 
   handleChange = (event, data) => {
-    this.setState({value: data.value}, () => this.props.valueChange(this.props.name, this.state.value))
+    const {valueChange, name} = this.props
+
+    this.setState({value: data.value}, () => valueChange(name, this.state.value))
   }
 
   render () {
@@ -57,7 +62,7 @@ class DCDropdown extends Component {
     }
 
     if (ready && !problem) {
-      const component = <Dropdown placeholder={options.length === 0 ? 'No options' : displayName} search={searchable}
+      const component = <Dropdown placeholder={options.length === 0 ? UI.NO_OPTIONS : displayName} search={searchable}
                                   value={value} options={options} clearable selection multiple={multiSelect}
                                   disabled={options.length === 0} onChange={this.handleChange}
                                   icon={{

@@ -11,11 +11,15 @@ class DCBoolean extends Component {
   }
 
   componentDidMount () {
-    if (checkValueAndType(this.props.value, 'boolean')) this.setState({value: this.props.value})
+    const {value} = this.props
+
+    if (checkValueAndType(value, 'boolean')) this.setState({value: value})
   }
 
   handleChange = () => {
-    this.setState({value: !this.state.value}, () => this.props.valueChange(this.props.name, this.state.value))
+    const {valueChange, name} = this.props
+
+    this.setState({value: !this.state.value}, () => valueChange(name, this.state.value))
   }
 
   render () {
