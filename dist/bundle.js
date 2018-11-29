@@ -198,6 +198,13 @@ function simpleStaticFormField(displayName, description, component) {
 function checkValueAndType(value, type) {
   return value !== undefined && value !== '' && value !== null && _typeof(value) === type;
 }
+function shorten(string) {
+  if (typeof string === 'string' && string.length > 32) {
+    return string.substring(0, 30) + '...';
+  } else {
+    return string;
+  }
+}
 
 var DCText =
 /*#__PURE__*/
@@ -252,7 +259,7 @@ function (_Component) {
         autoHeight: true,
         rows: 1,
         name: name,
-        placeholder: displayName,
+        placeholder: shorten(displayName),
         value: value,
         onChange: this.handleChange
       });
@@ -381,7 +388,7 @@ function (_Component) {
         iconPosition: "left",
         name: name,
         value: value,
-        placeholder: displayName,
+        placeholder: shorten(displayName),
         onChange: this.handleChange
       });
       return fullFormField(displayName, description, error, warning, required, component);
@@ -578,7 +585,7 @@ function (_Component) {
             selected: value[index],
             onChange: _this3.handleChange.bind(_this3, index),
             dateFormat: "DD/MM/YYYY",
-            placeholderText: displayName,
+            placeholderText: shorten(displayName),
             showWeekNumbers: true,
             dropdownMode: "select",
             todayButton: UI.TODAY
@@ -643,7 +650,7 @@ function (_Component) {
           onChange: this.handleChange.bind(this, null),
           isClearable: true,
           dateFormat: "DD/MM/YYYY",
-          placeholderText: displayName,
+          placeholderText: shorten(displayName),
           showWeekNumbers: true,
           dropdownMode: "select",
           todayButton: UI.TODAY
@@ -766,7 +773,7 @@ function (_Component) {
 
       if (!ready) {
         var component = React__default.createElement(semanticUiReact.Dropdown, {
-          placeholder: displayName,
+          placeholder: shorten(displayName),
           selection: true,
           options: [],
           loading: true,
@@ -787,8 +794,7 @@ function (_Component) {
 
       if (ready && !problem) {
         var _component2 = React__default.createElement(semanticUiReact.Dropdown, {
-          placeholder: options.length === 0 ? UI.NO_OPTIONS : displayName,
-          search: searchable,
+          placeholder: options.length === 0 ? UI.NO_OPTIONS : shorten(displayName),
           value: value,
           options: options,
           clearable: true,
@@ -796,6 +802,7 @@ function (_Component) {
           multiple: multiSelect,
           disabled: options.length === 0,
           onChange: this.handleChange,
+          search: searchable,
           icon: {
             name: searchable ? 'search' : 'dropdown',
             disabled: !!searchable,
@@ -1105,7 +1112,7 @@ function (_Component) {
               style: {
                 paddingTop: innerIndex === 0 ? 0 : '0.5rem'
               },
-              placeholder: displayName,
+              placeholder: shorten(displayName),
               value: innerValue,
               name: name + innerIndex,
               onChange: _this9.handleInputChange.bind(_this9, index, innerIndex)
@@ -1123,7 +1130,7 @@ function (_Component) {
             }
           }, React__default.createElement(semanticUiReact.Input, {
             name: name,
-            placeholder: displayName,
+            placeholder: shorten(displayName),
             value: entry.text,
             actionPosition: "left",
             onChange: _this9.handleInputChange.bind(_this9, index, index),

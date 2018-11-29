@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker'
 import { Container, Form, Grid, Header, Icon } from 'semantic-ui-react'
 
 import { fullFormField } from './common/FormField'
-import { checkValueAndType } from './common/Utlities'
+import { checkValueAndType, shorten } from './common/Utlities'
 import { UI } from './common/ENUM'
 
 class DCDate extends Component {
@@ -59,7 +59,7 @@ class DCDate extends Component {
         <Grid>
           {value.map((entry, index) => {
             const datePicker = <DatePicker selected={value[index]} onChange={this.handleChange.bind(this, index)}
-                                           dateFormat='DD/MM/YYYY' placeholderText={displayName} showWeekNumbers
+                                           dateFormat='DD/MM/YYYY' placeholderText={shorten(displayName)} showWeekNumbers
                                            dropdownMode='select' todayButton={UI.TODAY} />
             return (
               <Grid.Row key={index}>
@@ -85,7 +85,7 @@ class DCDate extends Component {
         </Grid>
     } else {
       const datePicker = <DatePicker selected={value} onChange={this.handleChange.bind(this, null)} isClearable
-                                     dateFormat='DD/MM/YYYY' placeholderText={displayName} showWeekNumbers
+                                     dateFormat='DD/MM/YYYY' placeholderText={shorten(displayName)} showWeekNumbers
                                      dropdownMode='select' todayButton={UI.TODAY} />
       component = <Form.Group inline style={{margin: 0}} children={<div>{datePicker}{icon}</div>} />
     }
