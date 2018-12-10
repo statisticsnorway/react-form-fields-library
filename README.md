@@ -86,6 +86,8 @@ DCStatic | A collection of one or more non-interactable values to be displayed e
 run `yarn upgrade dc-react-form-fields-library` to get the latest "build"
 
 ### Test it yourself
+The first time you clone the repository, remember to run `yarn install`
+
 Run `yarn start` and navigate to `http://localhost:3000/`
 
 ##### Alternatively try a more optimized production build:
