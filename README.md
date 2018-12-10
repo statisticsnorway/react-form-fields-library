@@ -22,7 +22,7 @@ class App extends Component {
   render () {
     return (
       <Form>
-        <DCFormField properties={properties} valueChange={this.valueChange} />
+        <DCFormField properties={properties} valueChange={this.valueChange} languageCode={'en'} />
       </Form>
     )
   }
@@ -30,7 +30,8 @@ class App extends Component {
 ```
 
 ##### Note:
-* *component* and *name* are the only **required** properties but some component types need more properties too work correctly
+* *component*, *name* and *languageCode* are the only **required** properties but some component types need more properties too work correctly
+  * Norwegian ('nb') and english ('en') is currently supported
 * This library uses [Semantic UI](https://semantic-ui.com/introduction/getting-started.html) for styling and therefore 
 requires your project to to have `semantic-ui-css` and `semantic-ui-react` as dependencies (since those are not packaged with this library)
   * Do not forget to wrap your DCFormField components inside the [Semantic UI React](https://react.semantic-ui.com/) 

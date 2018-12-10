@@ -100,7 +100,7 @@ class DCMultiInput extends Component {
 
   render () {
     const {ready, problem, value, options, errorMessage} = this.state
-    const {name, displayName, description, error, warning, required, multiValue} = this.props
+    const {name, displayName, description, error, warning, required, multiValue, languageCode} = this.props
 
     if (!ready) {
       const component =
@@ -135,8 +135,9 @@ class DCMultiInput extends Component {
         <Grid>
           {value.map((entry, index) => {
             const dropdown = <Dropdown options={options} value={entry.option} selection disabled={options.length === 0}
-                                       placeholder={options.length === 0 ? UI.NO_OPTIONS : UI.OPTIONS} clearable
-                                       fluid={!!multiValue} onChange={this.handleDropdownChange.bind(this, index)} />
+                                       placeholder={options.length === 0 ? UI.NO_OPTIONS[languageCode] : UI.OPTIONS[languageCode]}
+                                       clearable fluid={!!multiValue}
+                                       onChange={this.handleDropdownChange.bind(this, index)} />
 
             return (
               <Grid.Row key={index}>

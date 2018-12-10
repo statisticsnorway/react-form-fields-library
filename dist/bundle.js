@@ -474,9 +474,18 @@ function (_Component) {
 }(React.Component);
 
 var UI = {
-  NO_OPTIONS: 'No options',
-  OPTIONS: 'Pick one',
-  TODAY: 'Today'
+  NO_OPTIONS: {
+    en: 'No options',
+    nb: 'Ingen valg'
+  },
+  OPTIONS: {
+    en: 'Pick one',
+    nb: 'Velg'
+  },
+  TODAY: {
+    en: 'Today',
+    nb: 'I dag'
+  }
 };
 
 var DCDate =
@@ -568,7 +577,8 @@ function (_Component) {
           error = _this$props3.error,
           warning = _this$props3.warning,
           required = _this$props3.required,
-          multiple = _this$props3.multiple;
+          multiple = _this$props3.multiple,
+          languageCode = _this$props3.languageCode;
       var icon = React__default.createElement(semanticUiReact.Icon, {
         name: "calendar alternate outline",
         size: "big",
@@ -588,7 +598,7 @@ function (_Component) {
             placeholderText: shorten(displayName),
             showWeekNumbers: true,
             dropdownMode: "select",
-            todayButton: UI.TODAY
+            todayButton: UI.TODAY[languageCode]
           });
           return React__default.createElement(semanticUiReact.Grid.Row, {
             key: index
@@ -653,7 +663,7 @@ function (_Component) {
           placeholderText: shorten(displayName),
           showWeekNumbers: true,
           dropdownMode: "select",
-          todayButton: UI.TODAY
+          todayButton: UI.TODAY[languageCode]
         });
         component = React__default.createElement(semanticUiReact.Form.Group, {
           inline: true,
@@ -769,7 +779,8 @@ function (_Component) {
           warning = _this$props2.warning,
           required = _this$props2.required,
           multiSelect = _this$props2.multiSelect,
-          searchable = _this$props2.searchable;
+          searchable = _this$props2.searchable,
+          languageCode = _this$props2.languageCode;
 
       if (!ready) {
         var component = React__default.createElement(semanticUiReact.Dropdown, {
@@ -794,7 +805,7 @@ function (_Component) {
 
       if (ready && !problem) {
         var _component2 = React__default.createElement(semanticUiReact.Dropdown, {
-          placeholder: options.length === 0 ? UI.NO_OPTIONS : shorten(displayName),
+          placeholder: options.length === 0 ? UI.NO_OPTIONS[languageCode] : shorten(displayName),
           value: value,
           options: options,
           clearable: true,
@@ -1018,7 +1029,8 @@ function (_Component) {
           error = _this$props7.error,
           warning = _this$props7.warning,
           required = _this$props7.required,
-          multiValue = _this$props7.multiValue;
+          multiValue = _this$props7.multiValue,
+          languageCode = _this$props7.languageCode;
 
       if (!ready) {
         var component = React__default.createElement(semanticUiReact.Grid, {
@@ -1058,7 +1070,7 @@ function (_Component) {
             value: entry.option,
             selection: true,
             disabled: options.length === 0,
-            placeholder: options.length === 0 ? UI.NO_OPTIONS : UI.OPTIONS,
+            placeholder: options.length === 0 ? UI.NO_OPTIONS[languageCode] : UI.OPTIONS[languageCode],
             clearable: true,
             fluid: !!multiValue,
             onChange: _this9.handleDropdownChange.bind(_this9, index)
@@ -1337,10 +1349,12 @@ function (_Component) {
     value: function render() {
       var _this$props = this.props,
           properties = _this$props.properties,
-          valueChange = _this$props.valueChange;
+          valueChange = _this$props.valueChange,
+          languageCode = _this$props.languageCode;
       var FormComponent = formComponents[properties.component];
       return React__default.createElement(FormComponent, _extends({}, properties, {
-        valueChange: valueChange
+        valueChange: valueChange,
+        languageCode: languageCode
       }));
     }
   }]);

@@ -49,7 +49,7 @@ class DCDate extends Component {
 
   render () {
     const {value} = this.state
-    const {displayName, description, error, warning, required, multiple} = this.props
+    const {displayName, description, error, warning, required, multiple, languageCode} = this.props
     const icon = <Icon name='calendar alternate outline' size='big' style={{paddingTop: '0.5rem'}} color='teal' />
 
     let component
@@ -59,8 +59,9 @@ class DCDate extends Component {
         <Grid>
           {value.map((entry, index) => {
             const datePicker = <DatePicker selected={value[index]} onChange={this.handleChange.bind(this, index)}
-                                           dateFormat='DD/MM/YYYY' placeholderText={shorten(displayName)} showWeekNumbers
-                                           dropdownMode='select' todayButton={UI.TODAY} />
+                                           dateFormat='DD/MM/YYYY' placeholderText={shorten(displayName)}
+                                           showWeekNumbers dropdownMode='select'
+                                           todayButton={UI.TODAY[languageCode]} />
             return (
               <Grid.Row key={index}>
                 <Grid.Column width={1} style={{margin: 0, paddingRight: 0, paddingTop: '0.35rem'}}>
@@ -86,7 +87,7 @@ class DCDate extends Component {
     } else {
       const datePicker = <DatePicker selected={value} onChange={this.handleChange.bind(this, null)} isClearable
                                      dateFormat='DD/MM/YYYY' placeholderText={shorten(displayName)} showWeekNumbers
-                                     dropdownMode='select' todayButton={UI.TODAY} />
+                                     dropdownMode='select' todayButton={UI.TODAY[languageCode]} />
       component = <Form.Group inline style={{margin: 0}} children={<div>{datePicker}{icon}</div>} />
     }
 

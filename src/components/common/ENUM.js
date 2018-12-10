@@ -1,5 +1,14 @@
 export const UI = {
-  NO_OPTIONS: 'No options',
-  OPTIONS: 'Pick one',
-  TODAY: 'Today'
+  NO_OPTIONS: {
+    en: 'No options',
+    nb: 'Ingen valg'
+  },
+  OPTIONS: {
+    en: 'Pick one',
+    nb: 'Velg'
+  },
+  TODAY: {
+    en: 'Today',
+    nb: 'I dag'
+  }
 }

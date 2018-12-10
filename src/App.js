@@ -289,7 +289,8 @@ class App extends Component {
           {ready &&
           <Form>
             {Object.keys(formComponents).map(value => {
-              return <DCFormField key={value} properties={formComponents[value]} valueChange={this.handleValueChange} />
+              return <DCFormField key={value} properties={formComponents[value]} valueChange={this.handleValueChange}
+                                  languageCode={'en'} />
             })}
           </Form>
           }

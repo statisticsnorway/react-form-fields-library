@@ -30,6 +30,7 @@ ShallowWrapper {
       "component": "DCText",
       "description": "A description for this input",
       "displayName": "DCText",
+      "languageCode": undefined,
       "name": "myTextInput",
       "required": true,
       "valueChange": undefined,
@@ -47,6 +48,7 @@ ShallowWrapper {
         "component": "DCText",
         "description": "A description for this input",
         "displayName": "DCText",
+        "languageCode": undefined,
         "name": "myTextInput",
         "required": true,
         "valueChange": undefined,
@@ -106,6 +108,7 @@ ShallowWrapper {
       "component": "DCText",
       "description": "A description for this input",
       "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
+      "languageCode": undefined,
       "name": "myTextLongNameInput",
       "required": true,
       "valueChange": undefined,
@@ -123,6 +126,7 @@ ShallowWrapper {
         "component": "DCText",
         "description": "A description for this input",
         "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
+        "languageCode": undefined,
         "name": "myTextLongNameInput",
         "required": true,
         "valueChange": undefined,
@@ -181,6 +185,7 @@ ShallowWrapper {
       "component": "DCBoolean",
       "description": "A description for this input",
       "displayName": "DCBoolean",
+      "languageCode": undefined,
       "name": "myBooleanInput",
       "valueChange": undefined,
     },
@@ -197,6 +202,7 @@ ShallowWrapper {
         "component": "DCBoolean",
         "description": "A description for this input",
         "displayName": "DCBoolean",
+        "languageCode": undefined,
         "name": "myBooleanInput",
         "valueChange": undefined,
       },
@@ -255,6 +261,7 @@ ShallowWrapper {
       "component": "DCNumber",
       "description": "A description for this input",
       "displayName": "DCNumber",
+      "languageCode": undefined,
       "name": "myNumberInput",
       "required": true,
       "valueChange": undefined,
@@ -272,6 +279,7 @@ ShallowWrapper {
         "component": "DCNumber",
         "description": "A description for this input",
         "displayName": "DCNumber",
+        "languageCode": undefined,
         "name": "myNumberInput",
         "required": true,
         "valueChange": undefined,
@@ -345,6 +353,7 @@ ShallowWrapper {
       "component": "DCRadio",
       "description": "A description for this input",
       "displayName": "DCRadio",
+      "languageCode": undefined,
       "name": "myRadioInput",
       "options": Array [
         Object {
@@ -376,6 +385,7 @@ ShallowWrapper {
         "component": "DCRadio",
         "description": "A description for this input",
         "displayName": "DCRadio",
+        "languageCode": undefined,
         "name": "myRadioInput",
         "options": Array [
           Object {
@@ -449,6 +459,7 @@ ShallowWrapper {
       "component": "DCDate",
       "description": "A description for this input",
       "displayName": "DCDate",
+      "languageCode": undefined,
       "name": "myDateInput",
       "required": true,
       "valueChange": undefined,
@@ -466,6 +477,7 @@ ShallowWrapper {
         "component": "DCDate",
         "description": "A description for this input",
         "displayName": "DCDate",
+        "languageCode": undefined,
         "name": "myDateInput",
         "required": true,
         "valueChange": undefined,
@@ -526,6 +538,7 @@ ShallowWrapper {
       "component": "DCDate",
       "description": "A description for this input",
       "displayName": "DCDate (multiple)",
+      "languageCode": undefined,
       "multiple": true,
       "name": "myDateMultipleInput",
       "required": true,
@@ -544,6 +557,7 @@ ShallowWrapper {
         "component": "DCDate",
         "description": "A description for this input",
         "displayName": "DCDate (multiple)",
+        "languageCode": undefined,
         "multiple": true,
         "name": "myDateMultipleInput",
         "required": true,
@@ -618,6 +632,7 @@ ShallowWrapper {
       "component": "DCDropdown",
       "description": "A description for this input",
       "displayName": "DCDropdown (provided options)",
+      "languageCode": undefined,
       "name": "myDropdownSingleSelectProvidedOptionsInput",
       "options": Array [
         Object {
@@ -649,6 +664,7 @@ ShallowWrapper {
         "component": "DCDropdown",
         "description": "A description for this input",
         "displayName": "DCDropdown (provided options)",
+        "languageCode": undefined,
         "name": "myDropdownSingleSelectProvidedOptionsInput",
         "options": Array [
           Object {
@@ -737,6 +753,7 @@ ShallowWrapper {
       "component": "DCDropdown",
       "description": "A description for this input",
       "displayName": "DCDropdown (multiSelect and provided options)",
+      "languageCode": undefined,
       "multiSelect": true,
       "name": "myDropdownMultipleSelectProvidedOptionsInput",
       "options": Array [
@@ -769,6 +786,7 @@ ShallowWrapper {
         "component": "DCDropdown",
         "description": "A description for this input",
         "displayName": "DCDropdown (multiSelect and provided options)",
+        "languageCode": undefined,
         "multiSelect": true,
         "name": "myDropdownMultipleSelectProvidedOptionsInput",
         "options": Array [
@@ -844,6 +862,7 @@ ShallowWrapper {
       "component": "DCDropdown",
       "description": "A description for this input",
       "displayName": "DCDropdown (empty options)",
+      "languageCode": undefined,
       "name": "myDropdownEmptyOptionsInput",
       "options": Array [],
       "required": true,
@@ -862,6 +881,7 @@ ShallowWrapper {
         "component": "DCDropdown",
         "description": "A description for this input",
         "displayName": "DCDropdown (empty options)",
+        "languageCode": undefined,
         "name": "myDropdownEmptyOptionsInput",
         "options": Array [],
         "required": true,
@@ -937,6 +957,7 @@ ShallowWrapper {
       "component": "DCMultiInput",
       "description": "A description for this input",
       "displayName": "DCMultiInput (provided options)",
+      "languageCode": undefined,
       "multiValue": false,
       "name": "myDCMultiInputProvidedOptionsInput",
       "options": Array [
@@ -969,6 +990,7 @@ ShallowWrapper {
         "component": "DCMultiInput",
         "description": "A description for this input",
         "displayName": "DCMultiInput (provided options)",
+        "languageCode": undefined,
         "multiValue": false,
         "name": "myDCMultiInputProvidedOptionsInput",
         "options": Array [
@@ -1045,6 +1067,7 @@ ShallowWrapper {
       "component": "DCMultiInput",
       "description": "A description for this input",
       "displayName": "DCMultiInput (empty options)",
+      "languageCode": undefined,
       "multiValue": false,
       "name": "myDCMultiInputEmptyOptionsInput",
       "options": Array [],
@@ -1064,6 +1087,7 @@ ShallowWrapper {
         "component": "DCMultiInput",
         "description": "A description for this input",
         "displayName": "DCMultiInput (empty options)",
+        "languageCode": undefined,
         "multiValue": false,
         "name": "myDCMultiInputEmptyOptionsInput",
         "options": Array [],
@@ -1140,6 +1164,7 @@ ShallowWrapper {
       "component": "DCMultiInput",
       "description": "A description for this input",
       "displayName": "DCMultiInput (multi value and provided options)",
+      "languageCode": undefined,
       "multiValue": true,
       "name": "myDCMultiInputMultiValueProvidedOptions",
       "options": Array [
@@ -1172,6 +1197,7 @@ ShallowWrapper {
         "component": "DCMultiInput",
         "description": "A description for this input",
         "displayName": "DCMultiInput (multi value and provided options)",
+        "languageCode": undefined,
         "multiValue": true,
         "name": "myDCMultiInputMultiValueProvidedOptions",
         "options": Array [
@@ -1248,6 +1274,7 @@ ShallowWrapper {
       "component": "DCMultiInput",
       "description": "A description for this input",
       "displayName": "DCMultiInput (multi value and empty options)",
+      "languageCode": undefined,
       "multiValue": true,
       "name": "myDCMultiInputMultiValueEmptyOptions",
       "options": Array [],
@@ -1267,6 +1294,7 @@ ShallowWrapper {
         "component": "DCMultiInput",
         "description": "A description for this input",
         "displayName": "DCMultiInput (multi value and empty options)",
+        "languageCode": undefined,
         "multiValue": true,
         "name": "myDCMultiInputMultiValueEmptyOptions",
         "options": Array [],
@@ -1330,6 +1358,7 @@ ShallowWrapper {
       "component": "DCStatic",
       "description": "A description for this input",
       "displayName": "DCStatic (standard)",
+      "languageCode": undefined,
       "name": "myDCStaticInput",
       "value": Array [
         "Value",
@@ -1349,6 +1378,7 @@ ShallowWrapper {
         "component": "DCStatic",
         "description": "A description for this input",
         "displayName": "DCStatic (standard)",
+        "languageCode": undefined,
         "name": "myDCStaticInput",
         "value": Array [
           "Value",
@@ -1414,6 +1444,7 @@ ShallowWrapper {
       "description": "A description for this input",
       "displayName": "DCStatic (date)",
       "format": "date",
+      "languageCode": undefined,
       "name": "myDCStaticDateInput",
       "value": Array [
         "1989-12-27T23:00:00.000Z",
@@ -1434,6 +1465,7 @@ ShallowWrapper {
         "description": "A description for this input",
         "displayName": "DCStatic (date)",
         "format": "date",
+        "languageCode": undefined,
         "name": "myDCStaticDateInput",
         "value": Array [
           "1989-12-27T23:00:00.000Z",
@@ -1501,6 +1533,7 @@ ShallowWrapper {
       "description": "A description for this input",
       "displayName": "DCStatic (tags)",
       "format": "tag",
+      "languageCode": undefined,
       "name": "myDCStaticTagInput",
       "value": Array [
         "A tag",
@@ -1523,6 +1556,7 @@ ShallowWrapper {
         "description": "A description for this input",
         "displayName": "DCStatic (tags)",
         "format": "tag",
+        "languageCode": undefined,
         "name": "myDCStaticTagInput",
         "value": Array [
           "A tag",
@@ -1592,6 +1626,7 @@ ShallowWrapper {
       "description": "A description for this input",
       "displayName": "DCStatic (labels)",
       "format": "label",
+      "languageCode": undefined,
       "name": "myDCStaticLabelInput",
       "value": Array [
         "A label",
@@ -1614,6 +1649,7 @@ ShallowWrapper {
         "description": "A description for this input",
         "displayName": "DCStatic (labels)",
         "format": "label",
+        "languageCode": undefined,
         "name": "myDCStaticLabelInput",
         "value": Array [
           "A label",
@@ -1680,6 +1716,7 @@ ShallowWrapper {
       "component": "DCStatic",
       "description": "A description for this input",
       "displayName": "DCStatic (multi standard)",
+      "languageCode": undefined,
       "name": "myDCStaticMultiInput",
       "value": Array [
         "Value",
@@ -1700,6 +1737,7 @@ ShallowWrapper {
         "component": "DCStatic",
         "description": "A description for this input",
         "displayName": "DCStatic (multi standard)",
+        "languageCode": undefined,
         "name": "myDCStaticMultiInput",
         "value": Array [
           "Value",
@@ -1767,6 +1805,7 @@ ShallowWrapper {
       "description": "A description for this input",
       "displayName": "DCStatic (multi date)",
       "format": "date",
+      "languageCode": undefined,
       "name": "myDCStaticDateMultiInput",
       "value": Array [
         "1989-12-27T23:00:00.000Z",
@@ -1788,6 +1827,7 @@ ShallowWrapper {
         "description": "A description for this input",
         "displayName": "DCStatic (multi date)",
         "format": "date",
+        "languageCode": undefined,
         "name": "myDCStaticDateMultiInput",
         "value": Array [
           "1989-12-27T23:00:00.000Z",
@@ -1854,6 +1894,7 @@ ShallowWrapper {
       "description": "A description for this input",
       "displayName": "DCStatic (with icon)",
       "icon": "user",
+      "languageCode": undefined,
       "name": "myDCStaticIconInput",
       "value": Array [
         "Value",
@@ -1874,6 +1915,7 @@ ShallowWrapper {
         "description": "A description for this input",
         "displayName": "DCStatic (with icon)",
         "icon": "user",
+        "languageCode": undefined,
         "name": "myDCStaticIconInput",
         "value": Array [
           "Value",
