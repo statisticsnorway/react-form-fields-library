@@ -13,7 +13,7 @@ const properties = {
   component: 'DCText',                          // The component type
   name: 'myInput',                              // Identifier for the value stored in the parent
   displayName: 'My input',                      // Label on the field
-  description: 'A description for my input',    // Popup on the label
+  description: ['A description for my input'],  // Popup on the label
   required: true,                               // If the field is required
   value: null                                   // If the component should be initiated with a value, different components require different data types
 }
@@ -31,7 +31,8 @@ class App extends Component {
 
 ##### Note:
 * *component*, *name* and *languageCode* are the only **required** properties but some component types need more properties too work correctly
-  * Norwegian ('nb') and english ('en') is currently supported
+  * Norwegian ('nb') and english ('en') are the currently supported languageCodes
+* If you want to structure the description with separated sentances, note how *description* takes and array of strings
 * This library uses [Semantic UI](https://semantic-ui.com/introduction/getting-started.html) for styling and therefore 
 requires your project to to have `semantic-ui-css` and `semantic-ui-react` as dependencies (since those are not packaged with this library)
   * Do not forget to wrap your DCFormField components inside the [Semantic UI React](https://react.semantic-ui.com/) 
