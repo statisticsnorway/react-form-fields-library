@@ -4,12 +4,12 @@ import { Divider, Form, Popup } from 'semantic-ui-react'
 const InlineError = ({text}) => <span style={{color: '#db2828'}}>{text}</span>
 const InlineWarning = ({text}) => <span style={{color: '#ffd700'}}>{text}</span>
 
-function structureDescription (description) {
-  const structuredDescription = description.map((value, index) => {
-    return <p key={index}>{value}</p>
-  })
-
-  return <div>{structuredDescription}</div>
+const structureDescription = (description) => {
+  return (
+    <div>
+      {description.map((value, index) => <p key={index}>{value}</p>)}
+    </div>
+  )
 }
 
 export function fullFormField (displayName, description, error, warning, required, component) {

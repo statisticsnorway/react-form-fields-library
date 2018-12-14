@@ -149,14 +149,13 @@ var InlineWarning = function InlineWarning(_ref2) {
   }, text);
 };
 
-function structureDescription(description) {
-  var structuredDescription = description.map(function (value, index) {
+var structureDescription = function structureDescription(description) {
+  return React__default.createElement("div", null, description.map(function (value, index) {
     return React__default.createElement("p", {
       key: index
     }, value);
-  });
-  return React__default.createElement("div", null, structuredDescription);
-}
+  }));
+};
 
 function fullFormField(displayName, description, error, warning, required, component) {
   return React__default.createElement(semanticUiReact.Form.Field, {
