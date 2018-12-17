@@ -7,7 +7,9 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCText",
-        "description": "A description for this input",
+        "description": Array [
+          "A description for this input",
+        ],
         "displayName": "DCText",
         "name": "myTextInput",
         "required": true,
@@ -28,7 +30,9 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCText",
-      "description": "A description for this input",
+      "description": Array [
+        "A description for this input",
+      ],
       "displayName": "DCText",
       "languageCode": undefined,
       "name": "myTextInput",
@@ -46,7 +50,9 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCText",
-        "description": "A description for this input",
+        "description": Array [
+          "A description for this input",
+        ],
         "displayName": "DCText",
         "languageCode": undefined,
         "name": "myTextInput",
@@ -85,9 +91,13 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCText",
-        "description": "A description for this input",
-        "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
-        "name": "myTextLongNameInput",
+        "description": Array [
+          "A description for this input",
+          "Another one",
+          "One more?",
+        ],
+        "displayName": "DCTextMultiDescription",
+        "name": "myTextInput",
         "required": true,
       }
     }
@@ -106,10 +116,14 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCText",
-      "description": "A description for this input",
-      "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
+      "description": Array [
+        "A description for this input",
+        "Another one",
+        "One more?",
+      ],
+      "displayName": "DCTextMultiDescription",
       "languageCode": undefined,
-      "name": "myTextLongNameInput",
+      "name": "myTextInput",
       "required": true,
       "valueChange": undefined,
     },
@@ -124,10 +138,14 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCText",
-        "description": "A description for this input",
-        "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
+        "description": Array [
+          "A description for this input",
+          "Another one",
+          "One more?",
+        ],
+        "displayName": "DCTextMultiDescription",
         "languageCode": undefined,
-        "name": "myTextLongNameInput",
+        "name": "myTextInput",
         "required": true,
         "valueChange": undefined,
       },
@@ -162,10 +180,13 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <DCFormField
     properties={
       Object {
-        "component": "DCBoolean",
-        "description": "A description for this input",
-        "displayName": "DCBoolean",
-        "name": "myBooleanInput",
+        "component": "DCText",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
+        "name": "myTextLongNameInput",
+        "required": true,
       }
     }
   />,
@@ -182,11 +203,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCBoolean",
-      "description": "A description for this input",
-      "displayName": "DCBoolean",
+      "component": "DCText",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
       "languageCode": undefined,
-      "name": "myBooleanInput",
+      "name": "myTextLongNameInput",
+      "required": true,
       "valueChange": undefined,
     },
     "ref": null,
@@ -199,11 +223,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCBoolean",
-        "description": "A description for this input",
-        "displayName": "DCBoolean",
+        "component": "DCText",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
         "languageCode": undefined,
-        "name": "myBooleanInput",
+        "name": "myTextLongNameInput",
+        "required": true,
         "valueChange": undefined,
       },
       "ref": null,
@@ -237,11 +264,12 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <DCFormField
     properties={
       Object {
-        "component": "DCNumber",
-        "description": "A description for this input",
-        "displayName": "DCNumber",
-        "name": "myNumberInput",
-        "required": true,
+        "component": "DCBoolean",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCBoolean",
+        "name": "myBooleanInput",
       }
     }
   />,
@@ -258,12 +286,13 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCNumber",
-      "description": "A description for this input",
-      "displayName": "DCNumber",
+      "component": "DCBoolean",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCBoolean",
       "languageCode": undefined,
-      "name": "myNumberInput",
-      "required": true,
+      "name": "myBooleanInput",
       "valueChange": undefined,
     },
     "ref": null,
@@ -276,12 +305,13 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCNumber",
-        "description": "A description for this input",
-        "displayName": "DCNumber",
+        "component": "DCBoolean",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCBoolean",
         "languageCode": undefined,
-        "name": "myNumberInput",
-        "required": true,
+        "name": "myBooleanInput",
         "valueChange": undefined,
       },
       "ref": null,
@@ -315,24 +345,12 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <DCFormField
     properties={
       Object {
-        "component": "DCRadio",
-        "description": "A description for this input",
-        "displayName": "DCRadio",
-        "name": "myRadioInput",
-        "options": Array [
-          Object {
-            "text": "This option",
-            "value": "thisOption",
-          },
-          Object {
-            "text": "That option",
-            "value": "thatOption",
-          },
-          Object {
-            "text": "Something else",
-            "value": "somethingElse",
-          },
+        "component": "DCNumber",
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCNumber",
+        "name": "myNumberInput",
         "required": true,
       }
     }
@@ -350,25 +368,13 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCRadio",
-      "description": "A description for this input",
-      "displayName": "DCRadio",
-      "languageCode": undefined,
-      "name": "myRadioInput",
-      "options": Array [
-        Object {
-          "text": "This option",
-          "value": "thisOption",
-        },
-        Object {
-          "text": "That option",
-          "value": "thatOption",
-        },
-        Object {
-          "text": "Something else",
-          "value": "somethingElse",
-        },
+      "component": "DCNumber",
+      "description": Array [
+        "A description for this input",
       ],
+      "displayName": "DCNumber",
+      "languageCode": undefined,
+      "name": "myNumberInput",
       "required": true,
       "valueChange": undefined,
     },
@@ -382,25 +388,13 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCRadio",
-        "description": "A description for this input",
-        "displayName": "DCRadio",
-        "languageCode": undefined,
-        "name": "myRadioInput",
-        "options": Array [
-          Object {
-            "text": "This option",
-            "value": "thisOption",
-          },
-          Object {
-            "text": "That option",
-            "value": "thatOption",
-          },
-          Object {
-            "text": "Something else",
-            "value": "somethingElse",
-          },
+        "component": "DCNumber",
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCNumber",
+        "languageCode": undefined,
+        "name": "myNumberInput",
         "required": true,
         "valueChange": undefined,
       },
@@ -435,10 +429,26 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <DCFormField
     properties={
       Object {
-        "component": "DCDate",
-        "description": "A description for this input",
-        "displayName": "DCDate",
-        "name": "myDateInput",
+        "component": "DCRadio",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCRadio",
+        "name": "myRadioInput",
+        "options": Array [
+          Object {
+            "text": "This option",
+            "value": "thisOption",
+          },
+          Object {
+            "text": "That option",
+            "value": "thatOption",
+          },
+          Object {
+            "text": "Something else",
+            "value": "somethingElse",
+          },
+        ],
         "required": true,
       }
     }
@@ -456,11 +466,27 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCDate",
-      "description": "A description for this input",
-      "displayName": "DCDate",
+      "component": "DCRadio",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCRadio",
       "languageCode": undefined,
-      "name": "myDateInput",
+      "name": "myRadioInput",
+      "options": Array [
+        Object {
+          "text": "This option",
+          "value": "thisOption",
+        },
+        Object {
+          "text": "That option",
+          "value": "thatOption",
+        },
+        Object {
+          "text": "Something else",
+          "value": "somethingElse",
+        },
+      ],
       "required": true,
       "valueChange": undefined,
     },
@@ -474,11 +500,27 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCDate",
-        "description": "A description for this input",
-        "displayName": "DCDate",
+        "component": "DCRadio",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCRadio",
         "languageCode": undefined,
-        "name": "myDateInput",
+        "name": "myRadioInput",
+        "options": Array [
+          Object {
+            "text": "This option",
+            "value": "thisOption",
+          },
+          Object {
+            "text": "That option",
+            "value": "thatOption",
+          },
+          Object {
+            "text": "Something else",
+            "value": "somethingElse",
+          },
+        ],
         "required": true,
         "valueChange": undefined,
       },
@@ -514,10 +556,11 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCDate",
-        "description": "A description for this input",
-        "displayName": "DCDate (multiple)",
-        "multiple": true,
-        "name": "myDateMultipleInput",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCDate",
+        "name": "myDateInput",
         "required": true,
       }
     }
@@ -536,11 +579,12 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCDate",
-      "description": "A description for this input",
-      "displayName": "DCDate (multiple)",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCDate",
       "languageCode": undefined,
-      "multiple": true,
-      "name": "myDateMultipleInput",
+      "name": "myDateInput",
       "required": true,
       "valueChange": undefined,
     },
@@ -555,11 +599,12 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCDate",
-        "description": "A description for this input",
-        "displayName": "DCDate (multiple)",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCDate",
         "languageCode": undefined,
-        "multiple": true,
-        "name": "myDateMultipleInput",
+        "name": "myDateInput",
         "required": true,
         "valueChange": undefined,
       },
@@ -594,24 +639,13 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <DCFormField
     properties={
       Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (provided options)",
-        "name": "myDropdownSingleSelectProvidedOptionsInput",
-        "options": Array [
-          Object {
-            "text": "This option",
-            "value": "thisOption",
-          },
-          Object {
-            "text": "That option",
-            "value": "thatOption",
-          },
-          Object {
-            "text": "Something else",
-            "value": "somethingElse",
-          },
+        "component": "DCDate",
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCDate (multiple)",
+        "multiple": true,
+        "name": "myDateMultipleInput",
         "required": true,
       }
     }
@@ -629,25 +663,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCDropdown",
-      "description": "A description for this input",
-      "displayName": "DCDropdown (provided options)",
-      "languageCode": undefined,
-      "name": "myDropdownSingleSelectProvidedOptionsInput",
-      "options": Array [
-        Object {
-          "text": "This option",
-          "value": "thisOption",
-        },
-        Object {
-          "text": "That option",
-          "value": "thatOption",
-        },
-        Object {
-          "text": "Something else",
-          "value": "somethingElse",
-        },
+      "component": "DCDate",
+      "description": Array [
+        "A description for this input",
       ],
+      "displayName": "DCDate (multiple)",
+      "languageCode": undefined,
+      "multiple": true,
+      "name": "myDateMultipleInput",
       "required": true,
       "valueChange": undefined,
     },
@@ -661,25 +684,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (provided options)",
-        "languageCode": undefined,
-        "name": "myDropdownSingleSelectProvidedOptionsInput",
-        "options": Array [
-          Object {
-            "text": "This option",
-            "value": "thisOption",
-          },
-          Object {
-            "text": "That option",
-            "value": "thatOption",
-          },
-          Object {
-            "text": "Something else",
-            "value": "somethingElse",
-          },
+        "component": "DCDate",
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCDate (multiple)",
+        "languageCode": undefined,
+        "multiple": true,
+        "name": "myDateMultipleInput",
         "required": true,
         "valueChange": undefined,
       },
@@ -715,10 +727,11 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (multiSelect and provided options)",
-        "multiSelect": true,
-        "name": "myDropdownMultipleSelectProvidedOptionsInput",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCDropdown (provided options)",
+        "name": "myDropdownSingleSelectProvidedOptionsInput",
         "options": Array [
           Object {
             "text": "This option",
@@ -751,11 +764,12 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCDropdown",
-      "description": "A description for this input",
-      "displayName": "DCDropdown (multiSelect and provided options)",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCDropdown (provided options)",
       "languageCode": undefined,
-      "multiSelect": true,
-      "name": "myDropdownMultipleSelectProvidedOptionsInput",
+      "name": "myDropdownSingleSelectProvidedOptionsInput",
       "options": Array [
         Object {
           "text": "This option",
@@ -784,11 +798,12 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (multiSelect and provided options)",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCDropdown (provided options)",
         "languageCode": undefined,
-        "multiSelect": true,
-        "name": "myDropdownMultipleSelectProvidedOptionsInput",
+        "name": "myDropdownSingleSelectProvidedOptionsInput",
         "options": Array [
           Object {
             "text": "This option",
@@ -838,10 +853,26 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (empty options)",
-        "name": "myDropdownEmptyOptionsInput",
-        "options": Array [],
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCDropdown (multiSelect and provided options)",
+        "multiSelect": true,
+        "name": "myDropdownMultipleSelectProvidedOptionsInput",
+        "options": Array [
+          Object {
+            "text": "This option",
+            "value": "thisOption",
+          },
+          Object {
+            "text": "That option",
+            "value": "thatOption",
+          },
+          Object {
+            "text": "Something else",
+            "value": "somethingElse",
+          },
+        ],
         "required": true,
       }
     }
@@ -860,11 +891,27 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCDropdown",
-      "description": "A description for this input",
-      "displayName": "DCDropdown (empty options)",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCDropdown (multiSelect and provided options)",
       "languageCode": undefined,
-      "name": "myDropdownEmptyOptionsInput",
-      "options": Array [],
+      "multiSelect": true,
+      "name": "myDropdownMultipleSelectProvidedOptionsInput",
+      "options": Array [
+        Object {
+          "text": "This option",
+          "value": "thisOption",
+        },
+        Object {
+          "text": "That option",
+          "value": "thatOption",
+        },
+        Object {
+          "text": "Something else",
+          "value": "somethingElse",
+        },
+      ],
       "required": true,
       "valueChange": undefined,
     },
@@ -879,11 +926,27 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCDropdown",
-        "description": "A description for this input",
-        "displayName": "DCDropdown (empty options)",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCDropdown (multiSelect and provided options)",
         "languageCode": undefined,
-        "name": "myDropdownEmptyOptionsInput",
-        "options": Array [],
+        "multiSelect": true,
+        "name": "myDropdownMultipleSelectProvidedOptionsInput",
+        "options": Array [
+          Object {
+            "text": "This option",
+            "value": "thisOption",
+          },
+          Object {
+            "text": "That option",
+            "value": "thatOption",
+          },
+          Object {
+            "text": "Something else",
+            "value": "somethingElse",
+          },
+        ],
         "required": true,
         "valueChange": undefined,
       },
@@ -918,25 +981,13 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <DCFormField
     properties={
       Object {
-        "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (provided options)",
-        "multiValue": false,
-        "name": "myDCMultiInputProvidedOptionsInput",
-        "options": Array [
-          Object {
-            "text": "This option",
-            "value": "thisOption",
-          },
-          Object {
-            "text": "That option",
-            "value": "thatOption",
-          },
-          Object {
-            "text": "Something else",
-            "value": "somethingElse",
-          },
+        "component": "DCDropdown",
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCDropdown (empty options)",
+        "name": "myDropdownEmptyOptionsInput",
+        "options": Array [],
         "required": true,
       }
     }
@@ -954,26 +1005,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCMultiInput",
-      "description": "A description for this input",
-      "displayName": "DCMultiInput (provided options)",
-      "languageCode": undefined,
-      "multiValue": false,
-      "name": "myDCMultiInputProvidedOptionsInput",
-      "options": Array [
-        Object {
-          "text": "This option",
-          "value": "thisOption",
-        },
-        Object {
-          "text": "That option",
-          "value": "thatOption",
-        },
-        Object {
-          "text": "Something else",
-          "value": "somethingElse",
-        },
+      "component": "DCDropdown",
+      "description": Array [
+        "A description for this input",
       ],
+      "displayName": "DCDropdown (empty options)",
+      "languageCode": undefined,
+      "name": "myDropdownEmptyOptionsInput",
+      "options": Array [],
       "required": true,
       "valueChange": undefined,
     },
@@ -987,26 +1026,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (provided options)",
-        "languageCode": undefined,
-        "multiValue": false,
-        "name": "myDCMultiInputProvidedOptionsInput",
-        "options": Array [
-          Object {
-            "text": "This option",
-            "value": "thisOption",
-          },
-          Object {
-            "text": "That option",
-            "value": "thatOption",
-          },
-          Object {
-            "text": "Something else",
-            "value": "somethingElse",
-          },
+        "component": "DCDropdown",
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCDropdown (empty options)",
+        "languageCode": undefined,
+        "name": "myDropdownEmptyOptionsInput",
+        "options": Array [],
         "required": true,
         "valueChange": undefined,
       },
@@ -1042,11 +1069,26 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (empty options)",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCMultiInput (provided options)",
         "multiValue": false,
-        "name": "myDCMultiInputEmptyOptionsInput",
-        "options": Array [],
+        "name": "myDCMultiInputProvidedOptionsInput",
+        "options": Array [
+          Object {
+            "text": "This option",
+            "value": "thisOption",
+          },
+          Object {
+            "text": "That option",
+            "value": "thatOption",
+          },
+          Object {
+            "text": "Something else",
+            "value": "somethingElse",
+          },
+        ],
         "required": true,
       }
     }
@@ -1065,12 +1107,27 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCMultiInput",
-      "description": "A description for this input",
-      "displayName": "DCMultiInput (empty options)",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCMultiInput (provided options)",
       "languageCode": undefined,
       "multiValue": false,
-      "name": "myDCMultiInputEmptyOptionsInput",
-      "options": Array [],
+      "name": "myDCMultiInputProvidedOptionsInput",
+      "options": Array [
+        Object {
+          "text": "This option",
+          "value": "thisOption",
+        },
+        Object {
+          "text": "That option",
+          "value": "thatOption",
+        },
+        Object {
+          "text": "Something else",
+          "value": "somethingElse",
+        },
+      ],
       "required": true,
       "valueChange": undefined,
     },
@@ -1085,12 +1142,27 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (empty options)",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCMultiInput (provided options)",
         "languageCode": undefined,
         "multiValue": false,
-        "name": "myDCMultiInputEmptyOptionsInput",
-        "options": Array [],
+        "name": "myDCMultiInputProvidedOptionsInput",
+        "options": Array [
+          Object {
+            "text": "This option",
+            "value": "thisOption",
+          },
+          Object {
+            "text": "That option",
+            "value": "thatOption",
+          },
+          Object {
+            "text": "Something else",
+            "value": "somethingElse",
+          },
+        ],
         "required": true,
         "valueChange": undefined,
       },
@@ -1126,24 +1198,13 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (multi value and provided options)",
-        "multiValue": true,
-        "name": "myDCMultiInputMultiValueProvidedOptions",
-        "options": Array [
-          Object {
-            "text": "This option",
-            "value": "thisOption",
-          },
-          Object {
-            "text": "That option",
-            "value": "thatOption",
-          },
-          Object {
-            "text": "Something else",
-            "value": "somethingElse",
-          },
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCMultiInput (empty options)",
+        "multiValue": false,
+        "name": "myDCMultiInputEmptyOptionsInput",
+        "options": Array [],
         "required": true,
       }
     }
@@ -1162,25 +1223,14 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCMultiInput",
-      "description": "A description for this input",
-      "displayName": "DCMultiInput (multi value and provided options)",
-      "languageCode": undefined,
-      "multiValue": true,
-      "name": "myDCMultiInputMultiValueProvidedOptions",
-      "options": Array [
-        Object {
-          "text": "This option",
-          "value": "thisOption",
-        },
-        Object {
-          "text": "That option",
-          "value": "thatOption",
-        },
-        Object {
-          "text": "Something else",
-          "value": "somethingElse",
-        },
+      "description": Array [
+        "A description for this input",
       ],
+      "displayName": "DCMultiInput (empty options)",
+      "languageCode": undefined,
+      "multiValue": false,
+      "name": "myDCMultiInputEmptyOptionsInput",
+      "options": Array [],
       "required": true,
       "valueChange": undefined,
     },
@@ -1195,25 +1245,14 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (multi value and provided options)",
-        "languageCode": undefined,
-        "multiValue": true,
-        "name": "myDCMultiInputMultiValueProvidedOptions",
-        "options": Array [
-          Object {
-            "text": "This option",
-            "value": "thisOption",
-          },
-          Object {
-            "text": "That option",
-            "value": "thatOption",
-          },
-          Object {
-            "text": "Something else",
-            "value": "somethingElse",
-          },
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCMultiInput (empty options)",
+        "languageCode": undefined,
+        "multiValue": false,
+        "name": "myDCMultiInputEmptyOptionsInput",
+        "options": Array [],
         "required": true,
         "valueChange": undefined,
       },
@@ -1249,11 +1288,26 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (multi value and empty options)",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCMultiInput (multi value and provided options)",
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueEmptyOptions",
-        "options": Array [],
+        "name": "myDCMultiInputMultiValueProvidedOptions",
+        "options": Array [
+          Object {
+            "text": "This option",
+            "value": "thisOption",
+          },
+          Object {
+            "text": "That option",
+            "value": "thatOption",
+          },
+          Object {
+            "text": "Something else",
+            "value": "somethingElse",
+          },
+        ],
         "required": true,
       }
     }
@@ -1272,12 +1326,27 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCMultiInput",
-      "description": "A description for this input",
-      "displayName": "DCMultiInput (multi value and empty options)",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCMultiInput (multi value and provided options)",
       "languageCode": undefined,
       "multiValue": true,
-      "name": "myDCMultiInputMultiValueEmptyOptions",
-      "options": Array [],
+      "name": "myDCMultiInputMultiValueProvidedOptions",
+      "options": Array [
+        Object {
+          "text": "This option",
+          "value": "thisOption",
+        },
+        Object {
+          "text": "That option",
+          "value": "thatOption",
+        },
+        Object {
+          "text": "Something else",
+          "value": "somethingElse",
+        },
+      ],
       "required": true,
       "valueChange": undefined,
     },
@@ -1292,12 +1361,27 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCMultiInput",
-        "description": "A description for this input",
-        "displayName": "DCMultiInput (multi value and empty options)",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCMultiInput (multi value and provided options)",
         "languageCode": undefined,
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueEmptyOptions",
-        "options": Array [],
+        "name": "myDCMultiInputMultiValueProvidedOptions",
+        "options": Array [
+          Object {
+            "text": "This option",
+            "value": "thisOption",
+          },
+          Object {
+            "text": "That option",
+            "value": "thatOption",
+          },
+          Object {
+            "text": "Something else",
+            "value": "somethingElse",
+          },
+        ],
         "required": true,
         "valueChange": undefined,
       },
@@ -1332,13 +1416,15 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <DCFormField
     properties={
       Object {
-        "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (standard)",
-        "name": "myDCStaticInput",
-        "value": Array [
-          "Value",
+        "component": "DCMultiInput",
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCMultiInput (multi value and empty options)",
+        "multiValue": true,
+        "name": "myDCMultiInputMultiValueEmptyOptions",
+        "options": Array [],
+        "required": true,
       }
     }
   />,
@@ -1355,14 +1441,16 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCStatic",
-      "description": "A description for this input",
-      "displayName": "DCStatic (standard)",
-      "languageCode": undefined,
-      "name": "myDCStaticInput",
-      "value": Array [
-        "Value",
+      "component": "DCMultiInput",
+      "description": Array [
+        "A description for this input",
       ],
+      "displayName": "DCMultiInput (multi value and empty options)",
+      "languageCode": undefined,
+      "multiValue": true,
+      "name": "myDCMultiInputMultiValueEmptyOptions",
+      "options": Array [],
+      "required": true,
       "valueChange": undefined,
     },
     "ref": null,
@@ -1375,14 +1463,16 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (standard)",
-        "languageCode": undefined,
-        "name": "myDCStaticInput",
-        "value": Array [
-          "Value",
+        "component": "DCMultiInput",
+        "description": Array [
+          "A description for this input",
         ],
+        "displayName": "DCMultiInput (multi value and empty options)",
+        "languageCode": undefined,
+        "multiValue": true,
+        "name": "myDCMultiInputMultiValueEmptyOptions",
+        "options": Array [],
+        "required": true,
         "valueChange": undefined,
       },
       "ref": null,
@@ -1417,12 +1507,13 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (date)",
-        "format": "date",
-        "name": "myDCStaticDateInput",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (standard)",
+        "name": "myDCStaticInput",
         "value": Array [
-          "1989-12-27T23:00:00.000Z",
+          "Value",
         ],
       }
     }
@@ -1441,13 +1532,14 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCStatic",
-      "description": "A description for this input",
-      "displayName": "DCStatic (date)",
-      "format": "date",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCStatic (standard)",
       "languageCode": undefined,
-      "name": "myDCStaticDateInput",
+      "name": "myDCStaticInput",
       "value": Array [
-        "1989-12-27T23:00:00.000Z",
+        "Value",
       ],
       "valueChange": undefined,
     },
@@ -1462,13 +1554,14 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (date)",
-        "format": "date",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (standard)",
         "languageCode": undefined,
-        "name": "myDCStaticDateInput",
+        "name": "myDCStaticInput",
         "value": Array [
-          "1989-12-27T23:00:00.000Z",
+          "Value",
         ],
         "valueChange": undefined,
       },
@@ -1504,14 +1597,14 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (tags)",
-        "format": "tag",
-        "name": "myDCStaticTagInput",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (date)",
+        "format": "date",
+        "name": "myDCStaticDateInput",
         "value": Array [
-          "A tag",
-          "Another tag",
-          "A third?",
+          "1989-12-27T23:00:00.000Z",
         ],
       }
     }
@@ -1530,15 +1623,15 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCStatic",
-      "description": "A description for this input",
-      "displayName": "DCStatic (tags)",
-      "format": "tag",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCStatic (date)",
+      "format": "date",
       "languageCode": undefined,
-      "name": "myDCStaticTagInput",
+      "name": "myDCStaticDateInput",
       "value": Array [
-        "A tag",
-        "Another tag",
-        "A third?",
+        "1989-12-27T23:00:00.000Z",
       ],
       "valueChange": undefined,
     },
@@ -1553,15 +1646,15 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (tags)",
-        "format": "tag",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (date)",
+        "format": "date",
         "languageCode": undefined,
-        "name": "myDCStaticTagInput",
+        "name": "myDCStaticDateInput",
         "value": Array [
-          "A tag",
-          "Another tag",
-          "A third?",
+          "1989-12-27T23:00:00.000Z",
         ],
         "valueChange": undefined,
       },
@@ -1597,13 +1690,15 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (labels)",
-        "format": "label",
-        "name": "myDCStaticLabelInput",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (tags)",
+        "format": "tag",
+        "name": "myDCStaticTagInput",
         "value": Array [
-          "A label",
-          "Another label",
+          "A tag",
+          "Another tag",
           "A third?",
         ],
       }
@@ -1623,14 +1718,16 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCStatic",
-      "description": "A description for this input",
-      "displayName": "DCStatic (labels)",
-      "format": "label",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCStatic (tags)",
+      "format": "tag",
       "languageCode": undefined,
-      "name": "myDCStaticLabelInput",
+      "name": "myDCStaticTagInput",
       "value": Array [
-        "A label",
-        "Another label",
+        "A tag",
+        "Another tag",
         "A third?",
       ],
       "valueChange": undefined,
@@ -1646,14 +1743,16 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (labels)",
-        "format": "label",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (tags)",
+        "format": "tag",
         "languageCode": undefined,
-        "name": "myDCStaticLabelInput",
+        "name": "myDCStaticTagInput",
         "value": Array [
-          "A label",
-          "Another label",
+          "A tag",
+          "Another tag",
           "A third?",
         ],
         "valueChange": undefined,
@@ -1690,12 +1789,16 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (multi standard)",
-        "name": "myDCStaticMultiInput",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (labels)",
+        "format": "label",
+        "name": "myDCStaticLabelInput",
         "value": Array [
-          "Value",
-          "Another value",
+          "A label",
+          "Another label",
+          "A third?",
         ],
       }
     }
@@ -1714,13 +1817,17 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCStatic",
-      "description": "A description for this input",
-      "displayName": "DCStatic (multi standard)",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCStatic (labels)",
+      "format": "label",
       "languageCode": undefined,
-      "name": "myDCStaticMultiInput",
+      "name": "myDCStaticLabelInput",
       "value": Array [
-        "Value",
-        "Another value",
+        "A label",
+        "Another label",
+        "A third?",
       ],
       "valueChange": undefined,
     },
@@ -1735,13 +1842,17 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (multi standard)",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (labels)",
+        "format": "label",
         "languageCode": undefined,
-        "name": "myDCStaticMultiInput",
+        "name": "myDCStaticLabelInput",
         "value": Array [
-          "Value",
-          "Another value",
+          "A label",
+          "Another label",
+          "A third?",
         ],
         "valueChange": undefined,
       },
@@ -1777,13 +1888,14 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (multi date)",
-        "format": "date",
-        "name": "myDCStaticDateMultiInput",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (multi standard)",
+        "name": "myDCStaticMultiInput",
         "value": Array [
-          "1989-12-27T23:00:00.000Z",
-          "1990-12-27T23:00:00.000Z",
+          "Value",
+          "Another value",
         ],
       }
     }
@@ -1802,14 +1914,15 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCStatic",
-      "description": "A description for this input",
-      "displayName": "DCStatic (multi date)",
-      "format": "date",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCStatic (multi standard)",
       "languageCode": undefined,
-      "name": "myDCStaticDateMultiInput",
+      "name": "myDCStaticMultiInput",
       "value": Array [
-        "1989-12-27T23:00:00.000Z",
-        "1990-12-27T23:00:00.000Z",
+        "Value",
+        "Another value",
       ],
       "valueChange": undefined,
     },
@@ -1824,14 +1937,15 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCStatic",
-        "description": "A description for this input",
-        "displayName": "DCStatic (multi date)",
-        "format": "date",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (multi standard)",
         "languageCode": undefined,
-        "name": "myDCStaticDateMultiInput",
+        "name": "myDCStaticMultiInput",
         "value": Array [
-          "1989-12-27T23:00:00.000Z",
-          "1990-12-27T23:00:00.000Z",
+          "Value",
+          "Another value",
         ],
         "valueChange": undefined,
       },
@@ -1867,7 +1981,105 @@ ShallowWrapper {
     properties={
       Object {
         "component": "DCStatic",
-        "description": "A description for this input",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (multi date)",
+        "format": "date",
+        "name": "myDCStaticDateMultiInput",
+        "value": Array [
+          "1989-12-27T23:00:00.000Z",
+          "1990-12-27T23:00:00.000Z",
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "component": "DCStatic",
+      "description": Array [
+        "A description for this input",
+      ],
+      "displayName": "DCStatic (multi date)",
+      "format": "date",
+      "languageCode": undefined,
+      "name": "myDCStaticDateMultiInput",
+      "value": Array [
+        "1989-12-27T23:00:00.000Z",
+        "1990-12-27T23:00:00.000Z",
+      ],
+      "valueChange": undefined,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "component": "DCStatic",
+        "description": Array [
+          "A description for this input",
+        ],
+        "displayName": "DCStatic (multi date)",
+        "format": "date",
+        "languageCode": undefined,
+        "name": "myDCStaticDateMultiInput",
+        "value": Array [
+          "1989-12-27T23:00:00.000Z",
+          "1990-12-27T23:00:00.000Z",
+        ],
+        "valueChange": undefined,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`DCFormField Renders all the input components without error and only once 22`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DCFormField
+    properties={
+      Object {
+        "component": "DCStatic",
+        "description": Array [
+          "A description for this input",
+        ],
         "displayName": "DCStatic (with icon)",
         "icon": "user",
         "name": "myDCStaticIconInput",
@@ -1891,7 +2103,9 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "component": "DCStatic",
-      "description": "A description for this input",
+      "description": Array [
+        "A description for this input",
+      ],
       "displayName": "DCStatic (with icon)",
       "icon": "user",
       "languageCode": undefined,
@@ -1912,7 +2126,9 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "component": "DCStatic",
-        "description": "A description for this input",
+        "description": Array [
+          "A description for this input",
+        ],
         "displayName": "DCStatic (with icon)",
         "icon": "user",
         "languageCode": undefined,

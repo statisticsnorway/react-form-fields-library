@@ -149,6 +149,14 @@ var InlineWarning = function InlineWarning(_ref2) {
   }, text);
 };
 
+var structureDescription = function structureDescription(description) {
+  return React__default.createElement("div", null, description.map(function (value, index) {
+    return React__default.createElement("p", {
+      key: index
+    }, value);
+  }));
+};
+
 function fullFormField(displayName, description, error, warning, required, component) {
   return React__default.createElement(semanticUiReact.Form.Field, {
     error: !!error,
@@ -159,7 +167,7 @@ function fullFormField(displayName, description, error, warning, required, compo
     header: displayName,
     wide: "very",
     trigger: React__default.createElement("label", null, displayName),
-    content: description
+    content: structureDescription(description)
   }), component, warning && !error && React__default.createElement(InlineWarning, {
     text: warning
   }), error && !warning && React__default.createElement(InlineError, {
@@ -180,7 +188,7 @@ function simpleFormField(displayName, description, component) {
     header: displayName,
     wide: "very",
     trigger: component,
-    content: description
+    content: structureDescription(description)
   }));
 }
 function simpleStaticFormField(displayName, description, component) {
@@ -190,7 +198,7 @@ function simpleStaticFormField(displayName, description, component) {
     position: "top left",
     header: displayName,
     wide: "very",
-    content: description,
+    content: structureDescription(description),
     trigger: React__default.createElement("label", null, displayName, " ", icon)
   }), component);
 }
