@@ -63,7 +63,7 @@ so if you wish to use it you need `react-datepicker` and `moment` as dependencie
 ```
 
 ### Form field types
-**PS!** In `App.js` you can find usage examples for all of these.
+In `App.js` you can find usage examples for all of these. Test them out to get a feel for what you want!
 
 Name | Description | Additional properties | Accepted type(s) for value
 -----|-------------|------------------------|---------------
@@ -72,8 +72,8 @@ DCBoolean | A typical checkbox | - | *boolean*
 DCNumber | A typical number input | - | JavaScript *number*
 DCRadio | A typical radio choice | *options* | *string*
 DCDate | A typical date picker | - | *Moment.js object**
-DCDropdown | A dropdown list populated with options provided that can be searchable if there are alot of options | *multiSelect*, *searchable* and *options* | *string* if regular or *array* if multiSelect
-DCMultiInput | A collection of dropdowns with one or multiple texts input attached | *options*, and *multiValue* | An *array* of *objects* with two properties; text (*string* or *array* and option (*string*)
+DCDropdown | A dropdown list populated with options provided that can be searchable if there are alot of options | *multiSelect*, *searchable*, *options* and *showLinks* | *string* if regular or *array* if multiSelect
+DCMultiInput | A collection of dropdowns with one or multiple texts input attached | *options*, *multiValue* and *showLinks* | An *array* of *objects* with two properties; text (*string* or *array* and option (*string*)
 DCStatic | A collection of one or more non-interactable values to be displayed either as tags, labels, dates or regular text, alternatively with an icon | *format* and *icon* | An *array* of *strings* or *Moment.js objects**
 
 **MomentJS* accepts Java Date, JavaScript Date objects and some some typical date formats (check MomentJS documentation).

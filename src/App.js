@@ -143,6 +143,61 @@ export const testFormComponents = {
     options: [],
     multiValue: true
   },
+  DCDropdownShowLinks: {
+    component: 'DCDropdown',
+    name: 'myShowLinksInput',
+    displayName: 'DCDropdown (show links)',
+    description: ['A description'],
+    required: true,
+    showLinks: true,
+    options: [
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
+    ]
+  },
+  DCDropdownMultipleShowLinks: {
+    component: 'DCDropdown',
+    name: 'myShowLinksMultipleInput',
+    displayName: 'DCDropdown (multiple and show links)',
+    description: ['A description'],
+    required: true,
+    showLinks: true,
+    multiSelect: true,
+    options: [
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
+    ]
+  },
+  DCMultiInputShowLinks: {
+    component: 'DCMultiInput',
+    name: 'myDCMultiInpuShowLinksInput',
+    displayName: 'DCMultiInput (show links)',
+    description: ['A description for this input'],
+    required: true,
+    options: [
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
+    ],
+    multiValue: false,
+    showLinks: true
+  },
+  DCMultiInputMultiValueShowLinks: {
+    component: 'DCMultiInput',
+    name: 'myDCMultiInputMultiValueShowLinks',
+    displayName: 'DCMultiInput (multi value and show links)',
+    description: ['A description for this input'],
+    required: true,
+    options: [
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
+    ],
+    multiValue: true,
+    showLinks: true
+  },
   DCStaticStandard: {
     component: 'DCStatic',
     name: 'myDCStaticInput',

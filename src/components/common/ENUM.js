@@ -1,4 +1,5 @@
 export const UI = {
+  LINK: 'Link',
   NO_OPTIONS: {
     en: 'No options',
     nb: 'Ingen valg'
