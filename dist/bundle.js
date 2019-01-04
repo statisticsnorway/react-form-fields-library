@@ -173,23 +173,29 @@ var structureDescription = function structureDescription(description) {
   }));
 };
 
-var links = function links(value) {
+var links = function links(route, value) {
   if (value !== '' && value !== undefined && value !== null) {
+    if (route === undefined) {
+      route = '';
+    }
+
     if (Array.isArray(value)) {
       return React__default.createElement("div", null, value.map(function (thing, index) {
         return React__default.createElement("a", {
           key: index,
-          href: thing
+          href: route + thing
         }, UI.LINK, " #", index + 1, React__default.createElement("br", null));
       }));
     } else {
       return React__default.createElement("div", null, React__default.createElement("a", {
-        href: value
+        href: route + value
       }, UI.LINK));
     }
+  } else {
+    return null;
   }
 };
-function fullFormField(displayName, description, error, warning, required, component, showLinks, value) {
+function fullFormField(displayName, description, error, warning, required, component, showLinks, value, route) {
   return React__default.createElement(semanticUiReact.Form.Field, {
     error: !!error,
     required: required
@@ -200,7 +206,7 @@ function fullFormField(displayName, description, error, warning, required, compo
     wide: "very",
     trigger: React__default.createElement("label", null, displayName),
     content: structureDescription(description)
-  }), component, showLinks && links(value), warning && !error && React__default.createElement(InlineWarning, {
+  }), component, showLinks && links(route, value), warning && !error && React__default.createElement(InlineWarning, {
     text: warning
   }), error && !warning && React__default.createElement(InlineError, {
     text: error
@@ -806,7 +812,8 @@ function (_Component) {
           multiSelect = _this$props2.multiSelect,
           searchable = _this$props2.searchable,
           languageCode = _this$props2.languageCode,
-          showLinks = _this$props2.showLinks;
+          showLinks = _this$props2.showLinks,
+          route = _this$props2.route;
 
       if (!ready) {
         var component = React__default.createElement(semanticUiReact.Dropdown, {
@@ -847,7 +854,7 @@ function (_Component) {
           }
         });
 
-        return fullFormField(displayName, description, error, warning, required, _component2, showLinks, value);
+        return fullFormField(displayName, description, error, warning, required, _component2, showLinks, value, route);
       }
 
       return null;
@@ -1057,7 +1064,8 @@ function (_Component) {
           required = _this$props7.required,
           multiValue = _this$props7.multiValue,
           languageCode = _this$props7.languageCode,
-          showLinks = _this$props7.showLinks;
+          showLinks = _this$props7.showLinks,
+          route = _this$props7.route;
 
       if (!ready) {
         var component = React__default.createElement(semanticUiReact.Grid, {
@@ -1131,7 +1139,7 @@ function (_Component) {
               margin: 0,
               paddingLeft: 0
             }
-          }, dropdown, showLinks && links(entry.option)), multiValue && React__default.createElement(semanticUiReact.Grid.Column, {
+          }, dropdown, showLinks && links(route, entry.option)), multiValue && React__default.createElement(semanticUiReact.Grid.Column, {
             width: 7,
             style: {
               margin: 0
@@ -1174,7 +1182,7 @@ function (_Component) {
             actionPosition: "left",
             onChange: _this9.handleInputChange.bind(_this9, index, index),
             action: dropdown
-          }), showLinks && links(entry.option)));
+          }), showLinks && links(route, entry.option)));
         }), React__default.createElement(semanticUiReact.Grid.Row, {
           style: {
             paddingTop: 0

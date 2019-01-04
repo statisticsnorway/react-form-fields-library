@@ -47,7 +47,7 @@ class DCDropdown extends Component {
 
   render () {
     const {ready, problem, value, options, errorMessage} = this.state
-    const {displayName, description, error, warning, required, multiSelect, searchable, languageCode, showLinks} = this.props
+    const {displayName, description, error, warning, required, multiSelect, searchable, languageCode, showLinks, route} = this.props
 
     if (!ready) {
       const component = <Dropdown placeholder={shorten(displayName)} selection options={[]} loading disabled />
@@ -72,7 +72,7 @@ class DCDropdown extends Component {
           size: searchable ? 'small' : null
         }} />
 
-      return fullFormField(displayName, description, error, warning, required, component, showLinks, value)
+      return fullFormField(displayName, description, error, warning, required, component, showLinks, value, route)
     }
 
     return null

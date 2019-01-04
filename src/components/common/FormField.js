@@ -14,27 +14,33 @@ const structureDescription = (description) => {
   )
 }
 
-export const links = (value) => {
+export const links = (route, value) => {
   if (value !== '' && value !== undefined && value !== null) {
+    if (route === undefined) {
+      route = ''
+    }
+
     if (Array.isArray(value)) {
       return (
         <div>
-          {value.map((thing, index) => <a key={index} href={thing}>{UI.LINK} #{index + 1}<br /></a>)}
+          {value.map((thing, index) => <a key={index} href={route + thing}>{UI.LINK} #{index + 1}<br /></a>)}
         </div>
       )
     } else {
-      return <div><a href={value}>{UI.LINK}</a></div>
+      return <div><a href={route + value}>{UI.LINK}</a></div>
     }
+  } else {
+      return null
   }
 }
 
-export function fullFormField (displayName, description, error, warning, required, component, showLinks, value) {
+export function fullFormField (displayName, description, error, warning, required, component, showLinks, value, route) {
   return (
     <Form.Field error={!!error} required={required}>
       <Popup hideOnScroll position='top left' header={displayName} wide='very' trigger={<label>{displayName}</label>}
              content={structureDescription(description)} />
       {component}
-      {showLinks && links(value)}
+      {showLinks && links(route, value)}
       {warning && !error && <InlineWarning text={warning} />}
       {error && !warning && <InlineError text={error} />}
       {error && warning &&

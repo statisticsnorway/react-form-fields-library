@@ -100,7 +100,7 @@ class DCMultiInput extends Component {
 
   render () {
     const {ready, problem, value, options, errorMessage} = this.state
-    const {name, displayName, description, error, warning, required, multiValue, languageCode, showLinks} = this.props
+    const {name, displayName, description, error, warning, required, multiValue, languageCode, showLinks, route} = this.props
 
     if (!ready) {
       const component =
@@ -150,7 +150,7 @@ class DCMultiInput extends Component {
                 {multiValue &&
                 <Grid.Column width={8} style={{margin: 0, paddingLeft: 0}}>
                   {dropdown}
-                  {showLinks && links(entry.option)}
+                  {showLinks && links(route, entry.option)}
                 </Grid.Column>
                 }
                 {multiValue &&
@@ -172,7 +172,7 @@ class DCMultiInput extends Component {
                 <Grid.Column width={15} style={{margin: 0, paddingLeft: 0}}>
                   <Input name={name} placeholder={shorten(displayName)} value={entry.text} actionPosition='left'
                          onChange={this.handleInputChange.bind(this, index, index)} action={dropdown} />
-                  {showLinks && links(entry.option)}
+                  {showLinks && links(route, entry.option)}
                 </Grid.Column>
                 }
               </Grid.Row>
