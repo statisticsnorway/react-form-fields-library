@@ -4,10 +4,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var DatePicker = _interopDefault(require('react-datepicker'));
 var React = require('react');
 var React__default = _interopDefault(React);
 var semanticUiReact = require('semantic-ui-react');
+var DatePicker = _interopDefault(require('react-datepicker'));
 var moment = _interopDefault(require('moment'));
 
 function _typeof(obj) {
@@ -131,6 +131,22 @@ function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance");
 }
 
+var UI = {
+  LINK: 'Link',
+  NO_OPTIONS: {
+    en: 'No options',
+    nb: 'Ingen valg'
+  },
+  OPTIONS: {
+    en: 'Pick one',
+    nb: 'Velg'
+  },
+  TODAY: {
+    en: 'Today',
+    nb: 'I dag'
+  }
+};
+
 var InlineError = function InlineError(_ref) {
   var text = _ref.text;
   return React__default.createElement("span", {
@@ -157,7 +173,23 @@ var structureDescription = function structureDescription(description) {
   }));
 };
 
-function fullFormField(displayName, description, error, warning, required, component) {
+var links = function links(value) {
+  if (value !== '' && value !== undefined && value !== null) {
+    if (Array.isArray(value)) {
+      return React__default.createElement("div", null, value.map(function (thing, index) {
+        return React__default.createElement("a", {
+          key: index,
+          href: thing
+        }, UI.LINK, " #", index + 1, React__default.createElement("br", null));
+      }));
+    } else {
+      return React__default.createElement("div", null, React__default.createElement("a", {
+        href: value
+      }, UI.LINK));
+    }
+  }
+};
+function fullFormField(displayName, description, error, warning, required, component, showLinks, value) {
   return React__default.createElement(semanticUiReact.Form.Field, {
     error: !!error,
     required: required
@@ -168,7 +200,7 @@ function fullFormField(displayName, description, error, warning, required, compo
     wide: "very",
     trigger: React__default.createElement("label", null, displayName),
     content: structureDescription(description)
-  }), component, warning && !error && React__default.createElement(InlineWarning, {
+  }), component, showLinks && links(value), warning && !error && React__default.createElement(InlineWarning, {
     text: warning
   }), error && !warning && React__default.createElement(InlineError, {
     text: error
@@ -481,21 +513,6 @@ function (_Component) {
   return DCRadio;
 }(React.Component);
 
-var UI = {
-  NO_OPTIONS: {
-    en: 'No options',
-    nb: 'Ingen valg'
-  },
-  OPTIONS: {
-    en: 'Pick one',
-    nb: 'Velg'
-  },
-  TODAY: {
-    en: 'Today',
-    nb: 'I dag'
-  }
-};
-
 var DCDate =
 /*#__PURE__*/
 function (_Component) {
@@ -535,7 +552,7 @@ function (_Component) {
 
     _this.handleAddEntry = function () {
       _this.setState({
-        value: _toConsumableArray(_this.state.value).concat([null])
+        value: [].concat(_toConsumableArray(_this.state.value), [null])
       }, function () {
         return _this.props.valueChange(_this.props.name, _this.state.value);
       });
@@ -788,7 +805,8 @@ function (_Component) {
           required = _this$props2.required,
           multiSelect = _this$props2.multiSelect,
           searchable = _this$props2.searchable,
-          languageCode = _this$props2.languageCode;
+          languageCode = _this$props2.languageCode,
+          showLinks = _this$props2.showLinks;
 
       if (!ready) {
         var component = React__default.createElement(semanticUiReact.Dropdown, {
@@ -829,7 +847,7 @@ function (_Component) {
           }
         });
 
-        return fullFormField(displayName, description, error, warning, required, _component2);
+        return fullFormField(displayName, description, error, warning, required, _component2, showLinks, value);
       }
 
       return null;
@@ -858,7 +876,7 @@ function (_Component) {
           multiValue = _this$props.multiValue;
 
       _this.setState({
-        value: _toConsumableArray(_this.state.value).concat([{
+        value: [].concat(_toConsumableArray(_this.state.value), [{
           text: multiValue ? [''] : '',
           option: ''
         }])
@@ -991,7 +1009,7 @@ function (_Component) {
 
       var entries = _toConsumableArray(this.state.value);
 
-      entries[parseInt(index)].text = _toConsumableArray(this.state.value[parseInt(index)].text).concat(['']);
+      entries[parseInt(index)].text = [].concat(_toConsumableArray(this.state.value[parseInt(index)].text), ['']);
       this.setState({
         value: entries
       }, function () {
@@ -1038,7 +1056,8 @@ function (_Component) {
           warning = _this$props7.warning,
           required = _this$props7.required,
           multiValue = _this$props7.multiValue,
-          languageCode = _this$props7.languageCode;
+          languageCode = _this$props7.languageCode,
+          showLinks = _this$props7.showLinks;
 
       if (!ready) {
         var component = React__default.createElement(semanticUiReact.Grid, {
@@ -1112,7 +1131,7 @@ function (_Component) {
               margin: 0,
               paddingLeft: 0
             }
-          }, dropdown), multiValue && React__default.createElement(semanticUiReact.Grid.Column, {
+          }, dropdown, showLinks && links(entry.option)), multiValue && React__default.createElement(semanticUiReact.Grid.Column, {
             width: 7,
             style: {
               margin: 0
@@ -1155,7 +1174,7 @@ function (_Component) {
             actionPosition: "left",
             onChange: _this9.handleInputChange.bind(_this9, index, index),
             action: dropdown
-          })));
+          }), showLinks && links(entry.option)));
         }), React__default.createElement(semanticUiReact.Grid.Row, {
           style: {
             paddingTop: 0

@@ -13,7 +13,7 @@
     "react": "^16.6.0",
     "react-datepicker": "^1.8.0",
     "react-dom": "^16.6.0",
-    "react-scripts": "2.1.1",
+    "react-scripts": "2.1.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.84.0"
   },
@@ -42,7 +42,7 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "react-test-renderer": "^16.6.0",
-    "rollup": "^0.67.0",
+    "rollup": "^1.0.1",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0"

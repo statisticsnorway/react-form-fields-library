@@ -1,6 +1,8 @@
 import React from 'react'
 import { Divider, Form, Popup } from 'semantic-ui-react'
 
+import { UI } from './ENUM'
+
 const InlineError = ({text}) => <span style={{color: '#db2828'}}>{text}</span>
 const InlineWarning = ({text}) => <span style={{color: '#ffd700'}}>{text}</span>
 
@@ -12,12 +14,27 @@ const structureDescription = (description) => {
   )
 }
 
-export function fullFormField (displayName, description, error, warning, required, component) {
+export const links = (value) => {
+  if (value !== '' && value !== undefined && value !== null) {
+    if (Array.isArray(value)) {
+      return (
+        <div>
+          {value.map((thing, index) => <a key={index} href={thing}>{UI.LINK} #{index + 1}<br /></a>)}
+        </div>
+      )
+    } else {
+      return <div><a href={value}>{UI.LINK}</a></div>
+    }
+  }
+}
+
+export function fullFormField (displayName, description, error, warning, required, component, showLinks, value) {
   return (
     <Form.Field error={!!error} required={required}>
       <Popup hideOnScroll position='top left' header={displayName} wide='very' trigger={<label>{displayName}</label>}
              content={structureDescription(description)} />
       {component}
+      {showLinks && links(value)}
       {warning && !error && <InlineWarning text={warning} />}
       {error && !warning && <InlineError text={error} />}
       {error && warning &&
