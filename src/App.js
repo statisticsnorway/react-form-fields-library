@@ -198,6 +198,25 @@ export const testFormComponents = {
     multiValue: true,
     showLinks: true
   },
+  DCMultiInputMultiValueWithValues: {
+    component: 'DCMultiInput',
+    name: 'myDCMultiInputMultiValueWithValues',
+    displayName: 'DCMultiInput (multi value with values)',
+    description: ['A description for this input'],
+    required: true,
+    options: [
+      {text: 'This option', value: 'thisOption'},
+      {text: 'That option', value: 'thatOption'},
+      {text: 'Something else', value: 'somethingElse'}
+    ],
+    multiValue: true,
+    value: [
+      {
+        option: 'thisOption',
+        text: ['Text', 'Text #2']
+      }
+    ]
+  },
   DCStaticStandard: {
     component: 'DCStatic',
     name: 'myDCStaticInput',
