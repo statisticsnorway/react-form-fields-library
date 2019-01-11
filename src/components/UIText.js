@@ -3,7 +3,7 @@ import { TextArea } from 'semantic-ui-react'
 
 import { checkValueAndType, cutoffString, fullFormField } from './common'
 
-class DCText extends Component {
+class UIText extends Component {
   constructor (props) {
     super(props)
     this.state = {value: ''}
@@ -31,4 +31,4 @@ class DCText extends Component {
   }
 }
 
-export default DCText
+export default UIText

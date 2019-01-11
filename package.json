@@ -1,5 +1,5 @@
 {
-  "name": "dc-react-form-fields-library",
+  "name": "react-form-fields-library",
   "version": "0.1.0",
   "description": "A React library consisting of different types of form components, wrapped in different kinds of form fields",
   "repository": {

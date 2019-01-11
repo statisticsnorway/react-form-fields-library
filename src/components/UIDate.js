@@ -4,7 +4,7 @@ import { Container, Form, Grid, Header, Icon } from 'semantic-ui-react'
 
 import { checkValueAndType, cutoffString, fullFormField, UI } from './common'
 
-class DCDate extends Component {
+class UIDate extends Component {
   constructor (props) {
     super(props)
     this.state = {value: this.props.multiple ? [null] : null}
@@ -92,4 +92,4 @@ class DCDate extends Component {
   }
 }
 
-export default DCDate
+export default UIDate

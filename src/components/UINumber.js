@@ -3,7 +3,7 @@ import { Input } from 'semantic-ui-react'
 
 import { checkValueAndType, cutoffString, fullFormField } from './common'
 
-class DCNumber extends Component {
+class UINumber extends Component {
   constructor (props) {
     super(props)
     this.state = {value: ''}
@@ -37,4 +37,4 @@ class DCNumber extends Component {
   }
 }
 
-export default DCNumber
+export default UINumber
