@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
 import { Container, Form, Grid, Header, Icon } from 'semantic-ui-react'
 
-import { fullFormField } from './common/FormField'
-import { checkValueAndType, shorten } from './common/Utlities'
-import { UI } from './common/ENUM'
+import { checkValueAndType, cutoffString, fullFormField, UI } from './common'
 
 class DCDate extends Component {
   constructor (props) {
@@ -59,9 +57,8 @@ class DCDate extends Component {
         <Grid>
           {value.map((entry, index) => {
             const datePicker = <DatePicker selected={value[index]} onChange={this.handleChange.bind(this, index)}
-                                           dateFormat='DD/MM/YYYY' placeholderText={shorten(displayName)}
-                                           showWeekNumbers dropdownMode='select'
-                                           todayButton={UI.TODAY[languageCode]} />
+                                           dateFormat='DD/MM/YYYY' placeholderText={cutoffString(displayName)}
+                                           showWeekNumbers dropdownMode='select' todayButton={UI.TODAY[languageCode]} />
             return (
               <Grid.Row key={index}>
                 <Grid.Column width={1} style={{margin: 0, paddingRight: 0, paddingTop: '0.35rem'}}>
@@ -86,7 +83,7 @@ class DCDate extends Component {
         </Grid>
     } else {
       const datePicker = <DatePicker selected={value} onChange={this.handleChange.bind(this, null)} isClearable
-                                     dateFormat='DD/MM/YYYY' placeholderText={shorten(displayName)} showWeekNumbers
+                                     dateFormat='DD/MM/YYYY' placeholderText={cutoffString(displayName)} showWeekNumbers
                                      dropdownMode='select' todayButton={UI.TODAY[languageCode]} />
       component = <Form.Group inline style={{margin: 0}} children={<div>{datePicker}{icon}</div>} />
     }

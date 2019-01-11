@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Checkbox } from 'semantic-ui-react'
 
-import { simpleFormField } from './common/FormField'
-import { checkValueAndType } from './common/Utlities'
+import { checkValueAndType, simpleFormField } from './common'
 
 class DCBoolean extends Component {
   constructor (props) {

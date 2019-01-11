@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
 
-import DCText from './components/DCText'
-import DCBoolean from './components/DCBoolean'
-import DCNumber from './components/DCNumber'
-import DCRadio from './components/DCRadio'
-import DCDate from './components/DCDate'
-import DCDropdown from './components/DCDropdown'
-import DCMultiInput from './components/DCMultiInput'
-import DCStatic from './components/DCStatic'
+import { DCBoolean, DCDate, DCDropdown, DCMultiInput, DCNumber, DCRadio, DCStatic, DCText } from './components'
 
 const formComponents = {
   DCText: DCText,

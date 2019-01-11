@@ -14,7 +14,7 @@ const structureDescription = (description) => {
   )
 }
 
-export const links = (route, value) => {
+export const formatLinks = (route, value) => {
   if (value !== '' && value !== undefined && value !== null) {
     if (route === undefined) {
       route = ''
@@ -30,7 +30,7 @@ export const links = (route, value) => {
       return <div><a href={route + value}>{UI.LINK}</a></div>
     }
   } else {
-      return null
+    return null
   }
 }
 
@@ -40,7 +40,7 @@ export function fullFormField (displayName, description, error, warning, require
       <Popup hideOnScroll position='top left' header={displayName} wide='very' trigger={<label>{displayName}</label>}
              content={structureDescription(description)} />
       {component}
-      {showLinks && links(route, value)}
+      {showLinks && formatLinks(route, value)}
       {warning && !error && <InlineWarning text={warning} />}
       {error && !warning && <InlineError text={error} />}
       {error && warning &&
