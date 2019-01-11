@@ -2,47 +2,47 @@ import React, { Component } from 'react'
 import { Checkbox, Divider, Form, Grid, Header } from 'semantic-ui-react'
 import moment from 'moment'
 
-import { DCFormField } from './main'
+import { UIFormField } from './main'
 
 export const testFormComponents = {
-  DCText: {
-    component: 'DCText',
+  UIText: {
+    component: 'UIText',
     name: 'myTextInput',
-    displayName: 'DCText',
+    displayName: 'UIText',
     description: ['A description for this input'],
     required: true
   },
-  DCTextMultiDescription: {
-    component: 'DCText',
+  UITextMultiDescription: {
+    component: 'UIText',
     name: 'myTextInput',
-    displayName: 'DCTextMultiDescription',
+    displayName: 'UITextMultiDescription',
     description: ['A description for this input', 'Another one', 'One more?'],
     required: true
   },
-  DCTextLongName: {
-    component: 'DCText',
+  UITextLongName: {
+    component: 'UIText',
     name: 'myTextLongNameInput',
-    displayName: 'DCText with a long name that cuts off in the placeholder so its shorther',
+    displayName: 'UIText with a long name that cuts off in the placeholder so its shorther',
     description: ['A description for this input'],
     required: true
   },
-  DCBoolean: {
-    component: 'DCBoolean',
+  UIBoolean: {
+    component: 'UIBoolean',
     name: 'myBooleanInput',
-    displayName: 'DCBoolean',
+    displayName: 'UIBoolean',
     description: ['A description for this input']
   },
-  DCNumber: {
-    component: 'DCNumber',
+  UINumber: {
+    component: 'UINumber',
     name: 'myNumberInput',
-    displayName: 'DCNumber',
+    displayName: 'UINumber',
     description: ['A description for this input'],
     required: true
   },
-  DCRadio: {
-    component: 'DCRadio',
+  UIRadio: {
+    component: 'UIRadio',
     name: 'myRadioInput',
-    displayName: 'DCRadio',
+    displayName: 'UIRadio',
     description: ['A description for this input'],
     required: true,
     options: [
@@ -51,25 +51,25 @@ export const testFormComponents = {
       {text: 'Something else', value: 'somethingElse'}
     ]
   },
-  DCDate: {
-    component: 'DCDate',
+  UIDate: {
+    component: 'UIDate',
     name: 'myDateInput',
-    displayName: 'DCDate',
+    displayName: 'UIDate',
     description: ['A description for this input'],
     required: true
   },
-  DCDateMultiple: {
-    component: 'DCDate',
+  UIDateMultiple: {
+    component: 'UIDate',
     name: 'myDateMultipleInput',
-    displayName: 'DCDate (multiple)',
+    displayName: 'UIDate (multiple)',
     description: ['A description for this input'],
     required: true,
     multiple: true
   },
-  DCDropdownSingleSelectProvidedOptions: {
-    component: 'DCDropdown',
+  UIDropdownSingleSelectProvidedOptions: {
+    component: 'UIDropdown',
     name: 'myDropdownSingleSelectProvidedOptionsInput',
-    displayName: 'DCDropdown (provided options)',
+    displayName: 'UIDropdown (provided options)',
     description: ['A description for this input'],
     required: true,
     options: [
@@ -78,10 +78,10 @@ export const testFormComponents = {
       {text: 'Something else', value: 'somethingElse'}
     ]
   },
-  DCDropdownMultipleSelectProvidedOptions: {
-    component: 'DCDropdown',
+  UIDropdownMultipleSelectProvidedOptions: {
+    component: 'UIDropdown',
     name: 'myDropdownMultipleSelectProvidedOptionsInput',
-    displayName: 'DCDropdown (multiSelect and provided options)',
+    displayName: 'UIDropdown (multiSelect and provided options)',
     description: ['A description for this input'],
     required: true,
     multiSelect: true,
@@ -91,18 +91,18 @@ export const testFormComponents = {
       {text: 'Something else', value: 'somethingElse'}
     ]
   },
-  DCDropdownEmptyOptions: {
-    component: 'DCDropdown',
+  UIDropdownEmptyOptions: {
+    component: 'UIDropdown',
     name: 'myDropdownEmptyOptionsInput',
-    displayName: 'DCDropdown (empty options)',
+    displayName: 'UIDropdown (empty options)',
     description: ['A description for this input'],
     required: true,
     options: []
   },
-  DCMultiInputProvidedOptions: {
-    component: 'DCMultiInput',
-    name: 'myDCMultiInputProvidedOptionsInput',
-    displayName: 'DCMultiInput (provided options)',
+  UIMultiInputProvidedOptions: {
+    component: 'UIMultiInput',
+    name: 'myUIMultiInputProvidedOptionsInput',
+    displayName: 'UIMultiInput (provided options)',
     description: ['A description for this input'],
     required: true,
     options: [
@@ -112,19 +112,19 @@ export const testFormComponents = {
     ],
     multiValue: false
   },
-  DCMultiInputEmptyOptions: {
-    component: 'DCMultiInput',
-    name: 'myDCMultiInputEmptyOptionsInput',
-    displayName: 'DCMultiInput (empty options)',
+  UIMultiInputEmptyOptions: {
+    component: 'UIMultiInput',
+    name: 'myUIMultiInputEmptyOptionsInput',
+    displayName: 'UIMultiInput (empty options)',
     description: ['A description for this input'],
     required: true,
     options: [],
     multiValue: false
   },
-  DCMultiInputMultiValueProvidedOptions: {
-    component: 'DCMultiInput',
-    name: 'myDCMultiInputMultiValueProvidedOptions',
-    displayName: 'DCMultiInput (multi value and provided options)',
+  UIMultiInputMultiValueProvidedOptions: {
+    component: 'UIMultiInput',
+    name: 'myUIMultiInputMultiValueProvidedOptions',
+    displayName: 'UIMultiInput (multi value and provided options)',
     description: ['A description for this input'],
     required: true,
     options: [
@@ -134,19 +134,19 @@ export const testFormComponents = {
     ],
     multiValue: true
   },
-  DCMultiInputMultiValueEmptyOptions: {
-    component: 'DCMultiInput',
-    name: 'myDCMultiInputMultiValueEmptyOptions',
-    displayName: 'DCMultiInput (multi value and empty options)',
+  UIMultiInputMultiValueEmptyOptions: {
+    component: 'UIMultiInput',
+    name: 'myUIMultiInputMultiValueEmptyOptions',
+    displayName: 'UIMultiInput (multi value and empty options)',
     description: ['A description for this input'],
     required: true,
     options: [],
     multiValue: true
   },
-  DCDropdownShowLinks: {
-    component: 'DCDropdown',
+  UIDropdownShowLinks: {
+    component: 'UIDropdown',
     name: 'myShowLinksInput',
-    displayName: 'DCDropdown (show links)',
+    displayName: 'UIDropdown (show links)',
     description: ['A description'],
     required: true,
     showLinks: true,
@@ -156,10 +156,10 @@ export const testFormComponents = {
       {text: 'Something else', value: 'somethingElse'}
     ]
   },
-  DCDropdownMultipleShowLinks: {
-    component: 'DCDropdown',
+  UIDropdownMultipleShowLinks: {
+    component: 'UIDropdown',
     name: 'myShowLinksMultipleInput',
-    displayName: 'DCDropdown (multiple and show links)',
+    displayName: 'UIDropdown (multiple and show links)',
     description: ['A description'],
     required: true,
     showLinks: true,
@@ -170,10 +170,10 @@ export const testFormComponents = {
       {text: 'Something else', value: 'somethingElse'}
     ]
   },
-  DCMultiInputShowLinks: {
-    component: 'DCMultiInput',
-    name: 'myDCMultiInpuShowLinksInput',
-    displayName: 'DCMultiInput (show links)',
+  UIMultiInputShowLinks: {
+    component: 'UIMultiInput',
+    name: 'myUIMultiInpuShowLinksInput',
+    displayName: 'UIMultiInput (show links)',
     description: ['A description for this input'],
     required: true,
     options: [
@@ -184,10 +184,10 @@ export const testFormComponents = {
     multiValue: false,
     showLinks: true
   },
-  DCMultiInputMultiValueShowLinks: {
-    component: 'DCMultiInput',
-    name: 'myDCMultiInputMultiValueShowLinks',
-    displayName: 'DCMultiInput (multi value and show links)',
+  UIMultiInputMultiValueShowLinks: {
+    component: 'UIMultiInput',
+    name: 'myUIMultiInputMultiValueShowLinks',
+    displayName: 'UIMultiInput (multi value and show links)',
     description: ['A description for this input'],
     required: true,
     options: [
@@ -198,10 +198,10 @@ export const testFormComponents = {
     multiValue: true,
     showLinks: true
   },
-  DCMultiInputMultiValueWithValues: {
-    component: 'DCMultiInput',
-    name: 'myDCMultiInputMultiValueWithValues',
-    displayName: 'DCMultiInput (multi value with values)',
+  UIMultiInputMultiValueWithValues: {
+    component: 'UIMultiInput',
+    name: 'myUIMultiInputMultiValueWithValues',
+    displayName: 'UIMultiInput (multi value with values)',
     description: ['A description for this input'],
     required: true,
     options: [
@@ -217,25 +217,25 @@ export const testFormComponents = {
       }
     ]
   },
-  DCStaticStandard: {
-    component: 'DCStatic',
-    name: 'myDCStaticInput',
-    displayName: 'DCStatic (standard)',
+  UIStaticStandard: {
+    component: 'UIStatic',
+    name: 'myUIStaticInput',
+    displayName: 'UIStatic (standard)',
     description: ['A description for this input'],
     value: ['Value']
   },
-  DCStaticDate: {
-    component: 'DCStatic',
-    name: 'myDCStaticDateInput',
-    displayName: 'DCStatic (date)',
+  UIStaticDate: {
+    component: 'UIStatic',
+    name: 'myUIStaticDateInput',
+    displayName: 'UIStatic (date)',
     description: ['A description for this input'],
     format: 'date',
     value: [moment('1989-12-28')]
   },
-  DCStaticTag: {
-    component: 'DCStatic',
-    name: 'myDCStaticTagInput',
-    displayName: 'DCStatic (tags)',
+  UIStaticTag: {
+    component: 'UIStatic',
+    name: 'myUIStaticTagInput',
+    displayName: 'UIStatic (tags)',
     description: ['A description for this input'],
     format: 'tag',
     value: [
@@ -244,10 +244,10 @@ export const testFormComponents = {
       'A third?'
     ]
   },
-  DCStaticLabel: {
-    component: 'DCStatic',
-    name: 'myDCStaticLabelInput',
-    displayName: 'DCStatic (labels)',
+  UIStaticLabel: {
+    component: 'UIStatic',
+    name: 'myUIStaticLabelInput',
+    displayName: 'UIStatic (labels)',
     description: ['A description for this input'],
     format: 'label',
     value: [
@@ -256,20 +256,20 @@ export const testFormComponents = {
       'A third?'
     ]
   },
-  DCStaticStandardMulti: {
-    component: 'DCStatic',
-    name: 'myDCStaticMultiInput',
-    displayName: 'DCStatic (multi standard)',
+  UIStaticStandardMulti: {
+    component: 'UIStatic',
+    name: 'myUIStaticMultiInput',
+    displayName: 'UIStatic (multi standard)',
     description: ['A description for this input'],
     value: [
       'Value',
       'Another value'
     ]
   },
-  DCStaticDateMulti: {
-    component: 'DCStatic',
-    name: 'myDCStaticDateMultiInput',
-    displayName: 'DCStatic (multi date)',
+  UIStaticDateMulti: {
+    component: 'UIStatic',
+    name: 'myUIStaticDateMultiInput',
+    displayName: 'UIStatic (multi date)',
     description: ['A description for this input'],
     format: 'date',
     value: [
@@ -277,10 +277,10 @@ export const testFormComponents = {
       moment('1989-12-28').add(1, 'years')
     ]
   },
-  DCStaticIcon: {
-    component: 'DCStatic',
-    name: 'myDCStaticIconInput',
-    displayName: 'DCStatic (with icon)',
+  UIStaticIcon: {
+    component: 'UIStatic',
+    name: 'myUIStaticIconInput',
+    displayName: 'UIStatic (with icon)',
     description: ['A description for this input'],
     value: ['Value'],
     icon: 'user'
@@ -370,7 +370,7 @@ class App extends Component {
           {ready &&
           <Form>
             {Object.keys(formComponents).map(value => {
-              return <DCFormField key={value} properties={formComponents[value]} valueChange={this.handleValueChange}
+              return <UIFormField key={value} properties={formComponents[value]} valueChange={this.handleValueChange}
                                   languageCode={'en'} />
             })}
           </Form>

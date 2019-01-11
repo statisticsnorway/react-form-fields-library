@@ -6,7 +6,7 @@ import { simpleStaticFormField } from './common'
 
 const formats = ['date', 'label', 'tag']
 
-class DCStatic extends Component {
+class UIStatic extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -83,4 +83,4 @@ class DCStatic extends Component {
   }
 }
 
-export default DCStatic
+export default UIStatic

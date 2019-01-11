@@ -3,7 +3,7 @@ import { Checkbox } from 'semantic-ui-react'
 
 import { checkValueAndType, simpleFormField } from './common'
 
-class DCBoolean extends Component {
+class UIBoolean extends Component {
   constructor (props) {
     super(props)
     this.state = {value: false}
@@ -30,4 +30,4 @@ class DCBoolean extends Component {
   }
 }
 
-export default DCBoolean
+export default UIBoolean

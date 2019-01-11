@@ -3,7 +3,7 @@ import { Button, Container, Dropdown, Grid, Header, Icon, Input } from 'semantic
 
 import { cutoffString, formatLinks, fullFormField, UI } from './common'
 
-class DCMultiInput extends Component {
+class UIMultiInput extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -192,4 +192,4 @@ class DCMultiInput extends Component {
   }
 }
 
-export default DCMultiInput
+export default UIMultiInput

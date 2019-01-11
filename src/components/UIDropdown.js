@@ -3,7 +3,7 @@ import { Dropdown } from 'semantic-ui-react'
 
 import { checkValueAndType, cutoffString, fullFormField, UI } from './common'
 
-class DCDropdown extends Component {
+class UIDropdown extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -77,4 +77,4 @@ class DCDropdown extends Component {
   }
 }
 
-export default DCDropdown
+export default UIDropdown

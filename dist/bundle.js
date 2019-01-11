@@ -252,17 +252,17 @@ function simpleStaticFormField(displayName, description, component) {
   }), component);
 }
 
-var DCText =
+var UIText =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DCText, _Component);
+  _inherits(UIText, _Component);
 
-  function DCText(props) {
+  function UIText(props) {
     var _this;
 
-    _classCallCheck(this, DCText);
+    _classCallCheck(this, UIText);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCText).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UIText).call(this, props));
 
     _this.handleChange = function (event) {
       var _this$props = _this.props,
@@ -282,7 +282,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DCText, [{
+  _createClass(UIText, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var value = this.props.value;
@@ -313,20 +313,20 @@ function (_Component) {
     }
   }]);
 
-  return DCText;
+  return UIText;
 }(React.Component);
 
-var DCBoolean =
+var UIBoolean =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DCBoolean, _Component);
+  _inherits(UIBoolean, _Component);
 
-  function DCBoolean(props) {
+  function UIBoolean(props) {
     var _this;
 
-    _classCallCheck(this, DCBoolean);
+    _classCallCheck(this, UIBoolean);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCBoolean).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UIBoolean).call(this, props));
 
     _this.handleChange = function () {
       var _this$props = _this.props,
@@ -346,7 +346,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DCBoolean, [{
+  _createClass(UIBoolean, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var value = this.props.value;
@@ -370,20 +370,20 @@ function (_Component) {
     }
   }]);
 
-  return DCBoolean;
+  return UIBoolean;
 }(React.Component);
 
-var DCNumber =
+var UINumber =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DCNumber, _Component);
+  _inherits(UINumber, _Component);
 
-  function DCNumber(props) {
+  function UINumber(props) {
     var _this;
 
-    _classCallCheck(this, DCNumber);
+    _classCallCheck(this, UINumber);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCNumber).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UINumber).call(this, props));
 
     _this.handleChange = function (event) {
       if (!isNaN(event.target.value)) {
@@ -407,7 +407,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DCNumber, [{
+  _createClass(UINumber, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var value = this.props.value;
@@ -441,20 +441,20 @@ function (_Component) {
     }
   }]);
 
-  return DCNumber;
+  return UINumber;
 }(React.Component);
 
-var DCRadio =
+var UIRadio =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DCRadio, _Component);
+  _inherits(UIRadio, _Component);
 
-  function DCRadio(props) {
+  function UIRadio(props) {
     var _this;
 
-    _classCallCheck(this, DCRadio);
+    _classCallCheck(this, UIRadio);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCRadio).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UIRadio).call(this, props));
 
     _this.handleChange = function (event, _ref) {
       var value = _ref.value;
@@ -475,7 +475,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DCRadio, [{
+  _createClass(UIRadio, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var value = this.props.value;
@@ -516,20 +516,20 @@ function (_Component) {
     }
   }]);
 
-  return DCRadio;
+  return UIRadio;
 }(React.Component);
 
-var DCDate =
+var UIDate =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DCDate, _Component);
+  _inherits(UIDate, _Component);
 
-  function DCDate(props) {
+  function UIDate(props) {
     var _this;
 
-    _classCallCheck(this, DCDate);
+    _classCallCheck(this, UIDate);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCDate).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UIDate).call(this, props));
 
     _this.handleChange = function (index, date) {
       var _this$props = _this.props,
@@ -570,7 +570,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DCDate, [{
+  _createClass(UIDate, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var value = this.props.value;
@@ -709,20 +709,20 @@ function (_Component) {
     }
   }]);
 
-  return DCDate;
+  return UIDate;
 }(React.Component);
 
-var DCDropdown =
+var UIDropdown =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DCDropdown, _Component);
+  _inherits(UIDropdown, _Component);
 
-  function DCDropdown(props) {
+  function UIDropdown(props) {
     var _this;
 
-    _classCallCheck(this, DCDropdown);
+    _classCallCheck(this, UIDropdown);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCDropdown).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UIDropdown).call(this, props));
 
     _this.handleChange = function (event, data) {
       var _this$props = _this.props,
@@ -746,7 +746,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DCDropdown, [{
+  _createClass(UIDropdown, [{
     key: "setOptionsAndValue",
     value: function setOptionsAndValue(options) {
       var _this2 = this;
@@ -861,20 +861,20 @@ function (_Component) {
     }
   }]);
 
-  return DCDropdown;
+  return UIDropdown;
 }(React.Component);
 
-var DCMultiInput =
+var UIMultiInput =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DCMultiInput, _Component);
+  _inherits(UIMultiInput, _Component);
 
-  function DCMultiInput(props) {
+  function UIMultiInput(props) {
     var _this;
 
-    _classCallCheck(this, DCMultiInput);
+    _classCallCheck(this, UIMultiInput);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCMultiInput).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UIMultiInput).call(this, props));
 
     _this.handleAddEntry = function () {
       var _this$props = _this.props,
@@ -905,7 +905,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DCMultiInput, [{
+  _createClass(UIMultiInput, [{
     key: "setOptionsAndValue",
     value: function setOptionsAndValue(options) {
       var _this2 = this;
@@ -1208,22 +1208,22 @@ function (_Component) {
     }
   }]);
 
-  return DCMultiInput;
+  return UIMultiInput;
 }(React.Component);
 
 var formats = ['date', 'label', 'tag'];
 
-var DCStatic =
+var UIStatic =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DCStatic, _Component);
+  _inherits(UIStatic, _Component);
 
-  function DCStatic(props) {
+  function UIStatic(props) {
     var _this;
 
-    _classCallCheck(this, DCStatic);
+    _classCallCheck(this, UIStatic);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DCStatic).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UIStatic).call(this, props));
     _this.state = {
       ready: false,
       component: null,
@@ -1232,7 +1232,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DCStatic, [{
+  _createClass(UIStatic, [{
     key: "checkIcon",
     value: function checkIcon() {
       var _this2 = this;
@@ -1354,32 +1354,32 @@ function (_Component) {
     }
   }]);
 
-  return DCStatic;
+  return UIStatic;
 }(React.Component);
 
 var formComponents = {
-  DCText: DCText,
-  DCBoolean: DCBoolean,
-  DCNumber: DCNumber,
-  DCRadio: DCRadio,
-  DCDate: DCDate,
-  DCDropdown: DCDropdown,
-  DCMultiInput: DCMultiInput,
-  DCStatic: DCStatic
+  UIText: UIText,
+  UIBoolean: UIBoolean,
+  UINumber: UINumber,
+  UIRadio: UIRadio,
+  UIDate: UIDate,
+  UIDropdown: UIDropdown,
+  UIMultiInput: UIMultiInput,
+  UIStatic: UIStatic
 };
 
-var DCFormField =
+var UIFormField =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DCFormField, _Component);
+  _inherits(UIFormField, _Component);
 
-  function DCFormField() {
-    _classCallCheck(this, DCFormField);
+  function UIFormField() {
+    _classCallCheck(this, UIFormField);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(DCFormField).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(UIFormField).apply(this, arguments));
   }
 
-  _createClass(DCFormField, [{
+  _createClass(UIFormField, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -1394,7 +1394,7 @@ function (_Component) {
     }
   }]);
 
-  return DCFormField;
+  return UIFormField;
 }(React.Component);
 
-exports.DCFormField = DCFormField;
+exports.UIFormField = UIFormField;

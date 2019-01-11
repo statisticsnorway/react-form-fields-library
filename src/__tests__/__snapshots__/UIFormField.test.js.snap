@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DCFormField Renders all the input components without error and only once 1`] = `
+exports[`UIFormField Renders all the input components without error and only once 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCText",
+        "component": "UIText",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCText",
+        "displayName": "UIText",
         "name": "myTextInput",
         "required": true,
       }
@@ -29,11 +29,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCText",
+      "component": "UIText",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCText",
+      "displayName": "UIText",
       "languageCode": undefined,
       "name": "myTextInput",
       "required": true,
@@ -49,11 +49,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCText",
+        "component": "UIText",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCText",
+        "displayName": "UIText",
         "languageCode": undefined,
         "name": "myTextInput",
         "required": true,
@@ -84,19 +84,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 2`] = `
+exports[`UIFormField Renders all the input components without error and only once 2`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCText",
+        "component": "UIText",
         "description": Array [
           "A description for this input",
           "Another one",
           "One more?",
         ],
-        "displayName": "DCTextMultiDescription",
+        "displayName": "UITextMultiDescription",
         "name": "myTextInput",
         "required": true,
       }
@@ -115,13 +115,13 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCText",
+      "component": "UIText",
       "description": Array [
         "A description for this input",
         "Another one",
         "One more?",
       ],
-      "displayName": "DCTextMultiDescription",
+      "displayName": "UITextMultiDescription",
       "languageCode": undefined,
       "name": "myTextInput",
       "required": true,
@@ -137,13 +137,13 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCText",
+        "component": "UIText",
         "description": Array [
           "A description for this input",
           "Another one",
           "One more?",
         ],
-        "displayName": "DCTextMultiDescription",
+        "displayName": "UITextMultiDescription",
         "languageCode": undefined,
         "name": "myTextInput",
         "required": true,
@@ -174,17 +174,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 3`] = `
+exports[`UIFormField Renders all the input components without error and only once 3`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCText",
+        "component": "UIText",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
+        "displayName": "UIText with a long name that cuts off in the placeholder so its shorther",
         "name": "myTextLongNameInput",
         "required": true,
       }
@@ -203,11 +203,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCText",
+      "component": "UIText",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
+      "displayName": "UIText with a long name that cuts off in the placeholder so its shorther",
       "languageCode": undefined,
       "name": "myTextLongNameInput",
       "required": true,
@@ -223,11 +223,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCText",
+        "component": "UIText",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCText with a long name that cuts off in the placeholder so its shorther",
+        "displayName": "UIText with a long name that cuts off in the placeholder so its shorther",
         "languageCode": undefined,
         "name": "myTextLongNameInput",
         "required": true,
@@ -258,17 +258,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 4`] = `
+exports[`UIFormField Renders all the input components without error and only once 4`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCBoolean",
+        "component": "UIBoolean",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCBoolean",
+        "displayName": "UIBoolean",
         "name": "myBooleanInput",
       }
     }
@@ -286,11 +286,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCBoolean",
+      "component": "UIBoolean",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCBoolean",
+      "displayName": "UIBoolean",
       "languageCode": undefined,
       "name": "myBooleanInput",
       "valueChange": undefined,
@@ -305,11 +305,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCBoolean",
+        "component": "UIBoolean",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCBoolean",
+        "displayName": "UIBoolean",
         "languageCode": undefined,
         "name": "myBooleanInput",
         "valueChange": undefined,
@@ -339,17 +339,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 5`] = `
+exports[`UIFormField Renders all the input components without error and only once 5`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCNumber",
+        "component": "UINumber",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCNumber",
+        "displayName": "UINumber",
         "name": "myNumberInput",
         "required": true,
       }
@@ -368,11 +368,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCNumber",
+      "component": "UINumber",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCNumber",
+      "displayName": "UINumber",
       "languageCode": undefined,
       "name": "myNumberInput",
       "required": true,
@@ -388,11 +388,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCNumber",
+        "component": "UINumber",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCNumber",
+        "displayName": "UINumber",
         "languageCode": undefined,
         "name": "myNumberInput",
         "required": true,
@@ -423,17 +423,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 6`] = `
+exports[`UIFormField Renders all the input components without error and only once 6`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCRadio",
+        "component": "UIRadio",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCRadio",
+        "displayName": "UIRadio",
         "name": "myRadioInput",
         "options": Array [
           Object {
@@ -466,11 +466,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCRadio",
+      "component": "UIRadio",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCRadio",
+      "displayName": "UIRadio",
       "languageCode": undefined,
       "name": "myRadioInput",
       "options": Array [
@@ -500,11 +500,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCRadio",
+        "component": "UIRadio",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCRadio",
+        "displayName": "UIRadio",
         "languageCode": undefined,
         "name": "myRadioInput",
         "options": Array [
@@ -549,17 +549,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 7`] = `
+exports[`UIFormField Renders all the input components without error and only once 7`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCDate",
+        "component": "UIDate",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDate",
+        "displayName": "UIDate",
         "name": "myDateInput",
         "required": true,
       }
@@ -578,11 +578,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCDate",
+      "component": "UIDate",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCDate",
+      "displayName": "UIDate",
       "languageCode": undefined,
       "name": "myDateInput",
       "required": true,
@@ -598,11 +598,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCDate",
+        "component": "UIDate",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDate",
+        "displayName": "UIDate",
         "languageCode": undefined,
         "name": "myDateInput",
         "required": true,
@@ -633,17 +633,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 8`] = `
+exports[`UIFormField Renders all the input components without error and only once 8`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCDate",
+        "component": "UIDate",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDate (multiple)",
+        "displayName": "UIDate (multiple)",
         "multiple": true,
         "name": "myDateMultipleInput",
         "required": true,
@@ -663,11 +663,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCDate",
+      "component": "UIDate",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCDate (multiple)",
+      "displayName": "UIDate (multiple)",
       "languageCode": undefined,
       "multiple": true,
       "name": "myDateMultipleInput",
@@ -684,11 +684,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCDate",
+        "component": "UIDate",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDate (multiple)",
+        "displayName": "UIDate (multiple)",
         "languageCode": undefined,
         "multiple": true,
         "name": "myDateMultipleInput",
@@ -720,17 +720,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 9`] = `
+exports[`UIFormField Renders all the input components without error and only once 9`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDropdown (provided options)",
+        "displayName": "UIDropdown (provided options)",
         "name": "myDropdownSingleSelectProvidedOptionsInput",
         "options": Array [
           Object {
@@ -763,11 +763,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCDropdown",
+      "component": "UIDropdown",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCDropdown (provided options)",
+      "displayName": "UIDropdown (provided options)",
       "languageCode": undefined,
       "name": "myDropdownSingleSelectProvidedOptionsInput",
       "options": Array [
@@ -797,11 +797,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDropdown (provided options)",
+        "displayName": "UIDropdown (provided options)",
         "languageCode": undefined,
         "name": "myDropdownSingleSelectProvidedOptionsInput",
         "options": Array [
@@ -846,17 +846,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 10`] = `
+exports[`UIFormField Renders all the input components without error and only once 10`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDropdown (multiSelect and provided options)",
+        "displayName": "UIDropdown (multiSelect and provided options)",
         "multiSelect": true,
         "name": "myDropdownMultipleSelectProvidedOptionsInput",
         "options": Array [
@@ -890,11 +890,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCDropdown",
+      "component": "UIDropdown",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCDropdown (multiSelect and provided options)",
+      "displayName": "UIDropdown (multiSelect and provided options)",
       "languageCode": undefined,
       "multiSelect": true,
       "name": "myDropdownMultipleSelectProvidedOptionsInput",
@@ -925,11 +925,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDropdown (multiSelect and provided options)",
+        "displayName": "UIDropdown (multiSelect and provided options)",
         "languageCode": undefined,
         "multiSelect": true,
         "name": "myDropdownMultipleSelectProvidedOptionsInput",
@@ -975,17 +975,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 11`] = `
+exports[`UIFormField Renders all the input components without error and only once 11`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDropdown (empty options)",
+        "displayName": "UIDropdown (empty options)",
         "name": "myDropdownEmptyOptionsInput",
         "options": Array [],
         "required": true,
@@ -1005,11 +1005,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCDropdown",
+      "component": "UIDropdown",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCDropdown (empty options)",
+      "displayName": "UIDropdown (empty options)",
       "languageCode": undefined,
       "name": "myDropdownEmptyOptionsInput",
       "options": Array [],
@@ -1026,11 +1026,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCDropdown (empty options)",
+        "displayName": "UIDropdown (empty options)",
         "languageCode": undefined,
         "name": "myDropdownEmptyOptionsInput",
         "options": Array [],
@@ -1062,19 +1062,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 12`] = `
+exports[`UIFormField Renders all the input components without error and only once 12`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (provided options)",
+        "displayName": "UIMultiInput (provided options)",
         "multiValue": false,
-        "name": "myDCMultiInputProvidedOptionsInput",
+        "name": "myUIMultiInputProvidedOptionsInput",
         "options": Array [
           Object {
             "text": "This option",
@@ -1106,14 +1106,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCMultiInput",
+      "component": "UIMultiInput",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCMultiInput (provided options)",
+      "displayName": "UIMultiInput (provided options)",
       "languageCode": undefined,
       "multiValue": false,
-      "name": "myDCMultiInputProvidedOptionsInput",
+      "name": "myUIMultiInputProvidedOptionsInput",
       "options": Array [
         Object {
           "text": "This option",
@@ -1141,14 +1141,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (provided options)",
+        "displayName": "UIMultiInput (provided options)",
         "languageCode": undefined,
         "multiValue": false,
-        "name": "myDCMultiInputProvidedOptionsInput",
+        "name": "myUIMultiInputProvidedOptionsInput",
         "options": Array [
           Object {
             "text": "This option",
@@ -1191,19 +1191,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 13`] = `
+exports[`UIFormField Renders all the input components without error and only once 13`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (empty options)",
+        "displayName": "UIMultiInput (empty options)",
         "multiValue": false,
-        "name": "myDCMultiInputEmptyOptionsInput",
+        "name": "myUIMultiInputEmptyOptionsInput",
         "options": Array [],
         "required": true,
       }
@@ -1222,14 +1222,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCMultiInput",
+      "component": "UIMultiInput",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCMultiInput (empty options)",
+      "displayName": "UIMultiInput (empty options)",
       "languageCode": undefined,
       "multiValue": false,
-      "name": "myDCMultiInputEmptyOptionsInput",
+      "name": "myUIMultiInputEmptyOptionsInput",
       "options": Array [],
       "required": true,
       "valueChange": undefined,
@@ -1244,14 +1244,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (empty options)",
+        "displayName": "UIMultiInput (empty options)",
         "languageCode": undefined,
         "multiValue": false,
-        "name": "myDCMultiInputEmptyOptionsInput",
+        "name": "myUIMultiInputEmptyOptionsInput",
         "options": Array [],
         "required": true,
         "valueChange": undefined,
@@ -1281,19 +1281,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 14`] = `
+exports[`UIFormField Renders all the input components without error and only once 14`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (multi value and provided options)",
+        "displayName": "UIMultiInput (multi value and provided options)",
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueProvidedOptions",
+        "name": "myUIMultiInputMultiValueProvidedOptions",
         "options": Array [
           Object {
             "text": "This option",
@@ -1325,14 +1325,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCMultiInput",
+      "component": "UIMultiInput",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCMultiInput (multi value and provided options)",
+      "displayName": "UIMultiInput (multi value and provided options)",
       "languageCode": undefined,
       "multiValue": true,
-      "name": "myDCMultiInputMultiValueProvidedOptions",
+      "name": "myUIMultiInputMultiValueProvidedOptions",
       "options": Array [
         Object {
           "text": "This option",
@@ -1360,14 +1360,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (multi value and provided options)",
+        "displayName": "UIMultiInput (multi value and provided options)",
         "languageCode": undefined,
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueProvidedOptions",
+        "name": "myUIMultiInputMultiValueProvidedOptions",
         "options": Array [
           Object {
             "text": "This option",
@@ -1410,19 +1410,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 15`] = `
+exports[`UIFormField Renders all the input components without error and only once 15`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (multi value and empty options)",
+        "displayName": "UIMultiInput (multi value and empty options)",
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueEmptyOptions",
+        "name": "myUIMultiInputMultiValueEmptyOptions",
         "options": Array [],
         "required": true,
       }
@@ -1441,14 +1441,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCMultiInput",
+      "component": "UIMultiInput",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCMultiInput (multi value and empty options)",
+      "displayName": "UIMultiInput (multi value and empty options)",
       "languageCode": undefined,
       "multiValue": true,
-      "name": "myDCMultiInputMultiValueEmptyOptions",
+      "name": "myUIMultiInputMultiValueEmptyOptions",
       "options": Array [],
       "required": true,
       "valueChange": undefined,
@@ -1463,14 +1463,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (multi value and empty options)",
+        "displayName": "UIMultiInput (multi value and empty options)",
         "languageCode": undefined,
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueEmptyOptions",
+        "name": "myUIMultiInputMultiValueEmptyOptions",
         "options": Array [],
         "required": true,
         "valueChange": undefined,
@@ -1500,17 +1500,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 16`] = `
+exports[`UIFormField Renders all the input components without error and only once 16`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description",
         ],
-        "displayName": "DCDropdown (show links)",
+        "displayName": "UIDropdown (show links)",
         "name": "myShowLinksInput",
         "options": Array [
           Object {
@@ -1544,11 +1544,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCDropdown",
+      "component": "UIDropdown",
       "description": Array [
         "A description",
       ],
-      "displayName": "DCDropdown (show links)",
+      "displayName": "UIDropdown (show links)",
       "languageCode": undefined,
       "name": "myShowLinksInput",
       "options": Array [
@@ -1579,11 +1579,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description",
         ],
-        "displayName": "DCDropdown (show links)",
+        "displayName": "UIDropdown (show links)",
         "languageCode": undefined,
         "name": "myShowLinksInput",
         "options": Array [
@@ -1629,17 +1629,17 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 17`] = `
+exports[`UIFormField Renders all the input components without error and only once 17`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description",
         ],
-        "displayName": "DCDropdown (multiple and show links)",
+        "displayName": "UIDropdown (multiple and show links)",
         "multiSelect": true,
         "name": "myShowLinksMultipleInput",
         "options": Array [
@@ -1674,11 +1674,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCDropdown",
+      "component": "UIDropdown",
       "description": Array [
         "A description",
       ],
-      "displayName": "DCDropdown (multiple and show links)",
+      "displayName": "UIDropdown (multiple and show links)",
       "languageCode": undefined,
       "multiSelect": true,
       "name": "myShowLinksMultipleInput",
@@ -1710,11 +1710,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCDropdown",
+        "component": "UIDropdown",
         "description": Array [
           "A description",
         ],
-        "displayName": "DCDropdown (multiple and show links)",
+        "displayName": "UIDropdown (multiple and show links)",
         "languageCode": undefined,
         "multiSelect": true,
         "name": "myShowLinksMultipleInput",
@@ -1761,19 +1761,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 18`] = `
+exports[`UIFormField Renders all the input components without error and only once 18`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (show links)",
+        "displayName": "UIMultiInput (show links)",
         "multiValue": false,
-        "name": "myDCMultiInpuShowLinksInput",
+        "name": "myUIMultiInpuShowLinksInput",
         "options": Array [
           Object {
             "text": "This option",
@@ -1806,14 +1806,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCMultiInput",
+      "component": "UIMultiInput",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCMultiInput (show links)",
+      "displayName": "UIMultiInput (show links)",
       "languageCode": undefined,
       "multiValue": false,
-      "name": "myDCMultiInpuShowLinksInput",
+      "name": "myUIMultiInpuShowLinksInput",
       "options": Array [
         Object {
           "text": "This option",
@@ -1842,14 +1842,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (show links)",
+        "displayName": "UIMultiInput (show links)",
         "languageCode": undefined,
         "multiValue": false,
-        "name": "myDCMultiInpuShowLinksInput",
+        "name": "myUIMultiInpuShowLinksInput",
         "options": Array [
           Object {
             "text": "This option",
@@ -1893,19 +1893,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 19`] = `
+exports[`UIFormField Renders all the input components without error and only once 19`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (multi value and show links)",
+        "displayName": "UIMultiInput (multi value and show links)",
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueShowLinks",
+        "name": "myUIMultiInputMultiValueShowLinks",
         "options": Array [
           Object {
             "text": "This option",
@@ -1938,14 +1938,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCMultiInput",
+      "component": "UIMultiInput",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCMultiInput (multi value and show links)",
+      "displayName": "UIMultiInput (multi value and show links)",
       "languageCode": undefined,
       "multiValue": true,
-      "name": "myDCMultiInputMultiValueShowLinks",
+      "name": "myUIMultiInputMultiValueShowLinks",
       "options": Array [
         Object {
           "text": "This option",
@@ -1974,14 +1974,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (multi value and show links)",
+        "displayName": "UIMultiInput (multi value and show links)",
         "languageCode": undefined,
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueShowLinks",
+        "name": "myUIMultiInputMultiValueShowLinks",
         "options": Array [
           Object {
             "text": "This option",
@@ -2025,19 +2025,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 20`] = `
+exports[`UIFormField Renders all the input components without error and only once 20`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (multi value with values)",
+        "displayName": "UIMultiInput (multi value with values)",
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueWithValues",
+        "name": "myUIMultiInputMultiValueWithValues",
         "options": Array [
           Object {
             "text": "This option",
@@ -2078,14 +2078,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCMultiInput",
+      "component": "UIMultiInput",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCMultiInput (multi value with values)",
+      "displayName": "UIMultiInput (multi value with values)",
       "languageCode": undefined,
       "multiValue": true,
-      "name": "myDCMultiInputMultiValueWithValues",
+      "name": "myUIMultiInputMultiValueWithValues",
       "options": Array [
         Object {
           "text": "This option",
@@ -2122,14 +2122,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCMultiInput",
+        "component": "UIMultiInput",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCMultiInput (multi value with values)",
+        "displayName": "UIMultiInput (multi value with values)",
         "languageCode": undefined,
         "multiValue": true,
-        "name": "myDCMultiInputMultiValueWithValues",
+        "name": "myUIMultiInputMultiValueWithValues",
         "options": Array [
           Object {
             "text": "This option",
@@ -2181,18 +2181,18 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 21`] = `
+exports[`UIFormField Renders all the input components without error and only once 21`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (standard)",
-        "name": "myDCStaticInput",
+        "displayName": "UIStatic (standard)",
+        "name": "myUIStaticInput",
         "value": Array [
           "Value",
         ],
@@ -2212,13 +2212,13 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCStatic",
+      "component": "UIStatic",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCStatic (standard)",
+      "displayName": "UIStatic (standard)",
       "languageCode": undefined,
-      "name": "myDCStaticInput",
+      "name": "myUIStaticInput",
       "value": Array [
         "Value",
       ],
@@ -2234,13 +2234,13 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (standard)",
+        "displayName": "UIStatic (standard)",
         "languageCode": undefined,
-        "name": "myDCStaticInput",
+        "name": "myUIStaticInput",
         "value": Array [
           "Value",
         ],
@@ -2271,19 +2271,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 22`] = `
+exports[`UIFormField Renders all the input components without error and only once 22`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (date)",
+        "displayName": "UIStatic (date)",
         "format": "date",
-        "name": "myDCStaticDateInput",
+        "name": "myUIStaticDateInput",
         "value": Array [
           "1989-12-27T23:00:00.000Z",
         ],
@@ -2303,14 +2303,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCStatic",
+      "component": "UIStatic",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCStatic (date)",
+      "displayName": "UIStatic (date)",
       "format": "date",
       "languageCode": undefined,
-      "name": "myDCStaticDateInput",
+      "name": "myUIStaticDateInput",
       "value": Array [
         "1989-12-27T23:00:00.000Z",
       ],
@@ -2326,14 +2326,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (date)",
+        "displayName": "UIStatic (date)",
         "format": "date",
         "languageCode": undefined,
-        "name": "myDCStaticDateInput",
+        "name": "myUIStaticDateInput",
         "value": Array [
           "1989-12-27T23:00:00.000Z",
         ],
@@ -2364,19 +2364,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 23`] = `
+exports[`UIFormField Renders all the input components without error and only once 23`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (tags)",
+        "displayName": "UIStatic (tags)",
         "format": "tag",
-        "name": "myDCStaticTagInput",
+        "name": "myUIStaticTagInput",
         "value": Array [
           "A tag",
           "Another tag",
@@ -2398,14 +2398,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCStatic",
+      "component": "UIStatic",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCStatic (tags)",
+      "displayName": "UIStatic (tags)",
       "format": "tag",
       "languageCode": undefined,
-      "name": "myDCStaticTagInput",
+      "name": "myUIStaticTagInput",
       "value": Array [
         "A tag",
         "Another tag",
@@ -2423,14 +2423,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (tags)",
+        "displayName": "UIStatic (tags)",
         "format": "tag",
         "languageCode": undefined,
-        "name": "myDCStaticTagInput",
+        "name": "myUIStaticTagInput",
         "value": Array [
           "A tag",
           "Another tag",
@@ -2463,19 +2463,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 24`] = `
+exports[`UIFormField Renders all the input components without error and only once 24`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (labels)",
+        "displayName": "UIStatic (labels)",
         "format": "label",
-        "name": "myDCStaticLabelInput",
+        "name": "myUIStaticLabelInput",
         "value": Array [
           "A label",
           "Another label",
@@ -2497,14 +2497,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCStatic",
+      "component": "UIStatic",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCStatic (labels)",
+      "displayName": "UIStatic (labels)",
       "format": "label",
       "languageCode": undefined,
-      "name": "myDCStaticLabelInput",
+      "name": "myUIStaticLabelInput",
       "value": Array [
         "A label",
         "Another label",
@@ -2522,14 +2522,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (labels)",
+        "displayName": "UIStatic (labels)",
         "format": "label",
         "languageCode": undefined,
-        "name": "myDCStaticLabelInput",
+        "name": "myUIStaticLabelInput",
         "value": Array [
           "A label",
           "Another label",
@@ -2562,18 +2562,18 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 25`] = `
+exports[`UIFormField Renders all the input components without error and only once 25`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (multi standard)",
-        "name": "myDCStaticMultiInput",
+        "displayName": "UIStatic (multi standard)",
+        "name": "myUIStaticMultiInput",
         "value": Array [
           "Value",
           "Another value",
@@ -2594,13 +2594,13 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCStatic",
+      "component": "UIStatic",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCStatic (multi standard)",
+      "displayName": "UIStatic (multi standard)",
       "languageCode": undefined,
-      "name": "myDCStaticMultiInput",
+      "name": "myUIStaticMultiInput",
       "value": Array [
         "Value",
         "Another value",
@@ -2617,13 +2617,13 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (multi standard)",
+        "displayName": "UIStatic (multi standard)",
         "languageCode": undefined,
-        "name": "myDCStaticMultiInput",
+        "name": "myUIStaticMultiInput",
         "value": Array [
           "Value",
           "Another value",
@@ -2655,19 +2655,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 26`] = `
+exports[`UIFormField Renders all the input components without error and only once 26`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (multi date)",
+        "displayName": "UIStatic (multi date)",
         "format": "date",
-        "name": "myDCStaticDateMultiInput",
+        "name": "myUIStaticDateMultiInput",
         "value": Array [
           "1989-12-27T23:00:00.000Z",
           "1990-12-27T23:00:00.000Z",
@@ -2688,14 +2688,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCStatic",
+      "component": "UIStatic",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCStatic (multi date)",
+      "displayName": "UIStatic (multi date)",
       "format": "date",
       "languageCode": undefined,
-      "name": "myDCStaticDateMultiInput",
+      "name": "myUIStaticDateMultiInput",
       "value": Array [
         "1989-12-27T23:00:00.000Z",
         "1990-12-27T23:00:00.000Z",
@@ -2712,14 +2712,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (multi date)",
+        "displayName": "UIStatic (multi date)",
         "format": "date",
         "languageCode": undefined,
-        "name": "myDCStaticDateMultiInput",
+        "name": "myUIStaticDateMultiInput",
         "value": Array [
           "1989-12-27T23:00:00.000Z",
           "1990-12-27T23:00:00.000Z",
@@ -2751,19 +2751,19 @@ ShallowWrapper {
 }
 `;
 
-exports[`DCFormField Renders all the input components without error and only once 27`] = `
+exports[`UIFormField Renders all the input components without error and only once 27`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DCFormField
+  Symbol(enzyme.__unrendered__): <UIFormField
     properties={
       Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (with icon)",
+        "displayName": "UIStatic (with icon)",
         "icon": "user",
-        "name": "myDCStaticIconInput",
+        "name": "myUIStaticIconInput",
         "value": Array [
           "Value",
         ],
@@ -2783,14 +2783,14 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "component": "DCStatic",
+      "component": "UIStatic",
       "description": Array [
         "A description for this input",
       ],
-      "displayName": "DCStatic (with icon)",
+      "displayName": "UIStatic (with icon)",
       "icon": "user",
       "languageCode": undefined,
-      "name": "myDCStaticIconInput",
+      "name": "myUIStaticIconInput",
       "value": Array [
         "Value",
       ],
@@ -2806,14 +2806,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "component": "DCStatic",
+        "component": "UIStatic",
         "description": Array [
           "A description for this input",
         ],
-        "displayName": "DCStatic (with icon)",
+        "displayName": "UIStatic (with icon)",
         "icon": "user",
         "languageCode": undefined,
-        "name": "myDCStaticIconInput",
+        "name": "myUIStaticIconInput",
         "value": Array [
           "Value",
         ],

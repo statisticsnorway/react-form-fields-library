@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react'
 
 import { checkValueAndType, fullFormField } from './common'
 
-class DCRadio extends Component {
+class UIRadio extends Component {
   constructor (props) {
     super(props)
     this.state = {value: ''}
@@ -36,4 +36,4 @@ class DCRadio extends Component {
   }
 }
 
-export default DCRadio
+export default UIRadio
