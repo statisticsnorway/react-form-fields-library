@@ -83,11 +83,11 @@ UIStatic | A collection of one or more non-interactable values to be displayed e
 ### How to import this library directly from GitHub (useful in early development)
 1. In your React application run `yarn add https://github.com/statisticsnorway/dc-react-form-fields-library.git`
     * Optionally add `#name-of-branch` at the end to use a specific branch
-2. Import the component in your React application with `import { UIFormField } from 'dc-react-form-fields-library'`
+2. Import the component in your React application with `import { UIFormField } from 'react-form-fields-library'`
 
 ##### Note:
 * When imported from GitHub the library does not automatically stay up to date with the latest commits so you have to 
-run `yarn upgrade dc-react-form-fields-library` to get the latest "build"
+run `yarn upgrade react-form-fields-library` to get the latest "build"
 
 ### Test it yourself
 The first time you clone the repository, remember to run `yarn install`
