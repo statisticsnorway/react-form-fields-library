@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Icon, Label, List } from 'semantic-ui-react'
 import moment from 'moment'
 
-import { simpleStaticFormField } from './common/FormField'
+import { simpleStaticFormField } from './common'
 
 const formats = ['date', 'label', 'tag']
 

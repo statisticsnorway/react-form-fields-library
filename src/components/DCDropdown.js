@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
-import { fullFormField } from './common/FormField'
-import { checkValueAndType, shorten } from './common/Utlities'
-import { UI } from './common/ENUM'
+import { checkValueAndType, cutoffString, fullFormField, UI } from './common'
 
 class DCDropdown extends Component {
   constructor (props) {
@@ -50,7 +48,7 @@ class DCDropdown extends Component {
     const {displayName, description, error, warning, required, multiSelect, searchable, languageCode, showLinks, route} = this.props
 
     if (!ready) {
-      const component = <Dropdown placeholder={shorten(displayName)} selection options={[]} loading disabled />
+      const component = <Dropdown placeholder={cutoffString(displayName)} selection options={[]} loading disabled />
 
       return fullFormField(displayName, description, error, warning, required, component)
     }
@@ -63,7 +61,7 @@ class DCDropdown extends Component {
 
     if (ready && !problem) {
       const component = <Dropdown
-        placeholder={options.length === 0 ? UI.NO_OPTIONS[languageCode] : shorten(displayName)}
+        placeholder={options.length === 0 ? UI.NO_OPTIONS[languageCode] : cutoffString(displayName)}
         value={value} options={options} clearable selection multiple={multiSelect}
         disabled={options.length === 0} onChange={this.handleChange} search={searchable}
         icon={{

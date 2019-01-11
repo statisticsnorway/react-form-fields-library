@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 
-import { fullFormField } from './common/FormField'
-import { checkValueAndType } from './common/Utlities'
+import { checkValueAndType, fullFormField } from './common'
 
 class DCRadio extends Component {
   constructor (props) {
