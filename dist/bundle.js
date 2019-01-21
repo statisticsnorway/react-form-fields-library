@@ -146,6 +146,12 @@ var UI = {
     nb: 'I dag'
   }
 };
+var MESSAGE = {
+  NO_NAME: {
+    en: 'Cannot render properly without the name property',
+    nb: 'Kan ikke lage komponenten ordentlig uten name atributtet'
+  }
+};
 
 function checkValueAndType(value, type) {
   return value !== undefined && value !== '' && value !== null && _typeof(value) === type;
@@ -177,16 +183,20 @@ var InlineWarning = function InlineWarning(_ref2) {
 };
 
 var structureDescription = function structureDescription(description) {
-  return React__default.createElement("div", null, description.map(function (value, index) {
-    return React__default.createElement("p", {
-      key: index
-    }, value);
-  }));
+  if (Array.isArray(description)) {
+    return React__default.createElement("div", null, description.map(function (value, index) {
+      return React__default.createElement("p", {
+        key: index
+      }, value);
+    }));
+  } else {
+    return description;
+  }
 };
 
 var formatLinks = function formatLinks(route, value) {
   if (value !== '' && value !== undefined && value !== null) {
-    if (route === undefined) {
+    if (route === undefined || typeof route !== 'string') {
       route = '';
     }
 
@@ -496,23 +506,28 @@ function (_Component) {
           warning = _this$props2.warning,
           required = _this$props2.required,
           options = _this$props2.options;
-      var radios = Object.keys(options).map(function (key) {
-        return React__default.createElement(semanticUiReact.Form.Radio, {
-          key: key,
-          label: options[key].text,
-          value: options[key].value,
-          checked: value === options[key].value,
-          onChange: _this2.handleChange
+
+      if (Array.isArray(options)) {
+        var radios = Object.keys(options).map(function (key) {
+          return React__default.createElement(semanticUiReact.Form.Radio, {
+            key: key,
+            label: options[key].text,
+            value: options[key].value,
+            checked: value === options[key].value,
+            onChange: _this2.handleChange
+          });
         });
-      });
-      var component = React__default.createElement(semanticUiReact.Form.Group, {
-        inline: true,
-        children: radios,
-        style: {
-          margin: 0
-        }
-      });
-      return fullFormField(displayName, description, error, warning, required, component);
+        var component = React__default.createElement(semanticUiReact.Form.Group, {
+          inline: true,
+          children: radios,
+          style: {
+            margin: 0
+          }
+        });
+        return fullFormField(displayName, description, error, warning, required, component);
+      }
+
+      return null;
     }
   }]);
 
@@ -589,7 +604,7 @@ function (_Component) {
 
       var entries = _toConsumableArray(this.state.value);
 
-      if (parseInt(index) !== -1) entries.splice(parseInt(index), 1);
+      entries.splice(parseInt(index), 1);
       this.setState({
         value: entries
       }, function () {
@@ -738,8 +753,6 @@ function (_Component) {
 
     _this.state = {
       ready: false,
-      problem: false,
-      errorMessage: '',
       value: null,
       options: []
     };
@@ -799,10 +812,8 @@ function (_Component) {
     value: function render() {
       var _this$state = this.state,
           ready = _this$state.ready,
-          problem = _this$state.problem,
           value = _this$state.value,
-          options = _this$state.options,
-          errorMessage = _this$state.errorMessage;
+          options = _this$state.options;
       var _this$props2 = this.props,
           displayName = _this$props2.displayName,
           description = _this$props2.description,
@@ -824,20 +835,8 @@ function (_Component) {
           disabled: true
         });
         return fullFormField(displayName, description, error, warning, required, component);
-      }
-
-      if (ready && problem) {
+      } else {
         var _component = React__default.createElement(semanticUiReact.Dropdown, {
-          selection: true,
-          options: [],
-          disabled: true
-        });
-
-        return fullFormField(displayName, description, error, errorMessage, required, _component);
-      }
-
-      if (ready && !problem) {
-        var _component2 = React__default.createElement(semanticUiReact.Dropdown, {
           placeholder: options.length === 0 ? UI.NO_OPTIONS[languageCode] : cutoffString(displayName),
           value: value,
           options: options,
@@ -854,10 +853,8 @@ function (_Component) {
           }
         });
 
-        return fullFormField(displayName, description, error, warning, required, _component2, showLinks, value, route);
+        return fullFormField(displayName, description, error, warning, required, _component, showLinks, value, route);
       }
-
-      return null;
     }
   }]);
 
@@ -931,17 +928,29 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      if (this.props.hasOwnProperty('options')) {
-        this.setOptionsAndValue(this.props.options).then(function () {
-          return _this3.setState({
-            ready: true
+      var _this$props2 = this.props,
+          name = _this$props2.name,
+          languageCode = _this$props2.languageCode;
+
+      if (this.props.hasOwnProperty('name') && typeof name === 'string') {
+        if (this.props.hasOwnProperty('options')) {
+          this.setOptionsAndValue(this.props.options).then(function () {
+            return _this3.setState({
+              ready: true
+            });
           });
-        });
+        } else {
+          this.setOptionsAndValue([]).then(function () {
+            return _this3.setState({
+              ready: true
+            });
+          });
+        }
       } else {
-        this.setOptionsAndValue([]).then(function () {
-          return _this3.setState({
-            ready: true
-          });
+        this.setState({
+          problem: true,
+          errorMessage: MESSAGE.NO_NAME[languageCode],
+          ready: true
         });
       }
     }
@@ -950,10 +959,10 @@ function (_Component) {
     value: function handleInputChange(index, innerIndex, event) {
       var _this4 = this;
 
-      var _this$props2 = this.props,
-          valueChange = _this$props2.valueChange,
-          name = _this$props2.name,
-          multiValue = _this$props2.multiValue;
+      var _this$props3 = this.props,
+          valueChange = _this$props3.valueChange,
+          name = _this$props3.name,
+          multiValue = _this$props3.multiValue;
 
       var value = _toConsumableArray(this.state.value);
 
@@ -974,9 +983,9 @@ function (_Component) {
     value: function handleDropdownChange(index, event, data) {
       var _this5 = this;
 
-      var _this$props3 = this.props,
-          valueChange = _this$props3.valueChange,
-          name = _this$props3.name;
+      var _this$props4 = this.props,
+          valueChange = _this$props4.valueChange,
+          name = _this$props4.name;
 
       var value = _toConsumableArray(this.state.value);
 
@@ -992,13 +1001,13 @@ function (_Component) {
     value: function handleRemoveEntry(index) {
       var _this6 = this;
 
-      var _this$props4 = this.props,
-          valueChange = _this$props4.valueChange,
-          name = _this$props4.name;
+      var _this$props5 = this.props,
+          valueChange = _this$props5.valueChange,
+          name = _this$props5.name;
 
       var entries = _toConsumableArray(this.state.value);
 
-      if (parseInt(index) !== -1) entries.splice(parseInt(index), 1);
+      entries.splice(parseInt(index), 1);
       this.setState({
         value: entries
       }, function () {
@@ -1010,9 +1019,9 @@ function (_Component) {
     value: function handleAddValueToEntry(index) {
       var _this7 = this;
 
-      var _this$props5 = this.props,
-          valueChange = _this$props5.valueChange,
-          name = _this$props5.name;
+      var _this$props6 = this.props,
+          valueChange = _this$props6.valueChange,
+          name = _this$props6.name;
 
       var entries = _toConsumableArray(this.state.value);
 
@@ -1028,16 +1037,13 @@ function (_Component) {
     value: function handleRemoveValueFromEntry(index, innerIndex) {
       var _this8 = this;
 
-      var _this$props6 = this.props,
-          valueChange = _this$props6.valueChange,
-          name = _this$props6.name;
+      var _this$props7 = this.props,
+          valueChange = _this$props7.valueChange,
+          name = _this$props7.name;
 
       var entries = _toConsumableArray(this.state.value);
 
-      if (parseInt(index) !== -1 && parseInt(innerIndex) !== -1) {
-        entries[parseInt(index)].text.splice(parseInt(innerIndex), 1);
-      }
-
+      entries[parseInt(index)].text.splice(parseInt(innerIndex), 1);
       this.setState({
         value: entries
       }, function () {
@@ -1055,17 +1061,17 @@ function (_Component) {
           value = _this$state.value,
           options = _this$state.options,
           errorMessage = _this$state.errorMessage;
-      var _this$props7 = this.props,
-          name = _this$props7.name,
-          displayName = _this$props7.displayName,
-          description = _this$props7.description,
-          error = _this$props7.error,
-          warning = _this$props7.warning,
-          required = _this$props7.required,
-          multiValue = _this$props7.multiValue,
-          languageCode = _this$props7.languageCode,
-          showLinks = _this$props7.showLinks,
-          route = _this$props7.route;
+      var _this$props8 = this.props,
+          name = _this$props8.name,
+          displayName = _this$props8.displayName,
+          description = _this$props8.description,
+          error = _this$props8.error,
+          warning = _this$props8.warning,
+          required = _this$props8.required,
+          multiValue = _this$props8.multiValue,
+          languageCode = _this$props8.languageCode,
+          showLinks = _this$props8.showLinks,
+          route = _this$props8.route;
 
       if (!ready) {
         var component = React__default.createElement(semanticUiReact.Grid, {
@@ -1080,9 +1086,7 @@ function (_Component) {
           disabled: true
         })));
         return fullFormField(displayName, description, error, warning, required, component);
-      }
-
-      if (ready && problem) {
+      } else if (ready && problem) {
         var _component = React__default.createElement(semanticUiReact.Grid, {
           columns: "equal"
         }, React__default.createElement(semanticUiReact.Grid.Column, null, React__default.createElement(semanticUiReact.Dropdown, {
@@ -1096,9 +1100,7 @@ function (_Component) {
         })));
 
         return fullFormField(displayName, description, error, errorMessage, required, _component);
-      }
-
-      if (ready && !problem) {
+      } else {
         var components = React__default.createElement(semanticUiReact.Grid, null, value.map(function (entry, index) {
           var dropdown = React__default.createElement(semanticUiReact.Dropdown, {
             options: options,
@@ -1203,8 +1205,6 @@ function (_Component) {
         })))));
         return fullFormField(displayName, description, error, warning, required, components);
       }
-
-      return null;
     }
   }]);
 
@@ -1266,28 +1266,22 @@ function (_Component) {
             format = _this3$props.format,
             value = _this3$props.value;
 
-        if (!formats.includes(format)) {
-          resolve(React__default.createElement(semanticUiReact.List, {
-            style: {
-              marginTop: 0
-            },
-            items: value
-          }));
+        if (!Array.isArray(value)) {
+          resolve(null);
         } else {
-          var entries = [];
+          if (!formats.includes(format)) {
+            resolve(React__default.createElement(semanticUiReact.List, {
+              style: {
+                marginTop: 0
+              },
+              items: value
+            }));
+          } else {
+            var entries = [];
 
-          for (var entry in value) {
-            if (value.hasOwnProperty(entry)) {
+            for (var entry in value) {
               if (format === 'date') {
-                var convertedEntry = void 0;
-
-                try {
-                  convertedEntry = moment(value[entry]).format('LLL');
-                } catch (error) {
-                  convertedEntry = error;
-                }
-
-                entries.push(convertedEntry);
+                entries.push(moment(value[entry]).format('LLL'));
               } else {
                 entries.push(React__default.createElement(semanticUiReact.Label, {
                   key: entry,
@@ -1295,29 +1289,29 @@ function (_Component) {
                 }, value[entry]));
               }
             }
-          }
 
-          if (format === 'date') {
-            _this3.setState({
-              icon: React__default.createElement(semanticUiReact.Icon, {
-                name: "calendar alternate outline",
+            if (format === 'date') {
+              _this3.setState({
+                icon: React__default.createElement(semanticUiReact.Icon, {
+                  name: "calendar alternate outline",
+                  color: "teal",
+                  size: "large"
+                })
+              }, function () {
+                resolve(React__default.createElement(semanticUiReact.List, {
+                  style: {
+                    marginTop: 0
+                  },
+                  items: entries
+                }));
+              });
+            } else {
+              resolve(React__default.createElement(semanticUiReact.Label.Group, {
+                tag: format === 'tag',
                 color: "teal",
-                size: "large"
-              })
-            }, function () {
-              resolve(React__default.createElement(semanticUiReact.List, {
-                style: {
-                  marginTop: 0
-                },
-                items: entries
+                content: entries
               }));
-            });
-          } else {
-            resolve(React__default.createElement(semanticUiReact.Label.Group, {
-              tag: format === 'tag',
-              color: "teal",
-              content: entries
-            }));
+            }
           }
         }
       });
@@ -1349,8 +1343,16 @@ function (_Component) {
       var _this$props = this.props,
           displayName = _this$props.displayName,
           description = _this$props.description;
-      if (ready) return simpleStaticFormField(displayName, description, component, icon);
-      return null;
+
+      if (!ready) {
+        return simpleStaticFormField(displayName, description, React__default.createElement(semanticUiReact.List, {
+          style: {
+            marginTop: 0
+          }
+        }));
+      } else {
+        return simpleStaticFormField(displayName, description, component, icon);
+      }
     }
   }]);
 

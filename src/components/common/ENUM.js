@@ -13,3 +13,10 @@ export const UI = {
     nb: 'I dag'
   }
 }
+
+export const MESSAGE = {
+  NO_NAME: {
+    en: 'Cannot render properly without the name property',
+    nb: 'Kan ikke lage komponenten ordentlig uten name atributtet'
+  }
+}

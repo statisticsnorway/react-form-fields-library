@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "build": "rollup -c",
     "build:example": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --watch",
+    "coverage": "jest --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,5 +47,16 @@
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0"
+  },
+  "jest": {
+    "setupFiles": [
+      "./src/testSetup.js"
+    ],
+    "collectCoverageFrom": [
+      "**/src/**",
+      "!**/src/components/index.js",
+      "!**/src/index.js",
+      "!**/src/main.js"
+    ]
   }
 }

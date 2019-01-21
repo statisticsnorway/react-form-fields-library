@@ -8,8 +8,6 @@ class UIDropdown extends Component {
     super(props)
     this.state = {
       ready: false,
-      problem: false,
-      errorMessage: '',
       value: null,
       options: []
     }
@@ -44,22 +42,14 @@ class UIDropdown extends Component {
   }
 
   render () {
-    const {ready, problem, value, options, errorMessage} = this.state
+    const {ready, value, options} = this.state
     const {displayName, description, error, warning, required, multiSelect, searchable, languageCode, showLinks, route} = this.props
 
     if (!ready) {
       const component = <Dropdown placeholder={cutoffString(displayName)} selection options={[]} loading disabled />
 
       return fullFormField(displayName, description, error, warning, required, component)
-    }
-
-    if (ready && problem) {
-      const component = <Dropdown selection options={[]} disabled />
-
-      return fullFormField(displayName, description, error, errorMessage, required, component)
-    }
-
-    if (ready && !problem) {
+    } else {
       const component = <Dropdown
         placeholder={options.length === 0 ? UI.NO_OPTIONS[languageCode] : cutoffString(displayName)}
         value={value} options={options} clearable selection multiple={multiSelect}
@@ -72,8 +62,6 @@ class UIDropdown extends Component {
 
       return fullFormField(displayName, description, error, warning, required, component, showLinks, value, route)
     }
-
-    return null
   }
 }
 

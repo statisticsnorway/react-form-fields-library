@@ -17,14 +17,24 @@ const properties = {
   displayName: 'My input',                      // Label on the field
   description: ['A description for my input'],  // Popup on the label
   required: true,                               // If the field is required
-  value: ''                                     // If the component should be initiated with a value, different components require different data types
+  value: '',                                    // If the component should be initiated with a value, different components require different data types
+  languageCode: 'en'                            // What language to display messages and dates in
 }
 
 class App extends Component {
+  valueChange = (name, value) => {
+    this.setState({
+      data: {
+        ...this.state.data,
+        [name]: value
+      }
+    })
+  }
+    
   render () {
     return (
       <Form>
-        <UIFormField properties={properties} valueChange={this.valueChange} languageCode={'en'} />
+        <UIFormField {...properties} valueChange={this.valueChange} />
       </Form>
     )
   }
@@ -32,7 +42,8 @@ class App extends Component {
 ```
 
 ##### Note:
-* *component*, *name* and *languageCode* are the only **required** properties but some component types need more properties too work correctly.
+* *valueChange* and *name* are technically the only **required** properties you need to pass in order for your parent component to update, 
+but some component types need more properties too work correctly.
   * Norwegian ('nb') and english ('en') are the currently supported languageCodes.
 * If you want to structure the description with separated sentances, note how *description* takes and array of strings.
 * This library uses [Semantic UI](https://semantic-ui.com/introduction/getting-started.html) for styling and therefore 
@@ -53,15 +64,6 @@ so if you wish to use it you need `react-datepicker` and `moment` as dependencie
   shouldComponentUpdate (nextProps, nextState) {
     return this.state.data === nextState.data;
   }
-
-  handleValueChange = (name, value) => {
-    this.setState({
-      data: {
-        ...this.state.data,
-        [name]: value
-      }
-    })
-  }
 ```
 
 ### Form field types
@@ -78,7 +80,7 @@ UIDropdown | A dropdown list populated with the options provided (can have searc
 UIMultiInput | A collection of dropdowns with one or multiple text inputs attached | *options*, *multiValue* and *showLinks* | An *array* of *objects* with two properties; text (*string* or *array*) and option (*string*)
 UIStatic | A collection of one or more non-interactable values to be displayed either as tags, labels, dates or regular text (alternatively with an icon) | *format* and *icon* | An *array* of accepted JavaScript *date-strings* or *Moment.js objects**
 
-**MomentJS* accepts Java Date, JavaScript Date objects and some some typical date formats (check MomentJS documentation)
+**MomentJS* accepts Java Date, JavaScript Date objects and some other typical date formats (check MomentJS documentation)
 
 ### How to import this library directly from GitHub (useful in early development)
 1. In your React application run `yarn add https://github.com/statisticsnorway/dc-react-form-fields-library.git`
@@ -89,7 +91,7 @@ UIStatic | A collection of one or more non-interactable values to be displayed e
 * When imported from GitHub the library does not automatically stay up to date with the latest commits so you have to 
 run `yarn upgrade react-form-fields-library` to get the latest "build"
 
-### Test it yourself
+### Try it
 The first time you clone the repository, remember to run `yarn install`
 
 Run `yarn start` and navigate to `http://localhost:3000/`
@@ -99,3 +101,8 @@ Run `yarn start` and navigate to `http://localhost:3000/`
 2. Optionally run `yarn global add serve` (if you do not have [serve](https://github.com/zeit/serve/))
 3. Run `serve -s build`
 4. Navigate to `http://localhost:5000/`
+
+### Run tests
+[Jest](https://jestjs.io/en/) (through *react-test-renderer*) and [Enzyme](https://airbnb.io/enzyme/) is used for testing
+
+`yarn test` runs all tests and `yarn coverage` calculates (rather unreliably) test coverage

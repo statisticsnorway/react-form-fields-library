@@ -40,7 +40,7 @@ class UIDate extends Component {
     const {valueChange, name} = this.props
     const entries = [...this.state.value]
 
-    if (parseInt(index) !== -1) entries.splice(parseInt(index), 1)
+    entries.splice(parseInt(index), 1)
 
     this.setState({value: entries}, () => valueChange(name, this.state.value))
   }

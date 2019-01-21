@@ -24,15 +24,20 @@ class UIRadio extends Component {
   render () {
     const {value} = this.state
     const {displayName, description, error, warning, required, options} = this.props
-    const radios = Object.keys(options).map(key => {
-      return (
-        <Form.Radio key={key} label={options[key].text} value={options[key].value}
-                    checked={value === options[key].value} onChange={this.handleChange} />
-      )
-    })
-    const component = <Form.Group inline children={radios} style={{margin: 0}} />
 
-    return fullFormField(displayName, description, error, warning, required, component)
+    if (Array.isArray(options)) {
+      const radios = Object.keys(options).map(key => {
+        return (
+          <Form.Radio key={key} label={options[key].text} value={options[key].value}
+                      checked={value === options[key].value} onChange={this.handleChange} />
+        )
+      })
+      const component = <Form.Group inline children={radios} style={{margin: 0}} />
+
+      return fullFormField(displayName, description, error, warning, required, component)
+    }
+
+    return null
   }
 }
 

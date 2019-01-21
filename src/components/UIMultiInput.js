@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Container, Dropdown, Grid, Header, Icon, Input } from 'semantic-ui-react'
 
-import { cutoffString, formatLinks, fullFormField, UI } from './common'
+import { cutoffString, formatLinks, fullFormField, MESSAGE, UI } from './common'
 
 class UIMultiInput extends Component {
   constructor (props) {
@@ -28,10 +28,20 @@ class UIMultiInput extends Component {
   }
 
   componentDidMount () {
-    if (this.props.hasOwnProperty('options')) {
-      this.setOptionsAndValue(this.props.options).then(() => this.setState({ready: true}))
+    const {name, languageCode} = this.props
+
+    if (this.props.hasOwnProperty('name') && typeof name === 'string') {
+      if (this.props.hasOwnProperty('options')) {
+        this.setOptionsAndValue(this.props.options).then(() => this.setState({ready: true}))
+      } else {
+        this.setOptionsAndValue([]).then(() => this.setState({ready: true}))
+      }
     } else {
-      this.setOptionsAndValue([]).then(() => this.setState({ready: true}))
+      this.setState({
+        problem: true,
+        errorMessage: MESSAGE.NO_NAME[languageCode],
+        ready: true
+      })
     }
   }
 
@@ -69,7 +79,7 @@ class UIMultiInput extends Component {
     const {valueChange, name} = this.props
     const entries = [...this.state.value]
 
-    if (parseInt(index) !== -1) entries.splice(parseInt(index), 1)
+    entries.splice(parseInt(index), 1)
 
     this.setState({value: entries}, () => valueChange(name, this.state.value))
   }
@@ -89,9 +99,7 @@ class UIMultiInput extends Component {
     const {valueChange, name} = this.props
     const entries = [...this.state.value]
 
-    if (parseInt(index) !== -1 && parseInt(innerIndex) !== -1) {
-      entries[parseInt(index)].text.splice(parseInt(innerIndex), 1)
-    }
+    entries[parseInt(index)].text.splice(parseInt(innerIndex), 1)
 
     this.setState({value: entries}, () => valueChange(name, this.state.value))
   }
@@ -112,9 +120,7 @@ class UIMultiInput extends Component {
         </Grid>
 
       return fullFormField(displayName, description, error, warning, required, component)
-    }
-
-    if (ready && problem) {
+    } else if (ready && problem) {
       const component =
         <Grid columns='equal'>
           <Grid.Column>
@@ -126,9 +132,7 @@ class UIMultiInput extends Component {
         </Grid>
 
       return fullFormField(displayName, description, error, errorMessage, required, component)
-    }
-
-    if (ready && !problem) {
+    } else {
       const components =
         <Grid>
           {value.map((entry, index) => {
@@ -187,8 +191,6 @@ class UIMultiInput extends Component {
 
       return fullFormField(displayName, description, error, warning, required, components)
     }
-
-    return null
   }
 }
 

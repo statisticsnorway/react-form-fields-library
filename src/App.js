@@ -330,33 +330,25 @@ class App extends Component {
 
   handleWarningsAndErrors (type) {
     this.setState({
-      [type]: !this.state[type]
+      [type]: !this.state[type],
+      ready: false
     }, () => {
       const formComponents = JSON.parse(JSON.stringify(this.state.formComponents))
 
-      if (this.state[type]) {
-        this.setState({ready: false}, () => {
-          Object.keys(formComponents).forEach(key => {
-            formComponents[key][type] = type
-            formComponents[key].value = this.state.data[formComponents[key].name]
-          })
+      Object.keys(formComponents).forEach(key => {
+        formComponents[key].value = this.state.data[formComponents[key].name]
 
-          this.setState({formComponents: formComponents}, () => {
-            this.setState({ready: true})
-          })
-        })
-      } else {
-        this.setState({ready: false}, () => {
-          Object.keys(formComponents).forEach(key => {
-            delete formComponents[key][type]
-            formComponents[key].value = this.state.data[formComponents[key].name]
-          })
+        if (this.state[type]) {
+          formComponents[key][type] = type
+        } else {
+          delete formComponents[key][type]
+        }
+      })
 
-          this.setState({formComponents: formComponents}, () => {
-            this.setState({ready: true})
-          })
-        })
-      }
+      this.setState({formComponents: formComponents}, () => {
+        this.setState({ready: true})
+      })
+
     })
   }
 

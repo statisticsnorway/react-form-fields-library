@@ -1,16 +1,18 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
+import { UIBoolean, UIDate, UIDropdown, UIMultiInput, UINumber, UIRadio, UIStatic, UIText } from '../components'
 import UIFormField from '../UIFormField'
-import { testFormComponents } from '../App'
 
 describe('UIFormField', () => {
-  it('Renders all the input components without error and only once', () => {
-    Object.keys(testFormComponents).forEach(key => {
-      const component = shallow(<UIFormField key={key} properties={testFormComponents[key]} />)
+  const components = ['UIBoolean', 'UIDate', 'UIDropdown', 'UIMultiInput', 'UINumber', 'UIRadio', 'UIStatic', 'UIText']
+  const formComponents = [UIBoolean, UIDate, UIDropdown, UIMultiInput, UINumber, UIRadio, UIStatic, UIText]
 
-      expect(component.length).toEqual(1)
-      expect(component).toMatchSnapshot()
+  components.forEach((component, index) => {
+    it('Outputs correct component based on prop', () => {
+      const formField = mount(<UIFormField properties={{component: component}} />)
+
+      expect(formField.find(formComponents[index])).toHaveLength(1)
     })
   })
 })

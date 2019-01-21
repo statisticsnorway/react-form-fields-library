@@ -7,16 +7,20 @@ const InlineError = ({text}) => <span style={{color: '#db2828'}}>{text}</span>
 const InlineWarning = ({text}) => <span style={{color: '#ffd700'}}>{text}</span>
 
 const structureDescription = (description) => {
-  return (
-    <div>
-      {description.map((value, index) => <p key={index}>{value}</p>)}
-    </div>
-  )
+  if (Array.isArray(description)) {
+    return (
+      <div>
+        {description.map((value, index) => <p key={index}>{value}</p>)}
+      </div>
+    )
+  } else {
+    return description
+  }
 }
 
 export const formatLinks = (route, value) => {
   if (value !== '' && value !== undefined && value !== null) {
-    if (route === undefined) {
+    if (route === undefined || typeof route !== 'string') {
       route = ''
     }
 
