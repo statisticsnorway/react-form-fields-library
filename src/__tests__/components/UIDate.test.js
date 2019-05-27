@@ -16,7 +16,7 @@ describe('UIDate', () => {
     expect(componentWrongProp.state('value')).toEqual(null)
   })
 
-  it('Sets value to provided value', async () => {
+  it('Sets value to provided value', () => {
     const date = '1989-12-28T00:00:00.000Z'
     const component = mount(<UIDate value={date} />)
 
