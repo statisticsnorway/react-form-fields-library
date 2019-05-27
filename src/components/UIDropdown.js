@@ -15,13 +15,13 @@ class UIDropdown extends Component {
 
   setOptionsAndValue (options) {
     return new Promise(resolve => {
-      const {value, multiSelect} = this.props
+      const { value, multiSelect } = this.props
 
-      this.setState({options: options}, () => {
+      this.setState({ options: options }, () => {
         if (checkValueAndType(value, 'string') || (Array.isArray(value) && value.length !== 0)) {
-          this.setState({value: value}, () => resolve())
+          this.setState({ value: value }, () => resolve())
         } else {
-          this.setState({value: multiSelect ? [] : ''}, () => resolve())
+          this.setState({ value: multiSelect ? [] : '' }, () => resolve())
         }
       })
     })
@@ -29,21 +29,21 @@ class UIDropdown extends Component {
 
   componentDidMount () {
     if (this.props.hasOwnProperty('options')) {
-      this.setOptionsAndValue(this.props.options).then(() => this.setState({ready: true}))
+      this.setOptionsAndValue(this.props.options).then(() => this.setState({ ready: true }))
     } else {
-      this.setOptionsAndValue([]).then(() => this.setState({ready: true}))
+      this.setOptionsAndValue([]).then(() => this.setState({ ready: true }))
     }
   }
 
   handleChange = (event, data) => {
-    const {valueChange, name} = this.props
+    const { valueChange, name } = this.props
 
-    this.setState({value: data.value}, () => valueChange(name, this.state.value))
+    this.setState({ value: data.value }, () => valueChange(name, this.state.value))
   }
 
   render () {
-    const {ready, value, options} = this.state
-    const {displayName, description, error, warning, required, multiSelect, searchable, languageCode, showLinks, route} = this.props
+    const { ready, value, options } = this.state
+    const { displayName, description, error, warning, required, multiSelect, searchable, languageCode, showLinks, route } = this.props
 
     if (!ready) {
       const component = <Dropdown placeholder={cutoffString(displayName)} selection options={[]} loading disabled />

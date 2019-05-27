@@ -24,7 +24,7 @@ class UIText extends Component {
   render () {
     const {value} = this.state
     const {name, displayName, description, error, warning, required} = this.props
-    const component = <TextArea autoHeight rows={1} name={name} placeholder={cutoffString(displayName)} value={value}
+    const component = <TextArea rows={1} name={name} placeholder={cutoffString(displayName)} value={value}
                                 onChange={this.handleChange} />
 
     return fullFormField(displayName, description, error, warning, required, component)

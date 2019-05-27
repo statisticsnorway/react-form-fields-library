@@ -1,5 +1,5 @@
 # react-form-fields-library
-React Form Fields Library is a React Component library consisting of different types of input and form fields. 
+React Form Fields Library is a React Component library consisting of different types of form inputs and fields. 
 Its primary purpose is to supplement [react-components-library](https://github.com/statisticsnorway/react-components-library).
 
 ### How it works
@@ -22,7 +22,7 @@ const properties = {
 }
 
 class App extends Component {
-  valueChange = (name, value) => {
+  handleValueChange = (name, value) => {
     this.setState({
       data: {
         ...this.state.data,
@@ -34,7 +34,7 @@ class App extends Component {
   render () {
     return (
       <Form>
-        <UIFormField {...properties} valueChange={this.valueChange} />
+        <UIFormField {...properties} valueChange={this.handleValueChange} />
       </Form>
     )
   }
@@ -61,7 +61,7 @@ so if you wish to use it you need `react-datepicker` and `moment` as dependencie
     (discussed earlier), like this: 
 
 ```javascript
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate = (nextProps, nextState) => {
     return this.state.data === nextState.data;
   }
 ```
@@ -95,12 +95,6 @@ run `yarn upgrade react-form-fields-library` to get the latest "build"
 The first time you clone the repository, remember to run `yarn install`
 
 Run `yarn start` and navigate to `http://localhost:3000/`
-
-##### Alternatively try a more optimized production build:
-1. Run `yarn build:example`
-2. Optionally run `yarn global add serve` (if you do not have [serve](https://github.com/zeit/serve/))
-3. Run `serve -s build`
-4. Navigate to `http://localhost:5000/`
 
 ### Run tests
 [Jest](https://jestjs.io/en/) (through *react-test-renderer*) and [Enzyme](https://airbnb.io/enzyme/) is used for testing

@@ -1,6 +1,6 @@
 {
-  "short_name": "React Form Fields Library Testing",
-  "name": "A very simple React application for testing React Form Fields Library",
+  "short_name": "React Form Fields Library",
+  "name": "React Form Fields Library",
   "icons": [
     {
       "src": "favicon.ico",

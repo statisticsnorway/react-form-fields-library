@@ -15,7 +15,7 @@ const formComponents = {
 
 class UIFormField extends Component {
   render () {
-    const {properties, valueChange, languageCode} = this.props
+    const { properties, valueChange, languageCode } = this.props
     const FormComponent = formComponents[properties.component]
 
     return <FormComponent {...properties} valueChange={valueChange} languageCode={languageCode} />
