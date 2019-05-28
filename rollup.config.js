@@ -14,7 +14,6 @@ module.exports = {
     })
   ],
   external: [
-    'moment',
     'react',
     'react-datepicker',
     'react-dom',
