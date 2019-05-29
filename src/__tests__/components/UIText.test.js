@@ -26,7 +26,7 @@ describe('UIText', () => {
   it('Updates state and value correctly when changed', () => {
     const component = mount(<UIText valueChange={jest.fn()} />)
 
-    component.find('textarea').simulate('change', {target: {value: 'Changed'}})
+    component.find('textarea').simulate('change', { target: { value: 'Changed' } })
 
     expect(component.find('textarea').prop('value')).toEqual('Changed')
     expect(component.state('value')).toEqual('Changed')

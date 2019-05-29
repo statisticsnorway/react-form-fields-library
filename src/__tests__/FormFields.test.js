@@ -1,6 +1,5 @@
 import React from 'react'
 import { Popup } from 'semantic-ui-react'
-
 import { mount } from 'enzyme'
 
 import UIText from '../components/UIText'
@@ -10,9 +9,9 @@ import UIDropdown from '../components/UIDropdown'
 const waitForAsync = () => new Promise(resolve => setImmediate(resolve))
 
 const options = [
-  {text: 'This option', value: 'thisOption'},
-  {text: 'That option', value: 'thatOption'},
-  {text: 'Something else', value: 'somethingElse'}
+  { text: 'This option', value: 'thisOption' },
+  { text: 'That option', value: 'thatOption' },
+  { text: 'Something else', value: 'somethingElse' }
 ]
 
 describe('FormFields', () => {

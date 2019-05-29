@@ -10,7 +10,7 @@ describe('UIFormField', () => {
 
   components.forEach((component, index) => {
     it('Outputs correct component based on prop', () => {
-      const formField = mount(<UIFormField properties={{component: component}} />)
+      const formField = mount(<UIFormField properties={{ component: component }} />)
 
       expect(formField.find(formComponents[index])).toHaveLength(1)
     })

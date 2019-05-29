@@ -11,7 +11,6 @@ describe('App', () => {
     expect(component.find(UIFormField)).toHaveLength(Object.keys(testFormComponents).length)
   })
 
-  // This test produces multiple errors but passes, so... That needs to be looked at
   it('Handles toggling errors', () => {
     const component = mount(<App />)
 
@@ -26,10 +25,8 @@ describe('App', () => {
 
     expect(component.findWhere(node => node.text() === 'error' && node.type() === 'span'))
       .toHaveLength(0)
-
   })
 
-  // This test produces multiple errors but passes, so... That needs to be looked at
   it('Handles toggling warnings', () => {
     const component = mount(<App />)
 
@@ -46,14 +43,15 @@ describe('App', () => {
       .toHaveLength(0)
   })
 
-  it('Behaves property', () => {
+  it('Behaves properly', () => {
     const component = mount(<App />)
 
-    component.find('textarea').at(0).simulate('change', {target: {value: 'A value'}})
+    component.find('textarea').at(0).simulate('change', { target: { value: 'A value' } })
 
     expect(component.find('textarea').at(0).prop('value')).toEqual('A value')
 
     const dataState = component.state('data')
+
     expect(dataState[component.find('textarea').at(0).prop('name')]).toEqual('A value')
   })
 })

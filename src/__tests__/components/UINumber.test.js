@@ -26,7 +26,7 @@ describe('UINumber', () => {
   it('Updates state and value correctly when changed', () => {
     const component = mount(<UINumber valueChange={jest.fn()} />)
 
-    component.find('input').simulate('change', {target: {value: 12345}})
+    component.find('input').simulate('change', { target: { value: 12345 } })
 
     expect(component.find('input').prop('value')).toEqual(12345)
     expect(component.state('value')).toEqual(12345)
@@ -35,7 +35,7 @@ describe('UINumber', () => {
   it('Does not update state and value if not typeof number is passed', () => {
     const component = mount(<UINumber valueChange={jest.fn()} />)
 
-    component.find('input').simulate('change', {target: {value: 'Not typeof number'}})
+    component.find('input').simulate('change', { target: { value: 'Not typeof number' } })
 
     expect(component.find('input').prop('value')).toEqual('')
     expect(component.state('value')).toEqual('')

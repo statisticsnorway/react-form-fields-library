@@ -1,5 +1,5 @@
 # react-form-fields-library
-React Form Fields Library is a React Component library consisting of different types of input and form fields. 
+React Form Fields Library is a React Component library consisting of different types of form inputs and fields. 
 Its primary purpose is to supplement [react-components-library](https://github.com/statisticsnorway/react-components-library).
 
 ### How it works
@@ -22,7 +22,7 @@ const properties = {
 }
 
 class App extends Component {
-  valueChange = (name, value) => {
+  handleValueChange = (name, value) => {
     this.setState({
       data: {
         ...this.state.data,
@@ -34,7 +34,7 @@ class App extends Component {
   render () {
     return (
       <Form>
-        <UIFormField {...properties} valueChange={this.valueChange} />
+        <UIFormField {...properties} valueChange={this.handleValueChange} />
       </Form>
     )
   }
@@ -51,8 +51,8 @@ requires your project to to have `semantic-ui-css` and `semantic-ui-react` as de
   * Do not forget to wrap your UIFormField components inside the [Semantic UI React](https://react.semantic-ui.com/) 
   component `Form` (like in the example above).
   * Also do not forget to add `import 'semantic-ui-css/semantic.min.css'` in your `index.js`.
-* The UIDate component uses [Moment.js](https://momentjs.com/docs/) and [ReactJS Datepicker](https://reactdatepicker.com/) 
-so if you wish to use it you need `react-datepicker` and `moment` as dependencies in your project.
+* The UIDate component uses [ReactJS Datepicker](https://reactdatepicker.com/) 
+so if you wish to use it you need `react-datepicker` as a dependency in your project.
   * Again do not forget to add the css - `import 'react-datepicker/dist/react-datepicker.css'` in your `index.js`.
 * The form components store their value in their own state, so they can be controlled inputs, but also updates the parents state
   so we can keep the data synchronized.
@@ -61,7 +61,7 @@ so if you wish to use it you need `react-datepicker` and `moment` as dependencie
     (discussed earlier), like this: 
 
 ```javascript
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate = (nextProps, nextState) => {
     return this.state.data === nextState.data;
   }
 ```
@@ -75,12 +75,10 @@ UIText | A typical text input | - | *string*
 UIBoolean | A typical checkbox | - | *boolean*
 UINumber | A typical number input | - | JavaScript *number*
 UIRadio | A typical radio choice | *options* | *string*
-UIDate | A typical date picker | - | *Moment.js object**
+UIDate | A typical date picker | - | *date-strings*
 UIDropdown | A dropdown list populated with the options provided (can have search functionality) | *multiSelect*, *searchable*, *options* and *showLinks* | *string* if regular or *array* if multiSelect
 UIMultiInput | A collection of dropdowns with one or multiple text inputs attached | *options*, *multiValue* and *showLinks* | An *array* of *objects* with two properties; text (*string* or *array*) and option (*string*)
-UIStatic | A collection of one or more non-interactable values to be displayed either as tags, labels, dates or regular text (alternatively with an icon) | *format* and *icon* | An *array* of accepted JavaScript *date-strings* or *Moment.js objects**
-
-**MomentJS* accepts Java Date, JavaScript Date objects and some other typical date formats (check MomentJS documentation)
+UIStatic | A collection of one or more non-interactable values to be displayed either as tags, labels, dates or regular text (alternatively with an icon) | *format* and *icon* | An *array* of accepted *date-strings*
 
 ### How to import this library directly from GitHub (useful in early development)
 1. In your React application run `yarn add https://github.com/statisticsnorway/react-form-fields-library.git`
@@ -95,12 +93,6 @@ run `yarn upgrade react-form-fields-library` to get the latest "build"
 The first time you clone the repository, remember to run `yarn install`
 
 Run `yarn start` and navigate to `http://localhost:3000/`
-
-##### Alternatively try a more optimized production build:
-1. Run `yarn build:example`
-2. Optionally run `yarn global add serve` (if you do not have [serve](https://github.com/zeit/serve/))
-3. Run `serve -s build`
-4. Navigate to `http://localhost:5000/`
 
 ### Run tests
 [Jest](https://jestjs.io/en/) (through *react-test-renderer*) and [Enzyme](https://airbnb.io/enzyme/) is used for testing

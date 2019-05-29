@@ -6,24 +6,24 @@ import { checkValueAndType, fullFormField } from './common'
 class UIRadio extends Component {
   constructor (props) {
     super(props)
-    this.state = {value: ''}
+    this.state = { value: '' }
   }
 
   componentDidMount () {
-    const {value} = this.props
+    const { value } = this.props
 
-    if (checkValueAndType(value, 'string')) this.setState({value: value})
+    if (checkValueAndType(value, 'string')) this.setState({ value: value })
   }
 
-  handleChange = (event, {value}) => {
-    const {valueChange, name} = this.props
+  handleChange = (event, { value }) => {
+    const { valueChange, name } = this.props
 
-    this.setState({value: value}, () => valueChange(name, this.state.value))
+    this.setState({ value: value }, () => valueChange(name, this.state.value))
   }
 
   render () {
-    const {value} = this.state
-    const {displayName, description, error, warning, required, options} = this.props
+    const { value } = this.state
+    const { displayName, description, error, warning, required, options } = this.props
 
     if (Array.isArray(options)) {
       const radios = Object.keys(options).map(key => {
@@ -32,7 +32,7 @@ class UIRadio extends Component {
                       checked={value === options[key].value} onChange={this.handleChange} />
         )
       })
-      const component = <Form.Group inline children={radios} style={{margin: 0}} />
+      const component = <Form.Group inline children={radios} style={{ margin: 0 }} />
 
       return fullFormField(displayName, description, error, warning, required, component)
     }

@@ -3,8 +3,8 @@ import { Divider, Form, Popup } from 'semantic-ui-react'
 
 import { UI } from './ENUM'
 
-const InlineError = ({text}) => <span style={{color: '#db2828'}}>{text}</span>
-const InlineWarning = ({text}) => <span style={{color: '#ffd700'}}>{text}</span>
+const InlineError = ({ text }) => <span style={{ color: '#db2828' }}>{text}</span>
+const InlineWarning = ({ text }) => <span style={{ color: '#ffd700' }}>{text}</span>
 
 const structureDescription = (description) => {
   if (Array.isArray(description)) {

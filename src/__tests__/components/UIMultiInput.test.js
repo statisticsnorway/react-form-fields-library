@@ -7,35 +7,35 @@ import UIMultiInput from '../../components/UIMultiInput'
 const waitForAsync = () => new Promise(resolve => setImmediate(resolve))
 
 const options = [
-  {text: 'This option', value: 'thisOption'},
-  {text: 'That option', value: 'thatOption'},
-  {text: 'Something else', value: 'somethingElse'}
+  { text: 'This option', value: 'thisOption' },
+  { text: 'That option', value: 'thatOption' },
+  { text: 'Something else', value: 'somethingElse' }
 ]
 
-const value = [{text: 'This text', option: 'thisOption'}]
+const value = [{ text: 'This text', option: 'thisOption' }]
 
-const multiValue = [{text: ['This text'], option: 'thisOption'}]
+const multiValue = [{ text: ['This text'], option: 'thisOption' }]
 
 describe('UIMultiInput', () => {
   it('Sets correct state values when no props or props of wrong type are provided', () => {
     const componentNoProp = mount(<UIMultiInput />)
 
-    expect(componentNoProp.state('value')).toEqual([{text: '', option: ''}])
+    expect(componentNoProp.state('value')).toEqual([{ text: '', option: '' }])
 
     const componentWrongProp = mount(<UIMultiInput value={false} />)
 
-    expect(componentWrongProp.state('value')).toEqual([{text: '', option: ''}])
+    expect(componentWrongProp.state('value')).toEqual([{ text: '', option: '' }])
 
     const componentNoPropMulti = mount(<UIMultiInput multiValue={true} />)
 
-    expect(componentNoPropMulti.state('value')).toEqual([{text: [''], option: ''}])
+    expect(componentNoPropMulti.state('value')).toEqual([{ text: [''], option: '' }])
 
     const componentWrongPropMulti = mount(<UIMultiInput multiValue={true} value={false} />)
 
-    expect(componentWrongPropMulti.state('value')).toEqual([{text: [''], option: ''}])
+    expect(componentWrongPropMulti.state('value')).toEqual([{ text: [''], option: '' }])
 
     const componentOnlyNameProp = mount(<UIMultiInput name='Test' />)
-    expect(componentOnlyNameProp.state('value')).toEqual([{text: '', option: ''}])
+    expect(componentOnlyNameProp.state('value')).toEqual([{ text: '', option: '' }])
     expect(componentOnlyNameProp.state('options')).toEqual([])
   })
 
@@ -75,10 +75,10 @@ describe('UIMultiInput', () => {
     componentSingle.update()
 
     componentSingle.find('div.item').at(0).simulate('click')
-    componentSingle.find('input').at(0).simulate('change', {target: {value: 'New Value'}})
+    componentSingle.find('input').at(0).simulate('change', { target: { value: 'New Value' } })
     componentSingle.find('i.plus').at(0).simulate('click')
     componentSingle.find('div.item').at(5).simulate('click')
-    componentSingle.find('input').at(1).simulate('change', {target: {value: 'Another Value'}})
+    componentSingle.find('input').at(1).simulate('change', { target: { value: 'Another Value' } })
     componentSingle.find('i.plus').at(0).simulate('click')
     componentSingle.find('i.close').at(2).simulate('click')
 
@@ -89,8 +89,8 @@ describe('UIMultiInput', () => {
     expect(componentSingle.find('a').at(0).prop('href')).toEqual('thisOption')
     expect(componentSingle.find('a').at(1).prop('href')).toEqual('somethingElse')
     expect(componentSingle.state('value')).toEqual([
-      {text: 'New Value', option: 'thisOption'},
-      {text: 'Another Value', option: 'somethingElse'}
+      { text: 'New Value', option: 'thisOption' },
+      { text: 'Another Value', option: 'somethingElse' }
     ])
 
     const componentMulti = mount(<UIMultiInput name='Test' multiValue={true} valueChange={jest.fn()} options={options}
@@ -101,10 +101,10 @@ describe('UIMultiInput', () => {
 
     componentMulti.find('i.plus').at(0).simulate('click')
     componentMulti.find('div.item').at(0).simulate('click')
-    componentMulti.find('input').at(1).simulate('change', {target: {value: 'New Value'}})
+    componentMulti.find('input').at(1).simulate('change', { target: { value: 'New Value' } })
     componentMulti.find('i.plus').at(1).simulate('click')
     componentMulti.find('div.item').at(5).simulate('click')
-    componentMulti.find('input').at(2).simulate('change', {target: {value: 'Another Value'}})
+    componentMulti.find('input').at(2).simulate('change', { target: { value: 'Another Value' } })
     componentMulti.find('i.plus').at(2).simulate('click')
     componentMulti.find('i.close').at(5).simulate('click')
     componentMulti.find('i.close').at(1).simulate('click')
@@ -116,8 +116,8 @@ describe('UIMultiInput', () => {
     expect(componentSingle.find('a').at(0).prop('href')).toEqual('thisOption')
     expect(componentSingle.find('a').at(1).prop('href')).toEqual('somethingElse')
     expect(componentMulti.state('value')).toEqual([
-      {text: ['New Value'], option: 'thisOption'},
-      {text: ['Another Value'], option: 'somethingElse'}
+      { text: ['New Value'], option: 'thisOption' },
+      { text: ['Another Value'], option: 'somethingElse' }
     ])
   })
 })

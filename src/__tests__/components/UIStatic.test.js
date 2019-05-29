@@ -1,6 +1,5 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import moment from 'moment'
 import { Label } from 'semantic-ui-react'
 
 import UIStatic from '../../components/UIStatic'
@@ -71,19 +70,19 @@ describe('UIStatic', () => {
     jest.spyOn(console, 'warn')
     global.console.warn.mockImplementation(() => {})
 
-    const componentValidDate = mount(<UIStatic value={[moment('1989-12-28')]} format='date' />)
+    const componentValidDate = mount(<UIStatic value={[new Date(1989, 12, 28).toLocaleDateString('en-GB')]} format='date' />)
 
     await waitForAsync()
     componentValidDate.update()
 
-    expect(componentValidDate.find('div.item').text()).toEqual(moment('1989-12-28').format('LLL'))
+    expect(componentValidDate.find('div.item').text()).toEqual(new Date(1989, 12, 28).toLocaleDateString('en-GB'))
 
-    const componentInvalidDate = mount(<UIStatic value={['Not typeof moment date object']} format='date' />)
+    const componentInvalidDate = mount(<UIStatic value={['Not a valid date']} format='date' />)
 
     await waitForAsync()
     componentInvalidDate.update()
 
-    expect(componentInvalidDate.find('div.item').text()).toEqual('Invalid date')
+    expect(componentInvalidDate.find('div.item').text()).toEqual('Invalid Date')
 
     global.console.warn.mockRestore()
   })

@@ -8,7 +8,6 @@ var React = require('react');
 var React__default = _interopDefault(React);
 var semanticUiReact = require('semantic-ui-react');
 var DatePicker = _interopDefault(require('react-datepicker'));
-var moment = _interopDefault(require('moment'));
 
 function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -312,7 +311,6 @@ function (_Component) {
           warning = _this$props2.warning,
           required = _this$props2.required;
       var component = React__default.createElement(semanticUiReact.TextArea, {
-        autoHeight: true,
         rows: 1,
         name: name,
         placeholder: cutoffString(displayName),
@@ -546,6 +544,14 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UIDate).call(this, props));
 
+    _this.convertDate = function (date) {
+      if (date !== null && typeof date === 'string') {
+        return new Date(date);
+      } else {
+        return date;
+      }
+    };
+
     _this.handleChange = function (index, date) {
       var _this$props = _this.props,
           valueChange = _this$props.valueChange,
@@ -589,7 +595,7 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var value = this.props.value;
-      if (checkValueAndType(value, 'object')) this.setState({
+      if (checkValueAndType(value, 'string' || checkValueAndType(value, 'array'))) this.setState({
         value: value
       });
     }
@@ -638,9 +644,8 @@ function (_Component) {
       if (multiple) {
         component = React__default.createElement(semanticUiReact.Grid, null, value.map(function (entry, index) {
           var datePicker = React__default.createElement(DatePicker, {
-            selected: value[index],
+            selected: _this3.convertDate(value[index]),
             onChange: _this3.handleChange.bind(_this3, index),
-            dateFormat: "DD/MM/YYYY",
             placeholderText: cutoffString(displayName),
             showWeekNumbers: true,
             dropdownMode: "select",
@@ -702,10 +707,9 @@ function (_Component) {
         })))));
       } else {
         var datePicker = React__default.createElement(DatePicker, {
-          selected: value,
+          selected: this.convertDate(value),
           onChange: this.handleChange.bind(this, null),
           isClearable: true,
-          dateFormat: "DD/MM/YYYY",
           placeholderText: cutoffString(displayName),
           showWeekNumbers: true,
           dropdownMode: "select",
@@ -1281,7 +1285,8 @@ function (_Component) {
 
             for (var entry in value) {
               if (format === 'date') {
-                entries.push(moment(value[entry]).format('LLL'));
+                var date = new Date(value[entry]);
+                entries.push(date.toLocaleDateString('en-GB'));
               } else {
                 entries.push(React__default.createElement(semanticUiReact.Label, {
                   key: entry,

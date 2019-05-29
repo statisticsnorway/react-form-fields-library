@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Checkbox, Divider, Form, Grid, Header } from 'semantic-ui-react'
-import moment from 'moment'
 
 import { UIFormField } from './main'
 
@@ -46,9 +45,9 @@ export const testFormComponents = {
     description: ['A description for this input'],
     required: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ]
   },
   UIDate: {
@@ -73,9 +72,9 @@ export const testFormComponents = {
     description: ['A description for this input'],
     required: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ]
   },
   UIDropdownMultipleSelectProvidedOptions: {
@@ -86,9 +85,9 @@ export const testFormComponents = {
     required: true,
     multiSelect: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ]
   },
   UIDropdownEmptyOptions: {
@@ -106,9 +105,9 @@ export const testFormComponents = {
     description: ['A description for this input'],
     required: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ],
     multiValue: false
   },
@@ -128,9 +127,9 @@ export const testFormComponents = {
     description: ['A description for this input'],
     required: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ],
     multiValue: true
   },
@@ -151,9 +150,9 @@ export const testFormComponents = {
     required: true,
     showLinks: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ]
   },
   UIDropdownMultipleShowLinks: {
@@ -165,9 +164,9 @@ export const testFormComponents = {
     showLinks: true,
     multiSelect: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ]
   },
   UIMultiInputShowLinks: {
@@ -177,9 +176,9 @@ export const testFormComponents = {
     description: ['A description for this input'],
     required: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ],
     multiValue: false,
     showLinks: true
@@ -191,9 +190,9 @@ export const testFormComponents = {
     description: ['A description for this input'],
     required: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ],
     multiValue: true,
     showLinks: true
@@ -205,9 +204,9 @@ export const testFormComponents = {
     description: ['A description for this input'],
     required: true,
     options: [
-      {text: 'This option', value: 'thisOption'},
-      {text: 'That option', value: 'thatOption'},
-      {text: 'Something else', value: 'somethingElse'}
+      { text: 'This option', value: 'thisOption' },
+      { text: 'That option', value: 'thatOption' },
+      { text: 'Something else', value: 'somethingElse' }
     ],
     multiValue: true,
     value: [
@@ -230,7 +229,7 @@ export const testFormComponents = {
     displayName: 'UIStatic (date)',
     description: ['A description for this input'],
     format: 'date',
-    value: [moment('1989-12-28')]
+    value: ['1989-12-28T00:00:00.000Z']
   },
   UIStaticTag: {
     component: 'UIStatic',
@@ -273,8 +272,8 @@ export const testFormComponents = {
     description: ['A description for this input'],
     format: 'date',
     value: [
-      moment('1989-12-28'),
-      moment('1989-12-28').add(1, 'years')
+      '1989-12-28T00:00:00.000Z',
+      '1990-12-28T00:00:00.000Z'
     ]
   },
   UIStaticIcon: {
@@ -310,8 +309,8 @@ class App extends Component {
       }
     })
 
-    this.setState({data: data}, () => {
-      this.setState({ready: true})
+    this.setState({ data: data }, () => {
+      this.setState({ ready: true })
     })
   }
 
@@ -345,15 +344,14 @@ class App extends Component {
         }
       })
 
-      this.setState({formComponents: formComponents}, () => {
-        this.setState({ready: true})
+      this.setState({ formComponents: formComponents }, () => {
+        this.setState({ ready: true })
       })
-
     })
   }
 
   render () {
-    const {ready, warning, error, formComponents} = this.state
+    const { ready, warning, error, formComponents } = this.state
 
     return (
       <Grid padded divided columns='equal'>
@@ -361,8 +359,8 @@ class App extends Component {
           <Header as='h1' content='Form' />
           {ready &&
           <Form>
-            {Object.keys(formComponents).map(value => {
-              return <UIFormField key={value} properties={formComponents[value]} valueChange={this.handleValueChange}
+            {Object.keys(formComponents).map((value, index) => {
+              return <UIFormField key={index} properties={formComponents[value]} valueChange={this.handleValueChange}
                                   languageCode={'en'} />
             })}
           </Form>

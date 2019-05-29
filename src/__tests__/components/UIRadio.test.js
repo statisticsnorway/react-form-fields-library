@@ -4,9 +4,9 @@ import { mount } from 'enzyme'
 import UIRadio from '../../components/UIRadio'
 
 const options = [
-  {text: 'This option', value: 'thisOption'},
-  {text: 'That option', value: 'thatOption'},
-  {text: 'Something else', value: 'somethingElse'}
+  { text: 'This option', value: 'thisOption' },
+  { text: 'That option', value: 'thatOption' },
+  { text: 'Something else', value: 'somethingElse' }
 ]
 
 describe('UIRadio', () => {
